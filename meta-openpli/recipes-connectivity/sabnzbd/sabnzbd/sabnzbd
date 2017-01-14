@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CFG="/etc/sabnzbd.ini"
+
+stopit() {
+	APIKEY=`grep '^api_key =' $CFG | cut -b 11-`
+	/usr/bin/wget -q -O - "http://localhost:8080/sabnzbd/api?mode=shutdown&apikey=${APIKEY}"
+}
+
+case "$1" in
+  start)
+	/usr/lib/sabnzbd/SABnzbd.py -d -f $CFG
+	;;
+  stop)
+	stopit
+	;;
+  *)
+	echo "Usage: $0 {start|stop}"
+	exit 1
+esac
+

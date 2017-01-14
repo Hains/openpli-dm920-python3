@@ -1,0 +1,58 @@
+[reader]
+label                         = lower_card
+enable                        = 1
+protocol                      = internal
+device                        = /dev/sci0
+detect                        = cd
+group                         = 1
+emmcache                      = 1,3,15
+audisabled                    = 0
+mhz                           = 357
+cardmhz                       = 2700
+ratelimitecm                  = 4
+ratelimittime                 = 9000
+ecmunique                     = 1
+srvidholdtime                 = 2000
+cooldown                      = 30,600
+
+
+[reader]
+label                         = upper_card
+enable                        = 1
+protocol                      = internal
+device                        = /dev/sci1
+detect                        = cd
+group                         = 1
+emmcache                      = 1,3,15
+audisabled                    = 0
+mhz                           = 357
+cardmhz                       = 2700
+ratelimitecm                  = 4
+ratelimittime                 = 9000
+ecmunique                     = 1
+srvidholdtime                 = 2000
+cooldown                      = 30,600
+
+
+[reader]
+label                         = Hoofdbox
+enable			      = 0
+protocol                      = cs378x
+device                        = ip_adress_hoofdbox,12005
+user                          = tweede_box
+password                      = tweede_box
+group                         = 1
+
+
+[reader]
+label                         = CCcam-server
+enable                        = 0
+protocol                      = cccam
+device                        = ip_adress_server,12001
+user                          = user
+password                      = password
+group                         = 1
+cccversion                    = 2.3.0
+cccmaxhops                    = 2
+ccckeepalive                  = 1
+audisabled                    = 1

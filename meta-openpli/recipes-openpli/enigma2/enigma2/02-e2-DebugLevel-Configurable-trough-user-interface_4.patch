@@ -1,0 +1,98 @@
+From 768932ce6d95fcc32206aa73be3bf964c1bc81c2 Mon Sep 17 00:00:00 2001
+From: christophecvr <stefansat@telenet.be>
+Date: Sun, 7 Feb 2016 07:41:36 +0100
+Subject: [PATCH] Added main enigma2 debug level setup to basegui settings.
+
+ Users now can change debug setting trough :
+ menu,settings,system settings, UsersInterface .
+ Default settings still 4.  Testers or developpers can run :
+ enigma2 with :  ENIGMA_DEBUG_LVL=x enigma2.sh  The enigma2 seting will be
+ disregarded in that case.
+
+	modified:   data/setup.xml
+	modified:   lib/python/Components/UsageConfig.py
+	modified:   main/enigma.cpp
+---
+ data/setup.xml                       |  1 +
+ lib/python/Components/UsageConfig.py |  1 +
+ main/enigma.cpp                      | 26 +++++++++++++++++++++++++-
+ 3 files changed, 27 insertions(+), 1 deletion(-)
+
+diff --git a/data/setup.xml b/data/setup.xml
+index 53b8cac..f59ebb1 100644
+--- a/data/setup.xml
++++ b/data/setup.xml
+@@ -81,6 +81,7 @@
+ 		<item level="2" text="Close PiP on exit" description="When enabled the PiP can be closed by the exit button." requires="PIPAvailable">config.usage.pip_hideOnExit</item>
+ 		<item level="2" text="Remember last service in PiP" description="Configure if and how long the latest service in the PiP will be remembered." requires="PIPAvailable">config.usage.pip_last_service_timeout</item>
+ 		<item level="2" text="Show VCR scart on main menu" description="When enabled, the VCR scart option will be shown on the main menu" requires="ScartSwitch">config.usage.show_vcr_scart</item>
++		<item level="2" text="Enigma2 Debug Level" description="Set enigma2 debug level default = 3.">config.usage.e2_debug_level</item>
+ 	</setup>
+ 	<setup key="epgsettings" title="EPG settings">
+ 		<item level="2" text="Enable EIT EPG" description="Use EIT EPG information when it is available.">config.epg.eit</item>
+diff --git a/lib/python/Components/UsageConfig.py b/lib/python/Components/UsageConfig.py
+index 35362c2..51d998d 100644
+--- a/lib/python/Components/UsageConfig.py
++++ b/lib/python/Components/UsageConfig.py
+@@ -49,6 +49,7 @@ def InitUsageConfig():
+ 
+ 	config.usage.quickzap_bouquet_change = ConfigYesNo(default = False)
+ 	config.usage.e1like_radio_mode = ConfigYesNo(default = True)
++	config.usage.e2_debug_level = ConfigSelectionNumber(0, 6, 1, default = 3)
+ 	choicelist = [("0", _("No timeout"))]
+ 	for i in range(1, 12):
+ 		choicelist.append((str(i), ngettext("%d second", "%d seconds", i) % i))
+diff --git a/main/enigma.cpp b/main/enigma.cpp
+index f930dc5..7e37a02 100644
+--- a/main/enigma.cpp
++++ b/main/enigma.cpp
+@@ -30,6 +30,9 @@
+ #include <lib/python/python.h>
+ #include <lib/python/pythonconfig.h>
+ 
++#include <fstream>
++#include <sstream>
++
+ #include "bsod.h"
+ #include "version_info.h"
+ 
+@@ -167,6 +170,26 @@ void catchTermSignal()
+ 	if (sigaction(SIGTERM, &act, 0) == -1)
+ 		perror("SIGTERM");
+ }
++// get value from enigma2 settings file
++static const std::string getConfigString(const std::string &key, const std::string &defaultValue)
++{
++	std::string value = defaultValue;
++
++	std::ifstream in(eEnv::resolve("${sysconfdir}/enigma2/settings").c_str());
++	if (in.good()) {
++		do {
++			std::string line;
++			std::getline(in, line);
++			size_t size = key.size();
++			if (!line.compare(0, size, key) && line[size] == '=') {
++				value = line.substr(size + 1);
++				break;
++			}
++		} while (in.good());
++		in.close();
++	}
++	return value;
++}
+ 
+ int main(int argc, char **argv)
+ {
+@@ -186,7 +209,8 @@ int main(int argc, char **argv)
+ 	printf("DVB_API_VERSION %d DVB_API_VERSION_MINOR %d\n", DVB_API_VERSION, DVB_API_VERSION_MINOR);
+ 
+ 	// get enigma2 debug level
+-	debugLvl = getenv("ENIGMA_DEBUG_LVL") ? atoi(getenv("ENIGMA_DEBUG_LVL")) : 3;
++	debugLvl = getenv("ENIGMA_DEBUG_LVL") ? atoi(getenv("ENIGMA_DEBUG_LVL")) : atoi(getConfigString("config.usage.e2_debug_level", "3").c_str());
++
+ 	if (debugLvl < 0)
+ 		debugLvl = 0;
+ 	debugTag = getenv("ENIGMA_DEBUG_TAG");
+-- 
+1.9.1
+
