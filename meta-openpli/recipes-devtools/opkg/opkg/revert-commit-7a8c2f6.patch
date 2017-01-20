@@ -1,0 +1,33 @@
+diff --git a/libopkg/opkg_conf.c b/libopkg/opkg_conf.c
+index 7b63ad2..d78c388 100644
+--- a/libopkg/opkg_conf.c
++++ b/libopkg/opkg_conf.c
+@@ -378,22 +378,15 @@ static int opkg_conf_parse_file(const char *filename,
+ 
+         extra = NULL;
+         if (regmatch[11].rm_so > 0) {
+-            char *options_str = xstrndup(1 + line + regmatch[11].rm_so,
+-                                    (regmatch[11].rm_eo - regmatch[11].rm_so) - 2);
+-            src_options = xmalloc(sizeof(pkg_src_options_t));
+-            parse_pkg_src_options_str(src_options, options_str);
+-            free(options_str);
+-        }
+-        if (regmatch[13].rm_so > 0) {
+-            if (regmatch[15].rm_so > 0 && regmatch[15].rm_so != regmatch[15].rm_eo)
+-                extra = xstrndup(line + regmatch[13].rm_so,
+-                             regmatch[15].rm_eo - regmatch[13].rm_so);
++            if (regmatch[13].rm_so > 0 && regmatch[13].rm_so != regmatch[13].rm_eo)
++                extra = xstrndup(line + regmatch[11].rm_so,
++                             regmatch[13].rm_eo - regmatch[11].rm_so);
+             else
+-                extra = xstrndup(line + regmatch[13].rm_so,
+-                             regmatch[13].rm_eo - regmatch[13].rm_so);
++                extra = xstrndup(line + regmatch[11].rm_so,
++                             regmatch[11].rm_eo - regmatch[11].rm_so);
+         }
+ 
+-        if (regmatch[15].rm_so != regmatch[15].rm_eo && strncmp(type, "dist", 4) != 0) {
++        if (regmatch[13].rm_so != regmatch[13].rm_eo && strncmp(type, "dist", 4) != 0) {
+             opkg_msg(ERROR,
+                      "%s:%d: Ignoring config line with trailing garbage: `%s'\n",
+                      filename, line_num, line);

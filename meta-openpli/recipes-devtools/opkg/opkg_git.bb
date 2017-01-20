@@ -13,15 +13,16 @@ inherit autotools pkgconfig systemd gitpkgv
 
 PE = "1"
 
-SRCREV = "1edb89f8bfad1e63d506aaaf3cc360f2a8d3fff6"
+SRCREV = "3dc89ffd6a9f26ae92e08ec085e5bec73e7c3e2d"
 
-PV = "0.3.3+git${SRCPV}"
-PKGV = "0.3.3+git${GITPKGV}"
+PV = "0.3.5+git${SRCPV}"
+PKGV = "0.3.5+git${GITPKGV}"
 
 SRC_URI = "git://git.yoctoproject.org/opkg \
            file://opkg-configure.service \
            file://opkg.conf \
            file://0001-opkg_conf-create-opkg.lock-in-run-instead-of-var-run.patch \
+           file://revert-commit-7a8c2f6.patch \
 "
 
 S = "${WORKDIR}/git"
@@ -40,6 +41,8 @@ PACKAGECONFIG[openssl] = "--enable-openssl,--disable-openssl,openssl"
 PACKAGECONFIG[sha256] = "--enable-sha256,--disable-sha256"
 PACKAGECONFIG[pathfinder] = "--enable-pathfinder,--disable-pathfinder,pathfinder"
 PACKAGECONFIG[libsolv] = "--with-libsolv,--without-libsolv,libsolv"
+
+EXTRA_OECONF_class-native = "--localstatedir=/${@os.path.relpath('${localstatedir}', '${STAGING_DIR_NATIVE}')} --sysconfdir=/${@os.path.relpath('${sysconfdir}', '${STAGING_DIR_NATIVE}')}"
 
 do_install_append () {
 	install -d ${D}${sysconfdir}/opkg
