@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6762ed442b3822387a51c92d928ead0d \
 					file://gst/gst.h;beginline=1;endline=21;md5=e059138481205ee2c6fc1c079c016d0d \
 					"
 
-SRCREV = "0a1baf6d074c725ae5fc0b163553f6d3b8b9307f"
+SRCREV = "a533b6c2f91aa83ff0a7ef2e1a58ed64bb683066"
 SRCREV_common = "93ae13f2c3c58a4c2b7c111817b720a272d504d7"
 SRCREV_FORMAT = "base"
 
