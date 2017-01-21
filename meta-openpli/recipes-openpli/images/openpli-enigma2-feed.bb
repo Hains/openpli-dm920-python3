@@ -9,7 +9,7 @@ require recipes-core/meta/package-index.bb
 # Depend on the image, so that it gets build
 DEPENDS = "openpli-enigma2-image"
 
-# Require enigma2 image to force rootfs
+# Require enigma2 image to force rootfs for image packages.
 require openpli-enigma2-image.bb
 
 OPTIONAL_PACKAGES_BROKEN = ""
