@@ -6,11 +6,11 @@
 # package anything, so we "inherit" the package indexer recipe.
 require recipes-core/meta/package-index.bb
 
-# We have a GPLv2 license for this recipe...
-require conf/license/openpli-gplv2.inc
-
 # Depend on the image, so that it gets build
 DEPENDS = "openpli-enigma2-image"
+
+# Require enigma2 image to force rootfs
+require openpli-enigma2-image.bb
 
 OPTIONAL_PACKAGES_BROKEN = ""
 OPTIONAL_PACKAGES ?= ""
