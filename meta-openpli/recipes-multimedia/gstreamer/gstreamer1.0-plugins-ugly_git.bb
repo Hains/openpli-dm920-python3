@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 					file://tests/check/elements/xingmux.c;beginline=1;endline=21;md5=4c771b8af188724855cb99cadd390068 \
 					"
 
-SRCREV = "aa17c7885d328907e8133ce622e10789b21e561e"
+SRCREV = "184351ae485d5befc3311a122c717ec534225c52"
 SRCREV_common = "93ae13f2c3c58a4c2b7c111817b720a272d504d7"
 SRCREV_FORMAT = "base"
 
