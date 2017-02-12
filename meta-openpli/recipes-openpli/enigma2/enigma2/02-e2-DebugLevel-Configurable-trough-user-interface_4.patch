@@ -38,7 +38,7 @@ index 35362c2..51d998d 100644
  
  	config.usage.quickzap_bouquet_change = ConfigYesNo(default = False)
  	config.usage.e1like_radio_mode = ConfigYesNo(default = True)
-+	config.usage.e2_debug_level = ConfigSelectionNumber(0, 6, 1, default = 3)
++	config.usage.e2_debug_level = ConfigSelectionNumber(0, 6, 1, default = 4)
  	choicelist = [("0", _("No timeout"))]
  	for i in range(1, 12):
  		choicelist.append((str(i), ngettext("%d second", "%d seconds", i) % i))
@@ -83,16 +83,15 @@ index f930dc5..7e37a02 100644
  
  int main(int argc, char **argv)
  {
-@@ -186,7 +209,8 @@ int main(int argc, char **argv)
+@@ -195,7 +195,8 @@ int main(int argc, char **argv)
  	printf("DVB_API_VERSION %d DVB_API_VERSION_MINOR %d\n", DVB_API_VERSION, DVB_API_VERSION_MINOR);
  
- 	// get enigma2 debug level
+ 	// get enigma2 debug level settings
 -	debugLvl = getenv("ENIGMA_DEBUG_LVL") ? atoi(getenv("ENIGMA_DEBUG_LVL")) : 3;
-+	debugLvl = getenv("ENIGMA_DEBUG_LVL") ? atoi(getenv("ENIGMA_DEBUG_LVL")) : atoi(getConfigString("config.usage.e2_debug_level", "3").c_str());
-+
++	debugLvl = getenv("ENIGMA_DEBUG_LVL") ? atoi(getenv("ENIGMA_DEBUG_LVL")) : atoi(getConfigString("config.usage.e2_debug_level", "4").c_str());
++	
  	if (debugLvl < 0)
  		debugLvl = 0;
- 	debugTag = getenv("ENIGMA_DEBUG_TAG");
--- 
+ 	printf("ENIGMA_DEBUG_LVL=%d\n", debugLvl);
 1.9.1
 
