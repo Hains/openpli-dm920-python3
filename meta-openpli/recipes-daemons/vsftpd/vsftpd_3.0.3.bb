@@ -11,6 +11,7 @@ SRC_URI = "https://security.appspot.com/downloads/vsftpd-${PV}.tar.gz \
            file://makefile-libs.patch \
            file://makefile-strip.patch \
            file://vsftpd.conf \
+           file://change-secure_chroot_dir.patch \
            file://login-blank-password.patch \
            file://init \
            file://volatiles.99_vsftpd \
