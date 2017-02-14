@@ -76,6 +76,8 @@ OPTIONAL_PACKAGES += " \
 	tcpdump \
 	transmission \
 	udpxy \
+	usb-modeswitch \
+	usb-modeswitch-data \
 	v4l-utils \
 	vim \
 	wscan \	
@@ -107,6 +109,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-lcd4linux \
 	enigma2-plugin-extensions-tmbd \
+	enigma2-plugin-extensions-xmodem \
 	enigma2-plugin-extensions-vcs \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-pli-hd \
