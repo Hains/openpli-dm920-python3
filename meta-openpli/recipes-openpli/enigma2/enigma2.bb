@@ -71,7 +71,6 @@ GST_BASE_RDEPS = "\
 	gstreamer1.0-plugins-base-audioresample \
 	gstreamer1.0-plugins-base-audiorate \
 	gstreamer1.0-plugins-base-videoconvert \
-	gstreamer1.0-plugins-base-ivorbisdec \
 	gstreamer1.0-plugins-base-ogg \
 	gstreamer1.0-plugins-base-playback \
 	gstreamer1.0-plugins-base-subparse \
