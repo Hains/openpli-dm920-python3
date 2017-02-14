@@ -163,7 +163,7 @@ RDEPENDS_${PN}-build-dependencies = "\
 
 inherit gitpkgv pythonnative
 
-SRCPV = "2.7+git${SRCPV}"
+PV = "2.7+git${SRCPV}"
 PKGV = "2.7+git${GITPKGV}"
 
 ENIGMA2_BRANCH ?= "master"
