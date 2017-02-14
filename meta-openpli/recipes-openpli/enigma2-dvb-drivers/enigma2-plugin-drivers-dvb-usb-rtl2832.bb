@@ -1,5 +1,4 @@
 SUMMARY = "USB DVB driver for Realtek RTL2832 chipset"
-PACKAGE_ARCH = "all"
 
 require conf/license/openpli-gplv2.inc
 
