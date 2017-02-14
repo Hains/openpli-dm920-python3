@@ -20,7 +20,7 @@ PACKAGECONFIG ??= " \
 	${GSTREAMER_ORC} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa', '', d)} \
-	gio-unix-2.0 ivorbis ogg theora vorbis cdparanoia pango opus \
+	gio-unix-2.0 ogg theora vorbis cdparanoia pango opus \
 	"
 
 X11DEPENDS = "virtual/libx11 libsm libxrender"
