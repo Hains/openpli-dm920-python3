@@ -10,8 +10,8 @@ inherit gitpkgv allarch
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-PV_font-valis-enigma = "2009.11.12"
-PR_font-valis-enigma = "r1"
+SRCPV_font-valis-enigma = "2009.11.12"
+SRCPR_font-valis-enigma = "r1"
 PKGV_font-valis-enigma = "${PV_font-valis-enigma}"
 DESCRIPTION_font-valis-enigma = "Valis enigma font"
 
