@@ -72,7 +72,6 @@ OPTIONAL_PACKAGES += " \
 	satipclient \
 	sshpass \
 	smartmontools \
-	smbnetfs \
 	strace \
 	tcpdump \
 	transmission \
