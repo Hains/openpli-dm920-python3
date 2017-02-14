@@ -1,0 +1,70 @@
+diff --git a/stdlib/Makefile b/stdlib/Makefile
+index d651263..5f732da 100644
+--- a/stdlib/Makefile
++++ b/stdlib/Makefile
+@@ -28,7 +28,7 @@ headers	:= stdlib.h bits/stdlib.h bits/stdlib-ldbl.h bits/stdlib-float.h      \
+ 	   errno.h sys/errno.h bits/errno.h				      \
+ 	   ucontext.h sys/ucontext.h					      \
+ 	   alloca.h fmtmsg.h						      \
+-	   bits/stdlib-bsearch.h sys/random.h
++	   bits/stdlib-bsearch.h
+ 
+ routines	:=							      \
+ 	atof atoi atol atoll						      \
+@@ -45,7 +45,7 @@ routines	:=							      \
+ 	srand48 seed48 lcong48						      \
+ 	drand48_r erand48_r lrand48_r nrand48_r mrand48_r jrand48_r	      \
+ 	srand48_r seed48_r lcong48_r					      \
+-	drand48-iter getrandom getentropy				      \
++	drand48-iter				      \
+ 	strfromf strfromd strfroml					      \
+ 	strtol strtoul strtoll strtoull					      \
+ 	strtol_l strtoul_l strtoll_l strtoull_l				      \
+@@ -79,8 +79,7 @@ tests		:= tst-strtol tst-strtod testmb testrand testsort testdiv   \
+ 		   tst-setcontext3 tst-tls-atexit-nodelete		    \
+ 		   tst-strtol-locale tst-strtod-nan-locale tst-strfmon_l    \
+ 		   tst-quick_exit tst-thread-quick_exit tst-width	    \
+-		   tst-width-stdint tst-strfrom tst-strfrom-locale \
+-		   tst-getrandom
++		   tst-width-stdint tst-strfrom tst-strfrom-locale
+ ifeq ($(build-hardcoded-path-in-tests),yes)
+ tests += tst-empty-env
+ endif
+diff --git a/stdlib/Versions b/stdlib/Versions
+index 415b994..54416b7 100644
+--- a/stdlib/Versions
++++ b/stdlib/Versions
+@@ -115,7 +115,6 @@ libc {
+   GLIBC_2.25 {
+     # s*
+     strfromd; strfromf; strfroml;
+-    getrandom; getentropy;
+   }
+   GLIBC_PRIVATE {
+     # functions which have an additional interface since they are
+diff --git a/sysdeps/unix/sysv/linux/mips/mips32/fpu/libc.abilist b/sysdeps/unix/sysv/linux/mips/mips32/fpu/libc.abilist
+index 570bbf6..5c4b596 100644
+--- a/sysdeps/unix/sysv/linux/mips/mips32/fpu/libc.abilist
++++ b/sysdeps/unix/sysv/linux/mips/mips32/fpu/libc.abilist
+@@ -1946,8 +1946,6 @@ GLIBC_2.24 quick_exit F
+ GLIBC_2.25 GLIBC_2.25 A
+ GLIBC_2.25 __explicit_bzero_chk F
+ GLIBC_2.25 explicit_bzero F
+-GLIBC_2.25 getentropy F
+-GLIBC_2.25 getrandom F
+ GLIBC_2.25 strfromd F
+ GLIBC_2.25 strfromf F
+ GLIBC_2.25 strfroml F
+diff --git a/sysdeps/unix/sysv/linux/mips/mips32/nofpu/libc.abilist b/sysdeps/unix/sysv/linux/mips/mips32/nofpu/libc.abilist
+index 5022e5a..001fa6c 100644
+--- a/sysdeps/unix/sysv/linux/mips/mips32/nofpu/libc.abilist
++++ b/sysdeps/unix/sysv/linux/mips/mips32/nofpu/libc.abilist
+@@ -1944,8 +1944,6 @@ GLIBC_2.24 quick_exit F
+ GLIBC_2.25 GLIBC_2.25 A
+ GLIBC_2.25 __explicit_bzero_chk F
+ GLIBC_2.25 explicit_bzero F
+-GLIBC_2.25 getentropy F
+-GLIBC_2.25 getrandom F
+ GLIBC_2.25 strfromd F
+ GLIBC_2.25 strfromf F
+ GLIBC_2.25 strfroml F
