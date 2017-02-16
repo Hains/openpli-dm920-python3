@@ -2,15 +2,12 @@ diff --git a/lib/python/Screens/SoftcamSetup.py  b/lib/python/Screens/SoftcamSet
 index 0942eaf..0008e4f 100644
 --- a/lib/python/Screens/SoftcamSetup.py 
 +++ b/lib/python/Screens/SoftcamSetup.py 
-@@ -93,10 +97,7 @@ class SoftcamSetup(Screen, ConfigListScreen):
+@@ -92,7 +92,7 @@ class SoftcamSetup(Screen, ConfigListScreen):
+ 		if "oscam" in self.softcams.value.lower() and os.path.isfile('/usr/lib/enigma2/python/Plugins/Extensions/OscamStatus/plugin.py'):
  			from Plugins.Extensions.OscamStatus.plugin import OscamStatus
  			self.session.open(OscamStatus)
- 		ppanelFileName = '/etc/ppanels/' + self.softcams.value + '.xml'
--		elif "cccam" in self.softcams.value.lower() and os.path.isfile('/usr/lib/enigma2/python/Plugins/Extensions/CCcamInfo/plugin.py'):
--			from Plugins.Extensions.CCcamInfo.plugin import CCcamInfoMain
--			self.session.open(CCcamInfoMain)
--		elif os.path.isfile(ppanelFileName) and os.path.isfile('/usr/lib/enigma2/python/Plugins/Extensions/PPanel/plugin.py'):
-+		if os.path.isfile(ppanelFileName) and os.path.isfile('/usr/lib/enigma2/python/Plugins/Extensions/PPanel/plugin.py'):
- 			from Plugins.Extensions.PPanel.ppanel import PPanel
- 			self.session.open(PPanel, name = self.softcams.value + ' PPanel', node = None, filename = ppanelFileName, deletenode = None)
- 		else:
+-		ppanelFileName = '/etc/ppanels/' + self.softcams.value + '.xml'
++			ppanelFileName = '/etc/ppanels/' + self.softcams.value + '.xml'
+ 		elif "cccam" in self.softcams.value.lower() and os.path.isfile('/usr/lib/enigma2/python/Plugins/Extensions/CCcamInfo/plugin.py'):
+ 			from Plugins.Extensions.CCcamInfo.plugin import CCcamInfoMain
+ 			self.session.open(CCcamInfoMain)
