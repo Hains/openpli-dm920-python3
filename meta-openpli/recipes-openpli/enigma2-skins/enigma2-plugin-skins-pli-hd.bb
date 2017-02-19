@@ -13,7 +13,7 @@ SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/littlesat/skin-PLiHD.git"
 
-SRC_URI += "file://01-add-epg-event-name.patch \
+SRC_URI += "file://01-split-eventname-and-full-description.patch \
 		"
 
 FILES_${PN} = "/usr/share/enigma2/"

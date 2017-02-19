@@ -13,6 +13,9 @@ SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/littlesat/PLi-HD-FullNight.git"
 
+SRC_URI += "file://01-split-eventname-and-full-description.patch \
+			"
+
 FILES_${PN} = "/usr/share/enigma2/"
 
 S = "${WORKDIR}/git"

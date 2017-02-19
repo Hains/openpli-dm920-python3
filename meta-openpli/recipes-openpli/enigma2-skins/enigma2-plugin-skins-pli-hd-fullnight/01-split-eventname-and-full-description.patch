@@ -1,0 +1,14 @@
+diff --git a/usr/share/enigma2/PLi-HD-FullNight/skin.xml b/usr/share/enigma2/PLi-HD-FullNight/skin.xml
+index 85ffc24..0cb1024 100644
+--- a/usr/share/enigma2/PLi-HD-FullNight/skin.xml
++++ b/usr/share/enigma2/PLi-HD-FullNight/skin.xml
+@@ -706,7 +706,8 @@
+ 		<widget name="datetime" position="530,98" size="150,30" transparent="1" font="Regular;21"/>
+ 		<widget name="channel" position="680,98" size="430,30" transparent="1" font="Regular;21" halign="center"/>
+ 		<widget name="duration" position="1110,98" size="150,30" transparent="1" font="Regular;21" halign="right"/>
+-		<widget name="epg_description" position="530,145" size="740,520" foregroundColor="grey" transparent="1" font="Regular;21"/>
++		<widget name="epg_eventname" position="530,145" size="740,50" foregroundColor="grey" transparent="1" font="Regular;21"/>
++		<widget name="epg_description_ext" position="530,185" size="740,520" foregroundColor="grey" transparent="1" font="Regular;21"/>
+ 		<widget source="Event" render="Label" position="20,370" size="450,30" transparent="1" zPosition="1" foregroundColor="blue" font="Regular;21">
+ 			<convert type="EventName">Genre</convert>
+ 		</widget>
