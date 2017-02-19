@@ -8,7 +8,7 @@ index 85ffc24..0cb1024 100644
  		<widget name="duration" position="1110,98" size="150,30" transparent="1" font="Regular;21" halign="right"/>
 -		<widget name="epg_description" position="530,145" size="740,520" foregroundColor="grey" transparent="1" font="Regular;21"/>
 +		<widget name="epg_eventname" position="530,145" size="740,50" foregroundColor="grey" transparent="1" font="Regular;21"/>
-+		<widget name="epg_description_ext" position="530,185" size="740,520" foregroundColor="grey" transparent="1" font="Regular;21"/>
++		<widget name="epg_description_ext" position="530,190" size="740,520" foregroundColor="grey" transparent="1" font="Regular;21"/>
  		<widget source="Event" render="Label" position="20,370" size="450,30" transparent="1" zPosition="1" foregroundColor="blue" font="Regular;21">
  			<convert type="EventName">Genre</convert>
  		</widget>
