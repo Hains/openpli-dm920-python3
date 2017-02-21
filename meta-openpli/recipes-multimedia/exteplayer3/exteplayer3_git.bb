@@ -15,7 +15,7 @@ PV = "30+git${SRCPV}"
 PKGV = "30+git${GITPKGV}"
 
 SRC_URI = "git://github.com/samsamsam-iptvplayer/exteplayer3.git;branch=master"
-		
+
 S = "${WORKDIR}/git/"
 
 SOURCE_FILES =  "main/exteplayer.c"
@@ -77,4 +77,3 @@ do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/exteplayer3 ${D}${bindir}
 }
-
