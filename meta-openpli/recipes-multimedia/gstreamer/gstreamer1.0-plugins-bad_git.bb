@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=73a5855a8119deb017f5f13cf327095d \
 					file://COPYING.LIB;md5=21682e4e8fea52413fd26c60acb907e5 \
 					"
 
-SRCREV = "46d7470e6e45825069c9810132b022c5556feeae"
+SRCREV = "4d434c7db538c43afb9a586e61ec1275d7f0b4b1"
 SRCREV_common = "93ae13f2c3c58a4c2b7c111817b720a272d504d7"
 SRCREV_FORMAT = "base"
 
@@ -18,6 +18,7 @@ SRC_URI += "file://01-configure-allow-to-disable-libssh2.patch \
 			file://02-rtmp-fix-seeking-and-potential-segfault.patch \
 			file://03-rtmp-hls-tsdemux-fix.patch \
 			file://04-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
+			file://05-revert-allocators.patch \
 			file://0001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			"
 
