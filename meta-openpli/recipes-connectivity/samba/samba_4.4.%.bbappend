@@ -21,8 +21,6 @@ SRC_URI += " \
 
 FILES_${PN}-base += "${sysconfdir}/init.d/samba.sh"
 
-SAMBA4_LIBS="heimdal,!zlib,!popt,!talloc,!pytalloc,!pytalloc-util,!tevent,!pytevent,!tdb,!pytdb,!ldb,!pyldb"
-
 do_install_append() {
 	rm -fR ${D}/var
 	rm -fR ${D}/run
