@@ -2076,7 +2076,7 @@ index 3ab4285..d485285 100644
  		{
  		}
  	};
-@@ -302,16 +306,20 @@ private:
+@@ -302,16 +306,19 @@ private:
  	int m_buffer_size;
  	int m_ignore_buffering_messages;
  	bool m_is_live;
@@ -2092,13 +2092,13 @@ index 3ab4285..d485285 100644
  #if GST_VERSION_MAJOR >= 1
  	bool m_use_chapter_entries;
  	/* last used seek position gst-1 only */
- 	gint64 m_last_seek_pos;
-+	gint64 m_media_lenght;
-+	gint64 m_last_play_pos;
+-	gint64 m_last_seek_pos;
++	pts_t m_last_seek_pos;
++	pts_t m_media_lenght;
  #endif
  	bufferInfo m_bufferInfo;
  	errorInfo m_errorInfo;
-@@ -323,7 +331,7 @@ private:
+@@ -323,7 +330,7 @@ private:
  		stIdle, stRunning, stStopped,
  	};
  	int m_state;
@@ -2107,7 +2107,7 @@ index 3ab4285..d485285 100644
  	GstTagList *m_stream_tags;
  
  	eFixedMessagePump<ePtr<GstMessageContainer> > m_pump;
-@@ -371,7 +379,7 @@ private:
+@@ -371,7 +378,7 @@ private:
  	void pullSubtitle(GstBuffer *buffer);
  	void sourceTimeout();
  	sourceStream m_sourceinfo;
