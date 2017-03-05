@@ -7,10 +7,10 @@ SRCREV = "13e5553f3e8e3644996a33299749b432d246e43b"
 
 inherit gitpkgv allarch
 
-PV = "p1.0+git${SRCPV}"
-PKGV = "p1.0+git${GITPKGV}"
+PV = "1.0+git${SRCPV}"
+PKGV = "1.0+git${GITPKGV}"
 
-PKGV_font-valis-enigma = "${PV_font-valis-enigma}"
+PKGV_font-valis-enigma = "1.0+git${GITPKGV}"
 DESCRIPTION_font-valis-enigma = "Valis enigma font"
 
 PACKAGES = "${PN} font-valis-enigma"
