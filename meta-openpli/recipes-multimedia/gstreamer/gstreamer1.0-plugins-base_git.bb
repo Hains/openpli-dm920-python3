@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c54ce9345727175ff66d17b67ff51f58 \
 					file://COPYING.LIB;md5=6762ed442b3822387a51c92d928ead0d \
 					"
 
-SRCREV = "4e911760d271fcd1552f34a4aaa1e7a966512fb7"
+SRCREV = "099ac9faf2c6e6fcf55fe4bee812c9f90aeb8602"
 SRCREV_common = "93ae13f2c3c58a4c2b7c111817b720a272d504d7"
 SRCREV_FORMAT = "base"
 
@@ -22,7 +22,6 @@ SRC_URI += " \
 	file://subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 	file://make-gio_unix_2_0-dependency-configurable.patch \
 	file://0001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
-	file://fix-build.patch \
 	"
 
 S = "${WORKDIR}/git"
