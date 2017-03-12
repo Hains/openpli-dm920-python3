@@ -11,7 +11,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/gst-plugin-subsink.git"
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv pkgconfig
 
 GSTVERSION = "1.0"
 
