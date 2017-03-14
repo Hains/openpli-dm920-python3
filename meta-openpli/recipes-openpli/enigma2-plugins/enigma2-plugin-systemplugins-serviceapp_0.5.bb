@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/mx3L/serviceapp.git;branch=master"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig gettext
+inherit autotools gitpkgv pythonnative pkgconfig
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

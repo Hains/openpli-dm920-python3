@@ -11,7 +11,7 @@ S="${WORKDIR}/git"
 
 SRCREV = "${AUTOREV}"
 
-inherit setuptools autotools gettext
+inherit setuptools autotools
 
 EXTRA_OECONF = "STAGING_INCDIR=${STAGING_INCDIR} \
 				STAGING_LIBDIR=${STAGING_LIBDIR}"

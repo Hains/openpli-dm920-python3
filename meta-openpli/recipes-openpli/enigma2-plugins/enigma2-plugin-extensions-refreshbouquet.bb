@@ -7,7 +7,7 @@ OLDPKG = "${@d.getVar('PN').replace('-extensions-','-pli-')}"
 RREPLACES_${PN} = "${OLDPKG}"
 RCONFLICTS_${PN} = "${OLDPKG}"
 
-inherit gitpkgv gettext
+inherit gitpkgv
 
 PV = "2.0+git${SRCPV}"
 PKGV = "2.0+git${GITPKGV}"

@@ -1,8 +1,6 @@
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-inherit gettext
-
 python do_package_prepend () {
     boxtypes = [
         ('formuler1', 'formuler1.jpg', 'formuler1.png'),
