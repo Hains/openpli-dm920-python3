@@ -1,0 +1,18 @@
+/* this doesn't work, at least for dreambox.
+Showing: 'unknow'.
+This revert commit:
+https://github.com/OpenPLi/enigma2/commit/31bcdcf369d370657deaa3490106639d3b0caea3
+*/
+diff --git a/lib/python/Components/About.py  b/lib/python/Components/About.py 
+index 5604193..524dcd9 100644
+--- a/lib/python/Components/About.py 
++++ b/lib/python/Components/About.py 
+@@ -20,7 +20,7 @@ def getImageVersionString():
+ 
+ def getFlashDateString():
+ 	try:
+-		return time.strftime(_("%Y-%m-%d %H:%M"), time.strptime(open("/etc/version").read().strip(), '%Y%m%d%H%M'))
++		return time.strftime(_("%Y-%m-%d %H:%M"), time.localtime(os.stat("/boot").st_ctime))
+ 	except:
+ 		return _("unknown")
+ 
