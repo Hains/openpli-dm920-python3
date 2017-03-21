@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM="file://COPYING;md5=435ed639f84d4585d93824e7da3d85da"
 
 DEPENDS = "libxml2"
 
-SRCREV="60e3d2600e8aaba3ca01df73569424befd9ed6fb"
+SRCREV="b33ff65ccd6fbccea889fca7f691f4706dbd3021"
 
 SRC_URI = " gitsm://git.videolan.org/libbluray.git"
 
