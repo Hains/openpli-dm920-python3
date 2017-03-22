@@ -19,18 +19,23 @@ case "$ACTION" in
 		if [ -e /dev/root ] && [ $MDEV == $(readlink /dev/root) ] ; then
 			exit 0
 		fi
-		DEVBASE=`expr substr $MDEV 1 3`
+		# get the device base (f.e. sd[a-z] or mmcblk[0-9])
+		DEVBASE=${MDEV:0:7}
+		if [ ! -d /sys/block/${DEVBASE} ]; then
+			DEVBASE=${MDEV:0:3}
+		fi
 		# check for "please don't mount it" file
 		if [ -f "/dev/nomount.${DEVBASE}" ] ; then
 			# blocked
 			exit 0
 		fi
-		# Run the result of blkid as a shell command
+		# run the result of blkid as a shell command
 		eval `blkid /dev/${MDEV} | grep ${MDEV} | cut -d ':' -f 2`
 		if [ -z "$TYPE" ] ; then
 			notify
 			exit 0
 		fi
+		# activate swap space
 		if [ $TYPE == swap ] ; then
 			if ! grep -q "^/dev/${MDEV} " /proc/swaps ; then
 				swapon /dev/${MDEV}
@@ -39,7 +44,7 @@ case "$ACTION" in
 		fi
 		# check for full-disk partition
 		if [ "${DEVBASE}" == "${MDEV}" ] ; then
-			if [ -d /sys/block/${DEVBASE}/${DEVBASE}1 ] ; then
+			if [ -d /sys/block/${DEVBASE}/${DEVBASE}*1 ] ; then
 				# Partition detected, just tell and quit
 				notify
 				exit 0
@@ -58,18 +63,15 @@ case "$ACTION" in
 			# no fstab entry, use automatic mountpoint
 			if [ -z "${LABEL}" ] ; then
 				REMOVABLE=`cat /sys/block/$DEVBASE/removable`
-				if [ "$DRIVER" = "mmcblk" ]; then
-					if [ "${REMOVABLE}" -eq "0" ]; then
-						DEVICETYPE="mmc"
-					else
-						DEVICETYPE="SD-card"
-					fi
+				readlink -fn /sys/block/$DEVBASE/device | grep -qs 'pci\|ahci\|sata'
+				EXTERNAL=$?
+				if [ "${REMOVABLE}" -eq "0" -a $EXTERNAL -eq 0 ] ; then
+					# mount the first non-removable internal device on /media/hdd
+					DEVICETYPE="hdd"
 				else
-					readlink -fn /sys/block/$DEVBASE/device | grep -qs 'pci\|ahci\|sata'
-					EXTERNAL=$?
-					if [ "${REMOVABLE}" -eq "0" -a $EXTERNAL -eq 0 ] ; then
-						# mount the first non-removable internal device on /media/hdd
-						DEVICETYPE="hdd"
+					# mount mmc block devices on /media/mcc
+					if [ ${DEVBASE:0:6} = "mmcblk" ]; then
+						DEVICETYPE="mmc"
 					else
 						MODEL=`cat /sys/block/$DEVBASE/device/model`
 						if [ "$MODEL" == "USB CF Reader   " ]; then
@@ -77,21 +79,19 @@ case "$ACTION" in
 						elif [ "$MODEL" == "Compact Flash   " ]; then
 							DEVICETYPE="cf"
 						elif [ "$MODEL" == "USB SD Reader   " ]; then
-							DEVICETYPE="mmc1"
+							DEVICETYPE="mmc"
 						elif [ "$MODEL" == "USB SD  Reader  " ]; then
-							DEVICETYPE="mmc1"
+							DEVICETYPE="mmc"
 						elif [ "$MODEL" == "SD/MMC          " ]; then
-							DEVICETYPE="mmc1"
+							DEVICETYPE="mmc"
 						elif [ "$MODEL" == "USB MS Reader   " ]; then
-							DEVICETYPE="mmc1"
+							DEVICETYPE="mmc"
 						elif [ "$MODEL" == "SM/xD-Picture   " ]; then
-							DEVICETYPE="mmc1"
+							DEVICETYPE="mmc"
 						elif [ "$MODEL" == "USB SM Reader   " ]; then
-							DEVICETYPE="mmc1"
+							DEVICETYPE="mmc"
 						elif [ "$MODEL" == "MS/MS-Pro       " ]; then
-							DEVICETYPE="mmc1"
-						elif [ "$MDEV" == "mmcblk0p1" ]; then
-							DEVICETYPE="mmc1"
+							DEVICETYPE="mmc"
 						else
 							DEVICETYPE="usb"
 						fi
