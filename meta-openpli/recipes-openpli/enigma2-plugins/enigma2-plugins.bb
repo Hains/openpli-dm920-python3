@@ -37,6 +37,8 @@ SRCREV = "${AUTOREV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
 
+SRC_URI += "file://fix-build-sk-po.patch"
+
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
