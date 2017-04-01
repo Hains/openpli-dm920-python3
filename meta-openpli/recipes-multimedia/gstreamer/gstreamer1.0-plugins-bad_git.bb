@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=73a5855a8119deb017f5f13cf327095d \
 					file://COPYING.LIB;md5=21682e4e8fea52413fd26c60acb907e5 \
 					"
 
-SRCREV = "ba0e1df657d98f6a621e841e4daa54bc059548eb"
+SRCREV = "e83573fd8d232a0b6defe99ca4ee28c4cbef0ff8"
 SRCREV_common = "93ae13f2c3c58a4c2b7c111817b720a272d504d7"
 SRCREV_FORMAT = "base"
 
