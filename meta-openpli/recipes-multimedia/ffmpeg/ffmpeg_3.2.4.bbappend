@@ -1,4 +1,4 @@
-SRCREV = "de1308429ae649c899b74365f0dc72847676ba75"
+SRCREV = "7942907878dd4c263ba7431067c33ce6b5d53ceb"
 
 SRC_URI = "git://github.com/FFmpeg/FFmpeg.git"
 
