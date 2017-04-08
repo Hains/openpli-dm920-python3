@@ -10,7 +10,7 @@ S = "${WORKDIR}/git"
 
 do_install() {
 	install -d ${D}/picon
-	cp  ${S}/picons/* ${D}/picon/
+	cp  -R ${S}/picons/* ${D}/picon/
 }
 
 
