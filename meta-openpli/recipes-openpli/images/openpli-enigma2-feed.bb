@@ -24,7 +24,6 @@ OPTIONAL_PACKAGES += " \
 	diffutils \
 	djmount \
 	dosfstools \
-	dvb-apps \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
