@@ -1,9 +1,11 @@
 #! /bin/sh
+# This script is run once when your box boots for the first time.
 # It installs the things from /hdd/backup/autoinstall
 # or from wherever the settings were restored
 
 BACKUPDIR=/media/hdd
-LOGFILE=/var/log/autoinstall.log
+INSTALLED=/etc/installed
+LOGFILE=/home/root/autoinstall.log
 MACADDR=`cat /sys/class/net/eth0/address | cut -b 1,2,4,5,7,8,10,11,13,14,16,17`
 
 if [ -f /tmp/backupdir ]
@@ -26,7 +28,6 @@ else
 			fi
 		fi
 	done
-	LOGFILE=${BACKUPDIR}/backup/autoinstall.log
 fi
 
 if [ -f ${BACKUPDIR}/backup/autoinstall${MACADDR} ]
@@ -37,6 +38,9 @@ else
 fi
 
 IPKG=/usr/bin/opkg
+
+${IPKG} list_installed | cut -d ' ' -f 1 > ${INSTALLED}
+chmod 444 ${INSTALLED}
 
 # when available, bind the console during autoinstall
 [ -f /sys/class/vtconsole/vtcon1/bind ] && echo 1 > /sys/class/vtconsole/vtcon1/bind
