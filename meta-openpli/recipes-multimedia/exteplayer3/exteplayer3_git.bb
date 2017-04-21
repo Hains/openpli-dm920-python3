@@ -9,8 +9,6 @@ RDEPENDS_${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-SRCREV = "${AUTOREV}"
-
 PV = "34+git${SRCPV}"
 PKGV = "34+git${GITPKGV}"
 

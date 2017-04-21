@@ -8,8 +8,6 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libdca glib-2.0 glib-2.0-nativ
 
 GSTVERSION = "1.0"
 
-SRCREV = "${AUTOREV}"
-
 SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink;branch=openatv-dev;protocol=https"
 
 S = "${WORKDIR}/git"
