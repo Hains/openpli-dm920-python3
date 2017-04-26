@@ -12,5 +12,3 @@ DEPENDS = "\
 	enigma2-plugin-settings-rytec-13e19e23e28e \
 	enigma2-plugin-settings-rytec-motor \
 	"
-
-PR = "r0"
