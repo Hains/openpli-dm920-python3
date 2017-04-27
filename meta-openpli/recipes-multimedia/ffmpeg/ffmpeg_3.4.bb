@@ -26,7 +26,7 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 SRC_URI = "git://github.com/FFmpeg/FFmpeg.git \
 		"
 
-SRCREV = "3390a2be9deb1ce2bb10163106f1ba8e4ea8ad04"
+SRCREV = "f7542d7e35e9bb9aff7829c15c78b9b467627482"
 
 S = "${WORKDIR}/git/"
 
