@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 					file://tests/check/elements/xingmux.c;beginline=1;endline=21;md5=4c771b8af188724855cb99cadd390068 \
 					"
 
-SRCREV = "204345d876df7eb5a52e2f457552a368d3b5b6c4"
-SRCREV_common = "93ae13f2c3c58a4c2b7c111817b720a272d504d7"
+SRCREV = "cbcf4a399aeadcd3fb1dde57e28b029fe01c35a3"
+SRCREV_common = "48a5d85ebf4a0bad1c997c83100f710fe2154fbf"
 SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly;branch=master;name=base \
@@ -19,7 +19,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL ="1.11.90"
+GST_VERSION_FULL ="1.11.91"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 

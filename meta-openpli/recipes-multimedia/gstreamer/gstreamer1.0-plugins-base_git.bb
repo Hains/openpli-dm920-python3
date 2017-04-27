@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c54ce9345727175ff66d17b67ff51f58 \
 					file://COPYING.LIB;md5=6762ed442b3822387a51c92d928ead0d \
 					"
 
-SRCREV = "910b2ca6d2607959d957b93264828a99a89c698a"
-SRCREV_common = "93ae13f2c3c58a4c2b7c111817b720a272d504d7"
+SRCREV = "1debd803dee50df8439a96a66f923ed0db0cf9fb"
+SRCREV_common = "48a5d85ebf4a0bad1c997c83100f710fe2154fbf"
 SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=master;name=base \
@@ -28,7 +28,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL ="1.11.90"
+GST_VERSION_FULL ="1.11.91"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
