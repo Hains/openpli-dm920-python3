@@ -17,3 +17,6 @@ DEPENDS += "enigma2"
 SRC_URI = "git://github.com/ims21/ModifyPliFullHD.git;protocol=git"
 
 S="${WORKDIR}/git"
+
+inherit distutils-openplugins allarch
+
