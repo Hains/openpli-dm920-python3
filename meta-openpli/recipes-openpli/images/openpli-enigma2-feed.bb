@@ -47,6 +47,7 @@ OPTIONAL_PACKAGES += " \
 	mc \
 	minisatip \
 	mtd-utils \
+	mtools \
 	nano \
 	net-tools \
 	ntfs-3g \
