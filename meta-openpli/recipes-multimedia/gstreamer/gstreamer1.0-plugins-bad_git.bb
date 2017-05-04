@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=73a5855a8119deb017f5f13cf327095d \
 					file://COPYING.LIB;md5=21682e4e8fea52413fd26c60acb907e5 \
 					"
 
-SRCREV = "b73339d751b38ea01a9541fe965ed17d932b2aa9"
+SRCREV = "da5b0d7ad3a55b958a4203659f9ff2ab270bcc91"
 SRCREV_common = "48a5d85ebf4a0bad1c997c83100f710fe2154fbf"
 SRCREV_FORMAT = "base"
 
@@ -26,7 +26,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL ="1.11.91"
+GST_VERSION_FULL ="1.12.0"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
