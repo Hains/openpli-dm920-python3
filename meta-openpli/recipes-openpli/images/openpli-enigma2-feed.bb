@@ -70,6 +70,7 @@ OPTIONAL_PACKAGES += " \
 	sabnzbd \
 	samba \
 	satipclient \
+	screen \
 	sshpass \
 	smartmontools \
 	smbnetfs \
