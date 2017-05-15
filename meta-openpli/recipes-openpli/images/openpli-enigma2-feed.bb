@@ -27,9 +27,9 @@ OPTIONAL_PACKAGES += " \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
-	exteplayer3 \
 	evtest \
 	exfat-utils \
+	exteplayer3 \
 	fuse-exfat \
 	gdb \
 	gstplayer \
@@ -57,23 +57,23 @@ OPTIONAL_PACKAGES += " \
 	openssh \
 	openvpn \
 	parted \
-	procps \
-	pyload \
-	python-ntplib \
-	python-requests \
-	python-mechanize \
-	python-lxml \
 	picocom \
 	ppp \
+	procps \
+	pyload \
+	python-lxml \
+	python-mechanize \
+	python-ntplib \
+	python-requests \
 	rsync \
 	rtorrent \
 	sabnzbd \
 	samba \
 	satipclient \
 	screen \
-	sshpass \
 	smartmontools \
 	smbnetfs \
+	sshpass \
 	strace \
 	tcpdump \
 	transmission \
@@ -94,30 +94,30 @@ OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
 ENIGMA2_OPTIONAL = " \
 	channelsettings-enigma2-meta \
 	enigma2-pliplugins \
-	enigma2-plugin-extensions-automatic-fullbackup \
 	enigma2-plugin-drivers-usbserial \
+	enigma2-plugin-extensions-automatic-fullbackup \
+	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
-	enigma2-plugin-extensions-blurayplayer \
+	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-iptvplayer \
-	enigma2-plugin-extensions-xmltvimport \
-	enigma2-plugin-extensions-youtube \
-	enigma2-plugin-extensions-openmultiboot \
+	enigma2-plugin-extensions-lcd4linux \
 	enigma2-plugin-extensions-modifyplifullhd \
+	enigma2-plugin-extensions-openmultiboot \
 	enigma2-plugin-extensions-refreshbouquet \
 	enigma2-plugin-extensions-subssupport \
-	enigma2-plugin-systemplugins-mountmanager \
-	enigma2-plugin-systemplugins-serviceapp \
-	enigma2-plugin-systemplugins-signalfinder \
-	enigma2-plugin-systemplugins-extnumberzap \
-	enigma2-plugin-extensions-historyzapselector \
-	enigma2-plugin-extensions-lcd4linux \
 	enigma2-plugin-extensions-tmbd \
-	enigma2-plugin-extensions-xmodem \
 	enigma2-plugin-extensions-vcs \
+	enigma2-plugin-extensions-xmltvimport \
+	enigma2-plugin-extensions-xmodem \
+	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-pli-hd \
 	enigma2-plugin-skins-pli-hd-fullnight \
+	enigma2-plugin-systemplugins-extnumberzap \
+	enigma2-plugin-systemplugins-mountmanager \
+	enigma2-plugin-systemplugins-serviceapp \
+	enigma2-plugin-systemplugins-signalfinder \
 	enigma2-plugins \
 	enigma2-skins \
 	picons-enigma2-meta \
