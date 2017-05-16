@@ -99,6 +99,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
+	enigma2-plugin-extensions-fallbackreceiver \
 	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-iptvplayer \
 	enigma2-plugin-extensions-lcd4linux \
