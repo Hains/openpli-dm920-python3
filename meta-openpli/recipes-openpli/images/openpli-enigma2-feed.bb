@@ -76,6 +76,7 @@ OPTIONAL_PACKAGES += " \
 	sshpass \
 	strace \
 	tcpdump \
+	tmux \
 	transmission \
 	udpxy \
 	usb-modeswitch \
