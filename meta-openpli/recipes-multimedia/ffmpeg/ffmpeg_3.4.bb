@@ -19,14 +19,14 @@ LICENSE_libswscale = "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LG
 LICENSE_FLAGS = "commercial"
 
 LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
-                    file://COPYING.GPLv3;md5=d32239bcb673463ab874e80d47fae504 \
-                    file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
-                    file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02"
+					file://COPYING.GPLv3;md5=d32239bcb673463ab874e80d47fae504 \
+					file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
+					file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 SRC_URI = "git://github.com/FFmpeg/FFmpeg.git \
 		"
 
-SRCREV = "c53bf8c9b8ad7a2dc786d5749598c4ac67c4ad2d"
+SRCREV = "42e42af76cff46c4e1a41dd8de992b38880f78be"
 
 S = "${WORKDIR}/git/"
 
@@ -46,9 +46,9 @@ DEPENDS = "alsa-lib zlib libogg yasm-native"
 
 inherit autotools pkgconfig
 
-PACKAGECONFIG ??= "avdevice avfilter avcodec avformat swresample swscale postproc \
-                   bzlib gpl lzma theora x264 \
-                   ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xv', '', d)}"
+PACKAGECONFIG ??= " avdevice avfilter avcodec avformat swresample swscale postproc \
+					bzlib gpl lzma theora x264 \
+					${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xv', '', d)}"
 
 # libraries to build in addition to avutil
 PACKAGECONFIG[avdevice] = "--enable-avdevice,--disable-avdevice"
