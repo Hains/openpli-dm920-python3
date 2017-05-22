@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 					file://gst/replaygain/rganalysis.c;beginline=1;endline=23;md5=b60ebefd5b2f5a8e0cab6bfee391a5fe \
 					"
 
-SRCREV = "27f40eca4dee0417aa477896b98ebcf4e7c349ce"
-SRCREV_common = "48a5d85ebf4a0bad1c997c83100f710fe2154fbf"
+SRCREV = "f13f3584acc129f33103165da485c1eabbd65895"
+SRCREV_common = "29046b89d80bbca22eb222c18820fb40a4ac5bde"
 SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-good;branch=master;name=base \
@@ -22,7 +22,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL ="1.12.0"
+GST_VERSION_FULL ="1.13.0.1"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 

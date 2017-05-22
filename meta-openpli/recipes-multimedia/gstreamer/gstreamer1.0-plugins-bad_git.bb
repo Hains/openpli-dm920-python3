@@ -6,15 +6,15 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=73a5855a8119deb017f5f13cf327095d \
 					file://COPYING.LIB;md5=21682e4e8fea52413fd26c60acb907e5 \
 					"
 
-SRCREV = "da5b0d7ad3a55b958a4203659f9ff2ab270bcc91"
-SRCREV_common = "48a5d85ebf4a0bad1c997c83100f710fe2154fbf"
+SRCREV = "e7a5fdfde429b04d240211523c536438627a2a52"
+SRCREV_common = "29046b89d80bbca22eb222c18820fb40a4ac5bde"
 SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=master;name=base \
 			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
 			"
 
-SRC_URI += "file://01-configure-allow-to-disable-libssh2.patch \				
+SRC_URI += "file://01-configure-allow-to-disable-libssh2.patch \
 			file://02-rtmp-fix-seeking-and-potential-segfault.patch \
 			file://03-rtmp-hls-tsdemux-fix.patch \
 			file://04-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
@@ -26,7 +26,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL ="1.12.0"
+GST_VERSION_FULL ="1.13.0.1"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
@@ -39,4 +39,3 @@ do_configure_prepend() {
 	./autogen.sh --noconfigure
 	cd ${B}
 }
-

@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c54ce9345727175ff66d17b67ff51f58 \
 					file://COPYING.LIB;md5=6762ed442b3822387a51c92d928ead0d \
 					"
 
-SRCREV = "112cc33d6a3a89fb290dfe81a9d2116502a22e85"
-SRCREV_common = "48a5d85ebf4a0bad1c997c83100f710fe2154fbf"
+SRCREV = "18e55dcdc06ba9e66cd41b1a343bf5492e4a8a94"
+SRCREV_common = "29046b89d80bbca22eb222c18820fb40a4ac5bde"
 SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=master;name=base \
@@ -28,7 +28,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL ="1.12.0"
+GST_VERSION_FULL ="1.13.0.1"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
@@ -37,4 +37,3 @@ do_configure_prepend() {
 	./autogen.sh --noconfigure
 	cd ${B}
 }
-
