@@ -173,7 +173,6 @@ SRC_URI += "file://01-revert-read-image-install-date-using-etc-version.patch \
 			file://03-fix-wrong-driver-date.patch \
 			file://04-separate-event-name-and-full-description.patch \
 			file://05-update-servicemp3-to-openatv.patch \
-			file://06-revert-repositioning-pip.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
