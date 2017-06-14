@@ -26,6 +26,14 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 SRC_URI = "git://github.com/FFmpeg/FFmpeg.git \
 		"
 
+SRC_URI_append = " \
+	file://01-mips64_cpu_detection.patch \
+	file://02-fix-hls.patch \
+	file://04-aac.patch \
+	file://05-fix-mpegts.patch \
+	file://06_allow_to_choose_rtmp_impl_at_runtime.patch \
+	"
+
 S = "${WORKDIR}/git/"
 
 inherit gitpkgv
@@ -40,7 +48,9 @@ ARM_INSTRUCTION_SET = "arm"
 # libpostproc was previously packaged from a separate recipe
 PROVIDES = "libav libpostproc"
 
-DEPENDS = "alsa-lib zlib libogg yasm-native"
+PROVIDES =+ " libavcodec53 libavformat53 "
+RDEPENDS_${PN} =+ " libbluray rtmpdump libxml2 openssl "
+DEPENDS = "alsa-lib zlib libogg yasm-native libxml2"
 
 inherit autotools pkgconfig
 
@@ -118,11 +128,12 @@ do_configure() {
     ${S}/configure ${EXTRA_OECONF}
 }
 
-PACKAGES =+ "libavcodec \
+PACKAGES =+ "libavcodec57 \
              libavdevice \
              libavfilter \
-             libavformat \
+             libavformat57 \
              libavresample \
+             libav \
              libavutil \
              libpostproc \
              libswresample \
