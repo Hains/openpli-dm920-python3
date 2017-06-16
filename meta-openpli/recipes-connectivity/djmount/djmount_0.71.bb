@@ -18,6 +18,11 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/djmount/djmount-0.71.tar.gz \
 	file://init \
 	file://configure.ac.patch \
 	file://rt_bool_arg_enable.m4.patch \
+	file://01-djmount.1.patch \
+	file://02-libupnp-1.6.6.patch \
+	file://03-libupnp-1.6.13.patch \
+	file://04-support-fstab-mounting.patch \
+	file://05-avoid-crash-by-using-size_t.patch \
 	"
 
 SRC_URI[md5sum] = "c922753e706c194bf82a8b6ca77e6a9a"
