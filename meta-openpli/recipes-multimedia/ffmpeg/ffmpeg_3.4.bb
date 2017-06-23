@@ -29,9 +29,12 @@ SRC_URI = "git://github.com/FFmpeg/FFmpeg.git \
 SRC_URI_append = " \
 	file://01-mips64_cpu_detection.patch \
 	file://02-fix-hls.patch \
+	file://03-buffer-size.patch \
 	file://04-aac.patch \
 	file://05-fix-mpegts.patch \
-	file://06_allow_to_choose_rtmp_impl_at_runtime.patch \
+	file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
+	file://07-fix-edit-list-parsing.patch \
+	file://08-add_dash_demux.patch \
 	"
 
 S = "${WORKDIR}/git/"
