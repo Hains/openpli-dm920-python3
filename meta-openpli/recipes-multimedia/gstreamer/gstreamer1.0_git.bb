@@ -13,6 +13,7 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gstreamer;branch=master;name
 			"
 
 SRC_URI += "file://0001-revert-use-new-gst-adapter-get-buffer.patch \
+			file://0002-Revert-plugin-Unify-static-and-dynamic-plugin-interface.patch \
 			"
 
 S = "${WORKDIR}/git"
