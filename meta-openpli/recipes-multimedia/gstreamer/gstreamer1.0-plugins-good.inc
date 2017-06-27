@@ -46,7 +46,6 @@ EXTRA_OECONF += " \
 	--disable-osx_audio \
 	--disable-osx_video \
 	--disable-shout2 \
-	--disable-sunaudio \
 	--disable-waveform \
 	"
 
