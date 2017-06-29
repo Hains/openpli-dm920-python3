@@ -3,6 +3,8 @@ SECTION = "multimedia"
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
 
+inherit pkgconfig
+
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base"
 
 SRC_URI = "git://gitlab.com/samsamsam/iptvplayer-bin-components.git;protocol=http"
