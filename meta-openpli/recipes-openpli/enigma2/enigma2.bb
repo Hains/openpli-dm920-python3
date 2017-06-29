@@ -168,7 +168,8 @@ ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH}"
 
-SRC_URI += "file://02-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
+SRC_URI += "file://01-fix-build-with-gcc7.patch \
+			file://02-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
 			file://03-fix-wrong-driver-date.patch \
 			file://04-separate-event-name-and-full-description.patch \
 			file://05-update-servicemp3-to-openatv.patch \
