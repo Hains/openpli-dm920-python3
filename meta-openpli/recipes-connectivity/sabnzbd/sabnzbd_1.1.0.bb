@@ -1,6 +1,6 @@
 MAINTAINER = "team@sabnzbd.org"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=183ca88c5404ea8f9e484ad8d271aab3"
+LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=7c333056bf8b3834c43ccf2505d10690"
 
 PR = "r1"
 
@@ -15,8 +15,8 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/sabnzbdplus/sabnzbdplus/${PV}/SABnzbd-${PV}-src
 	file://sabnzbd \
 	file://sabnzbd.ini"
 
-SRC_URI[md5sum] = "5056006fb15d6e62654af9f80955eba3"
-SRC_URI[sha256sum] = "a501517dbaf161deab2153118ff3b44512ee1d8984c3603bf17c593cf080eb09"
+SRC_URI[md5sum] = "03cec705efb742ab9a1d8d6dedbcee2f"
+SRC_URI[sha256sum] = "3e86a897dea1c276c54ee38667a980f644f16d57df75612fe9eefa84b339ce9a"
 
 S = "${WORKDIR}/SABnzbd-${PV}"
 
