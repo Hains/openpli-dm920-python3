@@ -60,7 +60,6 @@ OPTIONAL_PACKAGES += " \
 	picocom \
 	ppp \
 	procps \
-	pyload \
 	python-js2py \
 	python-lxml \
 	python-mechanize \
