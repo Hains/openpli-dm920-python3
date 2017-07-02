@@ -10,4 +10,4 @@ DEPENDS_append_mipsel = "\
 	enigma2-plugin-softcams-cccam221 \
 	enigma2-plugin-softcams-rqcamd \
 	"
-DEPENDS += "enigma2-plugin-softcams-oscam"
+DEPENDS += "enigma2-plugin-softcams-oscam enigma2-plugin-softcams-oscam-emu"
