@@ -52,12 +52,13 @@ ARM_INSTRUCTION_SET = "arm"
 # libpostproc was previously packaged from a separate recipe
 PROVIDES = "libav libpostproc"
 
-RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl "
+RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl"
 DEPENDS = "alsa-lib zlib libogg yasm-native libxml2"
 
 PACKAGECONFIG ??= " avdevice avfilter avcodec avformat swresample swscale postproc \
 					bzlib gpl lzma theora x264 openssl libbluray libfreetype librtmp \
-					${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xv', '', d)}"
+					${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xv', '', d)} \
+"
 
 # libraries to build in addition to avutil
 PACKAGECONFIG[avdevice]		= "--enable-avdevice,--disable-avdevice"
@@ -145,23 +146,23 @@ PACKAGES =+"libavcodec \
 			libswscale \
 "
 
-FILES_libavcodec = "${libdir}/libavcodec${SOLIBS}"
-FILES_libavdevice = "${libdir}/libavdevice${SOLIBS}"
-FILES_libavfilter = "${libdir}/libavfilter${SOLIBS}"
-FILES_libavformat = "${libdir}/libavformat${SOLIBS}"
-FILES_libavresample = "${libdir}/libavresample${SOLIBS}"
-FILES_libavutil = "${libdir}/libavutil${SOLIBS}"
-FILES_libpostproc = "${libdir}/libpostproc${SOLIBS}"
-FILES_libswresample = "${libdir}/libswresample${SOLIBS}"
-FILES_libswscale = "${libdir}/libswscale${SOLIBS}"
+FILES_libavcodec		= "${libdir}/libavcodec${SOLIBS}"
+FILES_libavdevice		= "${libdir}/libavdevice${SOLIBS}"
+FILES_libavfilter		= "${libdir}/libavfilter${SOLIBS}"
+FILES_libavformat		= "${libdir}/libavformat${SOLIBS}"
+FILES_libavresample		= "${libdir}/libavresample${SOLIBS}"
+FILES_libavutil			= "${libdir}/libavutil${SOLIBS}"
+FILES_libpostproc		= "${libdir}/libpostproc${SOLIBS}"
+FILES_libswresample		= "${libdir}/libswresample${SOLIBS}"
+FILES_libswscale		= "${libdir}/libswscale${SOLIBS}"
 
 # ffmpeg disables PIC on some platforms (e.g. x86-32)
-INSANE_SKIP_${MLPREFIX}libavcodec = "textrel"
-INSANE_SKIP_${MLPREFIX}libavdevice = "textrel"
-INSANE_SKIP_${MLPREFIX}libavfilter = "textrel"
-INSANE_SKIP_${MLPREFIX}libavformat = "textrel"
-INSANE_SKIP_${MLPREFIX}libavutil = "textrel"
-INSANE_SKIP_${MLPREFIX}libavresample = "textrel"
-INSANE_SKIP_${MLPREFIX}libswscale = "textrel"
-INSANE_SKIP_${MLPREFIX}libswresample = "textrel"
-INSANE_SKIP_${MLPREFIX}libpostproc = "textrel"
+INSANE_SKIP_${MLPREFIX}libavcodec		= "textrel"
+INSANE_SKIP_${MLPREFIX}libavdevice		= "textrel"
+INSANE_SKIP_${MLPREFIX}libavfilter		= "textrel"
+INSANE_SKIP_${MLPREFIX}libavformat		= "textrel"
+INSANE_SKIP_${MLPREFIX}libavutil		= "textrel"
+INSANE_SKIP_${MLPREFIX}libavresample	= "textrel"
+INSANE_SKIP_${MLPREFIX}libswscale		= "textrel"
+INSANE_SKIP_${MLPREFIX}libswresample	= "textrel"
+INSANE_SKIP_${MLPREFIX}libpostproc		= "textrel"
