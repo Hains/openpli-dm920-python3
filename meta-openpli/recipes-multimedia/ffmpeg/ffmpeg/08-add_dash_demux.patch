@@ -2062,7 +2062,7 @@ diff -uNr ffmpeg-3.2.2_orig/configure ffmpeg-3.2.2_dash_demux/configure
  disabled  zlib || check_lib zlib   zlib.h      zlibVersion    -lz
  disabled bzlib || check_lib bzlib bzlib.h BZ2_bzlibVersion    -lbz2
  disabled  lzma || check_lib lzma   lzma.h lzma_version_number -llzma
-+disabled  xml2 || check_lib libxml/xmlversion.h xmlCheckVersion -lxml2 || disable xml2
++disabled  xml2 || check_lib xml2   libxml/xmlversion.h xmlCheckVersion -lxml2
  
  check_lib libm math.h sin -lm && LIBM="-lm"
  disabled crystalhd || check_lib crystalhd "stdint.h libcrystalhd/libcrystalhd_if.h" DtsCrystalHDVersion -lcrystalhd

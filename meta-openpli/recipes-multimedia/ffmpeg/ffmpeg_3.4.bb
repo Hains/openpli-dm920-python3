@@ -1,7 +1,7 @@
 SUMMARY = "A complete, cross-platform solution to record, convert and stream audio and video."
-DESCRIPTION = "FFmpeg is the leading multimedia framework, able to decode, encode, transcode, \
-               mux, demux, stream, filter and play pretty much anything that humans and machines \
-               have created. It supports the most obscure ancient formats up to the cutting edge."
+DESCRIPTION = " FFmpeg is the leading multimedia framework, able to decode, encode, transcode, \
+				mux, demux, stream, filter and play pretty much anything that humans and machines \
+				have created. It supports the most obscure ancient formats up to the cutting edge."
 HOMEPAGE = "https://www.ffmpeg.org/"
 SECTION = "libs"
 
@@ -21,25 +21,26 @@ LICENSE_FLAGS = "commercial"
 LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 					file://COPYING.GPLv3;md5=d32239bcb673463ab874e80d47fae504 \
 					file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
-					file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02"
+					file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02 \
+"
 
 SRC_URI = "git://github.com/FFmpeg/FFmpeg.git \
-		"
+"
 
-SRC_URI_append = " \
-	file://01-mips64_cpu_detection.patch \
-	file://02-fix-hls.patch \
-	file://03-buffer-size.patch \
-	file://04-aac.patch \
-	file://05-fix-mpegts.patch \
-	file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
-	file://07-fix-edit-list-parsing.patch \
-	file://08-add_dash_demux.patch \
-	"
+SRC_URI_append = "\
+		file://01-mips64_cpu_detection.patch \
+		file://02-fix-hls.patch \
+		file://03-buffer-size.patch \
+		file://04-aac.patch \
+		file://05-fix-mpegts.patch \
+		file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
+		file://07-fix-edit-list-parsing.patch \
+		file://08-add_dash_demux.patch \
+"
 
-S = "${WORKDIR}/git/"
+S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv autotools pkgconfig
 
 PV = "3.4+git${SRCPV}"
 PKGV = "3.4+git${GITPKGV}"
@@ -51,96 +52,98 @@ ARM_INSTRUCTION_SET = "arm"
 # libpostproc was previously packaged from a separate recipe
 PROVIDES = "libav libpostproc"
 
-PROVIDES =+ " libavcodec53 libavformat53 "
-RDEPENDS_${PN} =+ " libbluray rtmpdump libxml2 openssl "
+RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl "
 DEPENDS = "alsa-lib zlib libogg yasm-native libxml2"
 
-inherit autotools pkgconfig
-
 PACKAGECONFIG ??= " avdevice avfilter avcodec avformat swresample swscale postproc \
-					bzlib gpl lzma theora x264 \
+					bzlib gpl lzma theora x264 openssl libbluray libfreetype librtmp \
 					${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xv', '', d)}"
 
 # libraries to build in addition to avutil
-PACKAGECONFIG[avdevice] = "--enable-avdevice,--disable-avdevice"
-PACKAGECONFIG[avfilter] = "--enable-avfilter,--disable-avfilter"
-PACKAGECONFIG[avcodec] = "--enable-avcodec,--disable-avcodec"
-PACKAGECONFIG[avformat] = "--enable-avformat,--disable-avformat"
-PACKAGECONFIG[swresample] = "--enable-swresample,--disable-swresample"
-PACKAGECONFIG[swscale] = "--enable-swscale,--disable-swscale"
-PACKAGECONFIG[postproc] = "--enable-postproc,--disable-postproc"
-PACKAGECONFIG[avresample] = "--enable-avresample,--disable-avresample"
+PACKAGECONFIG[avdevice]		= "--enable-avdevice,--disable-avdevice"
+PACKAGECONFIG[avfilter]		= "--enable-avfilter,--disable-avfilter"
+PACKAGECONFIG[avcodec]		= "--enable-avcodec,--disable-avcodec"
+PACKAGECONFIG[avformat]		= "--enable-avformat,--disable-avformat"
+PACKAGECONFIG[swresample]	= "--enable-swresample,--disable-swresample"
+PACKAGECONFIG[swscale]		= "--enable-swscale,--disable-swscale"
+PACKAGECONFIG[postproc]		= "--enable-postproc,--disable-postproc"
+PACKAGECONFIG[avresample]	= "--enable-avresample,--disable-avresample"
 
 # features to support
-PACKAGECONFIG[bzlib] = "--enable-bzlib,--disable-bzlib,bzip2"
-PACKAGECONFIG[gpl] = "--enable-gpl,--disable-gpl"
-PACKAGECONFIG[gsm] = "--enable-libgsm,--disable-libgsm,libgsm"
-PACKAGECONFIG[jack] = "--enable-indev=jack,--disable-indev=jack,jack"
-PACKAGECONFIG[libvorbis] = "--enable-libvorbis,--disable-libvorbis,libvorbis"
-PACKAGECONFIG[lzma] = "--enable-lzma,--disable-lzma,xz"
-PACKAGECONFIG[mp3lame] = "--enable-libmp3lame,--disable-libmp3lame,lame"
-PACKAGECONFIG[openssl] = "--enable-openssl,--disable-openssl,openssl"
-PACKAGECONFIG[speex] = "--enable-libspeex,--disable-libspeex,speex"
-PACKAGECONFIG[theora] = "--enable-libtheora,--disable-libtheora,libtheora"
-PACKAGECONFIG[vaapi] = "--enable-vaapi,--disable-vaapi,libva"
-PACKAGECONFIG[vdpau] = "--enable-vdpau,--disable-vdpau,libvdpau"
-PACKAGECONFIG[vpx] = "--enable-libvpx,--disable-libvpx,libvpx"
-PACKAGECONFIG[x11] = "--enable-x11grab"
-PACKAGECONFIG[x264] = "--enable-libx264,--disable-libx264,x264"
-PACKAGECONFIG[xv] = "--enable-outdev=xv,--disable-outdev=xv,libxv"
+PACKAGECONFIG[bzlib]		= "--enable-bzlib,--disable-bzlib,bzip2"
+PACKAGECONFIG[gpl]			= "--enable-gpl,--disable-gpl"
+PACKAGECONFIG[gsm]			= "--enable-libgsm,--disable-libgsm,libgsm"
+PACKAGECONFIG[jack]			= "--enable-indev=jack,--disable-indev=jack,jack"
+PACKAGECONFIG[libbluray]	= "--enable-libbluray --enable-protocol=bluray,--disable-libbluray,libbluray"
+PACKAGECONFIG[libfreetype]	= "--enable-libfreetype,--disable-libfreetype,freetype"
+PACKAGECONFIG[librtmp]		= "--enable-librtmp,--disable-librtmp,rtmpdump"
+PACKAGECONFIG[libvorbis]	= "--enable-libvorbis,--disable-libvorbis,libvorbis"
+PACKAGECONFIG[lzma]			= "--enable-lzma,--disable-lzma,xz"
+PACKAGECONFIG[mp3lame]		= "--enable-libmp3lame,--disable-libmp3lame,lame"
+PACKAGECONFIG[openssl]		= "--enable-openssl,--disable-openssl,openssl"
+PACKAGECONFIG[speex]		= "--enable-libspeex,--disable-libspeex,speex"
+PACKAGECONFIG[theora]		= "--enable-libtheora,--disable-libtheora,libtheora"
+PACKAGECONFIG[vaapi]		= "--enable-vaapi,--disable-vaapi,libva"
+PACKAGECONFIG[vdpau]		= "--enable-vdpau,--disable-vdpau,libvdpau"
+PACKAGECONFIG[vpx]			= "--enable-libvpx,--disable-libvpx,libvpx"
+PACKAGECONFIG[x11]			= "--enable-x11grab"
+PACKAGECONFIG[x264]			= "--enable-libx264,--disable-libx264,x264"
+PACKAGECONFIG[xv]			= "--enable-outdev=xv,--disable-outdev=xv,libxv"
 
 # Check codecs that require --enable-nonfree
 USE_NONFREE = "${@bb.utils.contains_any('PACKAGECONFIG', [ 'openssl' ], 'yes', '', d)}"
 
 def cpu(d):
-    for arg in (d.getVar('TUNE_CCARGS') or '').split():
+     for arg in (d.getVar('TUNE_CCARGS') or '').split():
         if arg.startswith('-mcpu='):
-            return arg[6:]
-    return 'generic'
+         return arg[6:]
+     return 'generic'
 
 EXTRA_OECONF = " \
-    --disable-stripping \
-    --enable-pic \
-    --enable-shared \
-    --enable-pthreads \
-    ${@bb.utils.contains('USE_NONFREE', 'yes', '--enable-nonfree', '', d)} \
-    \
-    --cross-prefix=${TARGET_PREFIX} \
-    \
-    --ld="${CCLD}" \
-    --cc="${CC}" \
-    --cxx="${CXX}" \
-    --arch=${TARGET_ARCH} \
-    --target-os="linux" \
-    --enable-cross-compile \
-    --extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS}" \
-    --extra-ldflags="${TARGET_LDFLAGS}" \
-    --sysroot="${STAGING_DIR_TARGET}" \
-    --enable-hardcoded-tables \
-    ${EXTRA_FFCONF} \
-    --libdir=${libdir} \
-    --shlibdir=${libdir} \
-    --datadir=${datadir}/ffmpeg \
-    ${@bb.utils.contains('AVAILTUNES', 'mips32r2', '', '--disable-mipsdsp --disable-mipsdspr2', d)} \
-    --cpu=${@cpu(d)} \
+	--disable-stripping \
+	--enable-pic \
+	--enable-shared \
+	--enable-pthreads \
+	${@bb.utils.contains('USE_NONFREE', 'yes', '--enable-nonfree', '', d)} \
+	\
+	--cross-prefix=${TARGET_PREFIX} \
+	\
+	--ld="${CCLD}" \
+	--cc="${CC}" \
+	--cxx="${CXX}" \
+	--arch=${TARGET_ARCH} \
+	--target-os="linux" \
+	--enable-cross-compile \
+	--extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS}" \
+	--extra-ldflags="${TARGET_LDFLAGS}" \
+	--sysroot="${STAGING_DIR_TARGET}" \
+	--enable-hardcoded-tables \
+	${EXTRA_FFCONF} \
+	--libdir=${libdir} \
+	--shlibdir=${libdir} \
+	--datadir=${datadir}/ffmpeg \
+	--pkg-config="pkg-config" \
+	${@bb.utils.contains('AVAILTUNES', 'mips32r2', '', '--disable-mipsdsp --disable-mipsdspr2', d)} \
+	--cpu=${@cpu(d)} \
 "
 
 EXTRA_OECONF_append_linux-gnux32 = " --disable-asm"
 
 do_configure() {
-    ${S}/configure ${EXTRA_OECONF}
+	${S}/configure ${EXTRA_OECONF}
 }
 
-PACKAGES =+ "libavcodec57 \
-             libavdevice \
-             libavfilter \
-             libavformat57 \
-             libavresample \
-             libav \
-             libavutil \
-             libpostproc \
-             libswresample \
-             libswscale"
+PACKAGES =+"libavcodec \
+			libavdevice \
+			libavfilter \
+			libavformat \
+			libavresample \
+			libav \
+			libavutil \
+			libpostproc \
+			libswresample \
+			libswscale \
+"
 
 FILES_libavcodec = "${libdir}/libavcodec${SOLIBS}"
 FILES_libavdevice = "${libdir}/libavdevice${SOLIBS}"
