@@ -56,6 +56,7 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-satfinder \
 	enigma2-plugin-systemplugins-skinselector \
 	enigma2-plugin-systemplugins-softwaremanager \
+	enigma2-plugin-systemplugins-videoenhancement
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
 	enigma2-plugin-systemplugins-osdpositionsetup \
