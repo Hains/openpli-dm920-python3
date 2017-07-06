@@ -1,6 +1,9 @@
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
+SRC_URI += "file://get-rid-of-orgdream.patch \
+"
+
 python do_cleanup () {
     boxtypes = [
         ('dm8000', 'dm8000.png', 'dmm1.png', 'dmm1.html'),
@@ -70,7 +73,7 @@ python do_cleanup () {
         ('sh1', 'sh1.png', 'sh1.png', 'sh1.html'),
     ]
 
-    import os
+    import subprocess, os
 
     pluginpath = "%s%s" % (d.getVar('D', True), d.getVar('PLUGINPATH', True))
     images = "%s/public/images/" % pluginpath
@@ -92,9 +95,6 @@ python do_cleanup () {
                 exception = 'et7500.png'
             elif x[0] == 'xpeedc':
                 exception = 'xpeedlx.png'
-            elif x[0] == 'dm8000':
-                dir = '%s/public/static/remotes' % pluginpath
-                os.system('cp %s/dmm1.html %s/dmm.html' % (dir, dir))
             break
 
     for root, dirs, files in os.walk(images + 'boxes', topdown=False):
