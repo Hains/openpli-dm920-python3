@@ -73,7 +73,7 @@ python do_cleanup () {
         ('sh1', 'sh1.png', 'sh1.png', 'sh1.html'),
     ]
 
-    import subprocess, os
+    import os
 
     pluginpath = "%s%s" % (d.getVar('D', True), d.getVar('PLUGINPATH', True))
     images = "%s/public/images/" % pluginpath
