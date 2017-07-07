@@ -10,7 +10,7 @@ EXTRA_OECONF += " \
 
 EXTRA_OECONF_remove = " \
 			--with-profiling-data \
-			--with-sockets-dir=${localstatedir}/run/samba \
+			--with-sockets-dir=/run/samba \
 			"
 
 # Remove unused, add own config, init script
