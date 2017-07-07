@@ -5,14 +5,22 @@
 
 BACKUPDIR=/media/hdd
 MACADDR=`cat /sys/class/net/eth0/address | cut -b 1,2,4,5,7,8,10,11,13,14,16,17`
+SAMBACONF=/etc/samba/smb.conf
+SAMBACONFTMP=/tmp/smb.conf
 
 if [ "$1x" == "startx" ] || [ -z "$1" ]
 then
 
+# Make a safety backup of the smb.conf, we may need that later
+if [ -f ${SAMBACONF} ]
+then
+   cp ${SAMBACONF} ${SAMBACONFTMP}
+fi
+
 # Best candidate:
 #  If a MAC Address dependent backup was found, use that
 #  Always use the latest version
-#  Prefer an older MAC address dependent backup to a newer one without it 
+#  Prefer an older MAC address dependent backup to a newer one without it
 for candidate in `cut -d ' ' -f 2 /proc/mounts | grep '^/media'`
 do
    if [ -d ${candidate}/backup ]
@@ -36,7 +44,7 @@ do
           BACKUPDIR=${candidate}
         fi
      fi
-   fi    
+   fi
 done
 
 if  [ ! -f ${BACKUPDIR}/backup/.timestamp ]
@@ -68,8 +76,8 @@ echo ${BACKUPDIR} > /tmp/backupdir
 
 if [ -s /tmp/fstab ]
 then
-		awk '!a[$0]++' /tmp/fstab /etc/fstab >/tmp/fstab.merged
-		mv /tmp/fstab.merged /etc/fstab
+        awk '!a[$0]++' /tmp/fstab /etc/fstab >/tmp/fstab.merged
+        mv /tmp/fstab.merged /etc/fstab
 	grep '/media/' /tmp/fstab | while read entry
 	do
 	        # echo splits entry on whitespace, cut to get the second entry
@@ -98,6 +106,20 @@ then
 		cp /tmp/passwds /etc/passwd
 	fi
 	rm -f /tmp/passwds
+fi
+
+if [ -f ${SAMBACONFTMP} ]
+then
+    # if we have an smb.conf from Samba 3.x
+	if grep -q "netbios name" ${SAMBACONF}
+	then
+	    # , save it and restore the default Samba 4.x config
+		mv ${SAMBACONF} ${SAMBACONF}.old
+		mv ${SAMBACONFTMP} ${SAMBACONF}
+	else
+		# delete the safety copy
+		rm ${SAMBACONFTMP}
+	fi
 fi
 
 rm -f /tmp/crontab /tmp/passwd /tmp/fstab
