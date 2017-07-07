@@ -41,5 +41,22 @@ INITSCRIPT_PARAMS_${PN}-base = "defaults"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
+# remove libnetapi package witch contains a lot of cross dependencies from libsamba-base
+PACKAGES_remove = "libnetapi"
+
+# move all libraries from samba to libsamba-base to fix circular dependencies
+FILES_lib${PN}-base += "\
+                    ${libdir}/*.so.* \
+                    ${libdir}/samba/*.so \
+                    ${libdir}/samba/*.so.* \
+"
+
+# move some libraries from libsamba-base to libwbclient to fix circular dependencies
+FILES_libwbclient = "${libdir}/libwbclient.so.* \
+                     ${libdir}/samba/libwinbind-client.so \
+                     ${libdir}/samba/libwinbind-client-samba4.so \
+                     ${libdir}/samba/libreplace-samba4.so \
+"
+
 # workaround to get rid of perl dependency
 DEPENDS_remove = "perl"
