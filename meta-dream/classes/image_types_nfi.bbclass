@@ -43,4 +43,4 @@ EXTRA_IMAGECMD_ubi ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
 
 do_image_ubi[depends] += "dreambox-buildimage-native:do_populate_sysroot"
 
-IMAGE_TYPES += "jffs2 ubi"
+IMAGE_TYPES += "jffs2 ubifs"
