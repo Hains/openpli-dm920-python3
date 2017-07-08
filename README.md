@@ -7,7 +7,7 @@ Thanks to OpenPLi to make this possible.
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded taken from master branch(including gcc 7.1.0).<br>
 -GStreamer 1.13.0<br>
--Dreambox kernel 3.2.89<br>
+-Dreambox kernel 3.2.90<br>
 
 And some other things(debuglevel via GUI, proper driver date, splash logo, some skin changes etc), see enigma2.bb.
 
