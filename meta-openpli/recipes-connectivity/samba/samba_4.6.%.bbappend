@@ -51,17 +51,17 @@ FILES_${PN}-base += "${sysconfdir}/samba/smb.conf"
 
 # move all libraries from samba to libsamba-base to fix circular dependencies
 FILES_lib${PN}-base += "\
-                    ${libdir}/*.so.* \
-                    ${libdir}/samba/*.so \
-                    ${libdir}/samba/*.so.* \
-"
+					${libdir}/*.so.* \
+					${libdir}/samba/*.so \
+					${libdir}/samba/*.so.* \
+					"
 
 # move some libraries from libsamba-base to libwbclient to fix circular dependencies
-FILES_libwbclient = "${libdir}/libwbclient.so.* \
-                     ${libdir}/samba/libwinbind-client.so \
-                     ${libdir}/samba/libwinbind-client-samba4.so \
-                     ${libdir}/samba/libreplace-samba4.so \
-"
+FILES_libwbclient ="${libdir}/libwbclient.so.* \
+					${libdir}/samba/libwinbind-client.so \
+					${libdir}/samba/libwinbind-client-samba4.so \
+					${libdir}/samba/libreplace-samba4.so \
+					"
 
 # workaround to get rid of perl dependency
 DEPENDS_remove = "perl"
