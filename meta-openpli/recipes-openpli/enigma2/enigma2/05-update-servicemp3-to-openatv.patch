@@ -230,14 +230,6 @@ index aae443b..76e85c4 100644
  	else if ( strcasecmp(ext, ".cda") == 0)
  		m_sourceinfo.containertype = ctCDA;
  	if ( strcasecmp(ext, ".dat") == 0 )
-@@ -530,6 +644,7 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
- 		m_sourceinfo.is_streaming = TRUE;
- 
- 	gchar *uri;
-+
- 	gchar *suburi = NULL;
- 
- 	pos = m_ref.path.find("&suburi=");
 @@ -600,6 +715,26 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  #endif
  	if ( m_gst_playbin )
