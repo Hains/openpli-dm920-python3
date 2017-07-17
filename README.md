@@ -69,11 +69,11 @@ With these files you can change e.g. hostname or ipadress and change path corres
 <br>
 To update the image, jus run:
 ```
-make image
+make image                         // update image.
 ```
 or  
 ```
-make feed                          //This update image and feed.
+make feed                          // update image and feed.
 ```
 In case bitbake complains about MACHINE, you have to set 
 ```
@@ -82,9 +82,9 @@ MACHINE="dm8000"
 in file /site.conf
 <br>
 <br>
-To update build-environment, just run
+To update build-environment including all submodules, just run
 ```
-make update                         //This also update all submodules.
+make update                         
 ```
 
 For 3rd-party plugins, change link in:<br>
