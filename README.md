@@ -32,7 +32,7 @@ cd openpli-dm8000-oe-core
 
 MACHINE=dm8000 make image
 ```
-when the build is finished, the image openpli-enigma2-homebuild-dm8000.nfi is in directory:
+When the build is finished, the image openpli-enigma2-homebuild-dm8000.nfi is in directory:
 
 build/tmp/deploy/images/dm8000/
 
