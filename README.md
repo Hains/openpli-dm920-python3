@@ -6,7 +6,7 @@ Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of 8th july, 2017(including gcc 7.1.0/c++11).<br>
+&nbsp;with git snapshot of 8th july, 2017(including gcc 7.1.0/C++11).<br>
 -GStreamer 1.13.0<br>
 -Dreambox kernel 3.2.90<br>
 
@@ -32,9 +32,9 @@ cd openpli-dm8000-oe-core
 
 MACHINE=dm8000 make image
 ```
-At the end of the build, the image is in:
+when the build is finished, the image openpli-enigma2-homebuild-dm8000.nfi is in directory:
 
-build/tmp/deploy/images/dm8000/openpli-enigma2-homebuild-dm8000.nfi
+build/tmp/deploy/images/dm8000/
 
 To build feed:
 ```
@@ -67,9 +67,9 @@ When it doesn't work, with FTP you can change the opkg config files of the box i
 With these files you can change e.g. hostname or ipadress and change path corresponding to the symlinks.
 <br>
 <br>
-To update the image, jus run:
+To update the image, run:
 ```
-make image                         // update image.
+make image                         // update image only.
 ```
 or  
 ```
@@ -82,18 +82,18 @@ MACHINE="dm8000"
 in file /site.conf
 <br>
 <br>
-To update build-environment including all submodules, just run
+To update build-environment including all submodules, run:
 ```
-make update                         
+make update
 ```
 
 For 3rd-party plugins, change link in:<br>
 <br>
 3rd-party-dm8000-feed.conf<br>
-into:<br>
+Into:<br>
 src/gz openpli-3rd-party-dm8000 http://downloads.pli-images.org/feeds/openpli-4/3rd-party-dm8000<br>
 
-and in file:<br>
+And in file:<br>
 3rd-party-feed.conf<br>
-change link into:<br>
+Change link into:<br>
 src/gz openpli-3rd-party http://downloads.pli-images.org/feeds/openpli-4/3rd-party<br>
