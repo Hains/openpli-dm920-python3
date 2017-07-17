@@ -5,7 +5,7 @@ https://github.com/OpenPLi/openpli-oe-core/commits/develop
 Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
--Submodules bitbake, openembedded-core and meta-openembedded taken from master branch,<br>
+-Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
 &nbsp;with git snapshot of 8th july, 2017(including gcc 7.1.0/c++11).<br>
 -GStreamer 1.13.0<br>
 -Dreambox kernel 3.2.90<br>
