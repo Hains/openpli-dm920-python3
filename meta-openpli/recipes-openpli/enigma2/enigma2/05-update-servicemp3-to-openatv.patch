@@ -53,13 +53,12 @@ index aae443b..76e85c4 100644
  // eServiceFactoryMP3
  
  /*
-@@ -118,6 +153,8 @@ eServiceFactoryMP3::eServiceFactoryMP3()
- 		extensions.push_back("rmvb");
+@@ -119,6 +153,7 @@ eServiceFactoryMP3::eServiceFactoryMP3()
  		extensions.push_back("ogm");
  		extensions.push_back("ogv");
-+		extensions.push_back("webm");
-+		extensions.push_back("m3u8");
  		extensions.push_back("stream");
++		extensions.push_back("m3u8");
+ 		extensions.push_back("webm");
  		sc->addServiceFactory(eServiceFactoryMP3::id, this, extensions);
  	}
 @@ -136,10 +173,53 @@ eServiceFactoryMP3::~eServiceFactoryMP3()
@@ -186,18 +185,8 @@ index aae443b..76e85c4 100644
  	{
  		m_sourceinfo.containertype = ctMPEGPS;
  		m_sourceinfo.is_video = TRUE;
-@@ -508,17 +596,43 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
- 		m_sourceinfo.containertype = ctASF;
- 		m_sourceinfo.is_video = TRUE;
- 	}
-+	else if ( strcasecmp(ext, ".webm") == 0)
-+	{
-+		m_sourceinfo.containertype = ctMKV;
-+		m_sourceinfo.is_video = TRUE;
-+	}
- 	else if ( strcasecmp(ext, ".m4a") == 0 )
- 	{
- 		m_sourceinfo.containertype = ctMP4;
+@@ -513,12 +596,33 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+  		m_sourceinfo.containertype = ctMP4;
  		m_sourceinfo.audiotype = atAAC;
  	}
 +	else if ( strcasecmp(ext, ".m3u8") == 0 )
@@ -2188,15 +2177,6 @@ diff --git a/lib/service/servicemp3.h b/lib/service/servicemp3.h
  private:
  	ePtr<eStaticServiceMP3Info> m_service_info;
  };
-@@ -118,7 +119,7 @@ typedef struct _GstElement GstElement;
- 
- typedef enum { atUnknown, atMPEG, atMP3, atAC3, atDTS, atAAC, atPCM, atOGG, atFLAC, atWMA } audiotype_t;
- typedef enum { stUnknown, stPlainText, stSSA, stASS, stSRT, stVOB, stPGS } subtype_t;
--typedef enum { ctNone, ctMPEGTS, ctMPEGPS, ctMKV, ctAVI, ctMP4, ctVCD, ctCDA, ctASF, ctOGG } containertype_t;
-+typedef enum { ctNone, ctMPEGTS, ctMPEGPS, ctMKV, ctAVI, ctMP4, ctVCD, ctCDA, ctASF, ctOGG, ctWEBM } containertype_t;
- 
- class eServiceMP3: public iPlayableService, public iPauseableService,
- 	public iServiceInformation, public iSeekableService, public iAudioTrackSelection, public iAudioChannelSelection,
 @@ -212,6 +213,7 @@ public:
  	void AmlSwitchAudio(int index);
  	unsigned int get_pts_pcrscr(void);
