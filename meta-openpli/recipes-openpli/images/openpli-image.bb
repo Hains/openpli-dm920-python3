@@ -27,7 +27,6 @@ IMAGE_INSTALL = "\
 	python-pysmb \
 	sdparm \
 	tuxbox-common \
-	tuxbox-links \
 	tzdata \
 	volatile-media \
 	vsftpd \
