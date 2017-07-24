@@ -5,7 +5,7 @@ LICENSE = "GPLv2 & LGPLv2.1"
 LIC_FILES_CHKSUM = "file://COPYING-GPL;md5=1ed9d357695b2e3ef099df37fed63d96 \
                     file://COPYING-LGPL;md5=d370feaa1c9edcdbd29ca27ea3d2304d"
 SECTION = "multimedia"
-SRCREV = "19601"
+SRCREV = "19607"
 PV = "10.2+svnr${SRCPV}"
 PR = "r1"
 
