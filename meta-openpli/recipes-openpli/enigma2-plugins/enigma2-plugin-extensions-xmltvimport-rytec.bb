@@ -20,4 +20,5 @@ do_install() {
 	install -m 644 ${S}/rytec.sources.xml.${PV} ${D}/etc/epgimport/rytec.sources.xml
 }
 
+SRC_URI[md5sum] = "3a5343a927e291159632304a05071c8d"
 SRC_URI[sha256sum] = "1b9f17a6845357b9c8cd4be495581aa6825ef2bd55da9f3b6880398d01c22b9a"
