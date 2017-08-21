@@ -116,9 +116,9 @@ python populate_packages_prepend () {
                 d.setVar('MAINTAINER_' + full_package, line[12:])
 
 
-    mydir = d.getVar('D', True) + "/../git/"
-    for package in d.getVar('PACKAGES', True).split():
-        getControlLines(mydir, package.split('-')[-1])
+    mydir = d.getVar('D') + "/../git/"
+    for package in d.getVar('PACKAGES').split():
+        getControlLines(mydir, d, package.split('-')[-1])
 }
 
 do_install_append() {
