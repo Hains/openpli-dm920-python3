@@ -118,7 +118,7 @@ python populate_packages_prepend () {
 
     mydir = d.getVar('D') + "/../git/"
     for package in d.getVar('PACKAGES').split():
-        getControlLines(mydir, d, package.split('-')[-1])
+        getControlLines(mydir, package.split('-')[-1])
 }
 
 do_install_append() {
