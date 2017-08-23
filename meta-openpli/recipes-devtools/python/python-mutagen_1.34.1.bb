@@ -8,7 +8,7 @@ PR = "r1"
 DEPENDS = "python"
 RDEPENDS_${PN} = "python-shell"
 
-SRC_URI = "https://bitbucket.org/lazka/mutagen/downloads/mutagen-${PV}.tar.gz \
+SRC_URI = "https://github.com/quodlibet/mutagen/releases/download/release-${PV}/mutagen-${PV}.tar.gz \
 		  "
 
 SRC_URI[md5sum] = "5509f20ae750ebe44179174e3595981a"
