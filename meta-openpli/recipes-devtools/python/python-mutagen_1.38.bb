@@ -11,8 +11,8 @@ RDEPENDS_${PN} = "python-shell"
 SRC_URI = "https://github.com/quodlibet/mutagen/releases/download/release-${PV}/mutagen-${PV}.tar.gz \
 		  "
 
-SRC_URI[md5sum] = "5509f20ae750ebe44179174e3595981a"
-SRC_URI[sha256sum] = "aacd667ef1f4fa7b7c201f36b2a6eda1ead3c92331017601d8082af62a7ee461"
+SRC_URI[md5sum] = "c54443dfb8d4ac088eb2a0c4fd569772"
+SRC_URI[sha256sum] = "23990f70ae678c7b8df3fd59e2adbefa5fe392c36da8c71d2254b21c6cd78766"
 
 S = "${WORKDIR}/mutagen-${PV}"
 
