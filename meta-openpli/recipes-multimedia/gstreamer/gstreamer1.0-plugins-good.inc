@@ -10,7 +10,7 @@ PACKAGECONFIG ??= " \
 	${GSTREAMER_ORC} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
-	cairo flac gdk-pixbuf gudev jpeg lame mpg123 soup speex taglib v4l2 wavpack vpx \
+	cairo flac gdk-pixbuf gudev jpeg lame libpng mpg123 soup speex taglib v4l2 wavpack vpx \
 	"
 
 X11DEPENDS = "virtual/libx11 libsm libxrender libxfixes libxdamage"
