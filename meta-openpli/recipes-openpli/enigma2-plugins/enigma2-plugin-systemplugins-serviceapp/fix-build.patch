@@ -1,0 +1,24 @@
+diff --git a/configure.ac b/configure.ac
+index 870f895..c5bff3e 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -60,6 +60,7 @@ AC_LINK_IFELSE(
+     SWIG_VOID(RESULT) stream(ePtr<iStreamableService> &SWIG_OUTPUT){};
+     SWIG_VOID(RESULT) streamed(ePtr<iStreamedService> &SWIG_OUTPUT){};
+     SWIG_VOID(RESULT) keys(ePtr<iServiceKeys> &SWIG_OUTPUT){};
++    void setQpipMode(bool value, bool audio){};
+ };],[MyPlayableService service;])
+     ],[
+         AC_MSG_RESULT([yes])
+diff --git a/src/serviceapp/serviceapp.h b/src/serviceapp/serviceapp.h
+index 85be8fa..fb6efd8 100644
+--- a/src/serviceapp/serviceapp.h
++++ b/src/serviceapp/serviceapp.h
+@@ -113,6 +113,7 @@ public:
+ 	RESULT stream(ePtr<iStreamableService> &ptr){ ptr=0; return -1;};
+ 	RESULT streamed(ePtr<iStreamedService> &ptr){ ptr=0; return -1;};
+ 	RESULT keys(ePtr<iServiceKeys> &ptr){ ptr=0; return -1;};
++	void setQpipMode(bool value, bool audio){};
+ 
+ 	// iPausableService
+ 	RESULT pause();
