@@ -10,7 +10,7 @@ PACKAGECONFIG ??= " \
 	${GSTREAMER_ORC} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
-	cairo flac gdk-pixbuf gudev jpeg libpng mpg123 soup speex taglib v4l2 wavpack vpx \
+	cairo flac gdk-pixbuf gudev jpeg lame mpg123 soup speex taglib v4l2 wavpack vpx \
 	"
 
 X11DEPENDS = "virtual/libx11 libsm libxrender libxfixes libxdamage"
@@ -22,6 +22,7 @@ PACKAGECONFIG[gdk-pixbuf]	= "--enable-gdk_pixbuf,--disable-gdk_pixbuf,gdk-pixbuf
 PACKAGECONFIG[gudev]		= "--with-gudev,--without-gudev,libgudev"
 PACKAGECONFIG[jack]			= "--enable-jack,--disable-jack,jack"
 PACKAGECONFIG[jpeg]			= "--enable-jpeg,--disable-jpeg,jpeg"
+PACKAGECONFIG[lame]			= "--enable-lame,--disable-lame,lame"
 PACKAGECONFIG[libpng]		= "--enable-libpng,--disable-libpng,libpng"
 PACKAGECONFIG[libv4l2]		= "--with-libv4l2,--without-libv4l2,libv4l2"
 PACKAGECONFIG[mpg123]		= "--enable-mpg123,--disable-mpg123,mpg123"
