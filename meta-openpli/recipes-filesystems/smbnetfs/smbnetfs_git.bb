@@ -18,7 +18,7 @@ PKGV = "${GITPKGVTAG}"
 
 SRCREV = "21c63ed60202e5540613d4c822a57a0b81764499"
 
-SRC_URI = " git://smbnetfs.git.sourceforge.net/gitroot/smbnetfs/smbnetfs;branch=master \
+SRC_URI = " git://git.code.sf.net/p/smbnetfs/git;branch=master \
 			file://configure.patch \
 			file://Using-PKG_CHECK_MODULES-to-found-headers-and-libraries.patch \
 			file://smbnetfs.common.conf file://smbnetfs.user.conf file://init \
