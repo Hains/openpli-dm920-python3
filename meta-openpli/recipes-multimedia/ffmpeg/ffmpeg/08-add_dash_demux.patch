@@ -26,10 +26,10 @@ diff -uNr ffmpeg-3.3_orig/configure ffmpeg-3.3_dash_demux/configure
  dts_demuxer_select="dca_parser"
  dtshd_demuxer_select="dca_parser"
 @@ -5734,6 +5737,7 @@
- disabled  zlib || check_lib zlib   zlib.h      zlibVersion    -lz
- disabled bzlib || check_lib bzlib bzlib.h BZ2_bzlibVersion    -lbz2
- disabled  lzma || check_lib lzma   lzma.h lzma_version_number -llzma
-+disabled  xml2 || check_lib xml2   libxml/xmlversion.h xmlCheckVersion -lxml2
+ enabled  zlib && check_lib zlib   zlib.h      zlibVersion    -lz
+ enabled bzlib && check_lib bzlib bzlib.h BZ2_bzlibVersion    -lbz2
+ enabled  lzma && check_lib lzma   lzma.h lzma_version_number -llzma
++enabled  xml2 && check_lib xml2   libxml/xmlversion.h xmlCheckVersion -lxml2
  
  check_lib libm math.h sin -lm && LIBM="-lm"
  disabled crystalhd || check_lib crystalhd "stdint.h libcrystalhd/libcrystalhd_if.h" DtsCrystalHDVersion -lcrystalhd
@@ -2116,7 +2116,7 @@ diff -uNr ffmpeg-3.3_orig/libavformat/Makefile ffmpeg-3.3_dash_demux/libavformat
 @@ -134,6 +134,7 @@
  OBJS-$(CONFIG_DATA_DEMUXER)              += rawdec.o
  OBJS-$(CONFIG_DATA_MUXER)                += rawdec.o
- OBJS-$(CONFIG_DASH_MUXER)                += dashenc.o
+ OBJS-$(CONFIG_DASH_MUXER)                += dash.o dashenc.o
 +OBJS-$(CONFIG_DASH_DEMUXER)              += dashdec.o
  OBJS-$(CONFIG_DAUD_DEMUXER)              += dauddec.o
  OBJS-$(CONFIG_DAUD_MUXER)                += daudenc.o
