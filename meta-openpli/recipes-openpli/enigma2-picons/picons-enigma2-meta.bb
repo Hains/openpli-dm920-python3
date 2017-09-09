@@ -14,6 +14,4 @@ DEPENDS = " \
 		enigma2-plugin-picons-ziggo.reflection-black-220x132 \
 		enigma2-plugin-picons-ziggo.transparent-white-220x132 \
 		enigma2-plugin-picons-ziggo.transparent-black-220x132 \
-		enigma2-plugin-picons-satellite.metal-look-100x60 \
-		enigma2-plugin-picons-satellite.metal-look-220x132 \
-		"
+"
