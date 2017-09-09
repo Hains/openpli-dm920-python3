@@ -173,7 +173,8 @@ SRC_URI += "file://01-fix-build-with-gcc7.patch \
 			file://03-fix-wrong-driver-date.patch \
 			file://04-separate-event-name-and-full-description.patch \
 			file://05-update-servicemp3-to-openatv.patch \
-			"
+			file://06-revert-commit-13f799b.patch \
+"
 
 LDFLAGS_prepend = " -lxml2 "
 
