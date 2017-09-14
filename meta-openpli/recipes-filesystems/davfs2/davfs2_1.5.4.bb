@@ -18,7 +18,7 @@ SRC_URI = "http://download.savannah.nongnu.org/releases/davfs2/${P}.tar.gz \
            file://davfs2.cfg \
 "
 
-inherit autotools pkgconfig useradd
+inherit autotools pkgconfig useradd gettext
 
 USERADD_PACKAGES = "davfs2"
 USERADD_PARAM_davfs2 = "--system --home /var/run/mount.davfs \
