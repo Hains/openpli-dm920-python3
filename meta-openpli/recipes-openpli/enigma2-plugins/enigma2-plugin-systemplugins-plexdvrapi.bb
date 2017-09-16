@@ -21,6 +21,8 @@ EXTRA_OECONF = " \
 
 S = "${WORKDIR}/git"
 
+DEPENDS = "enigma2"
+
 RDEPENDS_${PN} = " \
     python-argparse \
     "
