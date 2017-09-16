@@ -1,57 +1,49 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.73"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.74"
 
 COMPATIBLE_MACHINE = "dm8000"
 
-PATCHLEVEL = "92"
+PATCHLEVEL = "93"
 
 SRC_URI = " \
 			${KERNELORG_MIRROR}/linux/kernel/v3.x/linux-3.2.tar.bz2;name=kernel \
 			${KERNELORG_MIRROR}/linux/kernel/v3.x/patch-3.2.${PATCHLEVEL}.xz;apply=yes;name=kernel-patch \
-			file://remove-duplicate-tcp-filter-hook-in-ipv6.patch \
-			file://linux-dreambox.patch \
 			http://download.filesystems.org/unionfs/unionfs-2.x-latest/unionfs-2.6_for_3.2.62.diff.gz;name=unionfs \
-			file://change-function-to-setattr-prepare.patch \
-			file://clear_sublevel.patch \
-			file://0001-Revert-MIPS-Fix-potencial-corruption.patch \
-			file://fadvise_dontneed_change.patch \
-			file://fix-proc-cputype.patch \
-			file://mips-refactor-clearpage-and-copypage.patch \
-			file://rtl8712-backport-b.patch \
-			file://rtl8712-backport-c.patch \
-			file://rtl8712-backport-d.patch \
-			file://make-3.82-hack.patch \
-			file://0001-SCSI-sd-Use-SCSI-read-write-16-with-32-bit-LBA-drive.patch;apply=no \
-			file://0002-add-crypto-api-xz-support.patch;apply=no \
-			file://0003-add-XZ-compression-support-to-UBIFS.patch;apply=no \
-			file://0004-block2mtd-add-possibility-to-change-the-writesize.patch;apply=no \
-			file://0005-block2mtd-add-possibility-to-remove-block2mtd-device.patch;apply=no \
-			file://0006-mtd-block2mtd-fix-recursive-call-of-mtd_writev.patch;apply=no \
-			file://0007-mtd-block2mtd-throttle-writes-by-calling-balance_dir.patch;apply=no \
-			file://0001-brmcnand_base-disable-flash-BBT-on-64MB-nand.patch \
-			file://0002-ubifs-add-config-option-to-use-zlib-as-default-compr.patch \
-			file://em28xx_fix_terratec_entries.patch \
-			file://em28xx_add_terratec_h5_rev3.patch \
-			file://dvb-usb-siano-always-load-smsdvb.patch \
-			file://dvb-usb-af9035.patch \
-			file://dvb-usb-a867.patch \
-			file://dvb-usb-rtl2832.patch \
-			file://dvb_usb_disable_rc_polling.patch \
-			file://dvb-usb-smsdvb_fix_frontend.patch \
-			file://0001-it913x-backport-changes-to-3.2-kernel.patch \
-			file://0001-linuxtv-api-DMM-drivers-are-now-ready-for-linux-tv-a.patch;apply=no \
-			file://rtl8712-fix-warnings.patch \
-			file://fixme-hardfloat.patch \
-			file://0001-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
-			file://kernel-add-support-for-gcc7.patch \
-			file://0001-misc-latin1-to-utf8-conversions.patch \
-			file://fix-build-with-gcc7.patch \
+			file://001-linux-dreambox-kernel.patch \
+			file://002-remove-duplicate-tcp-filter-hook-in-ipv6.patch \
+			file://003-change-function-to-setattr-prepare.patch \
+			file://004-clear_sublevel.patch \
+			file://005-Revert-MIPS-Fix-potencial-corruption.patch \
+			file://006-fadvise_dontneed_change.patch \
+			file://007-fix-proc-cputype.patch \
+			file://008-mips-refactor-clearpage-and-copypage.patch \
+			file://009-rtl8712-backport-b.patch \
+			file://010-rtl8712-backport-c.patch \
+			file://011-rtl8712-backport-d.patch \
+			file://012-make-3.82-hack.patch \
+			file://013-brmcnand_base-disable-flash-BBT-on-64MB-nand.patch \
+			file://014-ubifs-add-config-option-to-use-zlib-as-default-compr.patch \
+			file://015-em28xx_fix_terratec_entries.patch \
+			file://016-em28xx_add_terratec_h5_rev3.patch \
+			file://017-dvb-usb-siano-always-load-smsdvb.patch \
+			file://018-dvb-usb-af9035.patch \
+			file://019-dvb-usb-a867.patch \
+			file://020-dvb-usb-rtl2832.patch \
+			file://021-dvb_usb_disable_rc_polling.patch \
+			file://022-dvb-usb-smsdvb_fix_frontend.patch \
+			file://023-it913x-backport-changes-to-3.2-kernel.patch \
+			file://024-rtl8712-fix-warnings.patch \
+			file://025-fixme-hardfloat.patch \
+			file://026-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
+			file://027-kernel-add-support-for-gcc7.patch \
+			file://028-misc-latin1-to-utf8-conversions.patch \
+			file://029-fix-build-with-gcc7.patch \
 			file://defconfig \
 "
 
 SRC_URI[kernel.md5sum] = "7ceb61f87c097fc17509844b71268935"
 SRC_URI[kernel.sha256sum] = "c881fc2b53cf0da7ca4538aa44623a7de043a41f76fd5d0f51a31f6ed699d463"
-SRC_URI[kernel-patch.md5sum] = "066d1595995c67c1edd9cadd82651ea6"
-SRC_URI[kernel-patch.sha256sum] = "88bc10d4af6499b407ad2193a8d1d155a1abbece98a17066fc2d6247edca7a01"
+SRC_URI[kernel-patch.md5sum] = "8d6860556f54fe8e2eaa9fcc6a676dec"
+SRC_URI[kernel-patch.sha256sum] = "c836f9a91dc4647d19e7489a702676055f5b221f79f2f7f7d8d66af8a0bed778"
 SRC_URI[unionfs.md5sum] = "348e5021d5340f12e2968ff4eb74d45d"
 SRC_URI[unionfs.sha256sum] = "c0c449a445e9e07c5b1ba8e8c40013c0e40a5948c30a7190677d19ba7358c11a"
 
