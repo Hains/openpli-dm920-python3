@@ -55,7 +55,7 @@ RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl"
 DEPENDS = "alsa-lib zlib libogg yasm-native libxml2"
 
 PACKAGECONFIG ??= " avdevice avfilter avcodec avformat swresample swscale postproc \
-					bzlib gpl lzma theora x264 openssl libbluray libfreetype librtmp \
+					bzlib gpl lzma theora x264 openssl libbluray libfontconfig libfreetype librtmp \
 					${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xv', '', d)} \
 "
 
@@ -75,6 +75,7 @@ PACKAGECONFIG[gpl]			= "--enable-gpl,--disable-gpl"
 PACKAGECONFIG[gsm]			= "--enable-libgsm,--disable-libgsm,libgsm"
 PACKAGECONFIG[jack]			= "--enable-indev=jack,--disable-indev=jack,jack"
 PACKAGECONFIG[libbluray]	= "--enable-libbluray --enable-protocol=bluray,--disable-libbluray,libbluray"
+PACKAGECONFIG[libfontconfig]= "--enable-libfontconfig,--disable-libfontconfig,fontconfig"
 PACKAGECONFIG[libfreetype]	= "--enable-libfreetype,--disable-libfreetype,freetype"
 PACKAGECONFIG[librtmp]		= "--enable-librtmp,--disable-librtmp,rtmpdump"
 PACKAGECONFIG[libvorbis]	= "--enable-libvorbis,--disable-libvorbis,libvorbis"
