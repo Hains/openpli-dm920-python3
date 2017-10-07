@@ -5,7 +5,7 @@ HOMEPAGE = "http://code.google.com/p/opkg/"
 BUGTRACKER = "http://code.google.com/p/opkg/issues/list"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
-                    file://src/opkg.c;beginline=2;endline=21;md5=90435a519c6ea69ef22e4a88bcc52fa0"
+					file://src/opkg.c;beginline=2;endline=21;md5=90435a519c6ea69ef22e4a88bcc52fa0"
 
 DEPENDS = "libarchive"
 
@@ -13,17 +13,19 @@ inherit autotools pkgconfig systemd gitpkgv
 
 PE = "1"
 
-SRCREV = "5a6075566a7035c210a85c5b360a54538790caf6"
+SRCREV = "cc624806a6179c2d3d7b3eec4260e50ab0653c5d"
 
 PV = "0.3.5+git${SRCPV}"
 PKGV = "0.3.5+git${GITPKGV}"
 
-SRC_URI = "git://git.yoctoproject.org/opkg \
-           file://opkg-configure.service \
-           file://opkg.conf \
-           file://0001-opkg_conf-create-opkg.lock-in-run-instead-of-var-run.patch \
-           file://revert-commit-7a8c2f6.patch \
-"
+SRC_URI = " git://git.yoctoproject.org/opkg \
+			file://01-opkg_conf-create-opkg.lock-in-run-instead-of-var-run.patch \
+			file://02-revert-commit-7a8c2f6.patch \
+			file://opkg-configure.service \
+			file://opkg.conf \
+			file://modprobe \
+			file://opkg-wget \
+			"
 
 S = "${WORKDIR}/git"
 
@@ -34,15 +36,22 @@ OPKGLIBDIR = "${target_localstatedir}/lib"
 
 PACKAGECONFIG ??= ""
 
-PACKAGECONFIG[gpg] = "--enable-gpg,--disable-gpg,gpgme libgpg-error,gnupg"
-PACKAGECONFIG[curl] = "--enable-curl,--disable-curl,curl"
-PACKAGECONFIG[ssl-curl] = "--enable-ssl-curl,--disable-ssl-curl,curl openssl"
-PACKAGECONFIG[openssl] = "--enable-openssl,--disable-openssl,openssl"
-PACKAGECONFIG[sha256] = "--enable-sha256,--disable-sha256"
-PACKAGECONFIG[pathfinder] = "--enable-pathfinder,--disable-pathfinder,pathfinder"
-PACKAGECONFIG[libsolv] = "--with-libsolv,--without-libsolv,libsolv"
+PACKAGECONFIG[gpg] 			= "--enable-gpg,--disable-gpg,gpgme libgpg-error,gnupg"
+PACKAGECONFIG[curl] 		= "--enable-curl,--disable-curl,curl"
+PACKAGECONFIG[ssl-curl] 	= "--enable-ssl-curl,--disable-ssl-curl,curl openssl"
+PACKAGECONFIG[openssl] 		= "--enable-openssl,--disable-openssl,openssl"
+PACKAGECONFIG[sha256] 		= "--enable-sha256,--disable-sha256"
+PACKAGECONFIG[pathfinder] 	= "--enable-pathfinder,--disable-pathfinder,pathfinder"
+PACKAGECONFIG[libsolv] 		= "--with-libsolv,--without-libsolv,libsolv"
 
 EXTRA_OECONF_class-native = "--localstatedir=/${@os.path.relpath('${localstatedir}', '${STAGING_DIR_NATIVE}')} --sysconfdir=/${@os.path.relpath('${sysconfdir}', '${STAGING_DIR_NATIVE}')}"
+
+do_install_prepend() {
+	install -d ${D}${datadir}/opkg/intercept
+	install -m 755 ${WORKDIR}/modprobe ${D}${datadir}/opkg/intercept/
+	install -d ${D}${bindir}
+	install -m 755 ${WORKDIR}/opkg-wget ${D}${bindir}/
+}
 
 do_install_append () {
 	install -d ${D}${sysconfdir}/opkg
@@ -66,13 +75,15 @@ do_install_append () {
 RDEPENDS_${PN} = "${VIRTUAL-RUNTIME_update-alternatives} opkg-arch-config run-postinsts libarchive"
 RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN}_class-nativesdk = ""
+RDEPENDS_libopkg += "opkg-wget"
 RREPLACES_${PN} = "opkg-nogpg opkg-collateral"
 RCONFLICTS_${PN} = "opkg-collateral"
 RPROVIDES_${PN} = "opkg-collateral"
 
-PACKAGES =+ "libopkg"
+PACKAGES =+ "libopkg opkg-wget"
 
 FILES_libopkg = "${libdir}/*.so.* ${OPKGLIBDIR}/opkg/"
+FILES_opkg-wget = "${bindir}/opkg-wget"
 FILES_${PN} += "${systemd_unitdir}/system/"
 
 BBCLASSEXTEND = "native nativesdk"
