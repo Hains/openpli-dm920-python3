@@ -1,5 +1,5 @@
-DESCRIPTION = "Rytec's sources and channels for the XMLTV importer"
-MAINTAINER = "MiLo, rytec @ openpli.org"
+DESCRIPTION = "Rytec's XMLTV sources and channels for the EPGImporter"
+MAINTAINER = "Rytec forum @ forums.openpli.org"
 
 require conf/license/openpli-gplv2.inc
 
@@ -10,6 +10,9 @@ PV = "20170822"
 SRC_URI = "http://www.vuplus-community.net/rytec/sources/rytec.sources.xml.${PV}.gz"
 
 S = "${WORKDIR}"
+
+RREPLACES_${PN} = "enigma2-plugin-extensions-xmltvimport-rytec"
+CONFLICTS_${PN} = "enigma2-plugin-extensions-xmltvimport-rytec"
 
 PACKAGES = "${PN}"
 

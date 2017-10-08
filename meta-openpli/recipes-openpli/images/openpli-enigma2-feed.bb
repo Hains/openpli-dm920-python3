@@ -103,6 +103,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
+	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-fallbackreceiver \
 	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-iptvplayer \
@@ -113,7 +114,6 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-subssupport \
 	enigma2-plugin-extensions-tmbd \
 	enigma2-plugin-extensions-vcs \
-	enigma2-plugin-extensions-xmltvimport \
 	enigma2-plugin-extensions-xmodem \
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-security-firewall \
