@@ -109,6 +109,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-iptvplayer \
 	enigma2-plugin-extensions-lcd4linux \
+	enigma2-plugin-extensions-managerautofs \
 	enigma2-plugin-extensions-modifyplifullhd \
 	enigma2-plugin-extensions-openmultiboot \
 	enigma2-plugin-extensions-refreshbouquet \
