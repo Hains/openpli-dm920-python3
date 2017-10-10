@@ -12,7 +12,7 @@ SRC_URI = "http://www.vuplus-community.net/rytec/sources/rytec.sources.xml.${PV}
 S = "${WORKDIR}"
 
 RREPLACES_${PN} = "enigma2-plugin-extensions-xmltvimport-rytec"
-CONFLICTS_${PN} = "enigma2-plugin-extensions-xmltvimport-rytec"
+RCONFLICTS_${PN} = "enigma2-plugin-extensions-xmltvimport-rytec"
 
 PACKAGES = "${PN}"
 
