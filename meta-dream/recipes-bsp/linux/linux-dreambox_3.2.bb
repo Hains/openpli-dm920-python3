@@ -1,8 +1,8 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.74"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.75"
 
 COMPATIBLE_MACHINE = "dm8000"
 
-PATCHLEVEL = "93"
+PATCHLEVEL = "94"
 
 SRC_URI = " \
 			${KERNELORG_MIRROR}/linux/kernel/v3.x/linux-3.2.tar.bz2;name=kernel \
@@ -15,7 +15,7 @@ SRC_URI = " \
 			file://005-Revert-MIPS-Fix-potencial-corruption.patch \
 			file://006-fadvise_dontneed_change.patch \
 			file://007-fix-proc-cputype.patch \
-			file://008-mips-refactor-clearpage-and-copypage.patch \
+			file://008-misc-latin1-to-utf8-conversions.patch \
 			file://009-rtl8712-backport-b.patch \
 			file://010-rtl8712-backport-c.patch \
 			file://011-rtl8712-backport-d.patch \
@@ -35,15 +35,16 @@ SRC_URI = " \
 			file://025-fixme-hardfloat.patch \
 			file://026-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
 			file://027-kernel-add-support-for-gcc7.patch \
-			file://028-misc-latin1-to-utf8-conversions.patch \
-			file://029-fix-build-with-gcc7.patch \
+			file://028-fix-build-with-gcc7.patch \
+			file://029-Revert-cpuset-PF_SPREAD_PAGE-and-PF_SPREAD_SLAB-shou.patch \
+			file://030-Revert-sched-add-macros-to-define-bitops-for-task-at.patch \
 			file://defconfig \
 "
 
 SRC_URI[kernel.md5sum] = "7ceb61f87c097fc17509844b71268935"
 SRC_URI[kernel.sha256sum] = "c881fc2b53cf0da7ca4538aa44623a7de043a41f76fd5d0f51a31f6ed699d463"
-SRC_URI[kernel-patch.md5sum] = "8d6860556f54fe8e2eaa9fcc6a676dec"
-SRC_URI[kernel-patch.sha256sum] = "c836f9a91dc4647d19e7489a702676055f5b221f79f2f7f7d8d66af8a0bed778"
+SRC_URI[kernel-patch.md5sum] = "179547c25a715798d93005cf423b684d"
+SRC_URI[kernel-patch.sha256sum] = "67e6decb1358fe532b18021d019947530994e416d3b37d46d1dc1e1a588bc968"
 SRC_URI[unionfs.md5sum] = "348e5021d5340f12e2968ff4eb74d45d"
 SRC_URI[unionfs.sha256sum] = "c0c449a445e9e07c5b1ba8e8c40013c0e40a5948c30a7190677d19ba7358c11a"
 

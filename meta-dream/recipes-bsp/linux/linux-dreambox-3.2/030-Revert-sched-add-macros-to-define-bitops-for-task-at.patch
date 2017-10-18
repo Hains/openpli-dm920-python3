@@ -1,0 +1,47 @@
+From 9b3acf0e9851557f664dad7e7b14233b527c6d52 Mon Sep 17 00:00:00 2001
+From: Hains van den Bosch <hainsvdbosch@ziggo.nl>
+Date: Sun, 15 Oct 2017 18:16:06 +0200
+Subject: [PATCH] Revert "sched: add macros to define bitops for task atomic
+ flags" 
+ Box doesn't boot. Stuck at splash logo.
+ Caused by adding unsigned long atomic_flags to structure task_struct.
+ This reverts commit
+ 4fce5e64991fc0a02e47e525ce72f33def17b7ef.
+
+---
+ include/linux/sched.h | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/include/linux/sched.h b/include/linux/sched.h
+index 2d4ab762d479..96caf9709f16 100644
+--- a/include/linux/sched.h
++++ b/include/linux/sched.h
+@@ -1313,8 +1313,6 @@ struct task_struct {
+ 	unsigned sched_reset_on_fork:1;
+ 	unsigned sched_contributes_to_load:1;
+ 
+-	unsigned long atomic_flags; /* Flags needing atomic access. */
+-
+ 	pid_t pid;
+ 	pid_t tgid;
+ 
+@@ -1848,16 +1846,6 @@ extern void thread_group_times(struct task_struct *p, cputime_t *ut, cputime_t *
+ #define PFA_SPREAD_PAGE  1      /* Spread page cache over cpuset */
+ #define PFA_SPREAD_SLAB  2      /* Spread some slab caches over cpuset */
+ 
+-#define TASK_PFA_TEST(name, func)					\
+-	static inline bool task_##func(struct task_struct *p)		\
+-	{ return test_bit(PFA_##name, &p->atomic_flags); }
+-#define TASK_PFA_SET(name, func)					\
+-	static inline void task_set_##func(struct task_struct *p)	\
+-	{ set_bit(PFA_##name, &p->atomic_flags); }
+-#define TASK_PFA_CLEAR(name, func)					\
+-	static inline void task_clear_##func(struct task_struct *p)	\
+-	{ clear_bit(PFA_##name, &p->atomic_flags); }
+-
+ /*
+  * task->jobctl flags
+  */
+-- 
+2.14.1
+
