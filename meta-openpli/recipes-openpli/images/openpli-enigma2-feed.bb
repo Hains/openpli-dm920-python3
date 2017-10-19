@@ -69,6 +69,7 @@ OPTIONAL_PACKAGES += " \
 	python-ntplib \
 	python-requests \
 	rsync \
+	rtl-sdr \
 	rtorrent \
 	sabnzbd \
 	samba \
