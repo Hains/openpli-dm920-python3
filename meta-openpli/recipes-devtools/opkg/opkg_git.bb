@@ -13,7 +13,7 @@ inherit autotools pkgconfig systemd gitpkgv
 
 PE = "1"
 
-SRCREV = "cc624806a6179c2d3d7b3eec4260e50ab0653c5d"
+SRCREV = "8e9af9609e209c7ef13e70f8121e0a24dbe6d177"
 
 PV = "0.3.5+git${SRCPV}"
 PKGV = "0.3.5+git${GITPKGV}"
