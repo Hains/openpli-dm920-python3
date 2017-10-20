@@ -1,6 +1,10 @@
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
+RDEPENDS_${PN} += " python-hyperlink \
+					python-asn1crypto \
+"
+
 SRC_URI += "file://get-rid-of-orgdream.patch \
 "
 
