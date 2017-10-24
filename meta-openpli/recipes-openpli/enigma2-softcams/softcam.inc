@@ -63,7 +63,7 @@ EOF
 # Install routine, should be ok for most cams.
 do_install_append () {
 	install -d ${D}/etc/init.d
-	install -m 755 ${S}/init.${CAMNAME} ${D}/etc/init.d/softcam.${CAMNAME}
+	install -m 755 ${B}/init.${CAMNAME} ${D}/etc/init.d/softcam.${CAMNAME}
 }
 
 # If no cam selected yet, install and start this cam (and don't start it on the build host).
