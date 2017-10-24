@@ -47,7 +47,7 @@ INITSCRIPT_PACKAGES = "${PN}-base"
 INITSCRIPT_NAME_${PN}-base = "samba.sh"
 INITSCRIPT_PARAMS_${PN}-base = "defaults"
 
-CONFFILES_${BPN}-common = "${sysconfdir}/samba/smb.conf"
+CONFFILES_${BPN}-base = "${sysconfdir}/samba/smb.conf"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
