@@ -9,8 +9,8 @@ RDEPENDS_${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-PV = "35+git${SRCPV}"
-PKGV = "35+git${GITPKGV}"
+PV = "36+gitr${SRCPV}"
+PKGV = "36+gitr${GITPKGV}"
 
 SRC_URI = "git://github.com/samsamsam-iptvplayer/exteplayer3.git;branch=master"
 
