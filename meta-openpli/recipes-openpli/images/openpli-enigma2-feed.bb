@@ -88,7 +88,8 @@ OPTIONAL_PACKAGES += " \
 	v4l-utils \
 	vim \
 	wget \
-	wscan \	
+	wscan \
+	yafc \
 	zeroconf \
 	zip \
 	zsh \
