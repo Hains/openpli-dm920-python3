@@ -35,6 +35,7 @@ SRC_URI_append = "\
 		file://05-fix-mpegts.patch \
 		file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
 		file://07-fix-edit-list-parsing.patch \
+		file://08-update-dashdec.patch \
 "
 
 S = "${WORKDIR}/git"
