@@ -6,15 +6,15 @@ DESCRIPTION = "OScam ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
+PV = "svn${SRCPV}"
+PKGV = "${PV}"
+
+SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep"
+
 DEPENDS = "libusb openssl"
 
-SRC_URI = "git://github.com/Hains/oscam.git;branch=master"
-
-S = "${WORKDIR}/git"
-
-PV = "11391"
-PKGV = "11391"
-
+S = "${WORKDIR}/trunk"
+B = "${S}"
 CAMNAME = "oscam"
 CAMSTART = "/usr/bin/oscam --config-dir /etc/tuxbox/config/oscam --daemon --pidfile /tmp/oscam.pid --restart 2"
 CAMSTOP = "kill \`cat /tmp/oscam.pid\` 2> /dev/null"
