@@ -1,0 +1,38 @@
+diff --git a/gst/netsim/gstnetsim.c b/gst/netsim/gstnetsim.c
+index 51bbdb3..0eef038 100644
+--- a/gst/netsim/gstnetsim.c
++++ b/gst/netsim/gstnetsim.c
+@@ -367,7 +367,7 @@ gst_net_sim_delay_buffer (GstNetSim * netsim, GstBuffer * buf)
+     if (!netsim->allow_reordering && ready_time < netsim->last_ready_time)
+       ready_time = netsim->last_ready_time + 1;
+ 
+-    GST_DEBUG_OBJECT (netsim, "Delaying packet by %ldms",
++    GST_DEBUG_OBJECT (netsim, "Delaying packet by %lldms",
+         (ready_time - netsim->last_ready_time) / 1000);
+     netsim->last_ready_time = ready_time;
+ 
+@@ -445,7 +445,7 @@ gst_net_sim_token_bucket (GstNetSim * netsim, GstBuffer * buf)
+   tokens = gst_net_sim_get_tokens (netsim);
+ 
+   netsim->bucket_size = MIN (G_MAXINT, netsim->bucket_size + tokens);
+-  GST_LOG_OBJECT (netsim, "Adding %d tokens to bucket (contains %lu tokens)",
++  GST_LOG_OBJECT (netsim, "Adding %d tokens to bucket (contains %ud tokens)",
+       tokens, netsim->bucket_size);
+ 
+   if (netsim->max_bucket_size != -1 && netsim->bucket_size >
+@@ -453,13 +453,13 @@ gst_net_sim_token_bucket (GstNetSim * netsim, GstBuffer * buf)
+     netsim->bucket_size = netsim->max_bucket_size * 1000;
+ 
+   if (buffer_size > netsim->bucket_size) {
+-    GST_DEBUG_OBJECT (netsim, "Buffer size (%lu) exeedes bucket size (%lu)",
++    GST_DEBUG_OBJECT (netsim, "Buffer size (%ud) exeedes bucket size (%ud)",
+         buffer_size, netsim->bucket_size);
+     return FALSE;
+   }
+ 
+   netsim->bucket_size -= buffer_size;
+-  GST_LOG_OBJECT (netsim, "Buffer taking %lu tokens (%lu left)",
++  GST_LOG_OBJECT (netsim, "Buffer taking %ud tokens (%ud left)",
+       buffer_size, netsim->bucket_size);
+   return TRUE;
+ }
