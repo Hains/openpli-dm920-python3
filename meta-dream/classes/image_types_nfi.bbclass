@@ -41,6 +41,6 @@ IMAGE_CMD_ubi_prepend = " \
 
 EXTRA_IMAGECMD_ubi ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
 
-do_image_ubi[depends] += "dreambox-buildimage-native:do_populate_sysroot"
+do_image_ubi[depends] += "mtd-utils-native:do_populate_sysroot dreambox-buildimage-native:do_populate_sysroot"
 
 IMAGE_TYPES += "ubifs"
