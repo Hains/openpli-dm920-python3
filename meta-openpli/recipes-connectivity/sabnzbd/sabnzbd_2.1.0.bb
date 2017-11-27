@@ -11,12 +11,12 @@ RDEPENDS_${PN} = "\
 	"
 RRECOMMENDS_${PN} = "par2cmdline unrar"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/sabnzbdplus/sabnzbdplus/${PV}/SABnzbd-${PV}-src.tar.gz \
+SRC_URI = "https://sourceforge.net/projects/sabnzbdplus/files/latest/download/sabnzbd-${PV}.tar.gz \
 	file://sabnzbd \
 	file://sabnzbd.ini"
 
-SRC_URI[md5sum] = "03cec705efb742ab9a1d8d6dedbcee2f"
-SRC_URI[sha256sum] = "3e86a897dea1c276c54ee38667a980f644f16d57df75612fe9eefa84b339ce9a"
+SRC_URI[md5sum] = "c3b104572ddaa94ca136a1c9d1d6d4d9"
+SRC_URI[sha256sum] = "5a27048877d78f87f03e5f9fc7d74dca12fe86958b935dc585f9f534071ebf36"
 
 S = "${WORKDIR}/SABnzbd-${PV}"
 
