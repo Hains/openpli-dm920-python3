@@ -26,7 +26,7 @@ PACKAGES = "${PN}-doc ${PN}-src ${PN}"
 
 FILES_${PN}-src = "${INSTALLDIR}/*/*.py ${INSTALLDIR}/*/*/*.py"
 FILES_${PN}-doc = "${INSTALLDIR}/*.txt ${INSTALLDIR}/licenses ${INSTALLDIR}/interfaces/*/licenses"
-FILES_${PN} = "${INSTALLDIR} /etc/init.d/sabnzbd /etc/sabnzbd.ini"
+FILES_${PN} = "${INSTALLDIR} /etc/init.d /etc/init.d/sabnzbd /etc/sabnzbd.ini"
 
 inherit update-rc.d
 INITSCRIPT_NAME = "sabnzbd"
