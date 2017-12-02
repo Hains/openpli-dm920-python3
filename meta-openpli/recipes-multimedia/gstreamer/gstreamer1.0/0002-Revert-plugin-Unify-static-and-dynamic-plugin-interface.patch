@@ -92,7 +92,7 @@ index 12f874375..506478dcd 100644
 -  if (dot)
 -    len = dot - bname - prefix_len;
 -  else
--    len = g_utf8_strlen (bname + prefix_len, -1);
+-    len = strlen (bname + prefix_len);
 -
 -  name = g_strndup (bname + prefix_len, len);
 -  g_free (bname);
