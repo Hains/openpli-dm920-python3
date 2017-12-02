@@ -22,7 +22,7 @@ PACKAGECONFIG ??= " \
 	${@bb.utils.contains('DISTRO_FEATURES', 'bluetooth', 'bluez', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'directfb', 'directfb', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)} \
-	bz2 curl dash dtls hls neon rsvg sbc smoothstreaming sndfile uvch264 webp \
+	bz2 curl dash dtls hls rsvg sbc smoothstreaming sndfile uvch264 webp \
 	orc faac faad libmms rtmp opus \
 	"
 
@@ -43,7 +43,6 @@ PACKAGECONFIG[hls]				= "--enable-hls,--disable-hls,nettle"
 PACKAGECONFIG[libmms]			= "--enable-libmms,--disable-libmms,libmms"
 PACKAGECONFIG[libssh2]			= "--enable-libssh2,--disable-libssh2,libssh2"
 PACKAGECONFIG[modplug]			= "--enable-modplug,--disable-modplug,libmodplug"
-PACKAGECONFIG[neon]				= "--enable-neon,--disable-neon,neon"
 PACKAGECONFIG[openal]			= "--enable-openal,--disable-openal,openal-soft"
 PACKAGECONFIG[opencv]			= "--enable-opencv,--disable-opencv,opencv"
 PACKAGECONFIG[opengl]			= "--enable-opengl,--disable-opengl,virtual/libgl libglu"
