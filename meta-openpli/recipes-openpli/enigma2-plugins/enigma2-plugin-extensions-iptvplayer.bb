@@ -16,6 +16,11 @@ inherit allarch distutils-openplugins
 
 RDEPENDS_${PN} = " \
 	python-core \
+	ffmpeg \
+	exteplayer3 \
+	gstplayer \
+	wget \
+	hlsdl \
 	"
 
 PACKAGES =+ " ${PN}-src"
