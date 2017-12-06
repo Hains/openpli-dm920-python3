@@ -14,4 +14,20 @@ PR = "r0"
 SRC_URI = "git://github.com/samsamsam-iptvplayer/hlsdl.git;protocol=git"
 SRCREV = "${AUTOREV}"
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/git/"
+
+SOURCE_FILES = "src/main.c"
+SOURCE_FILES =+ "src/aes.c"
+SOURCE_FILES =+ "src/curl.c"
+SOURCE_FILES =+ "src/hls.c"
+SOURCE_FILES =+ "src/misc.c"
+SOURCE_FILES =+ "src/msg.c"
+
+do_compile() {
+    ${CC} ${SOURCE_FILES} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -D_GNU_SOURCE=1 -Wall -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wshadow -Wpointer-arith -Wcast-qual -Wsign-compare -DPREFIX="/usr" -std=gnu99 -I${S}/src -I${D}/${libdir} -I${D}/${includedir} -lcurl -lpthread -o hlsdl ${LDFLAGS}
+}
+
+do_install() {
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/hlsdl ${D}${bindir}
+}
