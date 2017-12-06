@@ -14,13 +14,17 @@ PKGV = "1+git${GITPKGV}"
 
 inherit allarch distutils-openplugins
 
-RDEPENDS_${PN} = " \
+RRECOMMENDS_${PN} = " \
 	python-core \
 	ffmpeg \
 	exteplayer3 \
 	gstplayer \
 	wget \
 	hlsdl \
+	lsdir \
+	f4mdump \
+	gst-ifdsrc \
+	iptvsubparser \
 	"
 
 PACKAGES =+ " ${PN}-src"
