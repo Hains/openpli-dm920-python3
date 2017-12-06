@@ -4,6 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ec892df81d7a9e0b5cd420bb5603c288"
 
 DEPENDS = "curl openssl zlib ffmpeg"
+RDEPENDS_${PN} += "enigma2-plugin-extensions-iptvplayer"
 
 inherit gitpkgv
 
@@ -28,6 +29,8 @@ do_compile() {
 }
 
 do_install() {
-    install -d ${D}${bindir}
-    install -m 0755 ${S}/hlsdl ${D}${bindir}
+    install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/IPTVPlayer/bin
+    install -m 0755 ${S}/hlsdl ${D}${libdir}/enigma2/python/Plugins/Extensions/IPTVPlayer/bin/
 }
+
+FILES_${PN} = "${libdir}/enigma2/python/Plugins/Extensions/IPTVPlayer/bin"
