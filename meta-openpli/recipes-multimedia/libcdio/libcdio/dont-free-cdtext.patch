@@ -1,0 +1,12 @@
+diff --git a/lib/driver/cdtext.c b/lib/driver/cdtext.c
+index 966b0b1..b944d54 100644
+--- a/lib/driver/cdtext.c
++++ b/lib/driver/cdtext.c
+@@ -252,7 +252,6 @@ cdtext_destroy(cdtext_t *p_cdtext)
+       }
+     }
+   }
+-  free(p_cdtext);
+ }
+ 
+ /*!

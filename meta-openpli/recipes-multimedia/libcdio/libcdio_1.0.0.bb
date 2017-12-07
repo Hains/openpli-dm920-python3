@@ -4,10 +4,12 @@ SECTION = "libs"
 LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-SRC_URI = "${GNU_MIRROR}/${BPN}/${BP}.tar.gz"
+SRC_URI = " ${GNU_MIRROR}/${BPN}/${BP}.tar.gz \
+			file://dont-free-cdtext.patch \
+"
 
-SRC_URI[md5sum] = "d8734266a20fbc2605a97b701b838ab6"
-SRC_URI[sha256sum] = "96e2c903f866ae96f9f5b9048fa32db0921464a2286f5b586c0f02699710025a"
+SRC_URI[md5sum] = "05b6e95d7f0aa832446ce4875f9e5097"
+SRC_URI[sha256sum] = "fe080bc3cb7a57becdecf2b392bf39c24df0211f5fdfddfe99748fa052a7e231"
 
 inherit autotools pkgconfig
 
