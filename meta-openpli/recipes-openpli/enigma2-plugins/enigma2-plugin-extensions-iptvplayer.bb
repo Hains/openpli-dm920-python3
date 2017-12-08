@@ -25,6 +25,7 @@ RRECOMMENDS_${PN} = " \
 	f4mdump \
 	gst-ifdsrc \
 	iptvsubparser \
+	rtmpdump \
 	"
 
 PACKAGES =+ " ${PN}-src"
