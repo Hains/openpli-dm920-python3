@@ -134,7 +134,6 @@ ENIGMA2_OPTIONAL = " \
 	softcams-enigma2-meta \
 	packagegroup-openplugins \
 	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbs", "enigma2-plugin-systemplugins-satscan" , "", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "", "enigma2-plugin-extensions-backupsuite", d)} \
 	dvb-usb-drivers-meta \
 	cdtextinfo \
 	meta-enigma2-dvdburn \
