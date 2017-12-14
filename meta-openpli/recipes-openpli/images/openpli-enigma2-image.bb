@@ -89,7 +89,6 @@ IMAGE_INSTALL += " \
 	${KERNEL_WIFI_DRIVERS} \
 	${EXTERNAL_WIFI_DRIVERS} \
 	\
-	${@bb.utils.contains("MACHINE_FEATURES", "transcoding", "streamproxy", "", d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'ctrlrc', "enigma2-plugin-systemplugins-remotecontrolcode", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "extrakernelwifi", "${EXTRA_KERNEL_WIFI_DRIVERS}", "", d)} \
 	"
