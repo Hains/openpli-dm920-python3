@@ -19,13 +19,6 @@ KERNEL_WIFI_DRIVERS = " \
 	kernel-module-zd1211rw \
 	"
 
-EXTRA_KERNEL_WIFI_DRIVERS = " \
-	firmware-rtl8192cu \
-	\
-	kernel-module-r8188eu \
-	kernel-module-rtl8192cu \
-	"
-
 EXTERNAL_WIFI_DRIVERS = " \
 	firmware-rtl8192cu \
 	\
@@ -67,9 +60,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
 	enigma2-plugin-systemplugins-wirelesslan \
-	\
-	${@bb.utils.contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
-	${@bb.utils.contains('MACHINE_FEATURES', '7seg', 'enigma2-plugin-systemplugins-vfdcontrol', '', d)} \
 	"
 
 DEPENDS += " \
@@ -88,9 +78,6 @@ IMAGE_INSTALL += " \
 	${ENIGMA2_PLUGINS} \
 	${KERNEL_WIFI_DRIVERS} \
 	${EXTERNAL_WIFI_DRIVERS} \
-	\
-	${@bb.utils.contains('MACHINE_FEATURES', 'ctrlrc', "enigma2-plugin-systemplugins-remotecontrolcode", "", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "extrakernelwifi", "${EXTRA_KERNEL_WIFI_DRIVERS}", "", d)} \
 	"
 
 export IMAGE_BASENAME = "openpli-enigma2"
