@@ -57,6 +57,7 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hotplug \
 	enigma2-plugin-systemplugins-networkbrowser \
+	enigma2-plugin-systemplugins-osdpositionsetup \
 	enigma2-plugin-systemplugins-positionersetup \
 	enigma2-plugin-systemplugins-satfinder \
 	enigma2-plugin-systemplugins-skinselector \
@@ -64,11 +65,9 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-videoenhancement \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
-	enigma2-plugin-systemplugins-osdpositionsetup \
 	\
 	${@bb.utils.contains("MACHINE_FEATURES", "3dtv", "enigma2-plugin-systemplugins-osd3dsetup" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "osdposition", "enigma2-plugin-systemplugins-osdpositionsetup" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "wlan", "enigma2-plugin-systemplugins-wirelesslan", "", d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', '7seg', 'enigma2-plugin-systemplugins-vfdcontrol', '', d)} \
 	"
