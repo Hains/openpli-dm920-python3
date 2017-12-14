@@ -52,6 +52,7 @@ ENIGMA2_PLUGINS = " \
 	\
 	enigma2-plugin-softcams-oscam \
 	\
+	enigma2-plugin-systemplugins-cablescan \
 	enigma2-plugin-systemplugins-commoninterfaceassignment \
 	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hotplug \
@@ -66,7 +67,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-osdpositionsetup \
 	\
 	${@bb.utils.contains("MACHINE_FEATURES", "3dtv", "enigma2-plugin-systemplugins-osd3dsetup" , "", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "osdposition", "enigma2-plugin-systemplugins-osdpositionsetup" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "wlan", "enigma2-plugin-systemplugins-wirelesslan", "", d)} \
