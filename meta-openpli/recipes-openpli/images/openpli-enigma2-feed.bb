@@ -133,7 +133,6 @@ ENIGMA2_OPTIONAL = " \
 	picons-enigma2-meta \
 	softcams-enigma2-meta \
 	packagegroup-openplugins \
-	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbs", "enigma2-plugin-systemplugins-satscan" , "", d)} \
 	dvb-usb-drivers-meta \
 	cdtextinfo \
 	meta-enigma2-dvdburn \
