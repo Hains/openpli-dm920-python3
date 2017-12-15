@@ -16,12 +16,8 @@ INITSCRIPT_PARAMS = "start 21 S ."
 
 inherit update-rc.d
 
-# This needs a small explanation; when the machine has 'switchoff' support, it switches itself off, so we don't need switchoff.mvi...
-SWITCHOFFMVI = "${@bb.utils.contains("MACHINE_FEATURES", "switchoff", "" , "switchoff.mvi", d)}"
-
 SRC_URI = " \
 	file://bootlogo.mvi \
-	file://switchoff.mvi \
 	file://bootlogo.sh \
 	file://logo-black-image.png \
 	file://logo-black-square.png \
@@ -30,7 +26,7 @@ SRC_URI = " \
 	file://logo-white-square.png \
 	file://logo-white.png"
 
-MVI = "${SWITCHOFFMVI} bootlogo.mvi"
+MVI = "bootlogo.mvi"
 MVISYMLINKS = "bootlogo_wait backdrop"
 
 PNG = "logo-black-image.png \
