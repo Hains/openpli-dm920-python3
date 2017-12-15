@@ -208,7 +208,6 @@ EXTRA_OECONF = "\
 	ac_cv_prog_c_openmp=-fopenmp \
 	--with-gstversion=1.0 \
 	${@get_crashaddr(d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
