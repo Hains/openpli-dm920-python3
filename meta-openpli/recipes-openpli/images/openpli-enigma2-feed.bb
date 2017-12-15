@@ -54,7 +54,6 @@ OPTIONAL_PACKAGES += " \
 	net-tools \
 	ntfs-3g \
 	ntp \
-	ofgwrite \
 	openresolv \
 	openssh \
 	openvpn \
@@ -101,7 +100,6 @@ ENIGMA2_OPTIONAL = " \
 	channelsettings-enigma2-meta \
 	enigma2-pliplugins \
 	enigma2-plugin-drivers-usbserial \
-	enigma2-plugin-extensions-automatic-fullbackup \
 	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
