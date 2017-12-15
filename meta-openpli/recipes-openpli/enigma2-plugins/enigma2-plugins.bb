@@ -24,10 +24,6 @@ RRECOMMENDS_enigma2-plugin-systemplugins-blindscan = "virtual/blindscan-dvbs"
 RRECOMMENDS_enigma2-plugin-systemplugins-systemtime = "ntpdate"
 RRECOMMENDS_enigma2-plugin-extensions-transmission = "transmission transmission-client"
 
-PROVIDES += "\
-	${@bb.utils.contains("MACHINE_FEATURES", "transcoding","enigma2-plugin-systemplugins-transcodingsetup","",d)} \
-"
-
 inherit gitpkgv pythonnative pkgconfig
 
 PV = "y-git${SRCPV}"
