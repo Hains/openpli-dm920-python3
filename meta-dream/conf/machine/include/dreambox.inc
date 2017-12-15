@@ -21,7 +21,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 	"
 GST_VERSION = "1.0"
 	
-MACHINE_FEATURES += "alsa usbhost tpm dreambox"
+MACHINE_FEATURES += "alsa usbhost dreambox"
 # Add "dreambox" override for recipes
 MACHINEOVERRIDES .= ":dreambox"
 
