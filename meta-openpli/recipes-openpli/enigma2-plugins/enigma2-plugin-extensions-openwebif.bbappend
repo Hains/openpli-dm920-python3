@@ -5,9 +5,6 @@ SRC_URI += "file://get-rid-of-orgdream.patch \
 "
 
 python do_cleanup () {
-    boxtypes = [
-        ('dm8000', 'dm8000.png', 'dmm1.png', 'dmm1.html')
-    ]
 
     import os
 
@@ -15,17 +12,10 @@ python do_cleanup () {
     images = "%s/public/images/" % pluginpath
     keymaps = "%s/public/static/" % pluginpath
 
-    target_box = 'unknown.png'
-    target_remote = 'ow_remote.png'
-    target_keymap = ''
+    target_box = 'dm8000.png'
+    target_remote = 'dmm1.png'
+    target_keymap = 'dmm1.html'
     exception = ''
-
-    for x in boxtypes:
-        if x[0] == d.getVar('MACHINE', True):
-            target_box = x[1]
-            target_remote = x[2]
-            target_keymap = x[3]
-            break
 
     for root, dirs, files in os.walk(images + 'boxes', topdown=False):
         for name in files:
