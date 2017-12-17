@@ -6,71 +6,7 @@ SRC_URI += "file://get-rid-of-orgdream.patch \
 
 python do_cleanup () {
     boxtypes = [
-        ('dm8000', 'dm8000.png', 'dmm1.png', 'dmm1.html'),
-        ('osmega', 'osmega.png', 'osmini.png', 'osmini.html'),
-        ('osmini', 'osmini.png', 'osmini.png', 'osmini.html'),
-        ('osminiplus', 'osminiplus.png', 'osmini.png', 'osmini.html'),
-        ('formuler1', 'formuler1.png', 'formuler1.png', 'formuler1.html'),
-        ('formuler3', 'formuler3.png', 'formuler1.png', 'formuler1.html'),
-        ('formuler4', 'formuler4.png', 'formuler1.png', 'formuler1.html'),
-        ('formuler4turbo', 'formuler4turbo.png', 'formuler1.png', 'formuler1.html'),
-        ('hd11', 'hd11.png', 'hd1x00.png', 'hd1x00.html'),
-        ('hd1100', 'hd1100.png', 'hd1x00.png', 'hd1x00.html'),
-        ('hd1200', 'hd1200.png', 'hd1x00.png', 'hd1x00.html'),
-        ('hd1265', 'hd1265.png', 'hd1x00.png', 'hd1x00.html'),
-        ('hd1500', 'hd1500.png', 'hd1x00.png', 'hd1x00.html'),
-        ('hd2400', 'hd2400.png', 'hd2400.png', 'hd2400.html'),
-        ('hd500c', 'hd500c.png', 'hd1x00.png', 'hd1x00.html'),
-        ('hd51', 'hd51.png', 'hd1x00.png', 'hd1x00.html'),
-        ('hd530c', 'hd530c.png', 'hd1x00.png', 'hd1x00.html'),
-        ('vs1000', 'vs1000.png', 'vs1x00.png', 'vs1x00.html'),
-        ('vs1500', 'vs1500.png', 'vs1x00.png', 'vs1x00.html'),
-        ('et1x000', 'et11000.png', 'et7000mini.png', 'et7000mini.html'),
-        ('et7000mini', 'et7000mini.png', 'et7000mini.png', 'et7000mini.html'),
-        ('mbmicro', 'mbmicro.png', 'miraclebox2.png', 'miraclebox2.html'),
-        ('mbmicrov2', 'mbmicrov2.png', 'miraclebox2.png', 'miraclebox2.html'),
-        ('mbtwinplus', 'mbtwinplus.png', 'miraclebox2.png', 'miraclebox2.html'),
-        ('alphatriplehd', 'alphatriplehd.png', 'alphatriplehd.png', 'alphatriplehd.html'),
-        ('spycat', 'spycat.png', 'spycat.png', 'spycat.html'),
-        ('spycat4kmini', 'spycat4kmini.png', 'spycat.png', 'spycat.html'),
-        ('spycatmini', 'spycatmini.png', 'spycat.png', 'spycat.html'),
-        ('spycatminiplus', 'spycatminiplus.png', 'spycat.png', 'spycat.html'),
-        ('vuduo', 'duo.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vuduo2', 'duo2.png', 'vu_duo2.png', 'vu_duo2.html'),
-        ('vusolo', 'solo.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vusolo2', 'solo2.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vusolo4k', 'solo4k.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vusolose', 'solose.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vuultimo', 'ultimo.png', 'vu_ultimo.png', 'vu_ultimo.html'),
-        ('vuultimo4k', 'ultimo4k.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vuuno', 'uno.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vuuno4k', 'uno4k.png', 'vu_normal.png', 'vu_normal.html'),
-        ('vuzero', 'zero.png', 'vu_normal.png', 'vu_normal.html'),
-        ('wetekplay', 'wetekplay.png', 'wetekplay.png', 'wetekplay.html'),
-        ('xp1000', 'xp1000.png', 'xp_rc14_normal.png', 'xp1000.html'),
-        ('xpeedc', 'xpeedlx.png', 'xpeedlx.png', 'xpeedlx.html'),
-        ('fusionhd', 'fusionhd.png', 'fusionhd.png', 'fusionhd.html'),
-        ('fusionhdse', 'fusionhdse.png', 'fusionhdse.png', 'fusionhdse.html'),
-        ('galaxy4k', 'galaxy4k.png', 'galaxy4k.png', 'galaxy4k.html'),
-        ('purehd', 'purehd.png', 'purehd.png', 'purehd.html'),
-        ('revo4k', 'revo4k.png', 'revo4k.png', 'revo4k.html'),
-        ('et10000', 'et10000.png', 'et8000.png', 'et8000.html'),
-        ('et4x00', 'et4x00.png', 'et_rc13_normal.png', 'et4x00.html'),
-        ('et5x00', 'et5x00.png', 'et_rc5_normal.png', 'et5x00.html'),
-        ('et6x00', 'et6x00.png', 'et_rc5_normal.png', 'et5x00.html'),
-        ('et7x00', 'et7x00.png', 'et7x00.png', 'et7x00.html'),
-        ('et9x00', 'et9x00.png', 'et_rc7_normal.png', 'et9x00.html'),
-        ('et6500', 'et6500.png', 'et6500.png', 'et6500.html'),
-        ('et7000', 'et7000.png', 'et7x00.png', 'et7x00.html'),
-        ('et7500', 'et7000.png', 'et7x00.png', 'et7x00.html'),
-        ('et8000', 'et8000.png', 'et8000.png', 'et8000.html'),
-        ('et8500', 'et8500.png', 'et8000.png', 'et8000.html'),
-        ('h3', 'h3.png', 'h3.png', 'h3.html'),
-        ('h5', 'h5.png', 'h3.png', 'h3.html'),
-        ('h7', 'h7.png', 'h3.png', 'h3.html'),
-        ('i55', 'i55.png', 'i55.png', 'i55.html'),
-        ('lc', 'lc.png', 'sh1.png', 'sh1.html'),
-        ('sh1', 'sh1.png', 'sh1.png', 'sh1.html'),
+        ('dm8000', 'dm8000.png', 'dmm1.png', 'dmm1.html')
     ]
 
     import os
@@ -89,12 +25,6 @@ python do_cleanup () {
             target_box = x[1]
             target_remote = x[2]
             target_keymap = x[3]
-            if x[0] == 'et6x00':
-                exception = 'et6500.png'
-            elif x[0] == 'et7x00':
-                exception = 'et7500.png'
-            elif x[0] == 'xpeedc':
-                exception = 'xpeedlx.png'
             break
 
     for root, dirs, files in os.walk(images + 'boxes', topdown=False):
