@@ -22,7 +22,7 @@ S = "${WORKDIR}/git"
 EXTRA_OEMAKE = " \
     'CFLAGS=${CFLAGS} \
     -I=${includedir}/freetype2 \
-    ${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "-DOMB_DREAMBOX", "", d)} \
+    -DOMB_DREAMBOX \
     -DOMB_KERNEL_MTD=\"/dev/${MTD_KERNEL}\"' \
     'LDFLAGS= -lfreetype ${LDFLAGS}' \
     "
