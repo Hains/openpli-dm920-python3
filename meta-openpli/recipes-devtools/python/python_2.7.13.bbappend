@@ -28,11 +28,7 @@ FILES_${PN}-src += "${libdir}/python${PYTHON_MAJMIN}/*/*/*.exe"
 FILES_${PN}-src += "${libdir}/python${PYTHON_MAJMIN}/*.whl"
 FILES_${PN}-src += "${libdir}/python${PYTHON_MAJMIN}/*/*.whl"
 FILES_${PN}-src += "${libdir}/python${PYTHON_MAJMIN}/*/*/*.whl"
-FILES_${PN}-src += "${libdir}/python${PYTHON_MAJMIN}/config/*"
-
-do_install_append () {
-	rm ${D}${libdir}/python${PYTHON_MAJMIN}/config/libpython${PYTHON_MAJMIN}.a
-}
+FILES_${PN}-src += "${libdir}/python${PYTHON_MAJMIN}/config/*.!(a)"
 
 # some additional tests
 FILES_${PN}-tests += "${libdir}/python${PYTHON_MAJMIN}/*/test* ${libdir}/python${PYTHON_MAJMIN}/*/*/test*"
