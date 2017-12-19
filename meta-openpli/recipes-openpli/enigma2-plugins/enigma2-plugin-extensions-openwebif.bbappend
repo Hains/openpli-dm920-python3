@@ -15,16 +15,15 @@ python do_cleanup () {
     target_box = 'dm8000.png'
     target_remote = 'dmm1.png'
     target_keymap = 'dmm1.html'
-    exception = ''
 
     for root, dirs, files in os.walk(images + 'boxes', topdown=False):
         for name in files:
-            if target_box != name and name != 'unknown.png' and exception != name:
+            if target_box != name or name == 'unknown.png':
                 os.remove(os.path.join(root, name))
 
     for root, dirs, files in os.walk(images + 'remotes', topdown=False):
         for name in files:
-            if target_remote != name and name != 'ow_remote.png' and exception != name:
+            if target_remote != name or name == 'ow_remote.png':
                 os.remove(os.path.join(root, name))
 
     for root, dirs, files in os.walk(keymaps + 'remotes', topdown=False):
