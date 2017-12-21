@@ -1,12 +1,5 @@
 require gstreamer1.0-plugins.inc
 
-SRC_URI_append = "\
-		file://0001-Makefile.am-don-t-hardcode-libtool-name-when-running.patch \
-		file://0002-Makefile.am-prefix-calls-to-pkg-config-with-PKG_CONF.patch \
-		file://0003-riff-add-missing-include-directories-when-calling-in.patch \
-		file://0004-rtsp-drop-incorrect-reference-to-gstreamer-sdp-in-Ma.patch \
-		"
-
 LICENSE = "GPLv2+ & LGPLv2+"
 
 DEPENDS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'virtual/libx11 libxv', '', d)}"
@@ -23,9 +16,9 @@ PACKAGECONFIG ??= " \
 	gio-unix-2.0 ogg theora vorbis cdparanoia pango opus \
 	"
 
-X11DEPENDS = "virtual/libx11 libsm libxrender"
-X11ENABLEOPTS = "--enable-x --enable-xvideo --enable-xshm"
-X11DISABLEOPTS = "--disable-x --disable-xvideo --disable-xshm"
+X11DEPENDS 		= "virtual/libx11 libsm libxrender"
+X11ENABLEOPTS 	= "--enable-x --enable-xvideo --enable-xshm"
+X11DISABLEOPTS 	= "--disable-x --disable-xvideo --disable-xshm"
 
 PACKAGECONFIG[x11]			= "${X11ENABLEOPTS},${X11DISABLEOPTS},${X11DEPENDS}"
 PACKAGECONFIG[alsa]			= "--enable-alsa,--disable-alsa,alsa-lib"

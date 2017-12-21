@@ -18,7 +18,7 @@ SRC_URI += "file://01-configure-allow-to-disable-libssh2.patch \
 			file://04-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
 			file://06-fix-build.patch \
 			file://07-revert-enable-openglmixers-plugin-in-autotools-again-too.patch \
-			file://0001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			"
 
 S = "${WORKDIR}/git"

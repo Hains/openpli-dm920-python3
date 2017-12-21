@@ -15,7 +15,7 @@ inherit autotools pkgconfig gettext upstream-version-is-even gobject-introspecti
 acpaths = "-I ${S}/common/m4 -I ${S}/m4"
 
 SRC_URI_append = " \
-		file://0001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+		file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 		"
 
 PACKAGECONFIG ??= ""

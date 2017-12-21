@@ -13,7 +13,7 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-good;branch=mast
 			"
 
 SRC_URI += "file://0001-gstrtpmp4gpay-set-dafault-value-for-MPEG4-without-co.patch \
-			file://0001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			"
 
 S = "${WORKDIR}/git"
