@@ -15,8 +15,7 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=mast
 SRC_URI += " \
 	file://get-caps-from-src-pad-when-query-caps.patch \
 	file://taglist-not-send-to-down-stream-if-all-the-frame-cor.patch \
-	file://0001-riff-media-added-fourcc-to-all-mpeg4-video-caps.patch \
-	file://0001-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-ca.patch \
+	file://0001-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
 	file://subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 	file://make-gio_unix_2_0-dependency-configurable.patch \
 	file://0001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
