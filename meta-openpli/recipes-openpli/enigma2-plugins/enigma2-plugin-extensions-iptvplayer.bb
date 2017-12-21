@@ -17,6 +17,7 @@ inherit allarch distutils-openplugins
 RRECOMMENDS_${PN} = " \
 	python-core \
 	ffmpeg \
+	duktape \
 	exteplayer3 \
 	gstplayer \
 	wget \
