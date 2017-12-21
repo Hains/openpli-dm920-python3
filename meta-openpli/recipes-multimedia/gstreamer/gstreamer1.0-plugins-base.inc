@@ -29,18 +29,22 @@ X11DISABLEOPTS = "--disable-x --disable-xvideo --disable-xshm"
 
 PACKAGECONFIG[x11]			= "${X11ENABLEOPTS},${X11DISABLEOPTS},${X11DEPENDS}"
 PACKAGECONFIG[alsa]			= "--enable-alsa,--disable-alsa,alsa-lib"
+PACKAGECONFIG[gles2]		= "--enable-gles2,--disable-gles2,virtual/libgles2"
 PACKAGECONFIG[ivorbis]		= "--enable-ivorbis,--disable-ivorbis,tremor"
 PACKAGECONFIG[ogg]			= "--enable-ogg,--disable-ogg,libogg"
+PACKAGECONFIG[opengl]    	= "--enable-opengl,--disable-opengl,virtual/libgl libglu"
 PACKAGECONFIG[opus]			= "--enable-opus,--disable-opus,libopus"
 PACKAGECONFIG[theora]		= "--enable-theora,--disable-theora,libtheora"
 PACKAGECONFIG[vorbis]		= "--enable-vorbis,--disable-vorbis,libvorbis"
 PACKAGECONFIG[pango]		= "--enable-pango,--disable-pango,pango"
 PACKAGECONFIG[gio-unix-2.0]	= "--enable-gio_unix_2_0,--disable-gio_unix_2_0,glib-2.0"
 PACKAGECONFIG[visual]		= "--enable-libvisual,--disable-libvisual,libvisual"
+PACKAGECONFIG[wayland]		= "--enable-wayland --enable-egl,--disable-wayland --disable-egl,wayland virtual/egl"
 PACKAGECONFIG[cdparanoia]	= "--enable-cdparanoia,--disable-cdparanoia,cdparanoia"
 
 EXTRA_OECONF += " \
 	--enable-zlib \
+	--disable-cocoa \
 	"
     
 CACHED_CONFIGUREVARS_append_i586 = " ac_cv_header_emmintrin_h=no ac_cv_header_xmmintrin_h=no"

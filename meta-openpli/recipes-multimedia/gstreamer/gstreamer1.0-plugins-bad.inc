@@ -10,15 +10,10 @@ SRC_URI_append = " \
 		file://0001-Makefile.am-don-t-hardcode-libtool-name-when-running.patch \
 		"
 
-# opengl packageconfig factored out to make it easy for distros
-# and BSP layers to pick either (desktop) opengl, gles2, or no GL
-PACKAGECONFIG_GL ?= "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gles2', '', d)}"
-
 # gtk is not in the PACKAGECONFIG variable by default until
 # the transition to gtk+3 is finished
 PACKAGECONFIG ??= " \
 	${GSTREAMER_ORC} \
-	${PACKAGECONFIG_GL} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'bluetooth', 'bluez', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'directfb', 'directfb', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)} \
@@ -37,7 +32,6 @@ PACKAGECONFIG[faac]				= "--enable-faac,--disable-faac,faac"
 PACKAGECONFIG[faad]				= "--enable-faad,--disable-faad,faad2"
 PACKAGECONFIG[flite]			= "--enable-flite,--disable-flite,flite-alsa"
 PACKAGECONFIG[fluidsynth]		= "--enable-fluidsynth,--disable-fluidsynth,fluidsynth"
-PACKAGECONFIG[gles2]			= "--enable-gles2,--disable-gles2,virtual/libgles2"
 PACKAGECONFIG[gtk]				= "--enable-gtk3,--disable-gtk3,gtk+3"
 PACKAGECONFIG[hls]				= "--enable-hls,--disable-hls,nettle"
 PACKAGECONFIG[libmms]			= "--enable-libmms,--disable-libmms,libmms"
@@ -45,7 +39,6 @@ PACKAGECONFIG[libssh2]			= "--enable-libssh2,--disable-libssh2,libssh2"
 PACKAGECONFIG[modplug]			= "--enable-modplug,--disable-modplug,libmodplug"
 PACKAGECONFIG[openal]			= "--enable-openal,--disable-openal,openal-soft"
 PACKAGECONFIG[opencv]			= "--enable-opencv,--disable-opencv,opencv"
-PACKAGECONFIG[opengl]			= "--enable-opengl,--disable-opengl,virtual/libgl libglu"
 PACKAGECONFIG[opus]				= "--enable-opus,--disable-opus,libopus"
 PACKAGECONFIG[resindvd]			= "--enable-resindvd,--disable-resindvd,libdvdread libdvdnav"
 PACKAGECONFIG[rsvg]				= "--enable-rsvg,--disable-rsvg,librsvg"
@@ -58,7 +51,6 @@ PACKAGECONFIG[srtp]				= "--enable-srtp,--disable-srtp,libsrtp"
 PACKAGECONFIG[uvch264]			= "--enable-uvch264,--disable-uvch264,libusb1 libgudev"
 PACKAGECONFIG[voaacenc]			= "--enable-voaacenc,--disable-voaacenc,vo-aacenc"
 PACKAGECONFIG[voamrwbenc]		= "--enable-voamrwbenc,--disable-voamrwbenc,vo-amrwbenc"
-PACKAGECONFIG[wayland]			= "--enable-wayland --enable-egl,--disable-wayland --disable-egl,wayland virtual/egl"
 PACKAGECONFIG[webp]				= "--enable-webp,--disable-webp,libwebp"
 
 # these plugins have not been ported to 1.0 (yet):
@@ -88,7 +80,6 @@ EXTRA_OECONF += " \
 	--disable-apple_media \
 	--disable-bs2b \
 	--disable-chromaprint \
-	--disable-cocoa \
 	--disable-daala \
 	--disable-dc1394 \
 	--disable-direct3d \

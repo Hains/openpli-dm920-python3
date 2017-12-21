@@ -20,6 +20,7 @@ SRC_URI += " \
 	file://subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 	file://make-gio_unix_2_0-dependency-configurable.patch \
 	file://0001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+	file://fix-build.patch \
 	"
 
 S = "${WORKDIR}/git"

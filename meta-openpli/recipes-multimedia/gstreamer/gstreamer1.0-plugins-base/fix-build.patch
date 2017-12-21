@@ -1,0 +1,39 @@
+diff --git a/m4/gst-gl.m4 b/m4/gst-gl.m4
+index fd2803935..0b79367a4 100644
+--- a/m4/gst-gl.m4
++++ b/m4/gst-gl.m4
+@@ -819,7 +819,10 @@ AM_CONDITIONAL(USE_EGL_MALI, test "x$USE_EGL_MALI" = "xyes")
+ AM_CONDITIONAL(USE_EGL_RPI, test "x$USE_EGL_RPI" = "xyes")
+ AM_CONDITIONAL(USE_EAGL, test "x$USE_EAGL" = "xyes")
+ 
++AM_CONDITIONAL(HAVE_GRAPHENE, test "x$HAVE_GRAPHENE" = "xyes")
+ AM_CONDITIONAL(HAVE_GST_GL, test "x$USE_OPENGL" = "xyes" -o "x$USE_GLES2" = "xyes")
++AM_CONDITIONAL(HAVE_JPEG, test "x$HAVE_JPEG" = "xyes")
++AM_CONDITIONAL(HAVE_PNG, test "x$HAVE_PNG" = "xyes")
+ 
+ dnl Check for some types that are not always present
+ GL_INCLUDES=""
+@@ -989,7 +992,6 @@ fi
+ AC_SUBST(HAVE_GRAPHENE)
+ AC_SUBST(GRAPHENE_LIBS)
+ AC_SUBST(GRAPHENE_CFLAGS)
+-AM_CONDITIONAL(HAVE_GRAPHENE, test "x$HAVE_GRAPHENE" = "xyes")
+ 
+ dnl Needed by plugins that use g_module_*() API
+ dnl FIXME: probably not needed because AG_GST_CHECK_GLIB already includes it?
+@@ -1003,7 +1005,6 @@ fi
+ AC_SUBST(HAVE_PNG)
+ AC_SUBST(LIBPNG_LIBS)
+ AC_SUBST(LIBPNG_CFLAGS)
+-AM_CONDITIONAL(HAVE_PNG, test "x$HAVE_PNG" = "xyes")
+ 
+ dnl libjpeg is optional
+ AC_ARG_WITH(jpeg-mmx, [  --with-jpeg-mmx, path to MMX'ified JPEG library])
+@@ -1026,7 +1027,6 @@ else
+ fi
+ AC_SUBST(JPEG_LIBS)
+ AC_SUBST(HAVE_JPEG)
+-AM_CONDITIONAL(HAVE_JPEG, test "x$HAVE_JPEG" = "xyes")
+ ])
+ 
+ dnl --------------------------------------------------------------------------
