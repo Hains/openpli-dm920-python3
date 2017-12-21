@@ -12,13 +12,14 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=maste
 			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
 			"
 
-SRC_URI += "file://01-configure-allow-to-disable-libssh2.patch \
-			file://02-rtmp-fix-seeking-and-potential-segfault.patch \
-			file://03-rtmp-hls-tsdemux-fix.patch \
-			file://04-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
-			file://06-fix-build.patch \
-			file://07-revert-enable-openglmixers-plugin-in-autotools-again-too.patch \
-			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+			file://002-Makefile.am-don-t-hardcode-libtool-name-when-running.patch \
+			file://003-configure-allow-to-disable-libssh2.patch \
+			file://004-rtmp-fix-seeking-and-potential-segfault.patch \
+			file://005-rtmp-hls-tsdemux-fix.patch \
+			file://006-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
+			file://007-fix-build.patch \
+			file://008-revert-enable-openglmixers-plugin-in-autotools-again-too.patch \
 			"
 
 S = "${WORKDIR}/git"

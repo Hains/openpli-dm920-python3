@@ -6,10 +6,6 @@ DEPENDS += "gstreamer1.0-plugins-base libpng jpeg"
 
 inherit gettext bluetooth
 
-SRC_URI_append = " \
-		file://0001-Makefile.am-don-t-hardcode-libtool-name-when-running.patch \
-		"
-
 # gtk is not in the PACKAGECONFIG variable by default until
 # the transition to gtk+3 is finished
 PACKAGECONFIG ??= " \
