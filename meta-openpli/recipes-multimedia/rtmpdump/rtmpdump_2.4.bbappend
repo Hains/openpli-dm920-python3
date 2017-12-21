@@ -4,7 +4,8 @@ PROVIDES =+ " librtmp librtmp1"
 
 SRC_URI = " \
 	git://git.ffmpeg.org/rtmpdump \
-	file://fix-racing-build-issue.patch"
+	file://ksv.patch \
+	file://fix-racing-build-issue.patch \
 	file://iptvplayer_release.patch \
 "
 
