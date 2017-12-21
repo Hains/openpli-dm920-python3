@@ -1,6 +1,6 @@
-diff -Naur duktape-2.0.1.orig/examples/cmdline/duk_cmdline.c duktape-2.0.1/examples/cmdline/duk_cmdline.c
---- duktape-2.0.1.orig/examples/cmdline/duk_cmdline.c	2017-01-26 20:56:36.000000000 +0100
-+++ duktape-2.0.1/examples/cmdline/duk_cmdline.c	2017-12-20 11:20:30.614321376 +0100
+diff a/examples/cmdline/duk_cmdline.c b/examples/cmdline/duk_cmdline.c
+--- a/examples/cmdline/duk_cmdline.c
++++ b/examples/cmdline/duk_cmdline.c
 @@ -119,8 +119,12 @@
  /*
   *  Misc helpers
@@ -141,9 +141,9 @@ diff -Naur duktape-2.0.1.orig/examples/cmdline/duk_cmdline.c duktape-2.0.1/examp
  	fprintf(stderr, "Usage: duk [options] [<filenames>]\n"
  	                "\n"
  	                "   -i                 enter interactive mode after executing argument file(s) / eval code\n"
-diff -Naur duktape-2.0.1.orig/Makefile.cmdline duktape-2.0.1/Makefile.cmdline
---- duktape-2.0.1.orig/Makefile.cmdline	2017-01-26 20:56:36.000000000 +0100
-+++ duktape-2.0.1/Makefile.cmdline	2017-12-20 11:22:50.700368243 +0100
+diff a/Makefile.cmdline b/Makefile.cmdline
+--- a/Makefile.cmdline
++++ b/Makefile.cmdline
 @@ -8,7 +8,8 @@
  CMDLINE_SOURCES = \
  	examples/cmdline/duk_cmdline.c
