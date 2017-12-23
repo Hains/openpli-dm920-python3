@@ -6,16 +6,16 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 					file://COPYING.LIB;md5=6762ed442b3822387a51c92d928ead0d \
 					"
 
-SRCREV = "bc11440360815d57ff8237df145a4a41e20850ea"
+SRCREV_FORMAT = "base"
 
-SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master"
+SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master;name=base"
 SRC_URI += "file://0001-Disable-yasm-for-libav-when-disable-yasm.patch"
 
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL ="1.11.1.1"
+GST_VERSION_FULL = "1.13.0.1"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
