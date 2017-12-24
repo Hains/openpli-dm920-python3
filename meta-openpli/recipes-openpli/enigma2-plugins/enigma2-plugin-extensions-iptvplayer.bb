@@ -8,7 +8,7 @@ SRC_URI = "git://gitlab.com/iptvplayer-for-e2/iptvplayer-for-e2.git;protocol=htt
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
-SRCREV = "${AUTOREV}"
+
 PV = "1+git${SRCPV}"
 PKGV = "1+git${GITPKGV}"
 
