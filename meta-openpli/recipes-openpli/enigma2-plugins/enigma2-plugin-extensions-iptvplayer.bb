@@ -4,7 +4,10 @@ HOMEPAGE = "https://gitlab.com/iptvplayer-for-e2/"
 SECTION = "multimedia"
 LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://IPTVPlayer/plugin.py;md5=c2f0b154b393ac73a823d3f3161fd26b"
-SRC_URI = "git://gitlab.com/iptvplayer-for-e2/iptvplayer-for-e2.git;protocol=http"
+SRC_URI = " git://gitlab.com/iptvplayer-for-e2/iptvplayer-for-e2.git;protocol=http \
+			file://openssl.patch \
+			"
+
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
