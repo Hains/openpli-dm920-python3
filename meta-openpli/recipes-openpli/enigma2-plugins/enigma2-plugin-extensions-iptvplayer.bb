@@ -26,6 +26,7 @@ RRECOMMENDS_${PN} = " \
 	lsdir \
 	python-core \
 	rtmpdump \
+	uchardet \
 	wget \
 	"
 
