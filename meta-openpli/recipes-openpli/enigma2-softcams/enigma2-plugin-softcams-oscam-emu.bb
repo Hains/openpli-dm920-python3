@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 PV = "svn${SRCPV}"
 PKGV = "${PV}"
-SRC_URI = "svn://streamboard.tv/svn/oscam;module=trunk;protocol=http;scmdata=keep \"
+SRC_URI = "svn://streamboard.tv/svn/oscam;module=trunk;protocol=http;scmdata=keep"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
 PATCHREV = "0fcc0b4ed016dc300655f5e521ff4f8f951c79f8"
