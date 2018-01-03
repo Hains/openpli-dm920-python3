@@ -19,5 +19,5 @@ index a4314c2..202944a 100644
 -		# AboutText += ImageVersion + "\n"
 +		AboutText += ImageVersion + "\n"
  
- 		EnigmaVersion = _("Enigma version: ") + about.getEnigmaVersionString()
- 		self["EnigmaVersion"] = StaticText(EnigmaVersion)
+ 		EnigmaVersion = about.getEnigmaVersionString().rsplit("-", 2)
+ 		if len(EnigmaVersion) == 3:
