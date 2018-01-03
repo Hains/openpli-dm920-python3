@@ -1,0 +1,13 @@
+diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
+index ad2d29a9f..e46a8154f 100644
+--- a/lib/python/Screens/About.py
++++ b/lib/python/Screens/About.py
+@@ -46,7 +46,7 @@ class About(Screen):
+ 			EnigmaVersion = " ".join(EnigmaVersion)
+ 		EnigmaVersion = _("Enigma version: ") + EnigmaVersion
+ 		self["EnigmaVersion"] = StaticText(EnigmaVersion)
+-		AboutText += "\n" + EnigmaVersion + "\n"
++		AboutText += _("\nEnigma version: ") + about.getEnigmaVersionString() + "\n"
+ 
+ 		AboutText += _("Kernel version: ") + about.getKernelVersionString() + "\n"
+ 
