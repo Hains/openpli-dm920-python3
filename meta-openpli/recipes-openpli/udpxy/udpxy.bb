@@ -12,8 +12,8 @@ PKGV = "1+git${GITPKGV}"
 
 inherit autotools-brokensep pkgconfig
 
-SRC_URI = " git://github.com/pcherenkov/udpxy.git file://udpxy.sh \
-			file://fix-build-with-gcc7.patch \
+SRC_URI = " git://github.com/pcherenkov/udpxy.git \
+			file://udpxy.sh \
 			"
 
 S = "${WORKDIR}/git/chipmunk"
@@ -21,14 +21,14 @@ S = "${WORKDIR}/git/chipmunk"
 FILES_${PN} = "${bindir}/* /etc/init.d/udpxy.sh"
 
 do_compile() {
-    make -f Makefile udpxy
+	make -f Makefile udpxy
 }
 
 do_install() {
-    install -d ${D}/etc/init.d
-    install -m 755 ${WORKDIR}/udpxy.sh ${D}/etc/init.d/
-    install -d ${D}/${bindir}
-    install -m 755 ${S}/udpxy ${D}/${bindir}
+	install -d ${D}/etc/init.d
+	install -m 755 ${WORKDIR}/udpxy.sh ${D}/etc/init.d/
+	install -d ${D}/${bindir}
+	install -m 755 ${S}/udpxy ${D}/${bindir}
 }
 
 INITSCRIPT_NAME = "udpxy.sh"
