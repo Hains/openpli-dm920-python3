@@ -2,16 +2,16 @@
 PACKAGECONFIG_remove = "acl cups"
 
 EXTRA_OECONF += " \
-			--without-profiling-data \
 			--with-sockets-dir=${localstatedir}/run \
 			--with-logfilebase=${localstatedir}/log \
-			--disable-iprint \
+			--without-ad-dc \
 			--without-ads \
 			--without-dnsupdate \
+			--without-profiling-data \
 			--without-quotas \
-			--without-winbind \
 			--without-syslog \
-			--without-ad-dc \
+			--without-winbind \
+			--disable-iprint \
 			--disable-python \
 			--nopyc \
 			"
