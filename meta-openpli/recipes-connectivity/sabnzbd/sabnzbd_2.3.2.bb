@@ -11,12 +11,14 @@ RDEPENDS_${PN} = "\
 	"
 RRECOMMENDS_${PN} = "par2cmdline unrar"
 
-SRC_URI = "https://github.com/sabnzbd/sabnzbd/archive/2.3.1.tar.gz \
-	file://sabnzbd.ini \
+SRC_URI = "https://github.com/sabnzbd/sabnzbd/archive/${PV}.tar.gz \
+	file://sabnzbd \
+	file://sabnzbd.conf \
+	file://init-functions \
 	"
 
-SRC_URI[md5sum] = "ad99fe61475b5579f36fc147e7312611"
-SRC_URI[sha256sum] = "0214f8497c3422649274128dfec10090c44e8bf1911aed14cb44d877424b45ef"
+SRC_URI[md5sum] = "42811cc0238c1acd701058d5cedfb5fe"
+SRC_URI[sha256sum] = "7debc856e981c9b4e4f2a137d0be24999482d369acd21487cfd8c23bd7b33a3d"
 
 S = "${WORKDIR}/sabnzbd-${PV}"
 
@@ -25,8 +27,9 @@ INSTALLDIR = "/usr/lib/${PN}"
 PACKAGES = "${PN}-doc ${PN}-src ${PN}"
 
 FILES_${PN}-src = "${INSTALLDIR}/*/*.py ${INSTALLDIR}/*/*/*.py"
+RDEPENDS_${PN}-src = "python"
 FILES_${PN}-doc = "${INSTALLDIR}/*.txt ${INSTALLDIR}/licenses ${INSTALLDIR}/interfaces/*/licenses"
-FILES_${PN} = "${INSTALLDIR} /etc/init.d /etc/init.d/sabnzbd /etc/sabnzbd.ini"
+FILES_${PN} = "${INSTALLDIR} /etc/init.d/sabnzbd /etc/init.d/init-functions /etc/enigma2/sabnzbd.conf"
 
 inherit update-rc.d
 INITSCRIPT_NAME = "sabnzbd"
@@ -40,5 +43,8 @@ do_install() {
 	install -d ${D}${INSTALLDIR}
 	cp -r . ${D}${INSTALLDIR}/
 	install -d ${D}/etc/init.d
-	install -m 644 ${WORKDIR}/sabnzbd.ini ${D}/etc/sabnzbd.ini
+	install -m 755 ${WORKDIR}/sabnzbd ${D}/etc/init.d/sabnzbd
+	install -m 755 ${WORKDIR}/init-functions ${D}/etc/init.d/init-functions
+	install -d ${D}/etc/enigma2
+	install -m 644 ${WORKDIR}/sabnzbd.conf ${D}/etc/enigma2/sabnzbd.conf
 }
