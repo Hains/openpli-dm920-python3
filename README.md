@@ -30,7 +30,7 @@ git clone https://github.com/Hains/openpli-dm8000-oe-core.git
 
 cd openpli-dm8000-oe-core
 
-MACHINE=dm8000 make image
+make image
 ```
 When the build is finished, the image openpli-enigma2-homebuild-dm8000.nfi is in directory:
 
@@ -75,12 +75,6 @@ or
 ```
 make feed                          // update image and feed.
 ```
-In case bitbake complains about MACHINE, you have to set 
-```
-MACHINE="dm8000"
-```
-in file /site.conf
-<br>
 <br>
 To update build-environment including all submodules, run:
 ```

@@ -42,6 +42,8 @@ SSTATE_DIR = $(TOPDIR)/sstate-cache
 TMPDIR = $(TOPDIR)/tmp
 DEPDIR = $(TOPDIR)/.deps
 
+MACHINE=dm8000
+
 BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-oe \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
@@ -76,22 +78,22 @@ hash = $(shell echo $(1) | $(XSUM) | awk '{print $$1}')
 .DEFAULT_GOAL := all
 all: init
 	@echo
-	@echo "Openembedded for the OpenPLi 6 develop(based on) environment has been initialized"
+	@echo "Openembedded for the OpenPLi homebuild develop(based on) environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
-	@echo " MACHINE=... make image"
+	@echo " make image"
 	@echo
 	@echo "	or:"
 	@echo
 	@echo " cd $(BUILD_DIR)"
 	@echo " source env.source"
-	@echo " MACHINE=... bitbake openpli-enigma2-image"
+	@echo " bitbake openpli-enigma2-image"
 	@echo
 	@echo "	or, if you want to build not just the image, but the optional packages in the feed as well:"
 	@echo
-	@echo " MACHINE=... make feed"
+	@echo " make feed"
 	@echo "	or:"
-	@echo " MACHINE=... bitbake openpli-enigma2-feed"
+	@echo " bitbake openpli-enigma2-feed"
 	@echo
 
 $(BBLAYERS):
