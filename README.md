@@ -75,7 +75,7 @@ or
 ```
 make feed                          // update image and feed.
 ```
-<br>
+
 To update build-environment including all submodules, run:
 ```
 make update
