@@ -50,7 +50,6 @@ PYTHON_RDEPS = " \
 	python-crypt \
 	python-fcntl \
 	python-hyperlink \
-	python-importlib \
 	python-incremental \
 	python-lang \
 	python-netclient \
