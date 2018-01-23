@@ -2,7 +2,7 @@ diff --git a/IPTVPlayer/setup/iptvsetupimpl.py b/IPTVPlayer/setup/iptvsetupimpl.
 index 24688d2..17e75e5 100644
 --- a/IPTVPlayer/setup/iptvsetupimpl.py
 +++ b/IPTVPlayer/setup/iptvsetupimpl.py
-@@ -296,7 +296,7 @@ class IPTVSetupImpl:
+@@ -298,7 +298,7 @@ class IPTVSetupImpl:
      def setOpenSSLVersion(self, ret=None):
          printDBG('Check opennSSL version')
          self.setInfo(_("Detection of the OpenSSL version."), _("OpenSSL lib is needed by wget and rtmpdump utilities."))
@@ -11,3 +11,12 @@ index 24688d2..17e75e5 100644
              libsslExist = False
              libcryptoExist = False
              libSSLPath = ''
+@@ -321,6 +321,8 @@ class IPTVSetupImpl:
+         if libsslExist and libcryptoExist:
+             self.openSSLVersion = ver
+             self.libSSLPath = libSSLPath
++            if '.1.1' == ver:
++                self.getGstreamerVer()
+             if '.1.0.2' == ver:
+                 self.getOpenssl2Finished()
+             elif '.0.9.8' == ver:
