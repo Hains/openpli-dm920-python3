@@ -27,7 +27,11 @@ SRC_URI += " \
 			file://samba.sh \
 			"
 
-FILES_${PN}-base += "${sysconfdir}/init.d/samba.sh"
+FILES_${PN}-base += "${sysconfdir}/init.d/samba.sh \
+					 ${bindir}/testparm \
+					 "
+
+RRECOMMENDS_${PN}-base+= "wsdd"
 
 do_install_append() {
 	rm -fR ${D}/var
