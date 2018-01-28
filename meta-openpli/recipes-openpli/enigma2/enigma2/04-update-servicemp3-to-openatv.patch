@@ -361,15 +361,6 @@ index aae443b..76e85c4 100644
  		// disconnect sync handler callback
  		GstBus *bus = gst_pipeline_get_bus(GST_PIPELINE (m_gst_playbin));
  #if GST_VERSION_MAJOR < 1
-@@ -718,7 +846,7 @@ eServiceMP3::~eServiceMP3()
- 
- 	stop();
- 
--	if (m_decoder)
-+if (m_decoder)
- 	{
- 		delete m_decoder;
- 		m_decoder = NULL;
 @@ -727,20 +855,20 @@ eServiceMP3::~eServiceMP3()
  	if (m_stream_tags)
  		gst_tag_list_free(m_stream_tags);
