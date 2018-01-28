@@ -116,7 +116,7 @@ index aae443b..76e85c4 100644
  			if (eraser)
  				eraser->erase(i->c_str());
  			else
-@@ -417,27 +494,34 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -417,28 +494,35 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  	m_stream_tags = 0;
  	m_currentAudioStream = -1;
  	m_currentSubtitleStream = -1;
@@ -153,11 +153,12 @@ index aae443b..76e85c4 100644
  	m_decoder_time_valid_state = 0;
  	m_errorInfo.missing_codec = "";
 -	audioSink = videoSink = NULL;
+ 	m_decoder = NULL;
 +	m_subs_to_pull_handler_id = m_notify_source_handler_id = m_notify_element_added_handler_id = 0;
  
  	CONNECT(m_subtitle_sync_timer->timeout, eServiceMP3::pushSubtitles);
  	CONNECT(m_pump.recv_msg, eServiceMP3::gstPoll);
-@@ -445,7 +529,8 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -446,7 +530,8 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  	m_aspect = m_width = m_height = m_framerate = m_progressive = -1;
  
  	m_state = stIdle;
@@ -167,7 +168,7 @@ index aae443b..76e85c4 100644
  
  	const char *filename;
  	std::string filename_str;
-@@ -475,7 +560,7 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -476,7 +561,7 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  
  	m_sourceinfo.is_video = FALSE;
  	m_sourceinfo.audiotype = atUnknown;
@@ -176,7 +177,7 @@ index aae443b..76e85c4 100644
  	{
  		m_sourceinfo.containertype = ctMPEGPS;
  		m_sourceinfo.is_video = TRUE;
-@@ -510,9 +595,9 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -511,9 +596,9 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  		m_sourceinfo.containertype = ctASF;
  		m_sourceinfo.is_video = TRUE;
  	}
@@ -188,7 +189,7 @@ index aae443b..76e85c4 100644
  		m_sourceinfo.is_video = TRUE;
  	}
  	else if ( strcasecmp(ext, ".m4a") == 0 )
-@@ -523,11 +608,30 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -524,11 +609,30 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  	else if ( strcasecmp(ext, ".m3u8") == 0 )
  		m_sourceinfo.is_hls = TRUE;
  	else if ( strcasecmp(ext, ".mp3") == 0 )
@@ -219,7 +220,7 @@ index aae443b..76e85c4 100644
  	else if ( strcasecmp(ext, ".cda") == 0)
  		m_sourceinfo.containertype = ctCDA;
  	if ( strcasecmp(ext, ".dat") == 0 )
-@@ -609,6 +713,26 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -610,6 +714,26 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  #endif
  	if ( m_gst_playbin )
  	{
@@ -246,7 +247,7 @@ index aae443b..76e85c4 100644
  		/*
  		 * avoid video conversion, let the dvbmediasink handle that using native video flag
  		 * volume control is done by hardware, do not use soft volume flag
-@@ -618,12 +742,12 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -619,12 +743,12 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  
  		if ( m_sourceinfo.is_streaming )
  		{
@@ -261,7 +262,7 @@ index aae443b..76e85c4 100644
  				/* limit file size */
  				g_object_set(m_gst_playbin, "ring-buffer-max-size", (guint64)(8LL * 1024LL * 1024LL), NULL);
  			}
-@@ -632,27 +756,24 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -633,27 +757,24 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  			 * (progressive download might not work for all formats)
  			 */
  			flags |= GST_PLAY_FLAG_BUFFERING;
@@ -301,7 +302,7 @@ index aae443b..76e85c4 100644
  		}
  		GstBus *bus = gst_pipeline_get_bus(GST_PIPELINE (m_gst_playbin));
  #if GST_VERSION_MAJOR < 1
-@@ -663,7 +784,7 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -664,7 +785,7 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  		gst_object_unref(bus);
  
  		if (suburi != NULL)
@@ -310,7 +311,7 @@ index aae443b..76e85c4 100644
  		else
  		{
  			char srt_filename[ext - filename + 5];
-@@ -673,13 +794,13 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -674,13 +795,13 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  			if (::access(srt_filename, R_OK) >= 0)
  			{
  				eDebug("[eServiceMP3] subtitle uri: %s", g_filename_to_uri(srt_filename, NULL, NULL));
@@ -326,7 +327,7 @@ index aae443b..76e85c4 100644
  		m_errorInfo.error_message = "failed to create GStreamer pipeline!\n";
  
  		eDebug("[eServiceMP3] sorry, can't play: %s",m_errorInfo.error_message.c_str());
-@@ -692,19 +813,26 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
+@@ -693,19 +814,26 @@ eServiceMP3::eServiceMP3(eServiceReference ref):
  eServiceMP3::~eServiceMP3()
  {
  	// disconnect subtitle callback
@@ -360,7 +361,16 @@ index aae443b..76e85c4 100644
  		// disconnect sync handler callback
  		GstBus *bus = gst_pipeline_get_bus(GST_PIPELINE (m_gst_playbin));
  #if GST_VERSION_MAJOR < 1
-@@ -720,20 +848,20 @@ eServiceMP3::~eServiceMP3()
+@@ -718,7 +846,7 @@ eServiceMP3::~eServiceMP3()
+ 
+ 	stop();
+ 
+-	if (m_decoder)
++if (m_decoder)
+ 	{
+ 		delete m_decoder;
+ 		m_decoder = NULL;
+@@ -727,20 +855,20 @@ eServiceMP3::~eServiceMP3()
  	if (m_stream_tags)
  		gst_tag_list_free(m_stream_tags);
  
@@ -392,7 +402,7 @@ index aae443b..76e85c4 100644
  	}
  }
  
-@@ -796,11 +924,12 @@ RESULT eServiceMP3::start()
+@@ -803,11 +931,12 @@ RESULT eServiceMP3::start()
  {
  	ASSERT(m_state == stIdle);
  
@@ -407,7 +417,7 @@ index aae443b..76e85c4 100644
  
  		switch(ret)
  		{
-@@ -812,6 +941,7 @@ RESULT eServiceMP3::start()
+@@ -819,6 +948,7 @@ RESULT eServiceMP3::start()
  			m_is_live = false;
  			break;
  		case GST_STATE_CHANGE_NO_PREROLL:
@@ -415,7 +425,7 @@ index aae443b..76e85c4 100644
  			m_is_live = true;
  			break;
  		default:
-@@ -838,20 +968,41 @@ RESULT eServiceMP3::stop()
+@@ -845,20 +975,41 @@ RESULT eServiceMP3::stop()
  		gst_element_state_get_name(state),
  		gst_element_state_get_name(pending),
  		gst_element_state_change_return_get_name(ret));
@@ -460,7 +470,7 @@ index aae443b..76e85c4 100644
  	return 0;
  }
  
-@@ -859,13 +1010,13 @@ RESULT eServiceMP3::setSlowMotion(int ratio)
+@@ -866,13 +1017,13 @@ RESULT eServiceMP3::setSlowMotion(int ratio)
  {
  	if (!ratio)
  		return 0;
@@ -476,7 +486,7 @@ index aae443b..76e85c4 100644
  	return trickSeek(ratio);
  }
  
-@@ -875,8 +1026,13 @@ RESULT eServiceMP3::pause()
+@@ -882,8 +1033,13 @@ RESULT eServiceMP3::pause()
  	if (!m_gst_playbin || m_state != stRunning)
  		return -1;
  
@@ -491,7 +501,7 @@ index aae443b..76e85c4 100644
  
  	return 0;
  }
-@@ -886,6 +1042,9 @@ RESULT eServiceMP3::unpause()
+@@ -893,6 +1049,9 @@ RESULT eServiceMP3::unpause()
  	if (!m_gst_playbin || m_state != stRunning)
  		return -1;
  
@@ -501,7 +511,7 @@ index aae443b..76e85c4 100644
  	/* no need to unpase if we are not paused already */
  	if (m_currentTrickRatio == 1.0 && !m_paused)
  	{
-@@ -922,49 +1081,70 @@ RESULT eServiceMP3::getLength(pts_t &pts)
+@@ -929,49 +1088,70 @@ RESULT eServiceMP3::getLength(pts_t &pts)
  		/* len is in nanoseconds. we have 90 000 pts per second. */
  
  	pts = len / 11111LL;
@@ -582,7 +592,7 @@ index aae443b..76e85c4 100644
  		ret = seekToImpl(to);
  	}
  
-@@ -976,21 +1156,46 @@ RESULT eServiceMP3::trickSeek(gdouble ratio)
+@@ -983,21 +1163,46 @@ RESULT eServiceMP3::trickSeek(gdouble ratio)
  {
  	if (!m_gst_playbin)
  		return -1;
@@ -635,7 +645,7 @@ index aae443b..76e85c4 100644
  		return 0;
  	}
  
-@@ -1000,7 +1205,7 @@ RESULT eServiceMP3::trickSeek(gdouble ratio)
+@@ -1007,7 +1212,7 @@ RESULT eServiceMP3::trickSeek(gdouble ratio)
  		GstElement *source = NULL;
  		GstElementFactory *factory = NULL;
  		const gchar *name = NULL;
@@ -644,7 +654,7 @@ index aae443b..76e85c4 100644
  		if (!source)
  		{
  			eDebugNoNewLineStart("[eServiceMP3] trickSeek - cannot get source");
-@@ -1025,54 +1230,90 @@ RESULT eServiceMP3::trickSeek(gdouble ratio)
+@@ -1032,54 +1237,90 @@ RESULT eServiceMP3::trickSeek(gdouble ratio)
  		*/
  		if (!strcmp(name, "filesrc") || !strcmp(name, "souphttpsrc"))
  		{
@@ -749,7 +759,7 @@ index aae443b..76e85c4 100644
  		}
  	}
  
-@@ -1087,12 +1328,35 @@ RESULT eServiceMP3::seekRelative(int direction, pts_t to)
+@@ -1094,12 +1335,35 @@ RESULT eServiceMP3::seekRelative(int direction, pts_t to)
  	if (!m_gst_playbin)
  		return -1;
  
@@ -786,7 +796,7 @@ index aae443b..76e85c4 100644
  }
  
  #if GST_VERSION_MAJOR < 1
-@@ -1109,13 +1373,13 @@ gint eServiceMP3::match_sinktype(const GValue *velement, const gchar *type)
+@@ -1116,13 +1380,13 @@ gint eServiceMP3::match_sinktype(const GValue *velement, const gchar *type)
  #endif
  
  #if HAVE_AMLOGIC
@@ -802,7 +812,7 @@ index aae443b..76e85c4 100644
  	if (pad) {
  		dec_pad = gst_pad_get_peer(pad);
  		while (dec_pad && GST_IS_GHOST_PAD(dec_pad)) {
-@@ -1130,36 +1394,59 @@ GstElement *getAVDecElement(GstElement *m_gst_playbin, int i, int flag)
+@@ -1137,36 +1401,59 @@ GstElement *getAVDecElement(GstElement *m_gst_playbin, int i, int flag)
  	}
  
  	if (!e)
@@ -817,7 +827,7 @@ index aae443b..76e85c4 100644
 +	GstPad *pad = NULL;
 +	GstPad *dec_pad = NULL;
 +	GstElement *e = NULL;
- 
++
 +	g_signal_emit_by_name(m_gst_playbin, "get-audio-pad", i, &pad);
 +	if (pad) {
 +		dec_pad = gst_pad_get_peer(pad);
@@ -831,7 +841,7 @@ index aae443b..76e85c4 100644
 +		}
 +		gst_object_unref(pad);
 +	}
-+
+ 
 +	if (!e)
 +		eDebug("no audioDecElement");
 +		
@@ -871,7 +881,7 @@ index aae443b..76e85c4 100644
  unsigned int eServiceMP3::get_pts_pcrscr(void)
  {
  	int handle;
-@@ -1168,37 +1455,102 @@ unsigned int eServiceMP3::get_pts_pcrscr(void)
+@@ -1175,37 +1462,102 @@ unsigned int eServiceMP3::get_pts_pcrscr(void)
  	unsigned int value = 0;
  
  	handle = open("/sys/class/tsync/pts_pcrscr", O_RDONLY);
@@ -987,7 +997,7 @@ index aae443b..76e85c4 100644
  	}
  #endif
  	else
-@@ -1206,17 +1558,34 @@ RESULT eServiceMP3::getPlayPosition(pts_t &pts)
+@@ -1213,17 +1565,34 @@ RESULT eServiceMP3::getPlayPosition(pts_t &pts)
  		GstFormat fmt = GST_FORMAT_TIME;
  #if GST_VERSION_MAJOR < 1
  		if (!gst_element_query_position(m_gst_playbin, &fmt, &pos))
@@ -1025,7 +1035,7 @@ index aae443b..76e85c4 100644
  	return 0;
  }
  
-@@ -1618,12 +1987,17 @@ int eServiceMP3::getNumberOfTracks()
+@@ -1625,12 +1994,17 @@ int eServiceMP3::getNumberOfTracks()
  int eServiceMP3::getCurrentTrack()
  {
  	if (m_currentAudioStream == -1)
@@ -1044,7 +1054,7 @@ index aae443b..76e85c4 100644
  	bool validposition = false;
  	pts_t ppos = 0;
  	if (getPlayPosition(ppos) >= 0)
-@@ -1635,7 +2009,7 @@ RESULT eServiceMP3::selectTrack(unsigned int i)
+@@ -1642,7 +2016,7 @@ RESULT eServiceMP3::selectTrack(unsigned int i)
  	}
  	if (validposition)
  	{
@@ -1053,7 +1063,7 @@ index aae443b..76e85c4 100644
  		seekTo(ppos);
  	}
  	return selectAudioStream(i);
-@@ -1644,15 +2018,15 @@ RESULT eServiceMP3::selectTrack(unsigned int i)
+@@ -1651,15 +2025,15 @@ RESULT eServiceMP3::selectTrack(unsigned int i)
  int eServiceMP3::selectAudioStream(int i)
  {
  	int current_audio;
@@ -1072,7 +1082,7 @@ index aae443b..76e85c4 100644
  		m_currentAudioStream = i;
  		return 0;
  	}
-@@ -1706,7 +2080,7 @@ subtype_t getSubtitleType(GstPad* pad, gchar *g_codec=NULL)
+@@ -1713,7 +2087,7 @@ subtype_t getSubtitleType(GstPad* pad, gchar *g_codec=NULL)
  		if (str)
  		{
  			const gchar *g_type = gst_structure_get_name(str);
@@ -1081,7 +1091,7 @@ index aae443b..76e85c4 100644
  			if (g_type)
  			{
  #if GST_VERSION_MAJOR < 1
-@@ -1728,7 +2102,7 @@ subtype_t getSubtitleType(GstPad* pad, gchar *g_codec=NULL)
+@@ -1735,7 +2109,7 @@ subtype_t getSubtitleType(GstPad* pad, gchar *g_codec=NULL)
  	}
  	else if ( g_codec )
  	{
@@ -1090,7 +1100,7 @@ index aae443b..76e85c4 100644
  		if ( !strcmp(g_codec, "VOB") )
  			type = stVOB;
  		else if ( !strcmp(g_codec, "SubStation Alpha") || !strcmp(g_codec, "SSA") )
-@@ -1754,55 +2128,68 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -1761,55 +2135,68 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  		return;
  	gchar *sourceName;
  	GstObject *source;
@@ -1173,7 +1183,7 @@ index aae443b..76e85c4 100644
  					{
  #ifdef GSTREAMER_SUBTITLE_SYNC_MODE_BUG
  						/*
-@@ -1815,8 +2202,9 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -1822,8 +2209,9 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  						 * And not just once, but after each pause/resume / skip.
  						 * So as soon as gstreamer has been fixed to keep sync in sparse streams, sync needs to be re-enabled.
  						 */
@@ -1184,7 +1194,7 @@ index aae443b..76e85c4 100644
  #if 0
  						/* we should not use ts-offset to sync with the decoder time, we have to do our own decoder timekeeping */
  						g_object_set (G_OBJECT (subsink), "ts-offset", -2LL * GST_SECOND, NULL);
-@@ -1825,97 +2213,37 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -1832,55 +2220,32 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  						/* avoid prerolling (it might not be a good idea to preroll a sparse stream) */
  						g_object_set (G_OBJECT (subsink), "async", TRUE, NULL);
  #endif
@@ -1253,8 +1263,13 @@ index aae443b..76e85c4 100644
 +						m_is_live = true;
 +					m_event((iPlayableService*)this, evGstreamerPlayStarted);
  					updateEpgCacheNowNext();
--
- 				}	break;
+ 
+-					if (!videoSink || m_ref.getData(0) == 2) // show radio pic
++					if (!dvb_videosink || m_ref.getData(0) == 2) // show radio pic
+ 					{
+ 						bool showRadioBackground = eConfigManager::getConfigBoolValue("config.misc.showradiopic", true);
+ 						std::string radio_pic = eConfigManager::getConfigValue(showRadioBackground ? "config.misc.radiopic" : "config.misc.blackradiopic");
+@@ -1892,45 +2257,9 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  				case GST_STATE_CHANGE_PAUSED_TO_PLAYING:
  				{
  					m_paused = false;
@@ -1303,7 +1318,7 @@ index aae443b..76e85c4 100644
  				}	break;
  				case GST_STATE_CHANGE_PLAYING_TO_PAUSED:
  				{
-@@ -1923,16 +2251,6 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -1938,16 +2267,6 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  				}	break;
  				case GST_STATE_CHANGE_PAUSED_TO_READY:
  				{
@@ -1320,7 +1335,7 @@ index aae443b..76e85c4 100644
  				}	break;
  				case GST_STATE_CHANGE_READY_TO_NULL:
  				{
-@@ -1946,7 +2264,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -1961,7 +2280,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  			GError *err;
  			gst_message_parse_error (msg, &err, &debug);
  			g_free (debug);
@@ -1329,7 +1344,7 @@ index aae443b..76e85c4 100644
  			if ( err->domain == GST_STREAM_ERROR )
  			{
  				if ( err->code == GST_STREAM_ERROR_CODEC_NOT_FOUND )
-@@ -1979,16 +2297,14 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -1994,16 +2313,14 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  			if(!strncmp(warn->message , "Internal data flow problem", 26) && !strncmp(sourceName, "subtitle_sink", 13))
  			{
  				eWarning("[eServiceMP3] Gstreamer warning : %s (%i) from %s" , warn->message, warn->code, sourceName);
@@ -1349,7 +1364,7 @@ index aae443b..76e85c4 100644
  				}
  			}
  			g_free(debug_warn);
-@@ -2060,7 +2376,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2075,7 +2392,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  					gst_buffer_unmap(buf_image, &map);
  #endif
  					close(fd);
@@ -1358,7 +1373,7 @@ index aae443b..76e85c4 100644
  				}
  				m_event((iPlayableService*)this, evUser+13);
  			}
-@@ -2072,7 +2388,8 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2087,7 +2404,8 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  #if GST_VERSION_MAJOR >= 1
  		case GST_MESSAGE_TOC:
  		{
@@ -1368,7 +1383,7 @@ index aae443b..76e85c4 100644
  			break;
  		}
  #endif
-@@ -2082,13 +2399,13 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2097,13 +2415,13 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  				break;
  
  			gint i, n_video = 0, n_audio = 0, n_text = 0;
@@ -1384,7 +1399,7 @@ index aae443b..76e85c4 100644
  
  			if ( n_video + n_audio <= 0 )
  				stop();
-@@ -2113,7 +2430,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2128,7 +2446,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  					continue;
  				GstStructure* str = gst_caps_get_structure(caps, 0);
  				const gchar *g_type = gst_structure_get_name(str);
@@ -1393,7 +1408,7 @@ index aae443b..76e85c4 100644
  				audio.type = gstCheckAudioPad(str);
  				audio.language_code = "und";
  				audio.codec = g_type;
-@@ -2138,7 +2455,8 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2153,7 +2471,8 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  					}
  					gst_tag_list_free(tags);
  				}
@@ -1403,7 +1418,7 @@ index aae443b..76e85c4 100644
  				m_audioStreams.push_back(audio);
  				gst_caps_unref(caps);
  			}
-@@ -2165,7 +2483,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2180,7 +2499,7 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  					gst_tag_list_free(tags);
  				}
  
@@ -1412,7 +1427,7 @@ index aae443b..76e85c4 100644
  
  				GstPad* pad = 0;
  				g_signal_emit_by_name (m_gst_playbin, "get-text-pad", i, &pad);
-@@ -2177,19 +2495,39 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2192,19 +2511,39 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  				g_free(g_codec);
  				m_subtitleStreams.push_back(subs);
  			}
@@ -1459,7 +1474,7 @@ index aae443b..76e85c4 100644
  			break;
  		}
  		case GST_MESSAGE_ELEMENT:
-@@ -2243,9 +2581,9 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2258,9 +2597,9 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  						else if (!strcmp(eventname, "redirect"))
  						{
  							const char *uri = gst_structure_get_string(msgstruct, "new-location");
@@ -1471,7 +1486,7 @@ index aae443b..76e85c4 100644
  							gst_element_set_state (m_gst_playbin, GST_STATE_PLAYING);
  						}
  					}
-@@ -2256,11 +2594,11 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2271,11 +2610,11 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  		case GST_MESSAGE_BUFFERING:
  			if (m_sourceinfo.is_streaming)
  			{
@@ -1487,7 +1502,7 @@ index aae443b..76e85c4 100644
  				/*
  				 * we don't react to buffer level messages, unless we are configured to use a prefill buffer
  				 * (even if we are not configured to, we still use the buffer, but we rely on it to remain at the
-@@ -2274,11 +2612,12 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2289,11 +2628,12 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  				{
  					if (m_bufferInfo.bufferPercent == 100)
  					{
@@ -1504,7 +1519,7 @@ index aae443b..76e85c4 100644
  							gst_element_set_state (m_gst_playbin, GST_STATE_PLAYING);
  						}
  						/*
-@@ -2288,11 +2627,11 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
+@@ -2303,11 +2643,11 @@ void eServiceMP3::gstBusCall(GstMessage *msg)
  						 * Ignore the first few buffering messages, giving the buffer the chance to recover
  						 * a bit, before we start handling empty buffer states again.
  						 */
@@ -1519,7 +1534,7 @@ index aae443b..76e85c4 100644
  						gst_element_set_state (m_gst_playbin, GST_STATE_PAUSED);
  						m_ignore_buffering_messages = 0;
  					}
-@@ -2342,10 +2681,10 @@ void eServiceMP3::HandleTocEntry(GstMessage *msg)
+@@ -2357,10 +2697,10 @@ void eServiceMP3::HandleTocEntry(GstMessage *msg)
  		for (GList* i = gst_toc_get_entries(toc); i; i = i->next)
  		{
  			GstTocEntry *entry = static_cast<GstTocEntry*>(i->data);
@@ -1533,7 +1548,7 @@ index aae443b..76e85c4 100644
  				gint y = 0;
  				for (GList* x = gst_toc_entry_get_sub_entries (entry); x; x = x->next)
  				{
-@@ -2355,9 +2694,7 @@ void eServiceMP3::HandleTocEntry(GstMessage *msg)
+@@ -2370,9 +2710,7 @@ void eServiceMP3::HandleTocEntry(GstMessage *msg)
  						if (y == 0)
  						{
  							m_use_chapter_entries = true;
@@ -1544,7 +1559,7 @@ index aae443b..76e85c4 100644
  								loadCuesheet();
  						}
  						/* first chapter is movie start no cut needed */
-@@ -2365,34 +2702,46 @@ void eServiceMP3::HandleTocEntry(GstMessage *msg)
+@@ -2380,34 +2718,46 @@ void eServiceMP3::HandleTocEntry(GstMessage *msg)
  						{
  							gint64 start = 0;
  							gint64 pts = 0;
@@ -1603,7 +1618,7 @@ index aae443b..76e85c4 100644
  	}
  }
  #endif
-@@ -2455,7 +2804,7 @@ void eServiceMP3::playbinNotifySource(GObject *object, GParamSpec *unused, gpoin
+@@ -2470,7 +2820,7 @@ void eServiceMP3::playbinNotifySource(GObject *object, GParamSpec *unused, gpoin
  				if (!name.empty() && !value.empty())
  				{
  					GValue header;
@@ -1612,7 +1627,7 @@ index aae443b..76e85c4 100644
  					memset(&header, 0, sizeof(GValue));
  					g_value_init(&header, G_TYPE_STRING);
  					g_value_set_string(&header, value.c_str());
-@@ -2619,7 +2968,7 @@ void eServiceMP3::gstTextpadHasCAPS_synced(GstPad *pad)
+@@ -2634,7 +2984,7 @@ void eServiceMP3::gstTextpadHasCAPS_synced(GstPad *pad)
  	{
  		subtitleStream subs;
  
@@ -1621,7 +1636,7 @@ index aae443b..76e85c4 100644
  //		eDebug("[eServiceMP3] gstGhostpadHasCAPS_synced %p %d", pad, m_subtitleStreams.size());
  
  		if (m_currentSubtitleStream >= 0 && m_currentSubtitleStream < (int)m_subtitleStreams.size())
-@@ -2674,21 +3023,21 @@ void eServiceMP3::pullSubtitle(GstBuffer *buffer)
+@@ -2689,21 +3039,21 @@ void eServiceMP3::pullSubtitle(GstBuffer *buffer)
  		GstMapInfo map;
  		if(!gst_buffer_map(buffer, &map, GST_MAP_READ))
  		{
@@ -1647,7 +1662,7 @@ index aae443b..76e85c4 100644
  				int subtitle_fps = eConfigManager::getConfigIntValue("config.subtitles.pango_subtitles_fps");
  
  				double convert_fps = 1.0;
-@@ -2700,20 +3049,31 @@ void eServiceMP3::pullSubtitle(GstBuffer *buffer)
+@@ -2715,20 +3065,31 @@ void eServiceMP3::pullSubtitle(GstBuffer *buffer)
  #else
  				std::string line((const char*)map.data, len);
  #endif
@@ -1686,7 +1701,7 @@ index aae443b..76e85c4 100644
  			}
  		}
  #if GST_VERSION_MAJOR >= 1
-@@ -2725,26 +3085,35 @@ void eServiceMP3::pullSubtitle(GstBuffer *buffer)
+@@ -2740,26 +3101,35 @@ void eServiceMP3::pullSubtitle(GstBuffer *buffer)
  void eServiceMP3::pushSubtitles()
  {
  	pts_t running_pts = 0;
@@ -1730,7 +1745,7 @@ index aae443b..76e85c4 100644
  			goto exit;
  		}
  
-@@ -2752,9 +3121,10 @@ void eServiceMP3::pushSubtitles()
+@@ -2767,9 +3137,10 @@ void eServiceMP3::pushSubtitles()
  	}
  
  	decoder_ms = running_pts / 90;
@@ -1742,7 +1757,7 @@ index aae443b..76e85c4 100644
  
  		for (current = m_subtitle_pages.begin(); current != m_subtitle_pages.end(); current++)
  		{
-@@ -2763,33 +3133,44 @@ void eServiceMP3::pushSubtitles()
+@@ -2778,33 +3149,44 @@ void eServiceMP3::pushSubtitles()
  			diff_start_ms = start_ms - decoder_ms;
  			diff_end_ms = end_ms - decoder_ms;
  
@@ -1794,7 +1809,7 @@ index aae443b..76e85c4 100644
  			next_timer = diff_start_ms;
  			goto exit;
  		}
-@@ -2805,7 +3186,10 @@ void eServiceMP3::pushSubtitles()
+@@ -2820,7 +3202,10 @@ void eServiceMP3::pushSubtitles()
  
  			pango_page.m_elements.push_back(ePangoSubtitlePageElement(rgbcol, current->second.text.c_str()));
  			pango_page.m_show_pts = start_ms * 90;			// actually completely unused by widget!
@@ -1806,7 +1821,7 @@ index aae443b..76e85c4 100644
  
  			m_subtitle_widget->setPage(pango_page);
  		}
-@@ -2828,20 +3212,24 @@ exit:
+@@ -2843,20 +3228,24 @@ exit:
  
  RESULT eServiceMP3::enableSubtitles(iSubtitleUser *user, struct SubtitleTrack &track)
  {
@@ -1834,7 +1849,7 @@ index aae443b..76e85c4 100644
  
  #ifdef GSTREAMER_SUBTITLE_SYNC_MODE_BUG
  		/*
-@@ -2850,8 +3238,16 @@ RESULT eServiceMP3::enableSubtitles(iSubtitleUser *user, struct SubtitleTrack &t
+@@ -2865,8 +3254,16 @@ RESULT eServiceMP3::enableSubtitles(iSubtitleUser *user, struct SubtitleTrack &t
  		 */
  		seekRelative(-1, 90000);
  #endif
@@ -1852,7 +1867,7 @@ index aae443b..76e85c4 100644
  	return 0;
  }
  
-@@ -2860,7 +3256,7 @@ RESULT eServiceMP3::disableSubtitles()
+@@ -2875,7 +3272,7 @@ RESULT eServiceMP3::disableSubtitles()
  	eDebug("[eServiceMP3] disableSubtitles");
  	m_currentSubtitleStream = -1;
  	m_cachedSubtitleStream = m_currentSubtitleStream;
@@ -1861,7 +1876,7 @@ index aae443b..76e85c4 100644
  	m_subtitle_sync_timer->stop();
  	m_subtitle_pages.clear();
  	m_prev_decoder_time = -1;
-@@ -2874,47 +3270,10 @@ RESULT eServiceMP3::getCachedSubtitle(struct SubtitleTrack &track)
+@@ -2889,47 +3286,10 @@ RESULT eServiceMP3::getCachedSubtitle(struct SubtitleTrack &track)
  {
  
  	bool autoturnon = eConfigManager::getConfigBoolValue("config.subtitles.pango_autoturnon", true);
@@ -1910,7 +1925,7 @@ index aae443b..76e85c4 100644
  	{
  		track.type = 2;
  		track.pid = m_cachedSubtitleStream;
-@@ -2952,7 +3311,7 @@ RESULT eServiceMP3::getSubtitleList(std::vector<struct SubtitleTrack> &subtitlel
+@@ -2967,7 +3327,7 @@ RESULT eServiceMP3::getSubtitleList(std::vector<struct SubtitleTrack> &subtitlel
  		}
  		stream_idx++;
  	}
@@ -1919,7 +1934,7 @@ index aae443b..76e85c4 100644
  	return 0;
  }
  
-@@ -3014,7 +3373,7 @@ void eServiceMP3::setCutList(ePyObject list)
+@@ -3029,7 +3389,7 @@ void eServiceMP3::setCutList(ePyObject list)
  		pts_t pts = PyLong_AsLongLong(ppts);
  		int type = PyInt_AsLong(ptype);
  		m_cue_entries.insert(cueEntry(pts, type));
@@ -1928,7 +1943,7 @@ index aae443b..76e85c4 100644
  	}
  	m_cuesheet_changed = 1;
  	m_event((iPlayableService*)this, evCuesheetChanged);
-@@ -3028,7 +3387,7 @@ void eServiceMP3::setCutListEnable(int enable)
+@@ -3043,7 +3403,7 @@ void eServiceMP3::setCutListEnable(int enable)
  int eServiceMP3::setBufferSize(int size)
  {
  	m_buffer_size = size;
@@ -1937,7 +1952,7 @@ index aae443b..76e85c4 100644
  	return 0;
  }
  
-@@ -3056,17 +3415,17 @@ void eServiceMP3::setAC3Delay(int delay)
+@@ -3071,17 +3431,17 @@ void eServiceMP3::setAC3Delay(int delay)
  		 * If either the video or audio sink is of a different type,
  		 * we have no chance to get them synced anyway.
  		 */
@@ -1958,7 +1973,7 @@ index aae443b..76e85c4 100644
  		{
  			eTSMPEGDecoder::setHwAC3Delay(config_delay_int);
  		}
-@@ -3087,17 +3446,17 @@ void eServiceMP3::setPCMDelay(int delay)
+@@ -3102,17 +3462,17 @@ void eServiceMP3::setPCMDelay(int delay)
  		 * If either the video or audio sink is of a different type,
  		 * we have no chance to get them synced anyway.
  		 */
@@ -1979,7 +1994,7 @@ index aae443b..76e85c4 100644
  		{
  			eTSMPEGDecoder::setHwPCMDelay(config_delay_int);
  		}
-@@ -3113,21 +3472,14 @@ void eServiceMP3::loadCuesheet()
+@@ -3128,21 +3488,14 @@ void eServiceMP3::loadCuesheet()
  	}
  	else
  	{
@@ -2002,7 +2017,7 @@ index aae443b..76e85c4 100644
  	FILE *f = fopen(filename.c_str(), "rb");
  
  	if (f)
-@@ -3145,59 +3497,102 @@ void eServiceMP3::loadCuesheet()
+@@ -3160,59 +3513,102 @@ void eServiceMP3::loadCuesheet()
  			where = be64toh(where);
  			what = ntohl(what);
  
@@ -2131,7 +2146,7 @@ index aae443b..76e85c4 100644
  	m_cuesheet_changed = 0;
  }
 diff --git a/lib/service/servicemp3.h b/lib/service/servicemp3.h
-index 08eac9b..b4fc9a9 100644
+index c9f178e..8717131 100644
 --- a/lib/service/servicemp3.h
 +++ b/lib/service/servicemp3.h
 @@ -26,6 +26,7 @@ public:
