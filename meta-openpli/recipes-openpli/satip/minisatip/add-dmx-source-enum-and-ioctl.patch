@@ -1,0 +1,25 @@
+diff --git a/dvb.c b/dvb.c
+index 3b66250..f7c4454 100644
+--- a/dvb.c
++++ b/dvb.c
+@@ -43,6 +43,20 @@
+ #include "adapter.h"
+ #include "ca.h"
+ 
++/**
++ * DMX_SET_SOURCE and dmx_source enum removed on 4.14 kernel
++ * Check commit 13adefbe9e566c6db91579e4ce17f1e5193d6f2c
++**/
++enum dmx_source {
++	DMX_SOURCE_FRONT0 = 0,
++	DMX_SOURCE_FRONT1,
++	DMX_SOURCE_FRONT2,
++	DMX_SOURCE_FRONT3,
++};
++#define DMX_SET_SOURCE _IOW('o', 49, enum dmx_source)
++
++typedef enum dmx_source  dmx_source_t;
++
+ extern struct struct_opts opts;
+ 
+ struct diseqc_cmd
