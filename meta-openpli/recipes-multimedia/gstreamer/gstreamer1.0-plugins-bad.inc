@@ -6,8 +6,6 @@ DEPENDS += "gstreamer1.0-plugins-base libpng jpeg"
 
 inherit gettext bluetooth
 
-# gtk is not in the PACKAGECONFIG variable by default until
-# the transition to gtk+3 is finished
 PACKAGECONFIG ??= " \
 	${GSTREAMER_ORC} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'bluetooth', 'bluez', '', d)} \
@@ -28,7 +26,6 @@ PACKAGECONFIG[faac]				= "--enable-faac,--disable-faac,faac"
 PACKAGECONFIG[faad]				= "--enable-faad,--disable-faad,faad2"
 PACKAGECONFIG[flite]			= "--enable-flite,--disable-flite,flite-alsa"
 PACKAGECONFIG[fluidsynth]		= "--enable-fluidsynth,--disable-fluidsynth,fluidsynth"
-PACKAGECONFIG[gtk]				= "--enable-gtk3,--disable-gtk3,gtk+3"
 PACKAGECONFIG[hls]				= "--enable-hls,--disable-hls,nettle"
 PACKAGECONFIG[libmms]			= "--enable-libmms,--disable-libmms,libmms"
 PACKAGECONFIG[libssh2]			= "--enable-libssh2,--disable-libssh2,libssh2"
