@@ -57,11 +57,6 @@ PACKAGECONFIG[webp]				= "--enable-webp,--disable-webp,libwebp"
 # libde265 mimic mpeg2enc mplex ofa openh264 opensles soundtouch spandsp
 # spc vdpau wasapi x265 zbar
 
-# qt5 support is disabled, because it is not present in OE core, and requires more work than
-# just adding a packageconfig (it requires access to moc, uic, rcc, and qmake paths).
-# This is better done in a separate qt5 layer (which then should add a "qt5" packageconfig
-# in a gstreamer1.0-plugins-bad bbappend).
-
 EXTRA_OECONF += " \
 	--enable-decklink \
 	--enable-dvb \
@@ -93,7 +88,6 @@ EXTRA_OECONF += " \
 	--disable-openjpeg \
 	--disable-openni2 \
 	--disable-opensles \
-	--disable-qt \
 	--disable-soundtouch \
 	--disable-spandsp \
 	--disable-spc \

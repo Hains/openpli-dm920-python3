@@ -36,6 +36,11 @@ PACKAGECONFIG[vpx]			= "--enable-vpx,--disable-vpx,libvpx"
 PACKAGECONFIG[wavpack]		= "--enable-wavpack,--disable-wavpack,wavpack"
 PACKAGECONFIG[x11]			= "--enable-x,--disable-x,${X11DEPENDS}"
 
+# qt5 support is disabled, because it is not present in OE core, and requires more work than
+# just adding a packageconfig (it requires access to moc, uic, rcc, and qmake paths).
+# This is better done in a separate qt5 layer (which then should add a "qt5" packageconfig
+# in a gstreamer1.0-plugins-bad bbappend).
+
 EXTRA_OECONF += " \
 	--enable-bz2 \
 	--enable-oss \
@@ -48,6 +53,7 @@ EXTRA_OECONF += " \
 	--disable-oss4 \
 	--disable-osx_audio \
 	--disable-osx_video \
+	--disable-qt \
 	--disable-shout2 \
 	--disable-waveform \
 	"
