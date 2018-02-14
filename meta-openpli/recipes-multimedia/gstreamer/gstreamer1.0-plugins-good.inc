@@ -6,6 +6,8 @@ DEPENDS += "gstreamer1.0-plugins-base libcap zlib bzip2"
 
 inherit gettext
 
+# gtk is not in the PACKAGECONFIG variable by default until
+# the transition to gtk+3 is finished
 PACKAGECONFIG ??= " \
 	${GSTREAMER_ORC} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio', '', d)} \
