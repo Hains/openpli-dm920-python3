@@ -1,8 +1,8 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.79"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.80"
 
 COMPATIBLE_MACHINE = "dm8000"
 
-PATCHLEVEL = "98"
+PATCHLEVEL = "99"
 
 SRC_URI = " \
 			${KERNELORG_MIRROR}/linux/kernel/v3.x/linux-3.2.tar.bz2;name=kernel \
@@ -43,8 +43,8 @@ SRC_URI = " \
 
 SRC_URI[kernel.md5sum] = "7ceb61f87c097fc17509844b71268935"
 SRC_URI[kernel.sha256sum] = "c881fc2b53cf0da7ca4538aa44623a7de043a41f76fd5d0f51a31f6ed699d463"
-SRC_URI[kernel-patch.md5sum] = "1759d310fd67804c0c96f8940d9e1dad"
-SRC_URI[kernel-patch.sha256sum] = "d178edab55cfcf7f000c3033d9dd66a33b31b955d2b114784435e145df90247a"
+SRC_URI[kernel-patch.md5sum] = "3bb423b164afd7ae3b9825e97fe800f3"
+SRC_URI[kernel-patch.sha256sum] = "1a5cd400e37de1f6164c5fb45d246d5481259e817d35bd5967e84a40b0411ec2"
 SRC_URI[unionfs.md5sum] = "348e5021d5340f12e2968ff4eb74d45d"
 SRC_URI[unionfs.sha256sum] = "c0c449a445e9e07c5b1ba8e8c40013c0e40a5948c30a7190677d19ba7358c11a"
 
