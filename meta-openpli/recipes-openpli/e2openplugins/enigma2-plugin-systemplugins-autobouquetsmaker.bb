@@ -9,6 +9,8 @@ inherit autotools-brokensep gitpkgv pythonnative gettext
 
 DEPENDS += "python"
 
+RDEPENDS_${PN} = "enigma2"
+
 PV = "2.1+git${SRCPV}"
 PKGV = "2.1+git${GITPKGV}"
 PR = "r2"
