@@ -43,6 +43,7 @@ TMPDIR = $(TOPDIR)/tmp
 DEPDIR = $(TOPDIR)/.deps
 
 MACHINE=dm8000
+export MACHINE
 
 BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-oe \
