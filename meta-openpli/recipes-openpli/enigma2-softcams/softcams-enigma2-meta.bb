@@ -4,7 +4,7 @@ require conf/license/openpli-gplv2.inc
 
 PROVIDES = "softcams"
 
-DEPENDS_append_mipsel = "\
+DEPENDS = " \
 	enigma2-plugin-softcams-cccam \
+	enigma2-plugin-softcams-oscam-emu \
 	"
-DEPENDS += "enigma2-plugin-softcams-oscam-emu"
