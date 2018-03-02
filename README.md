@@ -6,7 +6,7 @@ Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of 8th january, 2018(including gcc 7.2.0/C++11).<br>
+&nbsp;with git snapshot of 2nd March, 2018(including gcc 7.3.0/C++11).<br>
 -GStreamer 1.13.0<br>
 -Dreambox kernel 3.2.99<br>
 
