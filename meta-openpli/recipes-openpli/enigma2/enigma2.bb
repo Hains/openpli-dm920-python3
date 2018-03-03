@@ -178,7 +178,6 @@ SRC_URI += "file://01-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
 			file://03-separate-event-name-and-full-description.patch \
 			file://04-update-servicemp3-to-openatv.patch \
 			file://05-revert-build-date.patch \
-			file://06-revert-Setup-Rebuild-config-list-after-every-change.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
