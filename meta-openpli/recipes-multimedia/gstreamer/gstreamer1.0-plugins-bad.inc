@@ -37,7 +37,6 @@ PACKAGECONFIG[resindvd]			= "--enable-resindvd,--disable-resindvd,libdvdread lib
 PACKAGECONFIG[rsvg]				= "--enable-rsvg,--disable-rsvg,librsvg"
 PACKAGECONFIG[rtmp]				= "--enable-rtmp,--disable-rtmp,rtmpdump"
 PACKAGECONFIG[sbc]				= "--enable-sbc,--disable-sbc,sbc"
-PACKAGECONFIG[schroedinger]		= "--enable-schro,--disable-schro,schroedinger"
 PACKAGECONFIG[smoothstreaming]	= "--enable-smoothstreaming,--disable-smoothstreaming,libxml2"
 PACKAGECONFIG[sndfile]			= "--enable-sndfile,--disable-sndfile,libsndfile1"
 PACKAGECONFIG[srtp]				= "--enable-srtp,--disable-srtp,libsrtp"
