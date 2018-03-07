@@ -2,17 +2,16 @@ diff --git a/usr/share/enigma2/PLi-FullHD/skin.xml b/usr/share/enigma2/PLi-FullH
 index 50ccc82..851b0d7 100644
 --- a/usr/share/enigma2/PLi-FullHD/skin.xml
 +++ b/usr/share/enigma2/PLi-FullHD/skin.xml
-@@ -412,7 +412,8 @@
-     <panel name="SelectionTemplate"/>
-     <panel name="ButtonTemplate_RGYB"/>
-     <panel name="KeyMenuTemplate"/>
--    <widget name="epg_description" position="780,100" size="1110,912" transparent="1" font="Regular;30" halign="block"/>
-+    <widget name="epg_eventname" position="800,115" size="1110,40" transparent="1" font="Regular;30" foregroundColor="secondFG" halign="left"/>
-+    <widget name="epg_description_ext" position="800,175" size="1110,912" transparent="1" font="Regular;30" halign="block"/>
-     <widget source="session.CurrentService" render="Label" position="30,525" size="720,30" foregroundColor="transponderinfo" font="Regular;26" valign="center" halign="left" transparent="1" zPosition="1">
-       <convert type="TransponderInfo"></convert>
-     </widget>
-     
+@@ -413,7 +413,8 @@
+ 	<screen name="EventView" title="Eventview" position="fill" flags="wfNoBorder">
+ 		<panel name="SelectionTemplate"/>
+ 		<panel name="KeyMenuTemplate"/>
+-		<widget name="epg_description" position="780,100" size="1110,912" transparent="1" font="Regular;30" halign="block"/>
++		<widget name="epg_eventname" position="800,115" size="1110,40" transparent="1" font="Regular;30" foregroundColor="secondFG" halign="left"/>
++       <widget name="epg_description_ext" position="800,175" size="1110,912" transparent="1" font="Regular;30" halign="block"/>
+ 		<widget source="session.CurrentService" render="Label" position="30,525" size="720,30" foregroundColor="transponderinfo" font="Regular;26" valign="center" halign="left" transparent="1" zPosition="1">
+ 			<convert type="TransponderInfo"></convert>
+ 		</widget>  
 diff --git a/usr/share/enigma2/PLi-FullNightHD/skin.xml b/usr/share/enigma2/PLi-FullNightHD/skin.xml
 index b52aacd..5cb1f77 100644
 --- a/usr/share/enigma2/PLi-FullNightHD/skin.xml
@@ -27,7 +26,6 @@ index b52aacd..5cb1f77 100644
  		<widget source="session.CurrentService" render="Label" position="30,525" size="720,30" foregroundColor="foreground" font="Regular;26" valign="center" halign="center" transparent="1" zPosition="1">
  			<convert type="TransponderInfo"/>
  		</widget>
-
 diff --git a/usr/share/enigma2/PLi-HD/skin.xml b/usr/share/enigma2/PLi-HD/skin.xml
 index 6828b85..9f1df5e 100644
 --- a/usr/share/enigma2/PLi-HD/skin.xml
@@ -41,8 +39,7 @@ index 6828b85..9f1df5e 100644
 +    <widget name="epg_description_ext" position="540,155" size="680,500" transparent="1" font="Regular;22"/>
      <widget source="session.Event_Now" render="Label" position="150,475" size="150,30" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular;22" halign="right">
        <convert type="EventTime">Remaining</convert>
-       <convert type="RemainingToText">InMinutes</convert>
-       
+       <convert type="RemainingToText">InMinutes</convert>      
 diff --git a/usr/share/enigma2/PLi-HD1/skin.xml b/usr/share/enigma2/PLi-HD1/skin.xml
 index b3097a5..4c5c32a 100644
 --- a/usr/share/enigma2/PLi-HD1/skin.xml
@@ -57,7 +54,6 @@ index b3097a5..4c5c32a 100644
      <widget source="session.CurrentService" render="Label" position="20,350" size="482,20" foregroundColor="transponderinfo" font="Regular;16" valign="center" halign="left" transparent="1" zPosition="1">
        <convert type="TransponderInfo">NoRoot</convert>
      </widget>
-
 diff --git a/usr/share/enigma2/PLi-HD2/skin.xml b/usr/share/enigma2/PLi-HD2/skin.xml
 index cd3ff05..2ddbc02 100644
 --- a/usr/share/enigma2/PLi-HD2/skin.xml
