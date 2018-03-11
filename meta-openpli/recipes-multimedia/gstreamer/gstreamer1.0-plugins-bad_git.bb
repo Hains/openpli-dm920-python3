@@ -18,7 +18,6 @@ SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patc
 			file://004-rtmp-fix-seeking-and-potential-segfault.patch \
 			file://005-rtmp-hls-tsdemux-fix.patch \
 			file://006-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
-			file://007-revert-enable-openglmixers-plugin-in-autotools-again-too.patch \
 			"
 
 S = "${WORKDIR}/git"
