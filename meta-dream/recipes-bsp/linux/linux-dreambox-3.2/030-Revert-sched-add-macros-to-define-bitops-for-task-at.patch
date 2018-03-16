@@ -25,10 +25,12 @@ index 2d4ab762d479..96caf9709f16 100644
  	pid_t pid;
  	pid_t tgid;
  
-@@ -1848,16 +1846,6 @@ extern void thread_group_times(struct task_struct *p, cputime_t *ut, cputime_t *
- #define PFA_SPREAD_PAGE  1      /* Spread page cache over cpuset */
- #define PFA_SPREAD_SLAB  2      /* Spread some slab caches over cpuset */
+@@ -1846,18 +1844,6 @@ extern void thread_group_times(struct task_struct *p, cputime_t *ut, cputime_t *
+ #define tsk_used_math(p) ((p)->flags & PF_USED_MATH)
+ #define used_math() tsk_used_math(current)
  
+-/* Per-process atomic flags. */
+-
 -#define TASK_PFA_TEST(name, func)					\
 -	static inline bool task_##func(struct task_struct *p)		\
 -	{ return test_bit(PFA_##name, &p->atomic_flags); }

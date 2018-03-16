@@ -8,5 +8,5 @@ Index: linux-3.2/Makefile
 -SUBLEVEL = 100
 +#SUBLEVEL = 100
  EXTRAVERSION =
- NAME = Saber-toothed Squirrel
+ NAME = Sleepy Otter
  
