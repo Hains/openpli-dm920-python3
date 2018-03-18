@@ -1,8 +1,8 @@
 diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
-index a4314c2..202944a 100644
+index 53d85c583..efd220bb9 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -28,16 +28,10 @@ class About(Screen):
+@@ -27,16 +27,10 @@ class About(Screen):
  		AboutText = _("Hardware: ") + about.getHardwareTypeString() + "\n"
  		AboutText += _("CPU: ") + about.getCPUInfoString() + "\n"
  		AboutText += _("Image: ") + about.getImageTypeString() + "\n"
@@ -19,5 +19,5 @@ index a4314c2..202944a 100644
 -		# AboutText += ImageVersion + "\n"
 +		AboutText += ImageVersion + "\n"
  
- 		EnigmaVersion = about.getEnigmaVersionString().rsplit("-", 2)
- 		if len(EnigmaVersion) == 3:
+ 		EnigmaVersion = about.getEnigmaVersionString()
+ 		EnigmaVersion = EnigmaVersion.rsplit("-", EnigmaVersion.count("-") - 2)
