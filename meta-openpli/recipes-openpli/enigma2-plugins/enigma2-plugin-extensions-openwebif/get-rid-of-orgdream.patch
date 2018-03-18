@@ -1,8 +1,8 @@
 diff --git a/plugin/controllers/models/owibranding.py b/plugin/controllers/models/owibranding.py
-index 391ce28c..25bcef4e 100644
+index 4bafdf3b..eeb0184c 100755
 --- a/plugin/controllers/models/owibranding.py
 +++ b/plugin/controllers/models/owibranding.py
-@@ -356,13 +356,9 @@ def getAllInfo():
+@@ -388,13 +388,9 @@ def getAllInfo():
  				model = "Spark 7162"
  			else:
  				model = "Spark"
@@ -17,12 +17,12 @@ index 391ce28c..25bcef4e 100644
  		else:
  			model = procmodel
  
-@@ -473,7 +469,7 @@ def getAllInfo():
+@@ -509,7 +505,7 @@ def getAllInfo():
  		remote = procmodel.replace(" ", "")
  	elif procmodel == "vg2000":
  		remote = "xcombo"
 -	elif procmodel == "dm8000" and orgdream:
 +	elif procmodel == "dm8000":
  		remote = "dmm1"
- 	elif procmodel in ("dm7080", "dm7020hd", "dm7020hdv2", "dm800sev2", "dm500hdv2", "dm820"):
+ 	elif procmodel in ("dm7080", "dm7020hd", "dm7020hdv2", "dm800sev2", "dm500hdv2", "dm520", "dm820", "dm900"):
  		remote = "dmm2"
