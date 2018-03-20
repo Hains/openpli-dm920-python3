@@ -5,10 +5,11 @@ Upstream-Status: Pending
 Signed-off-by: Paul Eggleton <paul.eggleton@linux.intel.com>
 
 diff --git a/Makefile b/Makefile
+index c63ed1b..9e4f35f 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -24,21 +24,21 @@
- 	$(CC) -o vsftpd $(OBJS) $(LINK) $(LIBS)
+@@ -29,21 +29,21 @@ vsftpd: $(OBJS)
+ 	$(CC) -o vsftpd $(OBJS) $(LINK) $(LDFLAGS) $(LIBS)
  
  install:
 -	if [ -x /usr/local/sbin ]; then \
