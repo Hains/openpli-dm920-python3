@@ -22,7 +22,7 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 					file://COPYING.GPLv3;md5=d32239bcb673463ab874e80d47fae504 \
 					file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
 					file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02 \
-"
+					"
 
 SRC_URI = "git://github.com/FFmpeg/FFmpeg.git \
 "
@@ -55,10 +55,9 @@ PROVIDES = "libav libpostproc"
 RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl"
 DEPENDS = "alsa-lib zlib libogg yasm-native libxml2"
 
-PACKAGECONFIG ??= " avdevice avfilter avcodec avformat swresample swscale postproc \
-					bzlib gpl lzma theora x264 openssl libbluray libfontconfig libfreetype librtmp \
-					${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xv', '', d)} \
-"
+PACKAGECONFIG = "avdevice avfilter avcodec avformat avresample swscale swresample postproc \
+				 bzlib gpl x264 openssl libbluray libfreetype librtmp mp3lame theora libvorbis lzma vpx \
+				"
 
 # libraries to build in addition to avutil
 PACKAGECONFIG[avdevice]		= "--enable-avdevice,--disable-avdevice"
@@ -135,17 +134,16 @@ do_configure() {
 	${S}/configure ${EXTRA_OECONF}
 }
 
-PACKAGES =+"libavcodec \
-			libavdevice \
-			libavfilter \
-			libavformat \
-			libavresample \
-			libav \
-			libavutil \
-			libpostproc \
-			libswresample \
-			libswscale \
-"
+PACKAGES =+ "	libavcodec \
+				libavdevice \
+				libavfilter \
+				libavformat \
+				libavresample \
+				libavutil \
+				libpostproc \
+				libswresample \
+				libswscale \
+				"
 
 FILES_libavcodec		= "${libdir}/libavcodec${SOLIBS}"
 FILES_libavdevice		= "${libdir}/libavdevice${SOLIBS}"
@@ -167,3 +165,51 @@ INSANE_SKIP_${MLPREFIX}libavresample	= "textrel"
 INSANE_SKIP_${MLPREFIX}libswscale		= "textrel"
 INSANE_SKIP_${MLPREFIX}libswresample	= "textrel"
 INSANE_SKIP_${MLPREFIX}libpostproc		= "textrel"
+
+EXTRA_FFCONF = " \
+	--disable-static \
+	--disable-runtime-cpudetect \
+	--enable-ffprobe \
+	--disable-altivec \
+	--disable-amd3dnow \
+	--disable-amd3dnowext \
+	--disable-mmx \
+	--disable-mmxext \
+	--disable-sse \
+	--disable-sse2 \
+	--disable-sse3 \
+	--disable-ssse3 \
+	--disable-sse4 \
+	--disable-sse42 \
+	--disable-avx \
+	--disable-xop \
+	--disable-fma3 \
+	--disable-fma4 \
+	--disable-avx2 \
+	--enable-inline-asm \
+	--enable-asm \
+	--disable-x86asm \
+	--disable-fast-unaligned \
+	--enable-muxers \
+	--enable-encoders \
+	--enable-decoders \
+	--enable-demuxers \
+	--enable-parsers \
+	--enable-bsfs \
+	--enable-protocols \
+	--enable-indevs \
+	--enable-outdevs \
+	--enable-filters \
+	--disable-doc \
+	--disable-htmlpages \
+	--disable-manpages \
+	--disable-podpages \
+	--disable-txtpages \
+	--disable-vfp \
+	--disable-neon \
+	--disable-debug \
+	--pkg-config="pkg-config" \
+	--enable-zlib \
+	--extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
+	--extra-ldflags="${TARGET_LDFLAGS},--gc-sections -Wl,--print-gc-sections,-lrt" \
+	--prefix=${prefix} \
