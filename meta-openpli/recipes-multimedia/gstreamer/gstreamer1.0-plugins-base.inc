@@ -10,10 +10,10 @@ inherit gettext
 PACKAGES_DYNAMIC =+ "^libgst.*"
 
 PACKAGECONFIG ??= " \
-	${GSTREAMER_ORC} \
+	${PACKAGECONFIG_GL} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa', '', d)} \
-	gio-unix-2.0 ogg theora vorbis cdparanoia pango opus \
+	orc ivorbis ogg theora vorbis cdparanoia pango opus \
 	"
 
 X11DEPENDS 		= "virtual/libx11 libsm libxrender"
@@ -30,7 +30,6 @@ PACKAGECONFIG[opus]			= "--enable-opus,--disable-opus,libopus"
 PACKAGECONFIG[theora]		= "--enable-theora,--disable-theora,libtheora"
 PACKAGECONFIG[vorbis]		= "--enable-vorbis,--disable-vorbis,libvorbis"
 PACKAGECONFIG[pango]		= "--enable-pango,--disable-pango,pango"
-PACKAGECONFIG[gio-unix-2.0]	= "--enable-gio_unix_2_0,--disable-gio_unix_2_0,glib-2.0"
 PACKAGECONFIG[visual]		= "--enable-libvisual,--disable-libvisual,libvisual"
 PACKAGECONFIG[wayland]		= "--enable-wayland --enable-egl,--disable-wayland --disable-egl,wayland virtual/egl"
 PACKAGECONFIG[cdparanoia]	= "--enable-cdparanoia,--disable-cdparanoia,cdparanoia"

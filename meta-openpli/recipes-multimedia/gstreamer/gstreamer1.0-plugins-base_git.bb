@@ -15,13 +15,9 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=mast
 SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			file://002-Makefile.am-don-t-hardcode-libtool-name-when-running.patch \
 			file://003-Makefile.am-prefix-calls-to-pkg-config-with-PKG_CONF.patch \
-			file://004-riff-add-missing-include-directories-when-calling-in.patch \
+			file://004-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
 			file://005-rtsp-drop-incorrect-reference-to-gstreamer-sdp-in-Ma.patch \
-			file://006-get-caps-from-src-pad-when-query-caps.patch \
-			file://007-taglist-not-send-to-down-stream-if-all-the-frame-cor.patch \
-			file://008-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
-			file://009-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
-			file://010-make-gio_unix_2_0-dependency-configurable.patch \
+			file://006-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 			"
 
 S = "${WORKDIR}/git"
