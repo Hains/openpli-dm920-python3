@@ -1,11 +1,13 @@
 DESCRIPTION = "CCcam ${PV} softcam"
 
-SRC_URI = "http://downloads.pli-images.org/softcams/CCcam-${PV}.zip \
-	file://CCcam.xml"
+CCCAMVER = "230"
+CAMNAME = "CCcam${CCCAMVER}"
 
-CAMNAME = "CCcam"
+SRC_URI = " http://downloads.openpli.org/softcams/CCcam-${PV}.zip;name=softcam \
+			http://downloads.openpli.org/softcams/CCcam.xml;name=ppanel \
+			"
 
-S = "${WORKDIR}/CCcam-${PV}"
+S = "${WORKDIR}"
 
 require softcam.inc
 
@@ -22,5 +24,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/CCcam.xml ${D}/etc/ppanels/CCcam.xml
 }
 
-SRC_URI[md5sum] = "befff8f25c30dd2a1e18b8885ee0f119"
-SRC_URI[sha256sum] = "6b461d95987b7333dfae51280205cd92558bd04c7ef488e37b058c8652201bdf"
+SRC_URI[softcam.md5sum] = "2f76eacbd286255a505dbc983df9cb6c"
+SRC_URI[softcam.sha256sum] = "3c46de7a17357ebcde8ff31276ede67d0e05358b2eaf3b206d3e0242176f1de6"
+SRC_URI[ppanel.md5sum] = "6d9c1964e0f65278b8f3024772b69d13"
+SRC_URI[ppanel.sha256sum] = "bd4e0b2b088a4a977d431ae1bb85fae142020f7b6f88baba06f9757f1b1cd9e2"
