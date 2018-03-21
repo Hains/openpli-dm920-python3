@@ -10,7 +10,6 @@ inherit gettext
 PACKAGES_DYNAMIC =+ "^libgst.*"
 
 PACKAGECONFIG ??= " \
-	${PACKAGECONFIG_GL} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa', '', d)} \
 	orc ivorbis ogg theora vorbis cdparanoia pango opus \
