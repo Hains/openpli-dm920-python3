@@ -1,23 +1,7 @@
-SRC_URI_IGNORED = " \
-			file://0001-ifupdown-support-post-up-pre-down-hooks.patch \
-			file://0002-ifupdown-code-shrink.patch \
-			file://0003-ifupdown-remove-interface-from-state_list-if-iface_u.patch \
-			file://0004-ifupdown-support-metric-for-static-default-gw.patch \
-			file://0005-ifupdown-improve-compatibility-with-Debian.patch \
-			file://0006-get_linux_version_code-don-t-fail-on-3.0-foo.patch"
-
-SRC_URI_IGNORED += " \
-			file://0001-work-around-linux-ext2_fs.h-breakage.patch \
-			file://0002-Create-and-use-our-own-copy-of-linux-ext2_fs.h.patch \
-			file://0003-Drop-include-bb_linux_ext2_fs.h-use-existing-e2fspro.patch \
-			file://0001-nandwrite-add-OOB-support.patch \
-			"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " \
 			file://mount_single_uuid.patch \
-			file://mdev-mount.sh \
-			file://inetd \
-			file://inetd.conf \
 			"
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
@@ -55,5 +39,3 @@ do_install_append() {
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
 }
-
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
