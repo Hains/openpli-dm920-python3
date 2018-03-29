@@ -1,0 +1,37 @@
+From 82d8ca0d8c61dd27597e26fef24fa094b3d20707 Mon Sep 17 00:00:00 2001
+From: Hains van den Bosch <hainsvdbosch@ziggo.nl>
+Date: Thu, 29 Mar 2018 17:45:40 +0200
+Subject: [PATCH] Revert "[config.py] Fix __getattr_ method"
+
+Commit breaks Openwebif, 'attributes not defined'.
+
+This reverts commit 97cf8d2ac64d4f705eccc9a117e3c8d8c72235a3.
+---
+ lib/python/Components/config.py | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/lib/python/Components/config.py b/lib/python/Components/config.py
+index 4fc580a79..7e65914ef 100644
+--- a/lib/python/Components/config.py
++++ b/lib/python/Components/config.py
+@@ -1660,9 +1660,7 @@ class ConfigSubsection(object):
+ 			value.load()
+ 
+ 	def __getattr__(self, name):
+-		if name in self.content.items:
+-			return self.content.items[name]
+-		raise AttributeError("Error: Attribute not defined!")
++		return self.content.items[name]
+ 
+ 	def getSavedValue(self):
+ 		res = self.content.stored_values
+@@ -1937,4 +1935,4 @@ class ConfigAction(ConfigElement):
+ 		if (key == KEY_OK):
+ 			self.action(*self.actionargs)
+ 	def getMulti(self, dummy):
+-		pass
++		pass
+\ No newline at end of file
+-- 
+2.15.1
+

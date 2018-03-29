@@ -179,6 +179,7 @@ SRC_URI += "file://01-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
 			file://04-update-servicemp3-to-openatv.patch \
 			file://05-revert-build-date.patch \
 			file://06-remove-helpwindow.patch \
+			file://07-Revert-config.py-Fix-__getattr_-method.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
