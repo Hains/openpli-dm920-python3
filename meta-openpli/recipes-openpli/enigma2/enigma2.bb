@@ -33,6 +33,7 @@ RRECOMMENDS_${PN} = " \
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
 	python-sendfile \
+	virtual/enigma2-mediaservice \
 	"
 
 PYTHON_RDEPS = " \
