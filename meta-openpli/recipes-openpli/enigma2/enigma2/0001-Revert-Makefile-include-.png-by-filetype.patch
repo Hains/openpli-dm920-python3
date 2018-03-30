@@ -1,0 +1,336 @@
+From 477c19d8a760678646a750fc5b99291eb76a91a4 Mon Sep 17 00:00:00 2001
+From: Hains van den Bosch <hainsvdbosch@ziggo.nl>
+Date: Fri, 30 Mar 2018 08:30:36 +0200
+Subject: [PATCH] Revert "[Makefile] include .png by filetype"
+
+This reverts commit 4037c0cbf79a8838b2d01b96cdbb86e4c55ea08e.
+---
+ data/skin_default/LCDIcons/Makefile.am |   3 +-
+ data/skin_default/Makefile.am          |  78 ++++++++++++++++++-
+ data/skin_default/buttons/Makefile.am  |  38 +++++++++-
+ data/skin_default/icons/Makefile.am    | 135 ++++++++++++++++++++++++++++++++-
+ data/skin_default/menu/Makefile.am     |  11 ++-
+ data/skin_default/spinner/Makefile.am  |   9 ++-
+ 6 files changed, 268 insertions(+), 6 deletions(-)
+
+diff --git a/data/skin_default/LCDIcons/Makefile.am b/data/skin_default/LCDIcons/Makefile.am
+index ac73f34a2..109919214 100644
+--- a/data/skin_default/LCDIcons/Makefile.am
++++ b/data/skin_default/LCDIcons/Makefile.am
+@@ -1,3 +1,4 @@
+ installdir = $(pkgdatadir)/skin_default/LCDIcons
+ 
+-dist_install_DATA = *.png
++dist_install_DATA = \
++	rec.png
+diff --git a/data/skin_default/Makefile.am b/data/skin_default/Makefile.am
+index f8e141786..3befe3639 100644
+--- a/data/skin_default/Makefile.am
++++ b/data/skin_default/Makefile.am
+@@ -2,4 +2,80 @@ SUBDIRS = menu icons buttons spinner LCDIcons
+ 
+ installdir = $(pkgdatadir)/skin_default
+ 
+-dist_install_DATA = *.png
++dist_install_DATA = \
++	arrowdown.png \
++	arrowup.png \
++	bar_ber.png \
++	bar_snr.png \
++	b_bl.png \
++	b_b.png \
++	b_br.png \
++	b_l.png \
++	border_epg.png \
++	border_eventinfo.png \
++	border_info.png \
++	border_menu_300.png \
++	border_menu_350.png \
++	border_menu.png \
++	border_multiepg.png \
++	bottombar.png \
++	b_r.png \
++	b_tl.png \
++	b_t.png \
++	b_tr.png \
++	celserviceeventprogressbar.png \
++	div-h.png \
++	div-v.png \
++	epg_more.png \
++	epg_next.png \
++	epg_now.png \
++	expandable.png \
++	expandable-plugins.png \
++	expanded.png \
++	expanded-plugins.png \
++	info-bg_mp.png \
++	info-bg.png \
++	mediaplayer_bg.png \
++	mute.png \
++	nim_active.png \
++	no_coverArt.png \
++	overscan1280x720.png \
++	overscan1920x1080.png \
++	picon_default.png \
++	position_arrow.png \
++	position_pointer.png \
++	progress_bg.png \
++	progress_big.png \
++	progress_medium.png \
++	progress_small.png \
++	rcold.png \
++	rc.png \
++	rc0.png \
++	rc1.png \
++	rc2.png \
++	screensaverpicture.png \
++	screws_mp.png \
++	screws.png \
++	sleeptimer.png \
++	testscreen.png \
++	timeline-now.png \
++	timeline.png \
++	unhandled-key.png \
++	verticalline.png \
++	verticalline-plugins.png \
++	vkey_all.png \
++	vkey_backspace.png \
++	vkey_bg.png \
++	vkey_clr.png \
++	vkey_esc.png \
++	vkey_icon.png \
++	vkey_left.png \
++	vkey_ok.png \
++	vkey_right.png \
++	vkey_sel.png \
++	vkey_shift.png \
++	vkey_shift_sel.png \
++	vkey_space.png \
++	vkey_text.png \
++	volume.png \
++	wizard.png
+diff --git a/data/skin_default/buttons/Makefile.am b/data/skin_default/buttons/Makefile.am
+index e9098a99d..1ef08a545 100644
+--- a/data/skin_default/buttons/Makefile.am
++++ b/data/skin_default/buttons/Makefile.am
+@@ -1,3 +1,39 @@
+ installdir = $(pkgdatadir)/skin_default/buttons
+ 
+-dist_install_DATA = *.png
++dist_install_DATA = \
++	blue.png \
++	blue_pressed.png \
++	button_blue_off.png \
++	button_blue.png \
++	button_green_off.png \
++	button_green.png \
++	button_red_off.png \
++	button_red.png \
++	button_yellow_off.png \
++	button_yellow.png \
++	green-big.png \
++	green.png \
++	key_0.png \
++	key_1.png \
++	key_2.png \
++	key_3.png \
++	key_4.png \
++	key_5.png \
++	key_6.png \
++	key_7.png \
++	key_8.png \
++	key_9.png \
++	key_blue.png \
++	key_green.png \
++	key_info.png \
++	key_menu.png \
++	key_red.png \
++	key_yellow.png \
++	key_text.png \
++	key_left.png \
++	key_right.png \
++	key_next.png \
++	key_prev.png \
++	red-big.png \
++	red.png \
++	yellow.png
+diff --git a/data/skin_default/icons/Makefile.am b/data/skin_default/icons/Makefile.am
+index 3b059d7e5..19680bdd9 100644
+--- a/data/skin_default/icons/Makefile.am
++++ b/data/skin_default/icons/Makefile.am
+@@ -1,3 +1,136 @@
+ installdir = $(pkgdatadir)/skin_default/icons
+ 
+-dist_install_DATA = *.png
++dist_install_DATA = \
++	ask.png \
++	az.png \
++	bullet.png \
++	clock.png \
++	default.png \
++	dish.png \
++	dish_scan.png \
++	dmm_logo.png \
++	epgclock_add.png \
++	epgclock.png \
++	epgclock_post.png \
++	epgclock_pre.png \
++	epgclock_prepost.png \
++	faz.png \
++	folder.png \
++	fza.png \
++	hdd.png \
++	ico_mp_forward.png \
++	ico_mp_pause.png \
++	ico_mp_play.png \
++	ico_mp_rewind.png \
++	ico_mp_stop.png \
++	ico_dvb_c-fs8.png \
++	ico_dvb_s-fs8.png \
++	ico_dvb_t-fs8.png \
++	ico_service_group-fs8.png \
++	ico_stream-fs8.png \
++	icon_crypt.png \
++	icon_dolby.png \
++	icon_event.png \
++	icon_format.png \
++	icon_rec_off.png \
++	icon_rec.png \
++	icons_off.png \
++	icon_txt.png \
++	icon_view.png \
++	input_error.png \
++	input_info.png \
++	input_keyboard-configured.png \
++	input_keyboard.png \
++	input_mouse-configured.png \
++	input_mouse.png \
++	input_question.png \
++	input_rcnew-configured.png \
++	input_rcnew.png \
++	input_rcold-configured.png \
++	input_rcold.png \
++	lock_error.png \
++	lock_off.png \
++	lock_on.png \
++	lock.png \
++	lockBouquet.png \
++	loop.png \
++	menu_off.png \
++	menu_on.png \
++	marker.png \
++	mp_buttons.png \
++	movie_play.png \
++	movie_play_rec.png \
++	movielist.png \
++	newtop.png \
++	oldtop.png \
++	part_0_4.png \
++	part_1_4.png \
++	part_2_4.png \
++	part_3_4.png \
++	part_4_4.png \
++	part_new.png \
++	part_unwatched.png \
++	pause.png \
++	playlist.png \
++	playlistquit.png \
++	plilogo-fs8.png \
++	pipclock_add.png \
++	pipclock.png \
++	pipclock_post.png \
++	pipclock_pre.png \
++	pipclock_prepost.png \
++	quit.png \
++	network_wired.png \
++	network_wired-active.png \
++	network_wired-inactive.png \
++	network_wireless.png \
++	network_wireless-active.png \
++	network_wireless-inactive.png \
++	plugin.png \
++	rass_logo.png \
++	rass_page1.png \
++	rass_page2.png \
++	rass_page3.png \
++	rass_page4.png \
++	record.png \
++	redx.png \
++	rep.png \
++	repeat_off.png \
++	repeat_on.png \
++	repepgclock_add.png \
++	repepgclock.png \
++	repepgclock_post.png \
++	repepgclock_pre.png \
++	repepgclock_prepost.png \
++	repzapclock.png \
++	repzapclock_add.png \
++	repzapclock_post.png \
++	repzapclock_pre.png \
++	repzapclock_prepost.png \
++	repzaprecclock.png \
++	repzaprecclock_add.png \
++	repzaprecclock_post.png \
++	repzaprecclock_pre.png \
++	repzaprecclock_prepost.png \
++	stream.png \
++	scan-c.png \
++	scan-s.png \
++	scan-t.png \
++	selectioncross.png \
++	shuffle.png \
++	timer_done.png  timer_prep.png  timer_rep.png   timer_zap.png \
++	timer_off.png   timer_rec.png   timer_wait.png   timer_autotimer.png \
++	trashcan.png \
++	unlock.png \
++	unlockBouquet.png \
++	za.png \
++	zapclock.png \
++	zapclock_add.png \
++	zapclock_post.png \
++	zapclock_pre.png \
++	zapclock_prepost.png \
++	zaprecclock.png \
++	zaprecclock_add.png \
++	zaprecclock_post.png \
++	zaprecclock_pre.png \
++	zaprecclock_prepost.png
+diff --git a/data/skin_default/menu/Makefile.am b/data/skin_default/menu/Makefile.am
+index 812500a90..3b57b59db 100644
+--- a/data/skin_default/menu/Makefile.am
++++ b/data/skin_default/menu/Makefile.am
+@@ -1,3 +1,12 @@
+ installdir = $(pkgdatadir)/skin_default/menu
+ 
+-dist_install_DATA = *.png
++dist_install_DATA = \
++	dvd_player.png \
++	information.png \
++	media_player.png \
++	plugins.png \
++	scart.png \
++	setup.png \
++	shutdown.png \
++	subtitles.png \
++	timer.png
+diff --git a/data/skin_default/spinner/Makefile.am b/data/skin_default/spinner/Makefile.am
+index 59eb6ce63..6b3c9bd6a 100644
+--- a/data/skin_default/spinner/Makefile.am
++++ b/data/skin_default/spinner/Makefile.am
+@@ -1,3 +1,10 @@
+ installdir = $(pkgdatadir)/skin_default/spinner
+ 
+-dist_install_DATA = *.png
++dist_install_DATA = \
++	wait1.png \
++	wait2.png \
++	wait3.png \
++	wait4.png \
++	wait5.png \
++	wait6.png \
++	wait7.png
+\ No newline at end of file
+-- 
+2.15.1
+
