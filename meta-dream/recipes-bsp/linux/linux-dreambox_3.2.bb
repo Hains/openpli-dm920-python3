@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.83"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.84"
 
 COMPATIBLE_MACHINE = "dm8000"
 
@@ -36,8 +36,7 @@ SRC_URI = " \
 			file://026-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
 			file://027-kernel-add-support-for-gcc7.patch \
 			file://028-fix-build-with-gcc7.patch \
-			file://029-Revert-cpuset-PF_SPREAD_PAGE-and-PF_SPREAD_SLAB-shou.patch \
-			file://030-Revert-sched-add-macros-to-define-bitops-for-task-at.patch \
+			file://029-move-field-atomic-flags-to-the-bottom-of-structure.patch \
 			file://defconfig \
 "
 
