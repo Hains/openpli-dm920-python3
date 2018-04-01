@@ -1,8 +1,8 @@
 diff --git a/configure b/configure
-index 6b27f571c6..ba3f37e149 100755
+index 4b0ee6a506..3e997eca57 100755
 --- a/configure
 +++ b/configure
-@@ -3166,10 +3166,8 @@ xv_outdev_extralibs="-lXv -lX11 -lXext"
+@@ -3224,10 +3224,8 @@ xv_outdev_extralibs="-lXv -lX11 -lXext"
  # protocols
  async_protocol_deps="threads"
  bluray_protocol_deps="libbluray"
@@ -13,10 +13,10 @@ index 6b27f571c6..ba3f37e149 100755
  ffrtmphttp_protocol_select="http_protocol"
  ftp_protocol_select="tcp_protocol"
  gopher_protocol_select="network"
-@@ -3190,20 +3188,20 @@ libssh_protocol_deps="libssh"
- libtls_conflict="openssl gnutls"
- mmsh_protocol_select="http_protocol"
+@@ -3250,20 +3248,20 @@ mmsh_protocol_select="http_protocol"
  mmst_protocol_select="network"
+ libsrt_protocol_deps="libsrt"
+ libsrt_protocol_select="network"
 -rtmp_protocol_conflict="librtmp_protocol"
 -rtmp_protocol_select="tcp_protocol"
 -rtmp_protocol_suggest="zlib"
@@ -49,10 +49,10 @@ index 6b27f571c6..ba3f37e149 100755
  schannel_conflict="openssl gnutls libtls"
  sctp_protocol_deps="struct_sctp_event_subscribe struct_msghdr_msg_flags"
 diff --git a/libavformat/Makefile b/libavformat/Makefile
-index 39ec68c28b..b0a7c91374 100644
+index af0823a7db..4708c29bd5 100644
 --- a/libavformat/Makefile
 +++ b/libavformat/Makefile
-@@ -592,12 +592,12 @@ OBJS-$(CONFIG_MMSH_PROTOCOL)             += mmsh.o mms.o asf.o
+@@ -593,12 +593,12 @@ OBJS-$(CONFIG_MMSH_PROTOCOL)             += mmsh.o mms.o asf.o
  OBJS-$(CONFIG_MMST_PROTOCOL)             += mmst.o mms.o asf.o
  OBJS-$(CONFIG_PIPE_PROTOCOL)             += file.o
  OBJS-$(CONFIG_PROMPEG_PROTOCOL)          += prompeg.o

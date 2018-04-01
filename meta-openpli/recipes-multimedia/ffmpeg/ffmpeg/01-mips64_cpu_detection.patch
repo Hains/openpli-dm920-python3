@@ -13,11 +13,11 @@ failed to merge target specific data of file
 -Khem
 Upstream-Status: Inappropriate [OE-Specific]
 
-Index: ffmpeg-3.1.1/configure
-===================================================================
---- ffmpeg-3.1.1.orig/configure
-+++ ffmpeg-3.1.1/configure
-@@ -5220,12 +5220,9 @@ elif enabled mips; then
+diff --git a/configure b/configure
+index 99570a1415..4b0ee6a506 100755
+--- a/configure
++++ b/configure
+@@ -5547,12 +5547,9 @@ elif enabled mips; then
  
      # Enable minimum ISA based on selected options
      if enabled mips64; then
