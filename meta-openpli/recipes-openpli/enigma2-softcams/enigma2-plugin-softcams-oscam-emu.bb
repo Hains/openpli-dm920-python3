@@ -6,9 +6,11 @@ DESCRIPTION = "OScam-emu ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PV = "svn${SRCPV}"
+PV = "svn11402"
 PKGV = "${PV}"
-SRC_URI = "svn://streamboard.tv/svn/oscam;module=trunk;protocol=http;scmdata=keep"
+
+SRC_URI = " git://github.com/PLi-metas/oscam.git;branch=master \
+			"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
 PATCHREV = "2380ba68c25bf7782dab7f5115ccdb0dfda359b1"
@@ -19,7 +21,7 @@ SRC_URI[emu.sha256sum] = "f21190f68bbe5a4bc45af3bf555bfe1d76bc32db8f0905914b6544
 
 DEPENDS = "libusb openssl"
 
-S = "${WORKDIR}/trunk"
+S = "${WORKDIR}/git"
 B = "${S}"
 CAMNAME = "oscam-emu"
 CAMSTART = "/usr/bin/oscam-emu --config-dir /etc/tuxbox/config/oscam-emu --daemon --pidfile /tmp/oscam-emu.pid --restart 2"
