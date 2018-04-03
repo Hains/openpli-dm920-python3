@@ -27,10 +27,28 @@ SOURCE_FILES =+ "manager/video.c"
 SOURCE_FILES =+ "manager/subtitle.c"
 SOURCE_FILES =+ "output/linuxdvb_buffering.c"
 SOURCE_FILES =+ "output/linuxdvb_mipsel.c"
-SOURCE_FILES =+ "output/output_subtitle.c"
 SOURCE_FILES =+ "output/output.c"
+SOURCE_FILES =+ "output/output_subtitle.c"
 SOURCE_FILES =+ "output/writer/common/pes.c"
 SOURCE_FILES =+ "output/writer/common/misc.c"
+SOURCE_FILES =+ "output/writer/mipsel/aac.c"
+SOURCE_FILES =+ "output/writer/mipsel/ac3.c"
+SOURCE_FILES =+ "output/writer/mipsel/amr.c"
+SOURCE_FILES =+ "output/writer/mipsel/divx3.c"
+SOURCE_FILES =+ "output/writer/mipsel/dts.c"
+SOURCE_FILES =+ "output/writer/mipsel/h263.c"
+SOURCE_FILES =+ "output/writer/mipsel/h264.c"
+SOURCE_FILES =+ "output/writer/mipsel/h265.c"
+SOURCE_FILES =+ "output/writer/mipsel/lpcm.c"
+SOURCE_FILES =+ "output/writer/mipsel/mp3.c"
+SOURCE_FILES =+ "output/writer/mipsel/mpeg2.c"
+SOURCE_FILES =+ "output/writer/mipsel/mpeg4.c"
+SOURCE_FILES =+ "output/writer/mipsel/pcm.c"
+SOURCE_FILES =+ "output/writer/mipsel/vc1.c"
+SOURCE_FILES =+ "output/writer/mipsel/vp.c"
+SOURCE_FILES =+ "output/writer/mipsel/wma.c"
+SOURCE_FILES =+ "output/writer/mipsel/wmv.c"
+SOURCE_FILES =+ "output/writer/mipsel/writer.c"
 SOURCE_FILES =+ "playback/playback.c"
 SOURCE_FILES =+ "external/ffmpeg/src/bitstream.c"
 SOURCE_FILES =+ "external/ffmpeg/src/latmenc.c"
@@ -39,27 +57,6 @@ SOURCE_FILES =+ "external/flv2mpeg4/src/m4vencode.c"
 SOURCE_FILES =+ "external/flv2mpeg4/src/flvdecoder.c"
 SOURCE_FILES =+ "external/flv2mpeg4/src/dcprediction.c"
 SOURCE_FILES =+ "external/flv2mpeg4/src/flv2mpeg4.c"
-
-SOURCE_FILES =+ " \
-output/writer/mipsel/writer.c \
-output/writer/mipsel/aac.c \
-output/writer/mipsel/ac3.c \
-output/writer/mipsel/mp3.c \
-output/writer/mipsel/pcm.c \
-output/writer/mipsel/lpcm.c \
-output/writer/mipsel/dts.c \
-output/writer/mipsel/amr.c \
-output/writer/mipsel/wma.c \
-output/writer/mipsel/h263.c \
-output/writer/mipsel/h264.c \
-output/writer/mipsel/h265.c \
-output/writer/mipsel/mpeg2.c \
-output/writer/mipsel/mpeg4.c \
-output/writer/mipsel/divx3.c \
-output/writer/mipsel/vp.c \
-output/writer/mipsel/wmv.c \
-output/writer/mipsel/vc1.c \
-"
 
 do_compile() {
     ${CC} ${SOURCE_FILES} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -DHAVE_FLV2MPEG4_CONVERTER -I${S}/include -I${S}/external -I${S}/external/flv2mpeg4 -I${D}/${libdir} -I${D}/${includedir} -lpthread -lavformat -lavcodec -lavutil -lswresample -o exteplayer3 ${LDFLAGS}
