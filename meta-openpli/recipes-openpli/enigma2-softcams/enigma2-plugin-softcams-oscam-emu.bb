@@ -6,11 +6,10 @@ DESCRIPTION = "OScam-emu ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PV = "svn11402"
+PV = "svn11410"
 PKGV = "${PV}"
 
-SRC_URI = " git://github.com/PLi-metas/oscam.git;branch=master \
-			"
+SRC_URI = "git://github.com/PLi-metas/oscam.git;branch=master"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
 PATCHREV = "2380ba68c25bf7782dab7f5115ccdb0dfda359b1"
