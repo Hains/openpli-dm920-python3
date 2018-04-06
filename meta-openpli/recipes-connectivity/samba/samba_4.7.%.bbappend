@@ -2,10 +2,10 @@
 PACKAGECONFIG_remove = "acl cups"
 
 EXTRA_OECONF += " \
+			--with-ads \
 			--with-sockets-dir=${localstatedir}/run \
 			--with-logfilebase=${localstatedir}/log \
 			--without-ad-dc \
-			--without-ads \
 			--without-dnsupdate \
 			--without-profiling-data \
 			--without-quotas \
