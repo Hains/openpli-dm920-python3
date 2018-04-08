@@ -9,8 +9,8 @@ RDEPENDS_${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-PV = "45+gitr${SRCPV}"
-PKGV = "45+gitr${GITPKGV}"
+PV = "47+gitr${SRCPV}"
+PKGV = "47+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/samsamsam-iptvplayer/exteplayer3.git;branch=master \
 			file://remove-duplicate-case.patch \
