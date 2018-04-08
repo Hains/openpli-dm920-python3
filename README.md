@@ -84,13 +84,4 @@ To update build-environment including all submodules, run:
 make update
 ```
 
-For 3rd-party plugins, change link in:<br>
-<br>
-3rd-party-dm8000-feed.conf<br>
-Into:<br>
-src/gz openpli-3rd-party-dm8000 http://downloads.pli-images.org/feeds/openpli-4/3rd-party-dm8000<br>
-
-And in file:<br>
-3rd-party-feed.conf<br>
-Change link into:<br>
-src/gz openpli-3rd-party http://downloads.pli-images.org/feeds/openpli-4/3rd-party<br>
+==========================================================
