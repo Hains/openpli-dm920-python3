@@ -6,11 +6,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libdca glib-2.0 glib-2.0-native"
 
-# Most machine recipes still (r)depend on gst-plugin-dvbmediasink
-RPROVIDES_${PN} = "gst-plugin-dvbmediasink"
-RREPLACES_${PN} = "gst-plugin-dvbmediasink"
-RCONFLICTS_${PN} = "gst-plugin-dvbmediasink"
-
 PROVIDES += "virtual/gstreamer1.0-mediasink"
 RPROVIDES_${PN} += "virtual/gstreamer1.0-dvbmediasink"
 
