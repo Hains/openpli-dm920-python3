@@ -1,7 +1,7 @@
 diff --git a/lib/service/servicemp3.cpp b/lib/service/servicemp3.cpp
 index aae443b..76e85c4 100644
---- a/lib/service/servicemp3.cpp
-+++ b/lib/service/servicemp3.cpp
+--- a/servicemp3/servicemp3.cpp
++++ b/servicemp3/servicemp3.cpp
 @@ -21,7 +21,9 @@
  #include <gst/pbutils/missing-plugins.h>
  #include <sys/stat.h>
@@ -2138,8 +2138,8 @@ index aae443b..76e85c4 100644
  }
 diff --git a/lib/service/servicemp3.h b/lib/service/servicemp3.h
 index c9f178e..8717131 100644
---- a/lib/service/servicemp3.h
-+++ b/lib/service/servicemp3.h
+--- a/servicemp3/servicemp3.h
++++ b/servicemp3/servicemp3.h
 @@ -26,6 +26,7 @@ public:
  	RESULT list(const eServiceReference &, ePtr<iListableService> &ptr);
  	RESULT info(const eServiceReference &, ePtr<iStaticServiceInformation> &ptr);
