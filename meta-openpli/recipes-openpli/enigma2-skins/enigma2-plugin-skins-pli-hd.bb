@@ -11,7 +11,8 @@ PKGV = "0.1+git${GITPKGV}"
 SRC_URI = "git://github.com/littlesat/skin-PLiHD.git"
 
 SRC_URI += "file://01-split-eventname-and-full-description.patch \
-		"
+			file://02-Revert-PLiFullHD-darker.patch \
+			"
 
 FILES_${PN} = "/usr/share/enigma2/"
 
