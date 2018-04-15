@@ -113,6 +113,8 @@ SRC_URI += "file://01-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
 			file://02-fix-wrong-driver-date.patch \
 			file://03-separate-event-name-and-full-description.patch \
 			file://04-revert-build-date.patch \
+			file://05-Revert-kill-the-pinguin.patch \
+			file://screensaverpicture.png \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
@@ -179,6 +181,10 @@ FILES_${PN}-src = "\
 	/usr/lib/enigma2/python/*/*/*.py \
 	/usr/lib/enigma2/python/*/*/*/*.py \
 	"
+
+do_install_prepend() {
+	mv ${WORKDIR}/screensaverpicture.png ${B}/data/skin_default/screensaverpicture.png
+}
 
 do_install_append() {
 	install -d ${D}/usr/share/keymaps
