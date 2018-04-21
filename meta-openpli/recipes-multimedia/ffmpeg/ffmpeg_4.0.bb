@@ -42,8 +42,8 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv autotools pkgconfig
 
-PV = "3.6+git${SRCPV}"
-PKGV = "3.6+git${GITPKGV}"
+PV = "4.0+git${SRCPV}"
+PKGV = "4.0+git${GITPKGV}"
 
 # Build fails when thumb is enabled: https://bugzilla.yoctoproject.org/show_bug.cgi?id=7717
 ARM_INSTRUCTION_SET = "arm"
