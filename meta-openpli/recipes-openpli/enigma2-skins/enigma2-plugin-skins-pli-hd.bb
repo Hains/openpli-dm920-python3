@@ -8,11 +8,7 @@ inherit gitpkgv allarch
 PV = "0.1+git${SRCPV}"
 PKGV = "0.1+git${GITPKGV}"
 
-SRC_URI = "git://github.com/littlesat/skin-PLiHD.git"
-
-SRC_URI += "file://01-split-eventname-and-full-description.patch \
-			file://02-Revert-PLiFullHD-darker.patch \
-			"
+SRC_URI = "git://github.com/Hains/skin-PLiHD.git"
 
 FILES_${PN} = "/usr/share/enigma2/"
 
