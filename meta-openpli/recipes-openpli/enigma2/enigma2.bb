@@ -107,13 +107,14 @@ PKGV = "2.7+git${GITPKGV}"
 
 ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH}"
 
-SRC_URI += "file://01-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
+SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
+			file://01-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
 			file://02-fix-wrong-driver-date.patch \
 			file://03-separate-event-name-and-full-description.patch \
 			file://04-revert-build-date.patch \
-			file://05-Revert-kill-the-pinguin.patch \
+			file://05-revert-kill-the-pinguin.patch \
+			file://06-add-skin_display_dm8000.patch \
 			file://screensaverpicture.png \
 			"
 
