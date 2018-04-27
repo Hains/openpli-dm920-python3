@@ -93,9 +93,7 @@ EXTRA_OECONF = "\
 	"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = " git://github.com/openpli/servicemp3.git;branch=master \
-			file://01-update-servicemp3-to-openatv.patch \
-			"
+SRC_URI = " git://github.com/Hains/servicemp3.git;branch=master"
 
 S = "${WORKDIR}/git"
 
