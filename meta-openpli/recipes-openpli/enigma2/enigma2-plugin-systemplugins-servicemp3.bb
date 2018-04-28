@@ -92,7 +92,6 @@ EXTRA_OECONF = "\
 	--with-gstversion=${GST_VERSION} \
 	"
 
-SRCREV = "${AUTOREV}"
 SRC_URI = " git://github.com/Hains/servicemp3.git;branch=master"
 
 S = "${WORKDIR}/git"
