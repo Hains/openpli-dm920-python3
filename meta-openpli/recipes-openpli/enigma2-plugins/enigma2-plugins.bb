@@ -69,7 +69,10 @@ DEPENDS = " \
 	python-daap \
 	libcddb \
 	dvdbackup \
+	libtirpc \
 	"
+
+CFLAGS += "-I${STAGING_INCDIR}/tirpc"
 
 python populate_packages_prepend () {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
