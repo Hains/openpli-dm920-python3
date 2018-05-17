@@ -72,9 +72,7 @@ do_install_append() {
 	chmod a+rX ${D}${PLUGINPATH}
 }
 
-PACKAGES =+ "${PN}-src"
-FILES_${PN}-src = "${PLUGINPATH}/*.py ${PLUGINPATH}/*/*.py ${PLUGINPATH}/*/*/*.py ${PLUGINPATH}/*/*/*/*.py ${PLUGINPATH}/*/*/*/*/*.py \
-		${PLUGINPATH}/controllers/views/*.tmpl ${PLUGINPATH}/controllers/views/*/*.tmpl ${PLUGINPATH}/controllers/views/*/*/*.tmpl"
+FILES_${PN}-src += "${PLUGINPATH}/controllers/views/*.tmpl ${PLUGINPATH}/controllers/views/*/*.tmpl ${PLUGINPATH}/controllers/views/*/*/*.tmpl"
 FILES_${PN} = "${PLUGINPATH}"
 
 PACKAGES =+ "${PN}-vxg"
