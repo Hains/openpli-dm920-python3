@@ -3,13 +3,13 @@ Which result in no full remote control in openwebif and no brand 'dream multimed
 Every dm8000 is considered as a clone box in openpli, even your dm8000 is genuine.
 
 diff --git a/plugin/controllers/models/owibranding.py b/plugin/controllers/models/owibranding.py
-index 9983ecb8..77e284fa 100644
+index 7a179175..49a3a26f 100644
 --- a/plugin/controllers/models/owibranding.py
 +++ b/plugin/controllers/models/owibranding.py
-@@ -127,9 +127,7 @@ def getAllInfo():
- 	brand = "unknown"
+@@ -128,9 +128,7 @@ def getAllInfo():
  	model = "unknown"
  	procmodel = "unknown"
+ 	lcd = 0
 -	orgdream = 0
 -	if tpmloaded:
 -		orgdream = tpm_check()
@@ -17,3 +17,4 @@ index 9983ecb8..77e284fa 100644
  
  	if fileExists("/proc/stb/info/hwmodel"):
  		brand = "DAGS"
+
