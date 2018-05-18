@@ -2,9 +2,7 @@ DEFAULT_PREFERENCE = "1"
 
 include gstreamer1.0-plugins-base.inc
 
-LIC_FILES_CHKSUM = "file://COPYING;md5=c54ce9345727175ff66d17b67ff51f58 \
-					file://COPYING.LIB;md5=6762ed442b3822387a51c92d928ead0d \
-					"
+LIC_FILES_CHKSUM = "file://COPYING;md5=6762ed442b3822387a51c92d928ead0d"
 
 SRCREV_FORMAT = "base"
 
@@ -13,18 +11,17 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=mast
 			"
 
 SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
-			file://002-Makefile.am-don-t-hardcode-libtool-name-when-running.patch \
-			file://003-Makefile.am-prefix-calls-to-pkg-config-with-PKG_CONF.patch \
-			file://004-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
-			file://005-rtsp-drop-incorrect-reference-to-gstreamer-sdp-in-Ma.patch \
-			file://006-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
+			file://002-Makefile.am-prefix-calls-to-pkg-config-with-PKG_CONF.patch \
+			file://003-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
+			file://004-rtsp-drop-incorrect-reference-to-gstreamer-sdp-in-Ma.patch \
+			file://005-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 			"
 
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL = "1.14.0"
+GST_VERSION_FULL = "1.15.0.1"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 

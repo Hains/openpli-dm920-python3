@@ -13,18 +13,17 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=maste
 			"
 
 SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
-			file://002-Makefile.am-don-t-hardcode-libtool-name-when-running.patch \
+			file://002-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
 			file://003-configure-allow-to-disable-libssh2.patch \
 			file://004-rtmp-fix-seeking-and-potential-segfault.patch \
 			file://005-rtmp-hls-tsdemux-fix.patch \
-			file://006-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
 			"
 
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL = "1.14.0"
+GST_VERSION_FULL = "1.15.0.1"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
