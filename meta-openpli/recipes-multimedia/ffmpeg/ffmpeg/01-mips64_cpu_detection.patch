@@ -14,10 +14,10 @@ failed to merge target specific data of file
 Upstream-Status: Inappropriate [OE-Specific]
 
 diff --git a/configure b/configure
-index 99570a1415..4b0ee6a506 100755
+index 09ff0c55e2..163c7ecbe2 100755
 --- a/configure
 +++ b/configure
-@@ -5547,12 +5547,9 @@ elif enabled mips; then
+@@ -5569,12 +5569,9 @@ elif enabled mips; then
  
      # Enable minimum ISA based on selected options
      if enabled mips64; then
@@ -30,3 +30,4 @@ index 99570a1415..4b0ee6a506 100755
          enabled mips32r2 && check_inline_asm_flags mips32r2 '"ext $0, $0, 0, 1"' '-mips32r2'
          disabled mips32r6 && disabled mips32r5 && disabled mips32r2 && check_inline_asm_flags mips32r1 '"addi $0, $0, 0"' '-mips32'
      fi
+
