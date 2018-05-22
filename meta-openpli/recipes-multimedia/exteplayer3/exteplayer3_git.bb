@@ -14,6 +14,7 @@ PKGV = "49+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/samsamsam-iptvplayer/exteplayer3.git;branch=master \
 			file://remove-duplicate-case.patch \
+			file://use-ioctl-7-for-ac3plus.patch \
 "
 
 S = "${WORKDIR}/git/"

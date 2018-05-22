@@ -1,0 +1,13 @@
+diff --git a/include/bcm_ioctls.h b/include/bcm_ioctls.h
+index 81b0dd0..112dc21 100755
+--- a/include/bcm_ioctls.h
++++ b/include/bcm_ioctls.h
+@@ -70,7 +70,7 @@ typedef enum {
+ 	AUDIOTYPE_DTS_HD = 0x10,
+ 	AUDIOTYPE_WMA = 0x20,
+ 	AUDIOTYPE_WMA_PRO = 0x21,
+-	AUDIOTYPE_AC3_PLUS = 0x22,
++	AUDIOTYPE_AC3_PLUS = 7,
+ 	AUDIOTYPE_AMR = 0x23,
+ 	AUDIOTYPE_RAW = 0xf
+ } audio_stream_type_t;
