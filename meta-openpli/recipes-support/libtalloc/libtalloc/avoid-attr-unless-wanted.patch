@@ -1,0 +1,22 @@
+diff --git a/lib/replace/wscript b/lib/replace/wscript
+index 7b3f263..87afdb7 100644
+--- a/lib/replace/wscript
++++ b/lib/replace/wscript
+@@ -844,8 +844,6 @@ def build(bld):
+     if not bld.CONFIG_SET('HAVE_INET_ATON'):     REPLACE_SOURCE += ' inet_aton.c'
+     if not bld.CONFIG_SET('HAVE_INET_NTOP'):     REPLACE_SOURCE += ' inet_ntop.c'
+     if not bld.CONFIG_SET('HAVE_INET_PTON'):     REPLACE_SOURCE += ' inet_pton.c'
+-    if not bld.CONFIG_SET('HAVE_GETXATTR') or bld.CONFIG_SET('XATTR_ADDITIONAL_OPTIONS'):
+-                                                 REPLACE_SOURCE += ' xattr.c'
+ 
+     if not bld.CONFIG_SET('HAVE_CLOSEFROM'):
+         REPLACE_SOURCE += ' closefrom.c'
+@@ -859,7 +857,7 @@ def build(bld):
+                       # at the moment:
+                       # hide_symbols=bld.BUILTIN_LIBRARY('replace'),
+                       private_library=True,
+-                      deps='crypt dl nsl socket rt attr' + extra_libs)
++                      deps='crypt dl nsl socket rt ' + extra_libs)
+ 
+     replace_test_cflags="-Wno-format-zero-length"
+     if bld.CONFIG_SET('HAVE_WNO_FORMAT_TRUNCATION'):
