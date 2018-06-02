@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.87"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.88"
 
 COMPATIBLE_MACHINE = "dm8000"
 
