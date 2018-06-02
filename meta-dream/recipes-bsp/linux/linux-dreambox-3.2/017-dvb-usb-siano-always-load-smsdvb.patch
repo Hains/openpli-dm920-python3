@@ -1,7 +1,8 @@
-diff -Nuar a/drivers/media/dvb/siano/sms-cards.c b/drivers/media/dvb/siano/sms-cards.c
---- a/drivers/media/dvb/siano/sms-cards.c	2011-11-11 22:19:27.000000000 +0200
-+++ b/drivers/media/dvb/siano/sms-cards.c	2011-11-11 22:19:27.000000000 +0200
-@@ -292,19 +292,7 @@
+diff --git a/drivers/media/dvb/siano/sms-cards.c b/drivers/media/dvb/siano/sms-cards.c
+index 680c781c..cb6474cc 100644
+--- a/drivers/media/dvb/siano/sms-cards.c
++++ b/drivers/media/dvb/siano/sms-cards.c
+@@ -293,19 +293,7 @@ EXPORT_SYMBOL_GPL(sms_board_lna_control);
  
  int sms_board_load_modules(int id)
  {

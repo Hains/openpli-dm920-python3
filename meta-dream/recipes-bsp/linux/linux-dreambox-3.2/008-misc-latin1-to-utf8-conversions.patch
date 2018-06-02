@@ -7,7 +7,7 @@ Signed-off-by: Al Viro <viro@zeniv.linux.org.uk>
 Signed-off-by: Jiri Kosina <jkosina@suse.cz>
 
 diff --git a/Documentation/ABI/testing/sysfs-driver-hid-logitech-lg4ff b/Documentation/ABI/testing/sysfs-driver-hid-logitech-lg4ff
-index 9aec8ef..167d903 100644
+index 9aec8ef2..167d9032 100644
 --- a/Documentation/ABI/testing/sysfs-driver-hid-logitech-lg4ff
 +++ b/Documentation/ABI/testing/sysfs-driver-hid-logitech-lg4ff
 @@ -1,7 +1,7 @@
@@ -20,7 +20,7 @@ index 9aec8ef..167d903 100644
  		wheel. Writing a value within min and max boundaries sets the
  		range of the wheel.
 diff --git a/Documentation/vgaarbiter.txt b/Documentation/vgaarbiter.txt
-index b7d401e..014423e 100644
+index b7d401e0..014423e2 100644
 --- a/Documentation/vgaarbiter.txt
 +++ b/Documentation/vgaarbiter.txt
 @@ -177,7 +177,7 @@ II. Credits
@@ -33,7 +33,7 @@ index b7d401e..014423e 100644
  implementation of the user space side [3]. Now (2009) Tiago Vignatti and Dave
  Airlie finally put this work in shape and queued to Jesse Barnes' PCI tree.
 diff --git a/drivers/gpu/drm/i915/intel_sdvo_regs.h b/drivers/gpu/drm/i915/intel_sdvo_regs.h
-index 4aa6f34..6b7b22f 100644
+index 4193c54e..770bdd6e 100644
 --- a/drivers/gpu/drm/i915/intel_sdvo_regs.h
 +++ b/drivers/gpu/drm/i915/intel_sdvo_regs.h
 @@ -1,5 +1,5 @@
@@ -44,7 +44,7 @@ index 4aa6f34..6b7b22f 100644
   * Permission is hereby granted, free of charge, to any person obtaining a
   * copy of this software and associated documentation files (the "Software"),
 diff --git a/drivers/hid/hid-pl.c b/drivers/hid/hid-pl.c
-index 070f93a..47ed74c 100644
+index 12786cdc..00cd2f8b 100644
 --- a/drivers/hid/hid-pl.c
 +++ b/drivers/hid/hid-pl.c
 @@ -9,10 +9,10 @@
@@ -61,7 +61,7 @@ index 070f93a..47ed74c 100644
   *  Copyright (c) 2007, 2009 Anssi Hannula <anssi.hannula@gmail.com>
   */
 diff --git a/drivers/hid/hid-twinhan.c b/drivers/hid/hid-twinhan.c
-index c40afc5..f23456b 100644
+index c40afc57..f23456b1 100644
 --- a/drivers/hid/hid-twinhan.c
 +++ b/drivers/hid/hid-twinhan.c
 @@ -3,7 +3,7 @@
@@ -74,10 +74,10 @@ index c40afc5..f23456b 100644
  
  /*
 diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 4bb68f3..ac083a2 100644
+index 64e7065e..84faf8f7 100644
 --- a/drivers/i2c/busses/i2c-xiic.c
 +++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -426,7 +426,7 @@ static void xiic_process(struct xiic_i2c *i2c)
+@@ -424,7 +424,7 @@ static void xiic_process(struct xiic_i2c *i2c)
  			xiic_wakeup(i2c, STATE_ERROR);
  
  	} else if (pend & (XIIC_INTR_TX_EMPTY_MASK | XIIC_INTR_TX_HALF_MASK)) {
@@ -87,7 +87,7 @@ index 4bb68f3..ac083a2 100644
  		clr = pend &
  			(XIIC_INTR_TX_EMPTY_MASK | XIIC_INTR_TX_HALF_MASK);
 diff --git a/drivers/isdn/hisax/enternow_pci.c b/drivers/isdn/hisax/enternow_pci.c
-index 26264ab..f55d29d 100644
+index 26264abf..f55d29d6 100644
 --- a/drivers/isdn/hisax/enternow_pci.c
 +++ b/drivers/isdn/hisax/enternow_pci.c
 @@ -333,7 +333,7 @@ static void __devinit en_cs_init(struct IsdnCard *card,
@@ -100,10 +100,10 @@ index 26264ab..f55d29d 100644
  	/* 20 ms Pause */
  	mdelay(20);
 diff --git a/drivers/media/rc/winbond-cir.c b/drivers/media/rc/winbond-cir.c
-index 13f54b5..e7f7a57 100644
+index 45917700..1fd1a71f 100644
 --- a/drivers/media/rc/winbond-cir.c
 +++ b/drivers/media/rc/winbond-cir.c
-@@ -1176,6 +1176,6 @@ wbcir_exit(void)
+@@ -1177,6 +1177,6 @@ wbcir_exit(void)
  module_init(wbcir_init);
  module_exit(wbcir_exit);
  
@@ -112,7 +112,7 @@ index 13f54b5..e7f7a57 100644
  MODULE_DESCRIPTION("Winbond SuperI/O Consumer IR Driver");
  MODULE_LICENSE("GPL");
 diff --git a/drivers/misc/ibmasm/command.c b/drivers/misc/ibmasm/command.c
-index 5c766b4..7d56f45 100644
+index 5c766b4f..7d56f45d 100644
 --- a/drivers/misc/ibmasm/command.c
 +++ b/drivers/misc/ibmasm/command.c
 @@ -18,7 +18,7 @@
@@ -125,7 +125,7 @@ index 5c766b4..7d56f45 100644
   */
  
 diff --git a/drivers/misc/ibmasm/dot_command.c b/drivers/misc/ibmasm/dot_command.c
-index 3dd2dfb..d7b2ca3 100644
+index 3dd2dfb8..d7b2ca35 100644
 --- a/drivers/misc/ibmasm/dot_command.c
 +++ b/drivers/misc/ibmasm/dot_command.c
 @@ -17,7 +17,7 @@
@@ -138,7 +138,7 @@ index 3dd2dfb..d7b2ca3 100644
   */
  
 diff --git a/drivers/misc/ibmasm/dot_command.h b/drivers/misc/ibmasm/dot_command.h
-index 6cbba1a..fc9fc9d 100644
+index 6cbba1af..fc9fc9d4 100644
 --- a/drivers/misc/ibmasm/dot_command.h
 +++ b/drivers/misc/ibmasm/dot_command.h
 @@ -17,7 +17,7 @@
@@ -151,7 +151,7 @@ index 6cbba1a..fc9fc9d 100644
   */
  
 diff --git a/drivers/misc/ibmasm/event.c b/drivers/misc/ibmasm/event.c
-index 76bfda1..8e540f4 100644
+index 76bfda1f..8e540f4e 100644
 --- a/drivers/misc/ibmasm/event.c
 +++ b/drivers/misc/ibmasm/event.c
 @@ -18,7 +18,7 @@
@@ -164,7 +164,7 @@ index 76bfda1..8e540f4 100644
   */
  
 diff --git a/drivers/misc/ibmasm/heartbeat.c b/drivers/misc/ibmasm/heartbeat.c
-index 1bc4306..9074637 100644
+index 1bc43065..90746378 100644
 --- a/drivers/misc/ibmasm/heartbeat.c
 +++ b/drivers/misc/ibmasm/heartbeat.c
 @@ -18,7 +18,7 @@
@@ -177,7 +177,7 @@ index 1bc4306..9074637 100644
   */
  
 diff --git a/drivers/misc/ibmasm/i2o.h b/drivers/misc/ibmasm/i2o.h
-index bf2c738..2e9566d 100644
+index bf2c738d..2e9566da 100644
 --- a/drivers/misc/ibmasm/i2o.h
 +++ b/drivers/misc/ibmasm/i2o.h
 @@ -17,7 +17,7 @@
@@ -190,7 +190,7 @@ index bf2c738..2e9566d 100644
   */
  
 diff --git a/drivers/misc/ibmasm/ibmasm.h b/drivers/misc/ibmasm/ibmasm.h
-index 4d8a4e2..9b08344 100644
+index 4d8a4e24..9b083448 100644
 --- a/drivers/misc/ibmasm/ibmasm.h
 +++ b/drivers/misc/ibmasm/ibmasm.h
 @@ -18,7 +18,7 @@
@@ -203,7 +203,7 @@ index 4d8a4e2..9b08344 100644
   */
  
 diff --git a/drivers/misc/ibmasm/ibmasmfs.c b/drivers/misc/ibmasm/ibmasmfs.c
-index 8994772..3536175 100644
+index 89947723..35361753 100644
 --- a/drivers/misc/ibmasm/ibmasmfs.c
 +++ b/drivers/misc/ibmasm/ibmasmfs.c
 @@ -17,7 +17,7 @@
@@ -216,7 +216,7 @@ index 8994772..3536175 100644
   */
  
 diff --git a/drivers/misc/ibmasm/lowlevel.c b/drivers/misc/ibmasm/lowlevel.c
-index 4b2398e..5319ea2 100644
+index 4b2398e2..5319ea26 100644
 --- a/drivers/misc/ibmasm/lowlevel.c
 +++ b/drivers/misc/ibmasm/lowlevel.c
 @@ -17,7 +17,7 @@
@@ -229,7 +229,7 @@ index 4b2398e..5319ea2 100644
   */
  
 diff --git a/drivers/misc/ibmasm/lowlevel.h b/drivers/misc/ibmasm/lowlevel.h
-index 7667665..e97848f 100644
+index 76676652..e97848f5 100644
 --- a/drivers/misc/ibmasm/lowlevel.h
 +++ b/drivers/misc/ibmasm/lowlevel.h
 @@ -17,7 +17,7 @@
@@ -242,7 +242,7 @@ index 7667665..e97848f 100644
   */
  
 diff --git a/drivers/misc/ibmasm/module.c b/drivers/misc/ibmasm/module.c
-index a234d96..1ccedb7 100644
+index a234d965..1ccedb71 100644
 --- a/drivers/misc/ibmasm/module.c
 +++ b/drivers/misc/ibmasm/module.c
 @@ -18,7 +18,7 @@
@@ -255,7 +255,7 @@ index a234d96..1ccedb7 100644
   * This driver is based on code originally written by Pete Reynolds
   * and others.
 diff --git a/drivers/misc/ibmasm/r_heartbeat.c b/drivers/misc/ibmasm/r_heartbeat.c
-index 2de487a..232034f 100644
+index 2de487ac..232034f5 100644
 --- a/drivers/misc/ibmasm/r_heartbeat.c
 +++ b/drivers/misc/ibmasm/r_heartbeat.c
 @@ -16,7 +16,7 @@
@@ -268,7 +268,7 @@ index 2de487a..232034f 100644
   */
  
 diff --git a/drivers/misc/ibmasm/remote.h b/drivers/misc/ibmasm/remote.h
-index 00dbf1d..a7729ef 100644
+index 00dbf1d4..a7729ef7 100644
 --- a/drivers/misc/ibmasm/remote.h
 +++ b/drivers/misc/ibmasm/remote.h
 @@ -18,7 +18,7 @@
@@ -281,7 +281,7 @@ index 00dbf1d..a7729ef 100644
   * Originally written by Pete Reynolds
   */
 diff --git a/drivers/misc/ibmasm/uart.c b/drivers/misc/ibmasm/uart.c
-index 93baa35..1dcb9ae 100644
+index 93baa350..1dcb9ae1 100644
 --- a/drivers/misc/ibmasm/uart.c
 +++ b/drivers/misc/ibmasm/uart.c
 @@ -18,7 +18,7 @@
@@ -294,7 +294,7 @@ index 93baa35..1dcb9ae 100644
   */
  
 diff --git a/drivers/mmc/host/omap.c b/drivers/mmc/host/omap.c
-index 2dba999..887c0e5 100644
+index 2dba999c..887c0e59 100644
 --- a/drivers/mmc/host/omap.c
 +++ b/drivers/mmc/host/omap.c
 @@ -2,7 +2,7 @@
@@ -313,7 +313,7 @@ index 2dba999..887c0e5 100644
 -MODULE_AUTHOR("Juha Yrjölä");
 +MODULE_AUTHOR("Juha YrjÃ¶lÃ¤");
 diff --git a/drivers/scsi/jazz_esp.c b/drivers/scsi/jazz_esp.c
-index 08e26d4..27cfb0c 100644
+index 08e26d4e..27cfb0cb 100644
 --- a/drivers/scsi/jazz_esp.c
 +++ b/drivers/scsi/jazz_esp.c
 @@ -1,6 +1,6 @@
@@ -325,7 +325,7 @@ index 08e26d4..27cfb0c 100644
  
  #include <linux/kernel.h>
 diff --git a/drivers/scsi/sni_53c710.c b/drivers/scsi/sni_53c710.c
-index 9acc2b2..cf51432 100644
+index 9acc2b2a..cf51432f 100644
 --- a/drivers/scsi/sni_53c710.c
 +++ b/drivers/scsi/sni_53c710.c
 @@ -51,7 +51,7 @@
@@ -338,7 +338,7 @@ index 9acc2b2..cf51432 100644
  MODULE_LICENSE("GPL");
  MODULE_ALIAS("platform:snirm_53c710");
 diff --git a/drivers/staging/bcm/target_params.h b/drivers/staging/bcm/target_params.h
-index 2d8b8a3..1487638 100644
+index 2d8b8a36..14876388 100644
 --- a/drivers/staging/bcm/target_params.h
 +++ b/drivers/staging/bcm/target_params.h
 @@ -72,8 +72,8 @@ typedef struct _TARGET_PARAMS
@@ -353,7 +353,7 @@ index 2d8b8a3..1487638 100644
  
  } stTargetParams,TARGET_PARAMS,*PTARGET_PARAMS, STARGETPARAMS, *PSTARGETPARAMS;
 diff --git a/drivers/staging/keucr/smilmain.c b/drivers/staging/keucr/smilmain.c
-index 31f7813..cc49038 100644
+index 31f7813c..cc49038e 100644
 --- a/drivers/staging/keucr/smilmain.c
 +++ b/drivers/staging/keucr/smilmain.c
 @@ -148,7 +148,7 @@ int Media_D_ReadSector(struct us_data *us, DWORD start,WORD count,BYTE *buf)
@@ -375,7 +375,7 @@ index 31f7813..cc49038 100644
  //    //usleep(56*1024);
  //
 diff --git a/drivers/staging/wlags49_h2/debug.h b/drivers/staging/wlags49_h2/debug.h
-index 8d5dddf..811698f 100644
+index 8d5dddf0..811698f1 100644
 --- a/drivers/staging/wlags49_h2/debug.h
 +++ b/drivers/staging/wlags49_h2/debug.h
 @@ -43,7 +43,7 @@
@@ -388,7 +388,7 @@ index 8d5dddf..811698f 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/dhfcfg.h b/drivers/staging/wlags49_h2/dhfcfg.h
-index 75c279f..147f4c8 100644
+index 75c279f2..147f4c83 100644
 --- a/drivers/staging/wlags49_h2/dhfcfg.h
 +++ b/drivers/staging/wlags49_h2/dhfcfg.h
 @@ -43,7 +43,7 @@
@@ -401,7 +401,7 @@ index 75c279f..147f4c8 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/hcf.c b/drivers/staging/wlags49_h2/hcf.c
-index 7dc176a..b008773 100644
+index 7dc176a9..b0087733 100644
 --- a/drivers/staging/wlags49_h2/hcf.c
 +++ b/drivers/staging/wlags49_h2/hcf.c
 @@ -32,9 +32,9 @@
@@ -418,7 +418,7 @@ index 7dc176a..b008773 100644
   *
   * Redistribution and use in source or binary forms, with or without
 diff --git a/drivers/staging/wlags49_h2/hcf.h b/drivers/staging/wlags49_h2/hcf.h
-index 0009947..95527b5 100644
+index 00099473..95527b5c 100644
 --- a/drivers/staging/wlags49_h2/hcf.h
 +++ b/drivers/staging/wlags49_h2/hcf.h
 @@ -40,9 +40,9 @@
@@ -435,7 +435,7 @@ index 0009947..95527b5 100644
  *
  * Redistribution and use in source or binary forms, with or without
 diff --git a/drivers/staging/wlags49_h2/hcfcfg.h b/drivers/staging/wlags49_h2/hcfcfg.h
-index 7545bc5..ef60da8 100644
+index 7545bc55..ef60da8c 100644
 --- a/drivers/staging/wlags49_h2/hcfcfg.h
 +++ b/drivers/staging/wlags49_h2/hcfcfg.h
 @@ -64,9 +64,9 @@
@@ -452,7 +452,7 @@ index 7545bc5..ef60da8 100644
  *
  * Redistribution and use in source or binary forms, with or without
 diff --git a/drivers/staging/wlags49_h2/hcfdef.h b/drivers/staging/wlags49_h2/hcfdef.h
-index a62b53a..30744e1 100644
+index a62b53a2..30744e19 100644
 --- a/drivers/staging/wlags49_h2/hcfdef.h
 +++ b/drivers/staging/wlags49_h2/hcfdef.h
 @@ -33,9 +33,9 @@
@@ -469,7 +469,7 @@ index a62b53a..30744e1 100644
   *
   * Redistribution and use in source or binary forms, with or without
 diff --git a/drivers/staging/wlags49_h2/mdd.h b/drivers/staging/wlags49_h2/mdd.h
-index b02e3ea..5f951ef 100644
+index b02e3ea9..5f951efb 100644
 --- a/drivers/staging/wlags49_h2/mdd.h
 +++ b/drivers/staging/wlags49_h2/mdd.h
 @@ -33,9 +33,9 @@
@@ -486,7 +486,7 @@ index b02e3ea..5f951ef 100644
  *
  * Redistribution and use in source or binary forms, with or without
 diff --git a/drivers/staging/wlags49_h2/mmd.c b/drivers/staging/wlags49_h2/mmd.c
-index de138c4..c8f5210 100644
+index de138c48..c8f52107 100644
 --- a/drivers/staging/wlags49_h2/mmd.c
 +++ b/drivers/staging/wlags49_h2/mmd.c
 @@ -35,7 +35,7 @@
@@ -499,7 +499,7 @@ index de138c4..c8f5210 100644
  *
  * Redistribution and use in source or binary forms, with or without
 diff --git a/drivers/staging/wlags49_h2/mmd.h b/drivers/staging/wlags49_h2/mmd.h
-index 06890c1..9149525 100644
+index 06890c1b..91495251 100644
 --- a/drivers/staging/wlags49_h2/mmd.h
 +++ b/drivers/staging/wlags49_h2/mmd.h
 @@ -33,7 +33,7 @@
@@ -512,7 +512,7 @@ index 06890c1..9149525 100644
  *
  * Redistribution and use in source or binary forms, with or without
 diff --git a/drivers/staging/wlags49_h2/wl_cs.h b/drivers/staging/wlags49_h2/wl_cs.h
-index 21f17be..a7ab579 100644
+index 21f17be4..a7ab5797 100644
 --- a/drivers/staging/wlags49_h2/wl_cs.h
 +++ b/drivers/staging/wlags49_h2/wl_cs.h
 @@ -22,7 +22,7 @@
@@ -534,7 +534,7 @@ index 21f17be..a7ab579 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_enc.c b/drivers/staging/wlags49_h2/wl_enc.c
-index 26cf548..4c6f776 100644
+index 26cf5486..4c6f776c 100644
 --- a/drivers/staging/wlags49_h2/wl_enc.c
 +++ b/drivers/staging/wlags49_h2/wl_enc.c
 @@ -23,7 +23,7 @@
@@ -556,7 +556,7 @@ index 26cf548..4c6f776 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_enc.h b/drivers/staging/wlags49_h2/wl_enc.h
-index b4f54d8..46629f3 100644
+index b4f54d81..46629f3b 100644
 --- a/drivers/staging/wlags49_h2/wl_enc.h
 +++ b/drivers/staging/wlags49_h2/wl_enc.h
 @@ -22,7 +22,7 @@
@@ -578,7 +578,7 @@ index b4f54d8..46629f3 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_if.h b/drivers/staging/wlags49_h2/wl_if.h
-index ed2b413..6a26130 100644
+index ed2b4135..6a26130f 100644
 --- a/drivers/staging/wlags49_h2/wl_if.h
 +++ b/drivers/staging/wlags49_h2/wl_if.h
 @@ -23,7 +23,7 @@
@@ -600,7 +600,7 @@ index ed2b413..6a26130 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_internal.h b/drivers/staging/wlags49_h2/wl_internal.h
-index 5753408..553601f 100644
+index 57534083..553601f4 100644
 --- a/drivers/staging/wlags49_h2/wl_internal.h
 +++ b/drivers/staging/wlags49_h2/wl_internal.h
 @@ -22,7 +22,7 @@
@@ -622,7 +622,7 @@ index 5753408..553601f 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_main.c b/drivers/staging/wlags49_h2/wl_main.c
-index 483eee1..dab603e 100644
+index 483eee1b..dab603e0 100644
 --- a/drivers/staging/wlags49_h2/wl_main.c
 +++ b/drivers/staging/wlags49_h2/wl_main.c
 @@ -23,7 +23,7 @@
@@ -644,7 +644,7 @@ index 483eee1..dab603e 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_main.h b/drivers/staging/wlags49_h2/wl_main.h
-index d593ae5..3b5acdf 100644
+index d593ae53..3b5acdf4 100644
 --- a/drivers/staging/wlags49_h2/wl_main.h
 +++ b/drivers/staging/wlags49_h2/wl_main.h
 @@ -22,7 +22,7 @@
@@ -666,7 +666,7 @@ index d593ae5..3b5acdf 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_netdev.c b/drivers/staging/wlags49_h2/wl_netdev.c
-index 5a2b334..9c16f54 100644
+index 5a2b334f..9c16f547 100644
 --- a/drivers/staging/wlags49_h2/wl_netdev.c
 +++ b/drivers/staging/wlags49_h2/wl_netdev.c
 @@ -23,7 +23,7 @@
@@ -688,7 +688,7 @@ index 5a2b334..9c16f54 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_netdev.h b/drivers/staging/wlags49_h2/wl_netdev.h
-index 632ab2e..61f040f 100644
+index 632ab2e6..61f040f2 100644
 --- a/drivers/staging/wlags49_h2/wl_netdev.h
 +++ b/drivers/staging/wlags49_h2/wl_netdev.h
 @@ -23,7 +23,7 @@
@@ -710,7 +710,7 @@ index 632ab2e..61f040f 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_pci.c b/drivers/staging/wlags49_h2/wl_pci.c
-index 28ae9dd..1f1d986 100644
+index 28ae9dd1..1f1d9867 100644
 --- a/drivers/staging/wlags49_h2/wl_pci.c
 +++ b/drivers/staging/wlags49_h2/wl_pci.c
 @@ -23,7 +23,7 @@
@@ -732,7 +732,7 @@ index 28ae9dd..1f1d986 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_pci.h b/drivers/staging/wlags49_h2/wl_pci.h
-index cea04c4..86831f1 100644
+index cea04c44..86831f1b 100644
 --- a/drivers/staging/wlags49_h2/wl_pci.h
 +++ b/drivers/staging/wlags49_h2/wl_pci.h
 @@ -22,7 +22,7 @@
@@ -754,7 +754,7 @@ index cea04c4..86831f1 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_priv.c b/drivers/staging/wlags49_h2/wl_priv.c
-index 260d4f0..f30e5ee 100644
+index b3d2e179..ff459b20 100644
 --- a/drivers/staging/wlags49_h2/wl_priv.c
 +++ b/drivers/staging/wlags49_h2/wl_priv.c
 @@ -22,7 +22,7 @@
@@ -776,7 +776,7 @@ index 260d4f0..f30e5ee 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_priv.h b/drivers/staging/wlags49_h2/wl_priv.h
-index 9b02544..b647bfd 100644
+index 9b025449..b647bfd9 100644
 --- a/drivers/staging/wlags49_h2/wl_priv.h
 +++ b/drivers/staging/wlags49_h2/wl_priv.h
 @@ -22,7 +22,7 @@
@@ -798,7 +798,7 @@ index 9b02544..b647bfd 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_profile.c b/drivers/staging/wlags49_h2/wl_profile.c
-index a459e48..b8c96cf 100644
+index a459e48c..b8c96cf1 100644
 --- a/drivers/staging/wlags49_h2/wl_profile.c
 +++ b/drivers/staging/wlags49_h2/wl_profile.c
 @@ -23,7 +23,7 @@
@@ -820,7 +820,7 @@ index a459e48..b8c96cf 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_profile.h b/drivers/staging/wlags49_h2/wl_profile.h
-index 81db8e8..f81df51 100644
+index 81db8e8c..f81df51d 100644
 --- a/drivers/staging/wlags49_h2/wl_profile.h
 +++ b/drivers/staging/wlags49_h2/wl_profile.h
 @@ -22,7 +22,7 @@
@@ -842,7 +842,7 @@ index 81db8e8..f81df51 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_util.c b/drivers/staging/wlags49_h2/wl_util.c
-index 3b6f5a5..b748a3f 100644
+index 3b6f5a59..b748a3ff 100644
 --- a/drivers/staging/wlags49_h2/wl_util.c
 +++ b/drivers/staging/wlags49_h2/wl_util.c
 @@ -22,7 +22,7 @@
@@ -864,7 +864,7 @@ index 3b6f5a5..b748a3f 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_util.h b/drivers/staging/wlags49_h2/wl_util.h
-index 2661bcd..946b1b6 100644
+index 2661bcd6..946b1b64 100644
 --- a/drivers/staging/wlags49_h2/wl_util.h
 +++ b/drivers/staging/wlags49_h2/wl_util.h
 @@ -23,7 +23,7 @@
@@ -886,7 +886,7 @@ index 2661bcd..946b1b6 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_version.h b/drivers/staging/wlags49_h2/wl_version.h
-index fd37040..3deacfa 100644
+index fd37040a..3deacfac 100644
 --- a/drivers/staging/wlags49_h2/wl_version.h
 +++ b/drivers/staging/wlags49_h2/wl_version.h
 @@ -23,7 +23,7 @@
@@ -908,7 +908,7 @@ index fd37040..3deacfa 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_wext.c b/drivers/staging/wlags49_h2/wl_wext.c
-index 8ac5e10..7ff0a10 100644
+index 8ac5e108..7ff0a108 100644
 --- a/drivers/staging/wlags49_h2/wl_wext.c
 +++ b/drivers/staging/wlags49_h2/wl_wext.c
 @@ -18,7 +18,7 @@
@@ -930,7 +930,7 @@ index 8ac5e10..7ff0a10 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/staging/wlags49_h2/wl_wext.h b/drivers/staging/wlags49_h2/wl_wext.h
-index a713058..029da52 100644
+index a713058c..029da52c 100644
 --- a/drivers/staging/wlags49_h2/wl_wext.h
 +++ b/drivers/staging/wlags49_h2/wl_wext.h
 @@ -22,7 +22,7 @@
@@ -952,7 +952,7 @@ index a713058..029da52 100644
   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  ANY
   * USE, MODIFICATION OR DISTRIBUTION OF THIS SOFTWARE IS SOLELY AT THE USERS OWN
 diff --git a/drivers/usb/gadget/s3c2410_udc.c b/drivers/usb/gadget/s3c2410_udc.c
-index b864377..fac4c65 100644
+index b8643771..fac4c650 100644
 --- a/drivers/usb/gadget/s3c2410_udc.c
 +++ b/drivers/usb/gadget/s3c2410_udc.c
 @@ -3,7 +3,7 @@
@@ -974,7 +974,7 @@ index b864377..fac4c65 100644
  
  static const char		gadget_name[] = "s3c2410_udc";
 diff --git a/drivers/usb/gadget/s3c2410_udc.h b/drivers/usb/gadget/s3c2410_udc.h
-index a48f619..1653bae 100644
+index a48f619c..1653bae0 100644
 --- a/drivers/usb/gadget/s3c2410_udc.h
 +++ b/drivers/usb/gadget/s3c2410_udc.h
 @@ -2,7 +2,7 @@
@@ -987,7 +987,7 @@ index a48f619..1653bae 100644
   *
   * This program is free software; you can redistribute it and/or modify
 diff --git a/drivers/usb/serial/ftdi_sio_ids.h b/drivers/usb/serial/ftdi_sio_ids.h
-index 055b64e..df1d7da 100644
+index 0b3de2ce..ba33ea30 100644
 --- a/drivers/usb/serial/ftdi_sio_ids.h
 +++ b/drivers/usb/serial/ftdi_sio_ids.h
 @@ -2,7 +2,7 @@
@@ -999,7 +999,7 @@ index 055b64e..df1d7da 100644
   * from Rudolf Gugler
   *
   */
-@@ -78,7 +78,7 @@
+@@ -104,7 +104,7 @@
   */
  #define FTDI_ASK_RDR400_PID	0xC991	/* ASK RDR 400 series card reader */
  
@@ -1008,7 +1008,7 @@ index 055b64e..df1d7da 100644
  #define FTDI_MICRO_CHAMELEON_PID	0xCAA0	/* Product Id */
  
  /*
-@@ -291,7 +291,7 @@
+@@ -334,7 +334,7 @@
  
  /*
   * Teratronik product ids.
@@ -1018,7 +1018,7 @@ index 055b64e..df1d7da 100644
  #define FTDI_TERATRONIK_VCP_PID	 0xEC88	/* Teratronik device (preferring VCP driver on windows) */
  #define FTDI_TERATRONIK_D2XX_PID 0xEC89	/* Teratronik device (preferring D2XX driver on windows) */
 diff --git a/drivers/usb/storage/isd200.c b/drivers/usb/storage/isd200.c
-index ffc4193..7019273 100644
+index 36f18b55..86a7564a 100644
 --- a/drivers/usb/storage/isd200.c
 +++ b/drivers/usb/storage/isd200.c
 @@ -61,7 +61,7 @@
@@ -1031,10 +1031,10 @@ index ffc4193..7019273 100644
  
  static int isd200_Initialization(struct us_data *us);
 diff --git a/drivers/usb/storage/unusual_devs.h b/drivers/usb/storage/unusual_devs.h
-index 24caba7..856ad92 100644
+index 5f08ce6f..53021a44 100644
 --- a/drivers/usb/storage/unusual_devs.h
 +++ b/drivers/usb/storage/unusual_devs.h
-@@ -1914,7 +1914,7 @@ UNUSUAL_DEV(  0x1b1c, 0x1ab5, 0x0200, 0x0200,
+@@ -2054,7 +2054,7 @@ UNUSUAL_DEV(  0x1b1c, 0x1ab5, 0x0200, 0x0200,
  		USB_SC_DEVICE, USB_PR_DEVICE, NULL,
  		US_FL_INITIAL_READ10 ),
  
@@ -1044,7 +1044,7 @@ index 24caba7..856ad92 100644
   * needs the US_FL_IGNORE_RESIDUE flag to work properly. */
  UNUSUAL_DEV(  0x1e68, 0x001b, 0x0000, 0x0000,
 diff --git a/drivers/video/omap/rfbi.c b/drivers/video/omap/rfbi.c
-index 0c6981f..2c1a340 100644
+index 0c6981f1..2c1a3402 100644
 --- a/drivers/video/omap/rfbi.c
 +++ b/drivers/video/omap/rfbi.c
 @@ -2,7 +2,7 @@
@@ -1057,7 +1057,7 @@ index 0c6981f..2c1a340 100644
   *
   * This program is free software; you can redistribute it and/or modify it
 diff --git a/drivers/video/omap/sossi.c b/drivers/video/omap/sossi.c
-index 8fb7c70..f79c137 100644
+index 8fb7c708..f79c1377 100644
 --- a/drivers/video/omap/sossi.c
 +++ b/drivers/video/omap/sossi.c
 @@ -2,7 +2,7 @@
@@ -1070,7 +1070,7 @@ index 8fb7c70..f79c137 100644
   * This program is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by the
 diff --git a/drivers/watchdog/w83627hf_wdt.c b/drivers/watchdog/w83627hf_wdt.c
-index dd5d675..576a388 100644
+index dd5d6754..576a388a 100644
 --- a/drivers/watchdog/w83627hf_wdt.c
 +++ b/drivers/watchdog/w83627hf_wdt.c
 @@ -4,7 +4,7 @@
@@ -1091,7 +1091,7 @@ index dd5d675..576a388 100644
  MODULE_DESCRIPTION("w83627hf/thf WDT driver");
  MODULE_ALIAS_MISCDEV(WATCHDOG_MINOR);
 diff --git a/drivers/zorro/zorro.ids b/drivers/zorro/zorro.ids
-index de24e3d..119abea 100644
+index de24e3de..119abea8 100644
 --- a/drivers/zorro/zorro.ids
 +++ b/drivers/zorro/zorro.ids
 @@ -351,7 +351,7 @@
@@ -1104,7 +1104,7 @@ index de24e3d..119abea 100644
  	0600  Piccolo [Graphics Card]
  	0700  PeggyPlus MPEG [Video Card]
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 58690af..2b6065e 100644
+index beeac8eb..d28d00d8 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
 @@ -4,7 +4,7 @@
@@ -1117,7 +1117,7 @@ index 58690af..2b6065e 100644
   * For licensing details see kernel-base/COPYING
   */
 diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
-index 7f3011c..6ddaba4 100644
+index 58c3b513..4636ecc2 100644
 --- a/kernel/events/ring_buffer.c
 +++ b/kernel/events/ring_buffer.c
 @@ -4,7 +4,7 @@
@@ -1130,7 +1130,7 @@ index 7f3011c..6ddaba4 100644
   * For licensing details see kernel-base/COPYING
   */
 diff --git a/tools/testing/ktest/sample.conf b/tools/testing/ktest/sample.conf
-index dbedfa1..553c06b 100644
+index dbedfa19..553c06b7 100644
 --- a/tools/testing/ktest/sample.conf
 +++ b/tools/testing/ktest/sample.conf
 @@ -950,7 +950,7 @@
@@ -1143,5 +1143,5 @@ index dbedfa1..553c06b 100644
  #   BISECT_MANUAL = 1
  #
 -- 
-2.1.4
+2.17.0
 

@@ -20,7 +20,7 @@ Date:   Fri Mar 2 13:01:40 2012 +0100
     Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 diff --git a/drivers/staging/rtl8192u/r8192U_core.c b/drivers/staging/rtl8192u/r8192U_core.c
-index c09be0a..9c00865 100644
+index c09be0a6..9c00865f 100644
 --- a/drivers/staging/rtl8192u/r8192U_core.c
 +++ b/drivers/staging/rtl8192u/r8192U_core.c
 @@ -105,7 +105,6 @@ u32 rt_global_debug_component = \
@@ -32,10 +32,10 @@ index c09be0a..9c00865 100644
  	/* Corega */
  	{USB_DEVICE(0x07aa, 0x0043)},
 diff --git a/drivers/staging/rtl8712/usb_intf.c b/drivers/staging/rtl8712/usb_intf.c
-index f8fbb57..b0c4cdb 100644
+index 9a9e158c..9e8b2934 100644
 --- a/drivers/staging/rtl8712/usb_intf.c
 +++ b/drivers/staging/rtl8712/usb_intf.c
-@@ -106,6 +106,7 @@ static struct usb_device_id rtl871x_usb_id_tbl[] = {
+@@ -110,6 +110,7 @@ static struct usb_device_id rtl871x_usb_id_tbl[] = {
  /* RTL8191SU */
  	/* Realtek */
  	{USB_DEVICE(0x0BDA, 0x8172)},

@@ -1,16 +1,15 @@
---- a/drivers/media/dvb/siano/smsdvb.c.orig	2011-02-25 13:08:07.000000000 +0200
-+++ b/drivers/media/dvb/siano/smsdvb.c	2011-02-26 15:11:46.000000000 +0200
-@@ -753,12 +753,111 @@
+diff --git a/drivers/media/dvb/siano/smsdvb.c b/drivers/media/dvb/siano/smsdvb.c
+index 37c594f8..be2bd542 100644
+--- a/drivers/media/dvb/siano/smsdvb.c
++++ b/drivers/media/dvb/siano/smsdvb.c
+@@ -748,12 +748,111 @@ static int smsdvb_get_frontend(struct dvb_frontend *fe,
  	struct smsdvb_client_t *client =
  		container_of(fe, struct smsdvb_client_t, frontend);
  
 -	sms_debug("");
 +	struct TRANSMISSION_STATISTICS_S *td = &client->sms_stat_dvb.TransmissionData;
- 
--	/* todo: */
--	memcpy(fep, &client->fe_params,
--	       sizeof(struct dvb_frontend_parameters));
- 
++
++
 +	switch (td->Constellation) {
 +	case 0:
 +		fep->u.ofdm.constellation = QPSK;
@@ -108,8 +107,11 @@
 +		fep->u.ofdm.bandwidth = BANDWIDTH_8_MHZ;
 +		break;
 +	}
-+
-+
+ 
+-	/* todo: */
+-	memcpy(fep, &client->fe_params,
+-	       sizeof(struct dvb_frontend_parameters));
+ 
 +	fep->frequency = td->Frequency;
 +	fep->inversion = INVERSION_AUTO;
 +	

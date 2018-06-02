@@ -19,10 +19,10 @@ Date:   Fri Mar 2 21:06:49 2012 -0600
     Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 diff --git a/drivers/staging/rtl8712/usb_intf.c b/drivers/staging/rtl8712/usb_intf.c
-index b0c4cdb..e419b4f 100644
+index 9e8b2934..01f86ce6 100644
 --- a/drivers/staging/rtl8712/usb_intf.c
 +++ b/drivers/staging/rtl8712/usb_intf.c
-@@ -620,12 +620,12 @@ static void r871xu_dev_remove(struct usb_interface *pusb_intf)
+@@ -631,12 +631,12 @@ static void r871xu_dev_remove(struct usb_interface *pusb_intf)
  	struct _adapter *padapter = netdev_priv(pnetdev);
  	struct usb_device *udev = interface_to_usbdev(pusb_intf);
  
