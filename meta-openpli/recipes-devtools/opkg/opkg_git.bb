@@ -22,7 +22,6 @@ SRC_URI = " git://git.yoctoproject.org/opkg \
 			file://opkg-configure.service \
 			file://opkg.conf \
 			file://modprobe \
-			file://opkg-wget \
 			"
 
 S = "${WORKDIR}/git"
@@ -47,8 +46,6 @@ EXTRA_OECONF_class-native = "--localstatedir=/${@os.path.relpath('${localstatedi
 do_install_prepend() {
 	install -d ${D}${datadir}/opkg/intercept
 	install -m 755 ${WORKDIR}/modprobe ${D}${datadir}/opkg/intercept/
-	install -d ${D}${bindir}
-	install -m 755 ${WORKDIR}/opkg-wget ${D}${bindir}/
 }
 
 do_install_append () {
@@ -73,15 +70,13 @@ do_install_append () {
 RDEPENDS_${PN} = "${VIRTUAL-RUNTIME_update-alternatives} opkg-arch-config run-postinsts libarchive"
 RDEPENDS_${PN}_class-native = ""
 RDEPENDS_${PN}_class-nativesdk = ""
-RDEPENDS_libopkg += "opkg-wget"
 RREPLACES_${PN} = "opkg-nogpg opkg-collateral"
 RCONFLICTS_${PN} = "opkg-collateral"
 RPROVIDES_${PN} = "opkg-collateral"
 
-PACKAGES =+ "libopkg opkg-wget"
+PACKAGES =+ "libopkg"
 
 FILES_libopkg = "${libdir}/*.so.* ${OPKGLIBDIR}/opkg/"
-FILES_opkg-wget = "${bindir}/opkg-wget"
 FILES_${PN} += "${systemd_unitdir}/system/"
 
 BBCLASSEXTEND = "native nativesdk"
