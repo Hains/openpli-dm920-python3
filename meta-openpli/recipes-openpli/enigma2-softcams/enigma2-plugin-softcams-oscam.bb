@@ -6,10 +6,10 @@ DESCRIPTION = "OScam ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PV = "svn11420"
+PV = "svn11424"
 PKGV = "${PV}"
 
-SRC_URI = "git://github.com/PLi-metas/oscam.git;branch=master"
+SRC_URI = "git://github.com/Hains/oscam.git;branch=master"
 
 DEPENDS = "libusb openssl"
 

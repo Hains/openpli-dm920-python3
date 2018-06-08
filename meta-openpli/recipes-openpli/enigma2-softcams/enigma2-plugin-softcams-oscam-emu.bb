@@ -6,22 +6,23 @@ DESCRIPTION = "OScam-emu ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PV = "svn11420"
+PV = "svn11424"
 PKGV = "${PV}"
 
-SRC_URI = "git://github.com/PLi-metas/oscam.git;branch=master"
+SRC_URI = "git://github.com/Hains/oscam.git;branch=master"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
-PATCHREV = "a7ed14e3e9d06b19fc5b1e1c1a572233c6862694"
+PATCHREV = "36b8bc42477028f61a3de9bb75bc0046d6840280"
 PR = "r769"
 SRC_URI += "https://raw.githubusercontent.com/oscam-emu/oscam-emu/${PATCHREV}/oscam-emu.patch?${PATCHREV};downloadfilename=oscam-emu.${PATCHREV}.patch;name=emu;striplevel=0"
-SRC_URI[emu.md5sum] = "3d036bd3d45ddeb13f7abecba35a0fa5"
-SRC_URI[emu.sha256sum] = "2cb56334cfa60faba9cc758126c7c25b286da8f486119ce9c2e863104e47e803"
+SRC_URI[emu.md5sum] = "c9ab573114fffd8288ec70b6d90183fe"
+SRC_URI[emu.sha256sum] = "0a3e7a6572b8b0b84d888bd35ff64e6ba53d487239027ba59acfe4b1b57b17d2"
 
 DEPENDS = "libusb openssl"
 
 S = "${WORKDIR}/git"
 B = "${S}"
+
 CAMNAME = "oscam-emu"
 CAMSTART = "/usr/bin/oscam-emu --config-dir /etc/tuxbox/config/oscam-emu --daemon --pidfile /tmp/oscam-emu.pid --restart 2"
 CAMSTOP = "kill \`cat /tmp/oscam-emu.pid\` 2> /dev/null"
