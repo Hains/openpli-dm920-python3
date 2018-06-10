@@ -924,7 +924,7 @@ int getAllInterfacesAndIPs(char* iface_str)
 			goto no_index;
 		}
 		if_num--; // g_interfaces counts from 0
-		strncpy(g_interfaces[if_num].iface_name, ifa->ifa_name, IF_NAMESIZE);
+		memcpy(g_interfaces[if_num].iface_name, ifa->ifa_name, IF_NAMESIZE);
 
 		if (ifa->ifa_addr->sa_family == AF_INET && !g_interfaces[if_num].ipv4)
 		{
@@ -1101,15 +1101,15 @@ int main(int argc, char *argv[])
 			break;
 
 		case 'i':
-			strncpy(iface, optarg, sizeof(iface));
+			memcpy(iface, optarg, sizeof(iface));
 			break;
 
 		case 'n':
-			strncpy(cd_name, optarg, sizeof(cd_name));
+			memcpy(cd_name, optarg, sizeof(cd_name));
 			break;
 
 		case 'w':
-			strncpy(cd_workgroup, optarg, sizeof(cd_workgroup));
+			memcpy(cd_workgroup, optarg, sizeof(cd_workgroup));
 			break;
 
 		case '4':
