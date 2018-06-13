@@ -34,7 +34,7 @@ SRC_URI = " \
 			file://024-rtl8712-fix-warnings.patch \
 			file://025-fixme-hardfloat.patch \
 			file://026-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
-			file://027-kernel-add-support-for-gcc7.patch \
+			file://027-kernel-add-support-for-gcc8.patch \
 			file://028-fix-build-with-gcc7.patch \
 			file://029-move-atomic-flags-field-after-cputime-expires-field.patch \
 			file://defconfig \
