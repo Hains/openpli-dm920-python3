@@ -15,7 +15,9 @@ PV = "2.1+git${SRCPV}"
 PKGV = "2.1+git${GITPKGV}"
 PR = "r2"
 
-SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=git"
+SRC_URI = " git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=git \
+			file://add-dmx-source-enum-and-ioctl.patch \
+			"
 
 EXTRA_OECONF = " \
     BUILD_SYS=${BUILD_SYS} \
