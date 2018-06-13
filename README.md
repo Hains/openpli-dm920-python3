@@ -54,13 +54,13 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir OpenPLi-homebuild;cd OpenPLi-homebuild;
+sudo mkdir feeds;cd feeds;sudo mkdir openpli-homebuild;cd openpli-homebuild;
 
-sudo ln -s /home/<your longin name>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/dm8000 dm8000 
+sudo ln -s /home/<your username>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/dm8000 dm8000 
 
-sudo ln -s /home/<your longin name>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/all all
+sudo ln -s /home/<your username>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/all all
 
-sudo ln -s /home/<your longin name>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/mips32el mips32el
+sudo ln -s /home/<your username>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/mips32el mips32el
 ```
 When it doesn't work, with FTP you can change the opkg config files of the box in etc/opkg/<br>
 -all-feed.conf<br>
