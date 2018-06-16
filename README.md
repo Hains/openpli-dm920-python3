@@ -6,8 +6,8 @@ Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of 26th April, 2018.<br>
--GCC 7.3.0 (with C++11 as default).<br>
+&nbsp;with git snapshot of 15th June, 2018.<br>
+-GCC 8.1.0.<br>
 -Glibc 2.27.<br>
 -Python 2.7.14.<br>
 -OpenSSL 1.0.2o.<br>
