@@ -49,8 +49,8 @@ OPTIONAL_PACKAGES += " \
 	libudfread \
 	mc \
 	mediainfo \
-	pv \
 	minisatip \
+	mpd \
 	mtd-utils \
 	mtools \
 	nano \
@@ -64,6 +64,7 @@ OPTIONAL_PACKAGES += " \
 	picocom \
 	ppp \
 	procps \
+	pv \
 	pyload \
 	python-js2py \
 	python-lxml \
