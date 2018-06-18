@@ -1,0 +1,29 @@
+diff --git a/src/utils/diffie_hellman.cc b/src/utils/diffie_hellman.cc
+index 52f9e68..27df469 100644
+--- a/src/utils/diffie_hellman.cc
++++ b/src/utils/diffie_hellman.cc
+@@ -54,8 +54,8 @@ DiffieHellman::DiffieHellman(const unsigned char *prime, int primeLength,
+ 
+ #ifdef USE_OPENSSL
+   m_dh = DH_new();
+-  m_dh->p = BN_bin2bn(prime, primeLength, NULL);
+-  m_dh->g = BN_bin2bn(generator, generatorLength, NULL);
++  DH_set0_pqg(m_dh, BN_bin2bn(prime, primeLength, NULL), NULL, NULL);
++  DH_set0_pqg(m_dh, NULL, NULL, BN_bin2bn(generator, generatorLength, NULL));
+ 
+   DH_generate_key(m_dh);
+ #else
+@@ -89,8 +89,11 @@ DiffieHellman::store_pub_key(unsigned char* dest, unsigned int length) {
+ #ifdef USE_OPENSSL
+   std::memset(dest, 0, length);
+ 
+-  if ((int)length >= BN_num_bytes(m_dh->pub_key))
+-    BN_bn2bin(m_dh->pub_key, dest + length - BN_num_bytes(m_dh->pub_key));
++  const BIGNUM *pub_key;
++
++  DH_get0_key(m_dh, &pub_key, NULL);
++  if ((int)length >= BN_num_bytes(pub_key))
++    BN_bn2bin(pub_key, dest + length - BN_num_bytes(pub_key));
+ #endif
+ }
+ 

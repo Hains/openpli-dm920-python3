@@ -7,7 +7,9 @@ SECTION = "libs/network"
 DEPENDS = "cppunit libsigc++-2.0 openssl"
 PR = "r0"
 
-SRC_URI = "http://rtorrent.net/downloads/${PN}-${PV}.tar.gz"
+SRC_URI = " http://rtorrent.net/downloads/${PN}-${PV}.tar.gz \
+			file://fix-build-openssl110.patch \
+"
 
 EXTRA_OECONF = " --enable-aligned --without-kqueue"
 
