@@ -11,8 +11,10 @@ SRC_URI = " https://github.com/transmission/transmission-releases/raw/master/tra
 			file://configure-kill-intl-check.patch \
 			file://configure-allow-local-network.patch \
 			file://configuration-default-download-dir.patch \
-			file://fix-build-openssl110.patch \
 			"
+
+SRC_URI[archive.md5sum] = "c92829294edfa391c046407eeb16358a"
+SRC_URI[archive.sha256sum] = "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
 
 INITSCRIPT_NAME = "transmission"
 INITSCRIPT_PARAMS = "defaults 60 "
