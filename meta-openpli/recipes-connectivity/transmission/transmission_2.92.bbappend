@@ -2,6 +2,7 @@ SRC_URI += "\
 	file://configure-kill-intl-check.patch \
 	file://configure-allow-local-network.patch \
 	file://configuration-default-download-dir.patch \
+	file://fix-build-openssl110.patch \
 	"
 
 DEPENDS = "gnutls openssl libtool intltool-native curl glib-2.0-native libevent"

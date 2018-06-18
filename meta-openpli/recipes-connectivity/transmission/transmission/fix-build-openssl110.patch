@@ -1,0 +1,36 @@
+diff --git a/libtransmission/crypto-utils-openssl.c b/libtransmission/crypto-utils-openssl.c
+index 24063be..2f8c9f8 100644
+--- a/libtransmission/crypto-utils-openssl.c
++++ b/libtransmission/crypto-utils-openssl.c
+@@ -241,8 +241,8 @@ tr_dh_new (const uint8_t * prime_num,
+   assert (prime_num != NULL);
+   assert (generator_num != NULL);
+ 
+-  if (!check_pointer (handle->p = BN_bin2bn (prime_num, prime_num_length, NULL)) ||
+-      !check_pointer (handle->g = BN_bin2bn (generator_num, generator_num_length, NULL)))
++  if (!check_pointer (DH_set0_pqg(handle, BN_bin2bn (prime_num, prime_num_length, NULL), NULL, NULL)) ||
++      !check_pointer (DH_set0_pqg(handle, NULL, NULL, BN_bin2bn (generator_num, generator_num_length, NULL))))
+     {
+       DH_free (handle);
+       handle = NULL;
+@@ -269,15 +269,18 @@ tr_dh_make_key (tr_dh_ctx_t   raw_handle,
+   DH * handle = raw_handle;
+   int dh_size, my_public_key_length;
+ 
++  const BIGNUM *pub_key;
++
+   assert (handle != NULL);
+   assert (public_key != NULL);
+ 
+-  handle->length = private_key_length * 8;
++  DH_set_length(handle, private_key_length * 8);
+ 
+   if (!check_result (DH_generate_key (handle)))
+     return false;
+ 
+-  my_public_key_length = BN_bn2bin (handle->pub_key, public_key);
++  DH_get0_key(handle, &pub_key, NULL);
++  my_public_key_length = BN_bn2bin (pub_key, public_key);
+   dh_size = DH_size (handle);
+ 
+   tr_dh_align_key (public_key, my_public_key_length, dh_size);
