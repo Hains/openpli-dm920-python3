@@ -56,7 +56,6 @@ PYTHON_RDEPS = " \
 	python-threading \
 	python-twisted-core \
 	python-twisted-web \
-	python-utf8-hack \
 	python-xml \
 	python-zlib \
 	python-zopeinterface \
