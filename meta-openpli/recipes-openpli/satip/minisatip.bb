@@ -7,9 +7,7 @@ inherit gitpkgv
 PV = "1+git${SRCPV}"
 PKGV = "1+git${GITPKGV}"
 
-SRC_URI = " git://github.com/eriksl/minisatip.git;protocol=git \
-			file://add-dmx-source-enum-and-ioctl.patch \
-			"
+SRC_URI = "git://github.com/eriksl/minisatip.git;protocol=git"
 
 FILES_${PN} = "/usr/sbin/minisatip"
 S = "${WORKDIR}/git"
