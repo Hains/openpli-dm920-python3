@@ -1,5 +1,6 @@
 require conf/license/openpli-gplv2.inc
 require softcam.inc
+require softcam-extra1.inc
 inherit cmake
 
 DESCRIPTION = "OScam ${PV} Open Source Softcam"
