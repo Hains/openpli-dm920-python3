@@ -8,10 +8,9 @@ inherit gitpkgv allarch
 PV = "0.1+git${SRCPV}"
 PKGV = "0.1+git${GITPKGV}"
 
-SRC_URI = "git://github.com/littlesat/PLi-HD-FullNight.git"
-
-SRC_URI += "file://01-split-eventname-and-full-description.patch \
-			"
+SRC_URI = " git://github.com/littlesat/PLi-HD-FullNight.git \
+			file://01-split-eventname-and-full-description.patch \
+"
 
 FILES_${PN} = "${datadir}/enigma2/"
 
