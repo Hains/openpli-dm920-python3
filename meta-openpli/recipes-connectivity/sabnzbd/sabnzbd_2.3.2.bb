@@ -22,7 +22,7 @@ SRC_URI[sha256sum] = "7debc856e981c9b4e4f2a137d0be24999482d369acd21487cfd8c23bd7
 
 S = "${WORKDIR}/sabnzbd-${PV}"
 
-INSTALLDIR = "/usr/lib/${PN}"
+INSTALLDIR = "${libdir}/${PN}"
 
 PACKAGES = "${PN}-doc ${PN}-src ${PN}"
 
@@ -42,9 +42,9 @@ do_compile() {
 do_install() {
 	install -d ${D}${INSTALLDIR}
 	cp -r . ${D}${INSTALLDIR}/
-	install -d ${D}/etc/init.d
-	install -m 755 ${WORKDIR}/sabnzbd ${D}/etc/init.d/sabnzbd
-	install -m 755 ${WORKDIR}/init-functions ${D}/etc/init.d/init-functions
-	install -d ${D}/etc/enigma2
+	install -d ${D}${sysconfdir}/init.d
+	install -m 755 ${WORKDIR}/sabnzbd ${D}${sysconfdir}/init.d/sabnzbd
+	install -m 755 ${WORKDIR}/init-functions ${D}${sysconfdir}/init.d/init-functions
+	install -d ${D}${sysconfdir}/enigma2
 	install -m 644 ${WORKDIR}/sabnzbd.conf ${D}/etc/enigma2/sabnzbd.conf
 }

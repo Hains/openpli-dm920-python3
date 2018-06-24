@@ -7,7 +7,7 @@ SRC_URI += " \
 			"
 
 do_install_append() {
-	install -d ${D}/var/lib/mpd/playlists
+	install -d ${D}${localstatedir}/lib/mpd/playlists
 	install -d ${D}${sysconfdir}/init.d
 	install -m 755 ${WORKDIR}/mpd.init ${D}${sysconfdir}/init.d/mpd
 }

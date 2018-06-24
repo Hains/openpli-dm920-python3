@@ -65,7 +65,7 @@ do_compile() {
 	python -O -m compileall -d ${PLUGINPATH} ${S}/plugin
 }
 
-PLUGINPATH = "/usr/lib/enigma2/python/Plugins/Extensions/${MODULE}"
+PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/${MODULE}"
 do_install_append() {
 	install -d ${D}${PLUGINPATH}
 	cp -r ${S}/plugin/* ${D}${PLUGINPATH}
@@ -79,5 +79,5 @@ FILES_${PN} = "${PLUGINPATH}"
 
 PACKAGES =+ "${PN}-vxg"
 DESCRIPTION_${PN}-vxg = "Adds Google Chrome support to OpenWebif's WebTV"
-FILES_${PN}-vxg = "/usr/lib/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg"
+FILES_${PN}-vxg = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg"
 RDEPENDS_${PN}-vxg =+ "${PN}"
