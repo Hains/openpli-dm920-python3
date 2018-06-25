@@ -17,8 +17,8 @@ PACKAGES = "${PN}"
 
 RDEPENDS_${PN} += "softcam-support"
 
-CAMLINK = "/etc/init.d/softcam"
-CAMPATH = "/etc/init.d/softcam.${CAMNAME}"
+CAMLINK = "$D${sysconfdir}/init.d/softcam"
+CAMPATH = "$D${sysconfdir}/init.d/softcam.${CAMNAME}"
 
 CAMSTART ?= "exec start-stop-daemon -S -x /usr/bin/${CAMNAME}"
 CAMSTOP  ?= "exec start-stop-daemon -K -R 2 -x /usr/bin/${CAMNAME}"
