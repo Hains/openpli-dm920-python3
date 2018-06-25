@@ -27,8 +27,8 @@ S = "${WORKDIR}/trunk"
 B = "${S}"
 
 CAMNAME = "oscam-emu"
-CAMSTART = "/usr/bin/oscam-emu --config-dir /etc/tuxbox/config/oscam-emu --daemon --pidfile /tmp/oscam-emu.pid --restart 2"
-CAMSTOP = "kill \`cat /tmp/oscam-emu.pid\` 2> /dev/null"
+CAMSTART = "exec start-stop-daemon -S -x /usr/bin/oscam-emu -- -b -r 2 -c /etc/tuxbox/config/oscam-emu"
+CAMSTOP =  "exec start-stop-daemon -K -R 2 -x /usr/bin/oscam-emu"
 
 SRC_URI += " \
 	file://oscam.conf \

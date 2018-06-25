@@ -16,9 +16,10 @@ DEPENDS = "libusb openssl"
 
 S = "${WORKDIR}/trunk"
 B = "${S}"
+
 CAMNAME = "oscam"
-CAMSTART = "/usr/bin/oscam --config-dir /etc/tuxbox/config/oscam --daemon --pidfile /tmp/oscam.pid --restart 2"
-CAMSTOP = "kill \`cat /tmp/oscam.pid\` 2> /dev/null"
+CAMSTART = "exec start-stop-daemon -S -x /usr/bin/oscam -- -b -r 2 -c /etc/tuxbox/config/oscam"
+CAMSTOP =  "exec start-stop-daemon -K -R 2 -x /usr/bin/oscam"
 
 SRC_URI += " \
 	file://oscam.conf \
