@@ -10,7 +10,6 @@ SRC_URI = " http://downloads.openpli.org/softcams/CCcam-${PV}.zip;name=softcam \
 S = "${WORKDIR}"
 
 require softcam.inc
-require softcam-extra.inc
 
 INHIBIT_PACKAGE_STRIP = "1"
 
