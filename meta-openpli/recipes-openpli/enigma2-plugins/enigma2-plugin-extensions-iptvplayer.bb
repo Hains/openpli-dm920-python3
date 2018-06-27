@@ -5,6 +5,7 @@ SECTION = "multimedia"
 LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://IPTVPlayer/plugin.py;md5=180a6bea75d2e48955fe9166eb94f095"
 SRC_URI = " git://gitlab.com/iptvplayer-for-e2/iptvplayer-for-e2.git;protocol=http \
+			file://skip-setup-menu.patch \
 			file://add-support-openssl110g-support.patch \
 			file://finish-after-ffmpeg.patch \
 			"
