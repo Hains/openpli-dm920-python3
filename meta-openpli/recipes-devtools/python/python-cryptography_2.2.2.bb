@@ -1,5 +1,6 @@
 inherit pypi setuptools
 require python-cryptography.inc
+include python-package-split.inc
 
 SRC_URI += " \
     file://run-ptest \
