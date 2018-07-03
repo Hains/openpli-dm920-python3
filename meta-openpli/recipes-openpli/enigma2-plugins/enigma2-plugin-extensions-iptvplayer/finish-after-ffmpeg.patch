@@ -1,25 +1,8 @@
 diff --git a/IPTVPlayer/setup/iptvsetupimpl.py b/IPTVPlayer/setup/iptvsetupimpl.py
-index b961851..f2daa13 100644
+index 2d41065..68770ab 100644
 --- a/IPTVPlayer/setup/iptvsetupimpl.py
 +++ b/IPTVPlayer/setup/iptvsetupimpl.py
-@@ -204,13 +204,9 @@ class IPTVSetupImpl:
-             config.plugins.iptvplayer.plarform.save()
-             configfile.save()
-         
--        if len(stsTab) > 0 and True == stsTab[-1]:
--            _saveConfig( self.supportedPlatforms[len(stsTab)-1] )
--            self.detectFPU()
--        else:
--            _saveConfig( "unknown" )
--            self.showMessage(_("Fatal Error!\nPlugin is not supported with your platform."), MessageBox.TYPE_ERROR, boundFunction(self.finish, False) )
--            
-+        _saveConfig( self.supportedPlatforms[len(stsTab)-1] )
-+        self.detectFPU()
-+             
-     ###################################################
-     # STEP: FPU DETECTION
-     ###################################################
-@@ -469,7 +465,7 @@ class IPTVSetupImpl:
+@@ -469,7 +469,7 @@ class IPTVSetupImpl:
                  if '.' == self.ffmpegVersion[-1]: self.ffmpegVersion = self.ffmpegVersion[:-1]
              except Exception: self.ffmpegVersion = ""
          else: self.ffmpegVersion = ""
@@ -28,4 +11,3 @@ index b961851..f2daa13 100644
              
      ###################################################
      # STEP: WGET
-

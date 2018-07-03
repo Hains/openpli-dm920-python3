@@ -1,0 +1,13 @@
+diff --git a/IPTVPlayer/setup/iptvsetupimpl.py b/IPTVPlayer/setup/iptvsetupimpl.py
+index 2d41065..90e8e7e 100644
+--- a/IPTVPlayer/setup/iptvsetupimpl.py
++++ b/IPTVPlayer/setup/iptvsetupimpl.py
+@@ -184,7 +184,7 @@ class IPTVSetupImpl:
+         self.setInfo(_("Detection of the platform."), _("Plugin can be run on one of the following platforms: sh4, mipsel, i686, armv7, armv5t."))
+         cmdTabs = []
+         for platform in self.supportedPlatforms:
+-            platformtesterPath = resolveFilename(SCOPE_PLUGINS, "Extensions/IPTVPlayer/bin/%s/platformtester" % platform)
++            platformtesterPath = resolveFilename(SCOPE_PLUGINS, "/usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer/bin/%s/platformtester" % platform)
+             try: os_chmod(platformtesterPath, 0777)
+             except Exception: printExc()
+             cmdTabs.append(platformtesterPath + "  2>&1 ")
