@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.88"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.89"
 
 COMPATIBLE_MACHINE = "dm8000"
 
@@ -38,6 +38,7 @@ SRC_URI = " \
 			file://028-fix-build-with-gcc7.patch \
 			file://029-move-atomic-flags-field-after-cputime-expires-field.patch \
 			file://030-fix-build-gcc8.patch \
+			file://031-dvb_frontend-backport-multistream-support.patch \
 			file://defconfig \
 "
 
