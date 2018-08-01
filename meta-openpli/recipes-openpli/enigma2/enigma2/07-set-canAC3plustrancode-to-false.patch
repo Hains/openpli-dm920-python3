@@ -1,5 +1,5 @@
 diff --git a/lib/python/Components/SystemInfo.py b/lib/python/Components/SystemInfo.py
-index 3c93a4846..792005ad7 100644
+index 01cba2fb8..1b633b5a1 100644
 --- a/lib/python/Components/SystemInfo.py
 +++ b/lib/python/Components/SystemInfo.py
 @@ -97,7 +97,7 @@ SystemInfo["canMultiBoot"] = HardwareInfo().get_device_model() in ('hd51', 'h7',
@@ -10,4 +10,4 @@ index 3c93a4846..792005ad7 100644
 +SystemInfo["CanAC3plusTranscode"] = False
  SystemInfo["CanAACTranscode"] = fileExists("/proc/stb/audio/aac_transcode_choices") and fileCheck("/proc/stb/audio/aac_transcode")
  SystemInfo["HDRSupport"] = fileExists("/proc/stb/hdmi/hlg_support_choices") and fileCheck("/proc/stb/hdmi/hlg_support")
- SystemInfo["CanDownmixAC3"] = fileExists("/proc/stb/audio/ac3_choices") and "downmix" in open("/proc/stb/audio/ac3_choices", "r").read()
+ SystemInfo["CanDownmixAC3"] = fileHas("/proc/stb/audio/ac3_choices", "downmix")
