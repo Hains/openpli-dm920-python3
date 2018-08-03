@@ -1,0 +1,65 @@
+
+Cherryp-pick from:
+https://github.com/OpenPLi/gst-plugin-dvbmediasink/commit/1218617f54d86bdb568cfc5faf41545832a2f979
+
+
+diff --git a/gstdvbvideosink.c b/gstdvbvideosink.c
+index eb8f1e9..54e982d 100644
+--- a/gstdvbvideosink.c
++++ b/gstdvbvideosink.c
+@@ -150,6 +150,7 @@ enum
+ enum
+ {
+ 	SIGNAL_GET_DECODER_TIME,
++	SIGNAL_GET_VIDEO_CODEC,
+ 	LAST_SIGNAL
+ };
+ 
+@@ -299,6 +300,7 @@ static gboolean gst_dvbvideosink_unlock (GstBaseSink * basesink);
+ static gboolean gst_dvbvideosink_unlock_stop (GstBaseSink * basesink);
+ static GstStateChangeReturn gst_dvbvideosink_change_state (GstElement * element, GstStateChange transition);
+ static gint64 gst_dvbvideosink_get_decoder_time (GstDVBVideoSink *self);
++static gint64 gst_dvbvideosink_get_video_codec (GstDVBVideoSink *self);
+ 
+ /* initialize the plugin's class */
+ static void gst_dvbvideosink_class_init(GstDVBVideoSinkClass *self)
+@@ -355,6 +357,14 @@ static void gst_dvbvideosink_class_init(GstDVBVideoSinkClass *self)
+ 		NULL, NULL, gst_dvbsink_marshal_INT64__VOID, G_TYPE_INT64, 0);
+ 
+ 	self->get_decoder_time = gst_dvbvideosink_get_decoder_time;
++
++	gst_dvb_videosink_signals[SIGNAL_GET_VIDEO_CODEC] =
++		g_signal_new ("get-video-codec",
++		G_TYPE_FROM_CLASS (self),
++		G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
++		G_STRUCT_OFFSET (GstDVBVideoSinkClass, get_video_codec),
++		NULL, NULL, gst_dvbsink_marshal_INT64__VOID, G_TYPE_INT64, 0);
++	self->get_video_codec = gst_dvbvideosink_get_video_codec;
+ }
+ 
+ #define H264_BUFFER_SIZE (64*1024+2048)
+@@ -508,6 +518,12 @@ static gint64 gst_dvbvideosink_get_decoder_time(GstDVBVideoSink *self)
+ 	return cur;
+ }
+ 
++static gint64 gst_dvbvideosink_get_video_codec(GstDVBVideoSink *self)
++{
++	// returns a superset of streamtypes available in lib/dvb/decoder.h
++	return self->stream_type;
++}
++
+ static gboolean gst_dvbvideosink_unlock(GstBaseSink *basesink)
+ {
+ 	GstDVBVideoSink *self = GST_DVBVIDEOSINK (basesink);
+diff --git a/gstdvbvideosink.h b/gstdvbvideosink.h
+index 83f0c50..2966da5 100644
+--- a/gstdvbvideosink.h
++++ b/gstdvbvideosink.h
+@@ -183,6 +183,7 @@ struct _GstDVBVideoSinkClass
+ {
+   GstBaseSinkClass parent_class;
+   gint64 (*get_decoder_time) (GstDVBVideoSink *sink);
++  gint64 (*get_video_codec) (GstDVBVideoSink *sink);
+ };
+ 
+ GType gst_dvbvideosink_get_type (void);
