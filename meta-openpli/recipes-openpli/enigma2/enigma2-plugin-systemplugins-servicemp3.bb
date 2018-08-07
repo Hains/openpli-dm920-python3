@@ -88,11 +88,7 @@ RRECOMMENDS_${PN} = "\
 	${GST_UGLY_RDEPS} \
 	"
 
-EXTRA_OECONF = "\
-	--with-gstversion=${GST_VERSION} \
-	"
-
-SRC_URI = " git://github.com/Hains/servicemp3.git;branch=master"
+SRC_URI = "git://github.com/Hains/servicemp3.git;branch=master"
 
 S = "${WORKDIR}/git"
 
@@ -102,6 +98,7 @@ PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
 EXTRA_OECONF = "\
+	--with-gstversion=${GST_VERSION} \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
