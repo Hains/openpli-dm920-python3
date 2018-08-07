@@ -99,3 +99,6 @@ index 2d6aa55d8..7fa70b963 100644
        if (codec_name)
          *codec_name = g_strdup ("MPEG-4");
        break;
+-- 
+2.1.4
+

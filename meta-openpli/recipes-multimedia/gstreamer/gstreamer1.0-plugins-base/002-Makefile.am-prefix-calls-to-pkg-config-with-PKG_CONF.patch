@@ -271,3 +271,6 @@ index 5aefe9d09..266de7959 100644
  		$(INTROSPECTION_COMPILER_OPTS) $< -o $(@F)
  
  CLEANFILES += $(BUILT_GIRSOURCES) $(typelibs_DATA)
+-- 
+2.15.1
+
