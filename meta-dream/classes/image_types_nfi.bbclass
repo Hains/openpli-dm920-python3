@@ -7,7 +7,7 @@ IMAGE_CMD_ubifs_prepend = " \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
 	echo \[root\] > ubinize.cfg; \
 	echo mode=ubi >> ubinize.cfg; \
-	echo image=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubifs >> ubinize.cfg; \
+	echo image=${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubifs >> ubinize.cfg; \
 	echo vol_id=0 >> ubinize.cfg; \
 	echo vol_name=${UBI_VOLNAME} >> ubinize.cfg; \
 	echo vol_type=dynamic >> ubinize.cfg; \
@@ -29,7 +29,7 @@ IMAGE_CMD_ubifs_prepend = " \
 	fi; \
 	mkfs.ubifs \
 		-r ${IMAGE_ROOTFS} \
-		-o ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubifs \
+		-o ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubifs \
 		${MKUBIFS_ARGS}; \
 	ubinize -o ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${UBINIZE_ARGS} ubinize.cfg; \
 	${DREAMBOX_BUILDIMAGE} \
