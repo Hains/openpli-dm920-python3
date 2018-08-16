@@ -9,7 +9,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 PV = "svn${SRCPV}"
 PKGV = "${PV}"
 
-SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep"
+SRC_URI = " svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep \
+			file://0001-include-sys-sysmacros.h-for-major-minor-definitions.patch \
+			"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
 PATCHREV = "b7251165ef76a2fc5498ca630ef980c2ef86104f"
