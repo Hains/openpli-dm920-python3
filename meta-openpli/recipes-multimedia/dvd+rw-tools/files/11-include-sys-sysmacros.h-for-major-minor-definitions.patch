@@ -1,0 +1,24 @@
+glibc 2.28 no longer defines 'major' and 'minor' in <sys/types.h> and
+requires us to include <sys/sysmacros.h>.
+
+/usr/src/debug/dvd+rw-tools/7.1-r4/dvd+rw-tools-7.1/growisofs.c:704: undefined reference to `minor'
+| collect2: error: ld returned 1 exit status
+
+diff --git a/growisofs.c b/growisofs.c
+index 6c47192..a8b69ac 100644
+--- a/growisofs.c
++++ b/growisofs.c
+@@ -606,12 +606,12 @@ char **_argv;
+ 
+ #if defined(__linux)
+ 
+-#include <linux/types.h>
+ #include <linux/cdrom.h>
+ #include <scsi/scsi.h>
+ #include <sys/ioctl.h>
+ #include <sys/prctl.h>
+ #include <sys/syscall.h>
++#include <sys/sysmacros.h>
+ #ifndef _LINUX_WAIT_H
+ #define _LINUX_WAIT_H	/* linux headers are impaired */
+ #endif
