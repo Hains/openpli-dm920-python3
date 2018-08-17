@@ -2,7 +2,7 @@ SUMMARY = "create DVD-Video file system"
 SECTION = "console/multimedia"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
-DEPENDS = "bison-native freetype libdvdread libfribidi libpng libxml2 zlib fontconfig"
+DEPENDS = "bison-native fontconfig freetype libdvdread libfribidi libpng libxml2 zlib"
 
 SRC_URI = "git://github.com/ldo/dvdauthor file://fix-build.patch"
 
@@ -20,7 +20,7 @@ do_configure_prepend() {
 inherit autotools gettext pkgconfig
 
 EXTRA_OECONF = " \
-        ac_cv_prog_MAGICKCONFIG= \
-        ac_cv_prog_GMAGICKCONFIG= \
+		ac_cv_prog_MAGICKCONFIG= \
+		ac_cv_prog_GMAGICKCONFIG= \
 "
 
