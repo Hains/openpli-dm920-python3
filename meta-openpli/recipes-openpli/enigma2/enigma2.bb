@@ -37,21 +37,17 @@ RRECOMMENDS_${PN} = " \
 	"
 
 PYTHON_RDEPS = " \
-	python-asn1crypto \
 	python-codecs \
-	python-constantly \
 	python-core \
 	python-crypt \
 	python-fcntl \
-	python-hyperlink \
-	python-incremental \
 	python-lang \
+	python-logging \
 	python-netclient \
 	python-netserver \
 	python-numbers \
 	python-pickle \
 	python-re \
-	python-service-identity \
 	python-shell \
 	python-threading \
 	python-twisted-core \
