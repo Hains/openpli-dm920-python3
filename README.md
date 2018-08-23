@@ -85,4 +85,6 @@ To update build-environment including all submodules, run:
 make update
 ```
 
+Notice: Run 'make image' or 'make feed' twice before you update the box!
+
 ==========================================================
