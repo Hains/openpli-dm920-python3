@@ -1,4 +1,5 @@
 require openpli-image.bb
+require recipes-core/meta/package-index.bb
 
 KERNEL_WIFI_DRIVERS = " \
 	firmware-carl9170 \
