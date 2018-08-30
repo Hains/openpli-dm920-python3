@@ -62,7 +62,7 @@ OPTIONAL_PACKAGES += " \
 	procps \
 	pv \
 	pyload \
-	python-beautifulsoup \
+	python-beautifulsoup4 \
 	python-js2py \
 	python-lxml \
 	python-mechanize \
