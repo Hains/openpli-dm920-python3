@@ -21,8 +21,6 @@ inherit autotools-brokensep update-rc.d
 INITSCRIPT_NAME = "inadyn-mt"
 CONFFILES_${PN} = "${sysconfdir}/inadyn.conf"
 
-TARGET_CC_ARCH += "${LDFLAGS}"
-
 do_compile() {
 	make -f makefile-deprecated
 }
