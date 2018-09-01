@@ -106,11 +106,10 @@ GITHUB_URI ?= "git://github.com"
 SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
 			file://01-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
 			file://02-fix-wrong-driver-date.patch \
-			file://03-separate-event-name-and-full-description.patch \
+			file://03-workaround-for-dns-no-dhcp.patch \
 			file://04-restore-last-update-date.patch \
 			file://05-revert-kill-the-pinguin.patch \
 			file://06-add-skin_display_dm8000.patch \
-			file://07-workaround-for-dns-no-dhcp.patch \
 			file://screensaverpicture.png \
 			"
 
