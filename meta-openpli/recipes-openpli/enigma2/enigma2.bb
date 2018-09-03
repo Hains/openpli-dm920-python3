@@ -151,16 +151,12 @@ EXTRA_OEMAKE = "\
 	ENIGMA2_BRANCH=${ENIGMA2_BRANCH} \
 	"
 
-# Swig generated 200k enigma.py file has no purpose for end users
-FILES_${PN}-src += "\
-	${libdir}/enigma2/python/enigma.py \
-	"
-
 # some plugins contain so's, their stripped symbols should not end up in the enigma2 package
 FILES_${PN}-dbg += "\
 	${libdir}/enigma2/python/Plugins/*/*/.debug \
 	"
 
+# Swig generated 200k enigma.py file has no purpose for end users
 # Save some space by not installing sources (mytest.py must remain)
 FILES_${PN}-src += "\
 	${libdir}/enigma2/python/GlobalActions.py \
@@ -170,6 +166,7 @@ FILES_${PN}-src += "\
 	${libdir}/enigma2/python/ServiceReference.py \
 	${libdir}/enigma2/python/SleepTimer.py \
 	${libdir}/enigma2/python/e2reactor.py \
+	${libdir}/enigma2/python/enigma.py \
 	${libdir}/enigma2/python/keyids.py \
 	${libdir}/enigma2/python/keymapparser.py \
 	${libdir}/enigma2/python/skin.py \
