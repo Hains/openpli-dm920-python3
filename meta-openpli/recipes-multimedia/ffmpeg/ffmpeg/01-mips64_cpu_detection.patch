@@ -14,10 +14,10 @@ failed to merge target specific data of file
 Upstream-Status: Inappropriate [OE-Specific]
 
 diff --git a/configure b/configure
-index 09ff0c55e2..163c7ecbe2 100755
+index 0d6ee0abfc..d400be8193 100755
 --- a/configure
 +++ b/configure
-@@ -5569,12 +5569,9 @@ elif enabled mips; then
+@@ -5627,12 +5627,9 @@ elif enabled mips; then
  
      # Enable minimum ISA based on selected options
      if enabled mips64; then

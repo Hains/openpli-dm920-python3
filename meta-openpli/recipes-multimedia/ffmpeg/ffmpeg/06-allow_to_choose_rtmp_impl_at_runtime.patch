@@ -1,8 +1,8 @@
 diff --git a/configure b/configure
-index 163c7ecbe2..da02cc1afd 100755
+index 0d6ee0abfc..c69b318c04 100755
 --- a/configure
 +++ b/configure
-@@ -3237,10 +3237,8 @@ xv_outdev_deps="xlib"
+@@ -3273,10 +3273,8 @@ xv_outdev_deps="xlib"
  # protocols
  async_protocol_deps="threads"
  bluray_protocol_deps="libbluray"
@@ -13,10 +13,10 @@ index 163c7ecbe2..da02cc1afd 100755
  ffrtmphttp_protocol_select="http_protocol"
  ftp_protocol_select="tcp_protocol"
  gopher_protocol_select="network"
-@@ -3263,20 +3261,20 @@ mmsh_protocol_select="http_protocol"
+@@ -3289,20 +3287,20 @@ https_protocol_suggest="zlib"
+ icecast_protocol_select="http_protocol"
+ mmsh_protocol_select="http_protocol"
  mmst_protocol_select="network"
- libsrt_protocol_deps="libsrt"
- libsrt_protocol_select="network"
 -rtmp_protocol_conflict="librtmp_protocol"
 -rtmp_protocol_select="tcp_protocol"
 -rtmp_protocol_suggest="zlib"
@@ -49,10 +49,10 @@ index 163c7ecbe2..da02cc1afd 100755
  schannel_conflict="openssl gnutls libtls mbedtls"
  sctp_protocol_deps="struct_sctp_event_subscribe struct_msghdr_msg_flags"
 diff --git a/libavformat/Makefile b/libavformat/Makefile
-index a5585dcc7b..34b4c34b09 100644
+index 608f7f1f85..8001e7237b 100644
 --- a/libavformat/Makefile
 +++ b/libavformat/Makefile
-@@ -595,12 +595,12 @@ OBJS-$(CONFIG_MMSH_PROTOCOL)             += mmsh.o mms.o asf.o
+@@ -588,12 +588,12 @@ OBJS-$(CONFIG_MMSH_PROTOCOL)             += mmsh.o mms.o asf.o
  OBJS-$(CONFIG_MMST_PROTOCOL)             += mmst.o mms.o asf.o
  OBJS-$(CONFIG_PIPE_PROTOCOL)             += file.o
  OBJS-$(CONFIG_PROMPEG_PROTOCOL)          += prompeg.o
@@ -72,7 +72,7 @@ index a5585dcc7b..34b4c34b09 100644
  OBJS-$(CONFIG_SCTP_PROTOCOL)             += sctp.o
  OBJS-$(CONFIG_SRTP_PROTOCOL)             += srtpproto.o srtp.o
 diff --git a/libavformat/protocols.c b/libavformat/protocols.c
-index 669d74d5a8..a2f1f17e01 100644
+index ad95659795..617c7dbace 100644
 --- a/libavformat/protocols.c
 +++ b/libavformat/protocols.c
 @@ -44,12 +44,12 @@ extern const URLProtocol ff_mmst_protocol;
