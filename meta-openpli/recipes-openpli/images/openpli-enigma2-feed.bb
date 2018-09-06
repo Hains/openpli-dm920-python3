@@ -106,6 +106,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
 	enigma2-plugin-extensions-epgimport \
+	enigma2-plugin-extensions-fontinfo \
 	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-iptvplayer \
 	enigma2-plugin-extensions-lcd4linux \
