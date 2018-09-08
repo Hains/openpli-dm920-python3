@@ -3,7 +3,7 @@ DESCRIPTION = "IPTV Player for E2"
 HOMEPAGE = "https://gitlab.com/iptvplayer-for-e2/"
 SECTION = "multimedia"
 LICENSE = "PD"
-LIC_FILES_CHKSUM = "file://IPTVPlayer/plugin.py;md5=55415d28bd50757e9e5f40949b53a20e"
+LIC_FILES_CHKSUM = "file://IPTVPlayer/plugin.py;md5=568b5712cb5766a80994428d998c8a1c"
 SRC_URI = " git://gitlab.com/iptvplayer-for-e2/iptvplayer-for-e2.git;protocol=http \
 			file://skip-setup-menu.patch \
 			file://workaround-platform-detection.patch \
