@@ -1,0 +1,13 @@
+diff --git a/plugin/plugin.py b/plugin/plugin.py
+index cd9d769e..64e647f0 100644
+--- a/plugin/plugin.py
++++ b/plugin/plugin.py
+@@ -47,7 +47,7 @@ config.OpenWebif.identifier_custom = ConfigYesNo(default=False)
+ config.OpenWebif.identifier_text = ConfigText(default="", fixed_size=False)
+ config.OpenWebif.port = ConfigInteger(default=80, limits=(1, 65535))
+ config.OpenWebif.streamport = ConfigInteger(default=8001, limits=(1, 65535))
+-config.OpenWebif.auth = ConfigYesNo(default=False)
++config.OpenWebif.auth = ConfigYesNo(default=True)
+ config.OpenWebif.xbmcservices = ConfigYesNo(default=False)
+ config.OpenWebif.webcache = ConfigSubsection()
+ # FIXME: anything better than a ConfigText?
