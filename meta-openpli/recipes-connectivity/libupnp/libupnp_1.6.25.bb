@@ -11,5 +11,5 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/pupnp/${P}.tar.bz2"
 
 inherit autotools
 
-SRC_URI[md5sum] = "530e91e96119ee32a9523a73572b8d8f"
-SRC_URI[sha256sum] = "0bdfacb7fa8d99b78343b550800ff193264f92c66ef67852f87f042fd1a1ebbc"
+SRC_URI[md5sum] = "4d2c1e1efe0a19edeef233e14a93f04c"
+SRC_URI[sha256sum] = "c5a300b86775435c076d58a79cc0d5a977d76027d2a7d721590729b7f369fa43"
