@@ -1,4 +1,5 @@
-SRCREV = "fa8646daeb19dfd12c181f7d19de708d623704c0"
+DEPENDS_remove = "openssl10"
+DEPENDS += "openssl"
 
 PROVIDES =+ " librtmp librtmp1"
 
