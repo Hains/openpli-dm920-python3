@@ -16,7 +16,6 @@ SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patc
 			file://002-gtk-doc-tweaks.patch \
 			file://003-revert-use-new-gst-adapter-get-buffer.patch \
 			file://004-Revert-plugin-Unify-static-and-dynamic-plugin-interface.patch \
-			file://005-fix-build.patch \
 			"
 
 S = "${WORKDIR}/git"
