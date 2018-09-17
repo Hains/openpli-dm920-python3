@@ -89,6 +89,7 @@ OPTIONAL_PACKAGES += " \
 	vim \
 	wget \
 	wscan \
+	xfsprogs \
 	yafc \
 	zeroconf \
 	zip \
