@@ -75,6 +75,7 @@ OPTIONAL_PACKAGES += " \
 	samba \
 	satipclient \
 	screen \
+	sed \
 	smartmontools \
 	smbnetfs \
 	sshpass \
