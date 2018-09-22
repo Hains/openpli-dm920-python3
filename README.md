@@ -6,19 +6,19 @@ Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of 4th September, 2018.<br>
--GCC 8.2.0.<br>
--Glibc 2.28.<br>
+&nbsp;with git snapshot of 22nd September, 2018.<br>
+-GCC 8.2.0<br>
+-Glibc 2.28<br>
 -GStreamer 1.15.0<br>
--Python 2.7.15.<br>
--OpenSSL 1.1.1-pre9.<br>
--Dreambox kernel 3.2.102.<br>
+-Python 2.7.15<br>
+-OpenSSL 1.1.1<br>
+-Dreambox kernel 3.2.102<br>
 
 And some other things(debuglevel via GUI, proper driver date, splash logo, some skin changes etc), see enigma2.bb.
 
 Feel free to send pull-request.
 
-Tested on Ubuntu 18.04 LTS.
+Tested on Ubuntu 18.04 LTS/18.10.
 <br>
 <br>
 Dependencies:
@@ -33,9 +33,11 @@ cd openpli-dm8000-oe-core
 
 make image
 ```
-When the build is finished, the image openpli-enigma2-homebuild-dm8000.nfi is in directory:
-
+When the build is finished, the image openpli-enigma2-homebuild-dm8000.nfi is in the:
+```
 build/tmp/deploy/images/dm8000/
+```
+directory.
 
 To build feed:
 ```
