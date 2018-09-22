@@ -84,6 +84,14 @@ To update build-environment including all submodules, run:
 make update
 ```
 
-Notice: Run 'make image' or 'make feed' twice before you update the box!
+Notice: 
+* Run 'make image' or 'make feed' twice before you update the box!
+* To use Openwebinterface and editors like DreamBoxEdit, you need to set a password with the 'passwd' command via telnet or setpasswd plugin!
+
+```
+telnet <ip address box>
+dm8000 login: root
+root@dm8000:~# passwd
+```
 
 ==========================================================
