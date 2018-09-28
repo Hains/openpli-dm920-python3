@@ -1,21 +1,18 @@
 SUMMARY = "Automatically build and update bouquets from the DVB stream."
 DESCRIPTION = "Automatically build and update bouquets from the DVB stream."
 MAINTAINER = "oe-alliance team"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
 inherit autotools-brokensep gitpkgv pythonnative gettext
 
-DEPENDS += "python"
-
-RDEPENDS_${PN} = "enigma2"
-
-PV = "2.1+git${SRCPV}"
-PKGV = "2.1+git${GITPKGV}"
-PR = "r2"
-
+SRCREV = "${AUTOREV}"
 SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=git"
+SRC_URI_append = " file://add-dummy-boxbranding.patch"
+
+PV = "3.1+git${SRCPV}"
+PKGV = "3.1+git${GITPKGV}"
+PR = "r0"
 
 EXTRA_OECONF = " \
     BUILD_SYS=${BUILD_SYS} \
@@ -25,6 +22,10 @@ EXTRA_OECONF = " \
     "
 
 S = "${WORKDIR}/git"
+
+DEPENDS = "enigma2"
+
+INSANE_SKIP_${PN} += "already-stripped ldflags"
 
 python populate_packages_prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
@@ -44,6 +45,6 @@ if [ -f ${libdir}/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/provide
 	rm -f ${libdir}/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/providers/providers.cache > /dev/null 2>&1
 	echo "Cache file has been removed"
 else
-	echo "No cache file found"
+	echo "No cache file found, continuing."
 fi
 }
