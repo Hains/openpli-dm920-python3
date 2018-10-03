@@ -22,8 +22,7 @@ ALLOW_EMPTY_${PN} = "1"
 CFLAGS_append = " -I${STAGING_INCDIR}/libxml2/ -I${STAGING_INCDIR}/${PYTHON_DIR}/"
 
 # prevent lots of QA warnings
-INSANE_SKIP_${PN} += "already-stripped"
-INSANE_SKIP_${PN} += "libdir"
+INSANE_SKIP_${PN} += "already-stripped libdir"
 
 S = "${WORKDIR}/git"
 
