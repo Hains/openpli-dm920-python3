@@ -11,7 +11,6 @@ PKGV = "${PV}"
 
 SRC_URI = " svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep \
 			file://0001-include-sys-sysmacros.h-for-major-minor-definitions.patch \
-			file://fix-build-openssl.patch \
 			"
 
 DEPENDS = "libusb openssl"
