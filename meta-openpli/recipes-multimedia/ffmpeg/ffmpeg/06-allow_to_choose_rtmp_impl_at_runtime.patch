@@ -68,7 +68,7 @@ index 608f7f1f85..8001e7237b 100644
 +OBJS-$(CONFIG_FFRTMPT_PROTOCOL)          += rtmpproto.o rtmpdigest.o rtmppkt.o
 +OBJS-$(CONFIG_FFRTMPTE_PROTOCOL)         += rtmpproto.o rtmpdigest.o rtmppkt.o
 +OBJS-$(CONFIG_FFRTMPTS_PROTOCOL)         += rtmpproto.o rtmpdigest.o rtmppkt.o
- OBJS-$(CONFIG_RTP_PROTOCOL)              += rtpproto.o
+ OBJS-$(CONFIG_RTP_PROTOCOL)              += rtpproto.o ip.o
  OBJS-$(CONFIG_SCTP_PROTOCOL)             += sctp.o
  OBJS-$(CONFIG_SRTP_PROTOCOL)             += srtpproto.o srtp.o
 diff --git a/libavformat/protocols.c b/libavformat/protocols.c
