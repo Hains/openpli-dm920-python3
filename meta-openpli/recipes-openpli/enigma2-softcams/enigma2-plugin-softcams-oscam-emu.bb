@@ -14,12 +14,12 @@ SRC_URI = " svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdat
 			"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
-PATCHREV = "b7251165ef76a2fc5498ca630ef980c2ef86104f"
+PATCHREV = "138660cc3a3b5c492ab2ddb027ef6ca1ed1b10c5"
 PR = "r771"
 SRC_URI += "https://raw.githubusercontent.com/oscam-emu/oscam-emu/${PATCHREV}/oscam-emu.patch?${PATCHREV};downloadfilename=oscam-emu.${PATCHREV}.patch;name=emu;striplevel=0"
 
-SRC_URI[emu.md5sum] = "5b2f2ac976b4e27f91e31817563d2d62"
-SRC_URI[emu.sha256sum] = "3c142c4d56fc59aa9e3c6b3f5664408e2c5b5845445e7337df3566ebcfb2773b"
+SRC_URI[emu.md5sum] = "aba026f711ec29476b385ff8c2844e3b"
+SRC_URI[emu.sha256sum] = "2fe208353ba8bec18e505f075d6247de9cb77d2aba63fe4fe12199daf0963d63"
 
 DEPENDS = "libusb openssl"
 
