@@ -23,9 +23,7 @@ inherit gitpkgv
 
 require openplugins-distutils.inc
 
-SRC_URI += "file://get-rid-of-orgdream-check.patch \
-			file://Set-http-authentication-default-to-yes.patch \
-			"
+SRC_URI += "file://get-rid-of-orgdream-check.patch"
 
 PV = "1+git${SRCPV}"
 PKGV = "1+git${GITPKGV}"
