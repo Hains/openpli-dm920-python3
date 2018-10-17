@@ -6,7 +6,7 @@ Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of 22nd September, 2018.<br>
+&nbsp;with git snapshot of 16th October, 2018.<br>
 -GCC 8.2.0<br>
 -Glibc 2.28<br>
 -GStreamer 1.15.0<br>
@@ -85,13 +85,6 @@ make update
 ```
 
 Notice: 
-* Run 'make image' or 'make feed' twice before you update the box!
-* To use Openwebinterface and editors like DreamBoxEdit, you need to set a password with the 'passwd' command via telnet or setpasswd plugin!
-
-```
-telnet <ip address box>
-dm8000 login: root
-root@dm8000:~# passwd
-```
+* Run 'make feed' twice before you update the box!
 
 ==========================================================
