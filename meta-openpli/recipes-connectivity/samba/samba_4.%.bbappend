@@ -1,7 +1,7 @@
 # version
-PR = "r1"
+PR = "r2"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${P}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 # Remove acl, cups etc. support.
 PACKAGECONFIG_remove = "acl cups"
@@ -26,21 +26,43 @@ EXTRA_OECONF_remove = " \
 			--with-sockets-dir=/run/samba \
 			"
 
-# Remove unused, add own config, init script
 SRC_URI += " \
 			file://smb.conf \
+			file://smb.pam \
 			file://samba.sh \
 			file://users.map \
-			file://pam \
+			file://smbpasswd \
+			file://0001-Revert-pam_smbpass-REMOVE-this-PAM-module.patch \
+			file://0002-Revert-source3-wscript-remove-pam_smbpass-option-as-it-was-removed.patch \
 			"
 
-FILES_${PN}-base += "${sysconfdir}/init.d/samba.sh \
-					 ${bindir}/testparm \
-					 ${bindir}/smbpasswd \
-					 ${bindir}/smbstatus \
-					 "
+FILES_${PN}-base += " \
+			${sysconfdir}/samba/smb.conf \
+			${sysconfdir}/init.d/samba.sh \
+			${bindir}/testparm \
+			${bindir}/smbpasswd \
+			${bindir}/smbstatus \
+			"
 
-RRECOMMENDS_${PN}-base+= "wsdd"
+CONFFILES_${PN}-base += " \
+						${sysconfdir}/samba/smb.conf \
+						"
+
+# move smbpass config files to samba-common
+FILES_${BPN}-common += " \
+						${sysconfdir}/pam.d/samba \
+						${sysconfdir}/samba/private/users.map \
+						${sysconfdir}/samba/private/smbpasswd \
+						"
+
+CONFFILES_${BPN}-common += " \
+						${sysconfdir}/pam.d/samba \
+						${sysconfdir}/samba/private/users.map \
+						${sysconfdir}/samba/private/smbpasswd \
+						"
+
+RPROVIDES_${PN} += "pam-pluginsmbpass"
+RRECOMMENDS_${PN}-base+= "wsdd pam-pluginsmbpass"
 
 do_install_prepend() {
 	install -d ${D}${sysconfdir}/sudoers.d
@@ -57,24 +79,39 @@ do_install_append() {
 	rm -fR ${D}${sysconfdir}/sysconfig
 	rm -f ${D}${sysconfdir}/init.d/samba
 	install -d ${D}${sysconfdir}/pam.d
-	install -m 644 ${WORKDIR}/pam ${D}${sysconfdir}/pam.d/samba
+	install -m 644 ${WORKDIR}/smb.pam ${D}${sysconfdir}/pam.d/samba
 	install -d ${D}${sysconfdir}/samba
 	install -m 644 ${WORKDIR}/smb.conf ${D}${sysconfdir}/samba
 	install -m 755 ${WORKDIR}/samba.sh ${D}${sysconfdir}/init.d
 	install -d ${D}${sysconfdir}/samba/private
 	install -m 644 ${WORKDIR}/users.map ${D}${sysconfdir}/samba/private
+	install -m 644 ${WORKDIR}/smbpasswd ${D}${sysconfdir}/samba/private
 }
 
 pkg_postinst_${BPN}-common_prepend() {
 #!/bin/sh
 
 if [ -z "$D" ]; then
+	# make sure we have the root user in smbpasswd
 	[ -e /etc/samba/private/smbpasswd ] || touch /etc/samba/private/smbpasswd
 	grep -qE '^root:' /etc/samba/private/smbpasswd
 	if [[ $? -ne 0 ]] ; then
 		smbpasswd -Lan root >/dev/null
-        fi
+	fi
 fi
+
+# add smbpass support to pam.d
+grep -v "pam_smbpass.so" $D/etc/pam.d/common-password > $D/tmp/common-password
+echo -e "password\toptional\t\t\tpam_smbpass.so nullok use_authtok use_first_pass" >> $D/tmp/common-password
+mv $D/tmp/common-password $D/etc/pam.d/common-password
+}
+
+pkg_prerm_${BPN}-common() {
+#!/bin/sh
+
+# remove smbpass support from pam.d
+grep -v "pam_smbpass.so" common-password > /tmp/common-password
+mv /tmp/common-password /etc/pam.d/common-password
 }
 
 inherit update-rc.d
@@ -82,15 +119,8 @@ INITSCRIPT_PACKAGES = "${PN}-base"
 INITSCRIPT_NAME_${PN}-base = "samba.sh"
 INITSCRIPT_PARAMS_${PN}-base = "defaults"
 
-CONFFILES_${BPN}-base = "${sysconfdir}/samba/smb.conf"
-
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
-
 # remove libnetapi package witch contains a lot of cross dependencies from libsamba-base
 PACKAGES_remove = "libnetapi"
-
-# move config file to samba-base
-FILES_${PN}-base += "${sysconfdir}/samba/smb.conf"
 
 # move all libraries from samba to libsamba-base to fix circular dependencies
 FILES_lib${PN}-base += "\
