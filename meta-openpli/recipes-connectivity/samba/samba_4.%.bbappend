@@ -1,5 +1,5 @@
 # version
-PR = "r2"
+PR = "r3"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
@@ -34,6 +34,7 @@ SRC_URI += " \
 			file://smbpasswd \
 			file://0001-Revert-pam_smbpass-REMOVE-this-PAM-module.patch \
 			file://0002-Revert-source3-wscript-remove-pam_smbpass-option-as-it-was-removed.patch \
+			file://0003-dynamically-create-a-samba-account-if-needed.patch \
 			"
 
 FILES_${PN}-base += " \
