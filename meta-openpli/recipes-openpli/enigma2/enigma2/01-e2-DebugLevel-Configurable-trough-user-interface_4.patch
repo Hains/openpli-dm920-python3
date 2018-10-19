@@ -19,7 +19,7 @@ Subject: [PATCH] Added main enigma2 debug level setup to basegui settings.
  3 files changed, 27 insertions(+), 1 deletion(-)
 
 diff --git a/data/setup.xml b/data/setup.xml
-index ae4721c8b..45f232a62 100644
+index 0660ea7a7..9554ec866 100644
 --- a/data/setup.xml
 +++ b/data/setup.xml
 @@ -88,6 +88,7 @@
@@ -29,9 +29,9 @@ index ae4721c8b..45f232a62 100644
 +		<item level="2" text="Enigma2 Debug Level" description="Set enigma2 debug level default = 3.">config.usage.e2_debug_level</item>
  	</setup>
  	<setup key="epgsettings" title="EPG settings">
- 		<item level="0" text="Enable EIT EPG" description="Use EIT EPG information when it is available.">config.epg.eit</item>
+ 		<item level="2" text="Show EIT now/next in infobar" description="When enabled, display the EIT now/next eventdata in infobar. When disabled, display now/next eventdata from the EPG cache instead.">config.usage.show_eit_nownext</item>
 diff --git a/lib/python/Components/UsageConfig.py b/lib/python/Components/UsageConfig.py
-index 40b087ad0..93c2c096b 100644
+index 96059d5a1..6200a664e 100644
 --- a/lib/python/Components/UsageConfig.py
 +++ b/lib/python/Components/UsageConfig.py
 @@ -58,6 +58,7 @@ def InitUsageConfig():
@@ -43,7 +43,7 @@ index 40b087ad0..93c2c096b 100644
  	for i in range(1, 12):
  		choicelist.append((str(i), ngettext("%d second", "%d seconds", i) % i))
 diff --git a/main/enigma.cpp b/main/enigma.cpp
-index 569756f9f..445ba4969 100644
+index d252a5597..e01e467e7 100644
 --- a/main/enigma.cpp
 +++ b/main/enigma.cpp
 @@ -32,6 +32,9 @@
@@ -56,7 +56,7 @@ index 569756f9f..445ba4969 100644
  #include "bsod.h"
  #include "version_info.h"
  
-@@ -176,6 +179,26 @@ void catchTermSignal()
+@@ -184,6 +187,26 @@ void catchTermSignal()
  	if (sigaction(SIGTERM, &act, 0) == -1)
  		perror("SIGTERM");
  }
@@ -83,7 +83,7 @@ index 569756f9f..445ba4969 100644
  
  int main(int argc, char **argv)
  {
-@@ -195,7 +218,8 @@ int main(int argc, char **argv)
+@@ -201,7 +224,8 @@ int main(int argc, char **argv)
  	printf("DVB_API_VERSION %d DVB_API_VERSION_MINOR %d\n", DVB_API_VERSION, DVB_API_VERSION_MINOR);
  
  	// get enigma2 debug level settings
