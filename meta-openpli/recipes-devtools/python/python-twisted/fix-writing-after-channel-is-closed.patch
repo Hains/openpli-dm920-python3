@@ -1,0 +1,13 @@
+diff --git a/src/twisted/web/http.py b/src/twisted/web/http.py
+index bb0e4a2..0b95639 100644
+--- a/src/twisted/web/http.py
++++ b/src/twisted/web/http.py
+@@ -1108,7 +1108,7 @@ class Request:
+         if data:
+             if self.chunked:
+                 self.channel.writeSequence(toChunk(data))
+-            else:
++            elif self.channel:
+                 self.channel.write(data)
+ 
+     def addCookie(self, k, v, expires=None, domain=None, path=None,
