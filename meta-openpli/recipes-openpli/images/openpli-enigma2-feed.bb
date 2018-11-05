@@ -47,6 +47,8 @@ OPTIONAL_PACKAGES += " \
 	mediainfo \
 	minisatip \
 	mpd \
+	mt7601u \
+	mt7610u \
 	mtd-utils \
 	mtools \
 	nano \
@@ -69,6 +71,14 @@ OPTIONAL_PACKAGES += " \
 	python-ntplib \
 	python-requests \
 	rsync \
+	rt3573 \
+	rt5572 \
+	rt8723a \
+	rt8723bs \
+	rt8812au \
+	rt8814au \
+	rt8822bu \
+	rtl8189es \
 	rtl-sdr \
 	rtorrent \
 	sabnzbd \
