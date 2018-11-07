@@ -74,6 +74,7 @@ OPTIONAL_PACKAGES += " \
 	rt3573 \
 	rt5572 \
 	rt8723a \
+	rtl8723bs \
 	rt8814au \
 	rt8822bu \
 	rtl-sdr \
