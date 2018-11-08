@@ -8,12 +8,12 @@ Subject: [PATCH] Patch makefile * add EXTRA_CFLAGS * disable
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 0c800f8..2a6588f 100644
+index a9d4b93..42d3694 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -7,6 +7,8 @@ EXTRA_CFLAGS += -O1
  #EXTRA_CFLAGS += -pedantic
- #EXTRA_CFLAGS += -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wno-implicit
+ #EXTRA_CFLAGS += -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
  
 +EXTRA_CFLAGS += -Wframe-larger-than=1536 -Wno-implicit -Wno-ignored-qualifiers
 +
