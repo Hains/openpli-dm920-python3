@@ -11,4 +11,24 @@ index b961851b..9ab640d1 100644
          self.workingObj = CCmdValidator(self.platformDetectFinished, _platformValidator, cmdTabs)
          self.workingObj.start()
          
-
+diff --git a/IPTVPlayer/setup/iptvsetupimpl.py b/IPTVPlayer/setup/iptvsetupimpl.py
+index 1cd7f132..37c9e666 100644
+--- a/IPTVPlayer/setup/iptvsetupimpl.py
++++ b/IPTVPlayer/setup/iptvsetupimpl.py
+@@ -203,14 +203,14 @@ class IPTVSetupImpl:
+     def platformDetectFinished(self, stsTab, dataTab):
+         printDBG("IPTVSetupImpl.platformDetectFinished")
+         def _saveConfig(platform):
+-            self.platform = platform
++            self.platform = "mipsel"
+             config.plugins.iptvplayer.plarform.value = self.platform
+             printDBG("IPTVSetupImpl.platformDetectFinished platform[%s]" % self.platform)
+             config.plugins.iptvplayer.plarform.save()
+             configfile.save()
+         
+         if len(stsTab) > 0 and True == stsTab[-1]:
+-            _saveConfig( self.supportedPlatforms[len(stsTab)-1] )
++            _saveConfig( self.supportedPlatforms[l1] )
+             self.detectFPU()
+         else:
+             _saveConfig( "unknown" )
