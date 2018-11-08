@@ -12,8 +12,6 @@ SRC_URI = " \
           file://CHECKSM_IPV6_H.patch \
           "
 
-SRCREV = "088a8bdafe31198f50e45a7f7e1a7e8e7993fb5d"
-
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE = "CONFIG_RTL8192EU=m"
