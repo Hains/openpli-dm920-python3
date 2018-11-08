@@ -6,7 +6,7 @@ Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of 16th October, 2018.<br>
+&nbsp;with git snapshot of 8th November, 2018.<br>
 -GCC 8.2.0<br>
 -Glibc 2.28<br>
 -GStreamer 1.15.0<br>
@@ -18,7 +18,7 @@ And some other things(debuglevel via GUI, proper driver date, splash logo, some 
 
 Feel free to send pull-request.
 
-Tested on Ubuntu 18.04 LTS/18.10.
+Tested on Ubuntu 18.10.
 <br>
 <br>
 Dependencies:
