@@ -28,7 +28,7 @@ index 1cd7f132..37c9e666 100644
          
          if len(stsTab) > 0 and True == stsTab[-1]:
 -            _saveConfig( self.supportedPlatforms[len(stsTab)-1] )
-+            _saveConfig( self.supportedPlatforms[l1] )
++            _saveConfig( self.supportedPlatforms[1] )
              self.detectFPU()
          else:
              _saveConfig( "unknown" )
