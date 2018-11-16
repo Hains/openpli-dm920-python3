@@ -74,10 +74,10 @@ OPTIONAL_PACKAGES += " \
 	rsync \
 	rt3573 \
 	rt5572 \
-	rt8723a \
+	rtl8723a \
 	rtl8723bs \
-	rt8814au \
-	rt8822bu \
+	rtl8814au \
+	rtl8822bu \
 	rtl-sdr \
 	rtorrent \
 	sabnzbd \
