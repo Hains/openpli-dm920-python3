@@ -1,0 +1,26 @@
+From 33db90c36bc4c0fdf20bf5fc0c6589d09e93f1e3 Mon Sep 17 00:00:00 2001
+From: Hains van den Bosch <hainsvdbosch@ziggo.nl>
+Date: Fri, 7 Dec 2018 13:28:53 +0100
+Subject: [PATCH] Revert "Add enable/disable HDMi-CEC to startwizard"
+
+Causes Enigma2 crash.
+
+This reverts commit fec4484564e5cde311984c75f5362d6182240930.
+---
+ data/setup.xml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/data/setup.xml b/data/setup.xml
+index bd1570d5c..643b7b064 100644
+--- a/data/setup.xml
++++ b/data/setup.xml
+@@ -232,6 +232,5 @@
+ 	<setup key="wizardsetup" title="Wizard setup">
+ 		<item level="0" text="Setup mode" description="Configure which access level to use for the configuration menu. Expert level gives access to all items.">config.usage.setup_level</item>
+ 		<item level="0" text="Alternative numbering mode" description="When enabled, channel numbering will start at '1' for each bouquet.">config.usage.alternative_number_mode</item>
+-		<item level="0" text="Enable HDMI-CEC" description="When enabled, HDMI-CEC is enabled with standard configuration">config.hdmicec.enabled</item>
+ 	</setup>
+ </setupxml>
+-- 
+2.19.1
+
