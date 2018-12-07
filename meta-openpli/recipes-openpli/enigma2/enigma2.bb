@@ -114,6 +114,7 @@ SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
 			file://07-Do-not-use-o-option-for-ip-busybox.patch \
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://09-undefine-macro-HAVE_CONFIG_H.patch \
+			file://010-use-functional-depout-macro.patch \
 			file://screensaverpicture.png \
 			"
 
