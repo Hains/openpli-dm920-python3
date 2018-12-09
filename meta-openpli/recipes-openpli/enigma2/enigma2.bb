@@ -115,7 +115,6 @@ SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://09-undefine-macro-HAVE_CONFIG_H.patch \
 			file://011-Revert-Add-enable-disable-HDMi-CEC-to-startwizard.patch \
-			file://012-Revert-font-support-fallback-font-to-display-east-as.patch \
 			file://screensaverpicture.png \
 			"
 
