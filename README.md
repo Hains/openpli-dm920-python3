@@ -6,12 +6,12 @@ Thanks to OpenPLi to make this possible.
 
 In comparison to OpenPLi this repository has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of 24th November, 2018.<br>
+&nbsp;with git snapshot of 12th December, 2018.<br>
 -GCC 8.2.0<br>
 -Glibc 2.28<br>
 -GStreamer 1.15.0<br>
 -Python 2.7.15<br>
--OpenSSL 1.1.1<br>
+-OpenSSL 1.1.1a<br>
 -Dreambox kernel 3.2.102<br>
 
 And some other things(debuglevel via GUI, proper driver date, splash logo, some skin changes etc), see enigma2.bb.
