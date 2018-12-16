@@ -14,8 +14,8 @@ Signed-off-by: Jonathan Liu <net147@gmail.com>
 Rebase to 1.43:
 Signed-off-by: Hongxu Jia <hongxu.jia@windriver.com>
 ---
- misc/mke2fs.conf.in | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ misc/mke2fs.conf.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/misc/mke2fs.conf.in b/misc/mke2fs.conf.in
 index 01e35cf..25105b3 100644
