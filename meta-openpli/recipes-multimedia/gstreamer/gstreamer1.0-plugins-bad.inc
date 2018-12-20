@@ -47,14 +47,14 @@ PACKAGECONFIG[webp]				= "--enable-webp,--disable-webp,libwebp"
 
 # these plugins have not been ported to 1.0 (yet):
 # dc1394 lv2 musepack teletextdec 
-# acm gsettings cdxaparse dccp faceoverlay hdvparse mve nuvdemux
+# gsettings cdxaparse dccp faceoverlay hdvparse mve nuvdemux
 # patchdetect real sdi videomeasure gsettings
 
 # these plugins have no corresponding library in OE-core or meta-openembedded:
 # openni2 winks direct3d directsound winscreencap
-# apple_media android_media avc bs2b chromaprint daala dts gme gsm kate ladspa
+# apple_media android_media avc bs2b chromaprint dts gme gsm kate ladspa
 # libde265 mimic mpeg2enc mplex ofa openh264 opensles soundtouch spandsp
-# spc vdpau wasapi x265 zbar
+# vdpau wasapi x265 zbar
 
 EXTRA_OECONF += " \
 	--enable-decklink \
@@ -62,12 +62,10 @@ EXTRA_OECONF += " \
 	--enable-fbdev \
 	--enable-shm \
 	--enable-vcd \
-	--disable-acm \
 	--disable-android_media \
 	--disable-apple_media \
 	--disable-bs2b \
 	--disable-chromaprint \
-	--disable-daala \
 	--disable-dc1394 \
 	--disable-direct3d \
 	--disable-directsound \
@@ -89,7 +87,6 @@ EXTRA_OECONF += " \
 	--disable-opensles \
 	--disable-soundtouch \
 	--disable-spandsp \
-	--disable-spc \
 	--disable-teletextdec \
 	--disable-vdpau \
 	--disable-wasapi \
