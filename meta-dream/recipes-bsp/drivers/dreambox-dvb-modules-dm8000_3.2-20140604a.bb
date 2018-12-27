@@ -17,7 +17,7 @@ SRC_URI = " \
 SRC_URI[modules.md5sum] = "ed55fd9ef298cd582e1f08322c8d9649"
 SRC_URI[modules.sha256sum] = "3a11801794c7ac7cf04be41c65591bb2e81f4c6b08c1f33c86d17154f08f16be"
 
-inherit module
+inherit module-base
 
 do_compile() {
 }
@@ -26,12 +26,13 @@ do_install() {
 	install -d ${D}${sysconfdir}/modules-load.d
 	install -m 0644 ${WORKDIR}/modules ${D}${sysconfdir}/modules-load.d/${PN}.conf
 	install -d ${D}/lib/modules/${DM_LOCALVERSION}/extra
+	install -m 0644 ${WORKDIR}/LICENSE ${D}/lib/modules/${DM_LOCALVERSION}/extra
 	install -m 0644 ${WORKDIR}/*.ko ${D}/lib/modules/${DM_LOCALVERSION}/extra
 }
 
 PACKAGES = "${PN}"
 
-RDEPENDS_${PN} += "dreambox-secondstage-${MACHINE} kernel-${DM_LOCALVERSION} kernel-module-stv0299-3.2-${MACHINE}"
+RDEPENDS_${PN} += "dreambox-secondstage-${MACHINE} kernel-${DM_LOCALVERSION}"
 
 # We don't use KERNEL_VERSION in this recipe, because the
 # precompiled modules depend on a specific version.
@@ -40,4 +41,4 @@ DRIVERDATE = "${@'${PV}'.split('-')[-1]}"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/dreambox-dvb-modules:"
 
-FILES_${PN} += "${sysconfdir}/modules-load.d/${PN}.conf"
+FILES_${PN} += "${sysconfdir}/modules-load.d/${PN}.conf /lib/modules/${DM_LOCALVERSION}/extra"
