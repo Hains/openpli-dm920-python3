@@ -26,8 +26,8 @@ do_install() {
 
 	install -m 0644 "${S}"/*.xml "${D}${sysconfdir}/tuxbox"
 
-	ln -s "${sysconfdir}/tuxbox/scce"	"${D}${localstatedir}/"
-	ln -s "${prefix}/keys"			"${D}${localstatedir}/"
-	ln -s "${bindir}"			"${D}${localstatedir}/"
-	ln -s "${sysconfdir}"			"${D}${localstatedir}/"
+	if [ ! -d "${D}${localstatedir}/scce" ]; then ln -s "${sysconfdir}/tuxbox/scce" "${D}${localstatedir}/"; fi
+	if [ ! -d "${D}${localstatedir}/keys" ]; then ln -s "${prefix}/keys"            "${D}${localstatedir}/"; fi
+	if [ ! -d "${D}${localstatedir}/bin" ];  then ln -s "${bindir}"                 "${D}${localstatedir}/"; fi
+	if [ ! -d "${D}${localstatedir}/etc" ];  then ln -s "${sysconfdir}"             "${D}${localstatedir}/"; fi
 }
