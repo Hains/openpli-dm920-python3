@@ -20,12 +20,12 @@ USB_ROOT = "/dev/sdb2"
 USB_ROOT_dm8000 = "/dev/sdf2"
 
 do_install_append() {
-        ${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
-        gzip -9 ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
-        echo "/boot/bootlogo-${MACHINE}.elf.gz filename=/boot/bootlogo-${MACHINE}.jpg" > ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
-        echo "/boot/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}.gz ${CMDLINE}" >> ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
-        echo "/boot/bootlogo-${MACHINE}.elf.gz filename=/boot/bootlogo-${MACHINE}.jpg" > ${D}/${KERNEL_IMAGEDEST}/autoexec_${MACHINE}.bat
-        echo "/boot/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}.gz ${USB_CMDLINE}" >> ${D}/${KERNEL_IMAGEDEST}/autoexec_${MACHINE}.bat
+		${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
+		gzip -9 ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
+		echo "/boot/bootlogo-${MACHINE}.elf.gz filename=/boot/bootlogo-${MACHINE}.jpg" > ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
+		echo "/boot/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}.gz ${CMDLINE}" >> ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
+		echo "/boot/bootlogo-${MACHINE}.elf.gz filename=/boot/bootlogo-${MACHINE}.jpg" > ${D}/${KERNEL_IMAGEDEST}/autoexec_${MACHINE}.bat
+		echo "/boot/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}.gz ${USB_CMDLINE}" >> ${D}/${KERNEL_IMAGEDEST}/autoexec_${MACHINE}.bat
 }
 
 # Set FILES for vmlinux package, so that kernel-image gets those files.
@@ -59,12 +59,12 @@ pkg_prerm_kernel-image() {
 	fi
 }
 pkg_postinst_kernel-image() {
-        if [ -z "$D" ] && mountpoint -q /${KERNEL_IMAGEDEST}; then
-                if grep -q '\<root=/dev/mtdblock3\>' /proc/cmdline && grep -q '\<root=ubi0:rootfs\>' /boot/autoexec.bat; then
-                        sed -ie 's!${CMDLINE_UBI}!${CMDLINE_JFFS2}!' /boot/autoexec.bat;
-                fi
-                umount /${KERNEL_IMAGEDEST};
-        fi
+		if [ -z "$D" ] && mountpoint -q /${KERNEL_IMAGEDEST}; then
+			if grep -q '\<root=/dev/mtdblock3\>' /proc/cmdline && grep -q '\<root=ubi0:rootfs\>' /boot/autoexec.bat; then
+				sed -ie 's!${CMDLINE_UBI}!${CMDLINE_JFFS2}!' /boot/autoexec.bat;
+			fi
+			umount /${KERNEL_IMAGEDEST};
+		fi
 }
 pkg_postrm_kernel-image() {
 	if [ -z "$D" ]
@@ -89,21 +89,20 @@ LOCALVERSION = "-${MACHINE}"
 
 do_configure_prepend() {
 
-        echo "" > ${S}/.config
+		echo "" > ${S}/.config
 
-        echo "CONFIG_CMDLINE=\"${CMDLINE}\"" >> ${S}/.config
+		echo "CONFIG_CMDLINE=\"${CMDLINE}\"" >> ${S}/.config
 
-        sed -e '/CONFIG_AEABI/d' \
-            -e '/CONFIG_OABI_COMPAT=/d' \
-            -e '/CONFIG_CMDLINE=/d' \
-            -e '/CONFIG_CPU_BIG_ENDIAN/d' \
-            -e '/CONFIG_LOGO=/d' \
-            -e '/CONFIG_LOGO_LINUX_CLUT224=/d' \
-            -e '/CONFIG_LOCALVERSION/d' \
-            -e '/CONFIG_LOCALVERSION_AUTO/d' \
-	    < '${WORKDIR}/defconfig' >>'${S}/.config'
+		sed -e '/CONFIG_AEABI/d' \
+			-e '/CONFIG_OABI_COMPAT=/d' \
+			-e '/CONFIG_CMDLINE=/d' \
+			-e '/CONFIG_CPU_BIG_ENDIAN/d' \
+			-e '/CONFIG_LOGO=/d' \
+			-e '/CONFIG_LOGO_LINUX_CLUT224=/d' \
+			-e '/CONFIG_LOCALVERSION/d' \
+			-e '/CONFIG_LOCALVERSION_AUTO/d' \
+		< '${WORKDIR}/defconfig' >>'${S}/.config'
 
-        echo 'CONFIG_LOCALVERSION="${LOCALVERSION}"' >>${S}/.config
-        echo '# CONFIG_LOCALVERSION_AUTO is not set' >>${S}/.config
-
+		echo 'CONFIG_LOCALVERSION="${LOCALVERSION}"' >>${S}/.config
+		echo '# CONFIG_LOCALVERSION_AUTO is not set' >>${S}/.config
 }
