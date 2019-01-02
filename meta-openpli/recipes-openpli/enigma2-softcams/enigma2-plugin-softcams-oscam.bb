@@ -9,9 +9,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 PV = "svn${SRCPV}"
 PKGV = "${PV}"
 
-SRC_URI = " svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep \
-			file://0001-include-sys-sysmacros.h-for-major-minor-definitions.patch \
-			"
+SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep"
 
 DEPENDS = "libusb openssl"
 
