@@ -14,6 +14,7 @@ PKGV = "50+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/samsamsam-iptvplayer/exteplayer3.git;branch=master \
 			file://use-ioctl-7-for-ac3plus.patch \
+			file://define-audio-get-pts.patch \
 "
 
 S = "${WORKDIR}/git/"
