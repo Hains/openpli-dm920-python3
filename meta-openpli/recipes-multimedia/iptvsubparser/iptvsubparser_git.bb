@@ -3,7 +3,6 @@ MAINTAINER = "samsamsam"
 require conf/license/openpli-gplv2.inc
 
 DEPENDS = "python"
-RDEPENDS_${PN} += "enigma2-plugin-extensions-iptvplayer"
 
 inherit gitpkgv
 
