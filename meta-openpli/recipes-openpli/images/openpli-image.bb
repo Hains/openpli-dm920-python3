@@ -17,6 +17,7 @@ IMAGE_INSTALL = "\
 	glibc-binary-localedata-en-gb \
 	kernel-params \
 	modutils-loadscript \
+	nfs-utils \
 	nfs-utils-client \
 	openpli-bootlogo \
 	openssh-sftp-server \
