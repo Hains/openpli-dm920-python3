@@ -110,16 +110,17 @@ OPTIONAL_PACKAGES += " \
 OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
 ENIGMA2_OPTIONAL = " \
 	channelsettings-enigma2-meta \
+	dvb-usb-drivers-meta \
 	enigma2-pliplugins \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-backupsuite \
 	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
+	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-fontinfo \
 	enigma2-plugin-extensions-historyzapselector \
-	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-lcd4linux \
 	enigma2-plugin-extensions-managerautofs \
 	enigma2-plugin-extensions-modifyplifullhd \
@@ -146,11 +147,10 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-systemplugins-signalfinder \
 	enigma2-plugins \
 	enigma2-skins \
+	meta-enigma2-dvdburn \
 	picons-enigma2-meta \
 	softcams-enigma2-meta \
 	packagegroup-openplugins \
-	dvb-usb-drivers-meta \
-	meta-enigma2-dvdburn \
 	${OPTIONAL_BSP_ENIGMA2_PACKAGES} \
 	"
 
