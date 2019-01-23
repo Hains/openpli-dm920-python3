@@ -150,7 +150,6 @@ ENIGMA2_OPTIONAL = " \
 	softcams-enigma2-meta \
 	packagegroup-openplugins \
 	dvb-usb-drivers-meta \
-	cdtextinfo \
 	meta-enigma2-dvdburn \
 	${OPTIONAL_BSP_ENIGMA2_PACKAGES} \
 	"
