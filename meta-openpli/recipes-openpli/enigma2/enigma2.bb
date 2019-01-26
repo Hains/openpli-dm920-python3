@@ -105,7 +105,7 @@ ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
 
 SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
-			file://01-e2-DebugLevel-Configurable-trough-user-interface_4.patch \
+			file://01-set-default-debug-level-at-4.patch \
 			file://02-fix-wrong-driver-date.patch \
 			file://03-workaround-for-dns-no-dhcp.patch \
 			file://04-restore-last-update-date.patch \
