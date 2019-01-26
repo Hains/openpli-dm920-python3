@@ -13,9 +13,8 @@ In comparison to OpenPLi this repository has:<br>
 -Python 2.7.15<br>
 -OpenSSL 1.1.1a<br>
 -Dreambox kernel 3.2.102<br>
-
-And some other things(debuglevel via GUI, proper driver date, splash logo, some skin changes etc), see enigma2.bb.
-
+<br>
+<br>
 Feel free to send pull-request.
 
 Tested on Ubuntu 18.10.
