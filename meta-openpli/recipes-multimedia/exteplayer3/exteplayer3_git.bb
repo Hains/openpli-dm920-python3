@@ -9,8 +9,8 @@ RDEPENDS_${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-PV = "50+gitr${SRCPV}"
-PKGV = "50+gitr${GITPKGV}"
+PV = "54+gitr${SRCPV}"
+PKGV = "54+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/e2iplayer/exteplayer3.git;branch=master \
 			file://use-ioctl-7-for-ac3plus.patch \
@@ -42,6 +42,7 @@ SOURCE_FILES =+ "output/writer/mipsel/h263.c"
 SOURCE_FILES =+ "output/writer/mipsel/h264.c"
 SOURCE_FILES =+ "output/writer/mipsel/h265.c"
 SOURCE_FILES =+ "output/writer/mipsel/lpcm.c"
+SOURCE_FILES =+ "output/writer/mipsel/mjpeg.c"
 SOURCE_FILES =+ "output/writer/mipsel/mp3.c"
 SOURCE_FILES =+ "output/writer/mipsel/mpeg2.c"
 SOURCE_FILES =+ "output/writer/mipsel/mpeg4.c"
