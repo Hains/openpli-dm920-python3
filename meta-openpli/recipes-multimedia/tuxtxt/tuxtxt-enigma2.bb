@@ -17,7 +17,7 @@ PR = "r3"
 
 PACKAGES = "${PN}-dbg ${PN}-dev ${PN}"
 FILES_${PN}-src = "/usr/src ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/*.py"
-FILES_${PN} = "${libdir}/libtuxtxt32bpp.so.* ${datadir}/fonts ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/*.pyo ${sysconfdir}/tuxtxt"
+FILES_${PN} = "${libdir}/libtuxtxt32bpp.so.* ${datadir}/fonts ${libdir}/enigma2/ ${sysconfdir}/tuxtxt"
 CONFFILES_${PN} = "${sysconfdir}/tuxtxt/tuxtxt2.conf"
 
 inherit autotools pkgconfig
