@@ -1,0 +1,14 @@
+diff --git a/tools/enigma2.sh.in b/tools/enigma2.sh.in
+index 6811a3672..448ab8581 100755
+--- a/tools/enigma2.sh.in
++++ b/tools/enigma2.sh.in
+@@ -67,6 +67,9 @@ while : ; do
+ 			/sbin/reboot
+ 			;;
+ 		3)
++			cat /etc/videomode > /proc/stb/video/videomode
++			echo "0" > /proc/progress
++			@bindir@/showiframe /usr/share/bootlogo.mvi
+ 			DEBUG_LVL=3
+ 			;;
+ 		4)
