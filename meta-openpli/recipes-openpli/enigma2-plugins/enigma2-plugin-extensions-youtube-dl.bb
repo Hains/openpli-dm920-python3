@@ -7,8 +7,8 @@ SECTION = "devel/python"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7246f848faa4e9c9fc0ea91122d6e680"
 DEPENDS = "libxml2 bash-completion"
-PV = "2019.01.30+git${SRCPV}"
-PKGV = "2019.01.30+git${GITPKGV}"
+PV = "2019.02.08+git${SRCPV}"
+PKGV = "2019.02.08+git${GITPKGV}"
 PR = "r1"
 
 SRC_URI = "git://github.com/rg3/youtube-dl.git;branch=master"
@@ -20,31 +20,31 @@ inherit gitpkgv setuptools
 EXTRA_OEMAKE = "PYTHON=${PYTHON}"
 
 do_compile_prepend() {
-    oe_runmake lazy-extractors youtube-dl.bash-completion
+	oe_runmake lazy-extractors youtube-dl.bash-completion
 }
 
 do_install_append() {
-    mv ${D}${datadir}/etc ${D}${sysconfdir}
-    install -m 0755 -d ${D}${sysconfdir}/bash_completion.d
-    install -m 0644 youtube-dl.bash-completion ${D}${sysconfdir}/bash_completion.d
+	mv ${D}${datadir}/etc ${D}${sysconfdir}
+	install -m 0755 -d ${D}${sysconfdir}/bash_completion.d
+	install -m 0644 youtube-dl.bash-completion ${D}${sysconfdir}/bash_completion.d
 }
 
 RDEPENDS_${PN} = " \
-    python-email \
-    python-gdata \
-    python-subprocess \
-    python-unixadmin \
-    python-ctypes \
-    python-argparse \
-    "
+	python-email \
+	python-gdata \
+	python-subprocess \
+	python-unixadmin \
+	python-ctypes \
+	python-argparse \
+	"
 
 RDEPENDS_{PN}-src = "${PN}"
 FILES_${PN}-src = " \
-    ${libdir}/${PYTHON_DIR}/site-packages/*/*.py \
-    ${libdir}/${PYTHON_DIR}/site-packages/*/*/*.py \
-    ${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*.py \
-    ${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*/*.py \
-    ${datadir}/etc/* \
-    "
+	${libdir}/${PYTHON_DIR}/site-packages/*/*.py \
+	${libdir}/${PYTHON_DIR}/site-packages/*/*/*.py \
+	${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*.py \
+	${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*/*.py \
+	${datadir}/etc/* \
+	"
 
 FILES_${PN} += "${sysconfdir}"
