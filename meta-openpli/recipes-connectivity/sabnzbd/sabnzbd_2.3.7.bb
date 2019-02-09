@@ -1,6 +1,6 @@
 MAINTAINER = "team@sabnzbd.org"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=d0acbce1b944e5d11b158a53fba61a00"
+LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=6c2cd2089133de5067e13a6d4f75afef"
 
 PR = "r1"
 
@@ -17,8 +17,8 @@ SRC_URI = "https://github.com/sabnzbd/sabnzbd/archive/${PV}.tar.gz \
 	file://init-functions \
 	"
 
-SRC_URI[md5sum] = "5a3151360e08b240a2f9963cab988754"
-SRC_URI[sha256sum] = "fe7ee2a17464c57b3db6ea0ed942e45d9c6ef18b8223520cc4ae302e7e221949"
+SRC_URI[md5sum] = "ccee8c716f24d1a6f986844055c94cd0"
+SRC_URI[sha256sum] = "33999e3ed15c08bb36d58a07e4e936a2e17b2656f10e3b6ae4716e627ba15a39"
 
 S = "${WORKDIR}/sabnzbd-${PV}"
 
