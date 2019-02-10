@@ -116,6 +116,7 @@ SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
 			file://09-use-functional-depout-macro.patch \
 			file://010-define-deprecated-macros.patch \
 			file://011-restore-bootlogo-during-restart.patch \
+			file://012-fix-audio-selection-yellow-key.patch \
 			file://screensaverpicture.png \
 			"
 
