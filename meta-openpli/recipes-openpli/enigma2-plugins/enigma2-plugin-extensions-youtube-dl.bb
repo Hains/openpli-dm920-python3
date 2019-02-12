@@ -38,6 +38,7 @@ RDEPENDS_${PN} = " \
 	python-argparse \
 	"
 
+PACKAGES =+ " ${PN}-src"
 RDEPENDS_{PN}-src = "${PN}"
 FILES_${PN}-src = " \
 	${libdir}/${PYTHON_DIR}/site-packages/*/*.py \

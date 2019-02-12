@@ -15,7 +15,7 @@ PV = "2.0+git${SRCPV}"
 PKGV = "2.0+git${GITPKGV}"
 PR = "r3"
 
-PACKAGES = "${PN}-dbg ${PN}-dev ${PN}"
+PACKAGES = "${PN}-src ${PN}-dbg ${PN}-dev ${PN}"
 FILES_${PN}-src = "/usr/src ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/*.py"
 FILES_${PN} = "${libdir}/libtuxtxt32bpp.so.* ${datadir}/fonts ${libdir}/enigma2/ ${sysconfdir}/tuxtxt"
 CONFFILES_${PN} = "${sysconfdir}/tuxtxt/tuxtxt2.conf"

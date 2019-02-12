@@ -36,6 +36,7 @@ RRECOMMENDS_${PN} = " \
 	wget \
 	"
 
+PACKAGES =+ " ${PN}-src"
 RDEPENDS_{PN}-src = "${PN}"
 FILES_${PN}-src = " \
 	${libdir}/enigma2/python/Plugins/*/*.py \

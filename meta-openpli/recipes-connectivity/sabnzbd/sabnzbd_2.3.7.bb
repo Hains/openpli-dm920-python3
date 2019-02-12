@@ -24,7 +24,7 @@ S = "${WORKDIR}/sabnzbd-${PV}"
 
 INSTALLDIR = "${libdir}/${PN}"
 
-PACKAGES = "${PN}-doc ${PN}"
+PACKAGES = "${PN}-doc ${PN}-src ${PN}"
 
 FILES_${PN}-src = "${INSTALLDIR}/*/*.py ${INSTALLDIR}/*/*/*.py"
 RDEPENDS_${PN}-src = "python"
