@@ -6,7 +6,8 @@ require conf/license/openpli-gplv2.inc
 inherit allarch
 
 PV = "20190214"
-SRC_URI = "http://www.vuplus-community.net/rytec/sources/rytec.sources.xml.${PV}.gz"
+
+SRC_URI = "http://rytecepg.wanwizard.eu/rytec.sources.xml.${PV}.gz"
 
 S = "${WORKDIR}"
 
