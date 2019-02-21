@@ -61,7 +61,6 @@ EXTRA_OECONF += " \
 	--enable-dvb \
 	--enable-fbdev \
 	--enable-shm \
-	--enable-vcd \
 	--disable-android_media \
 	--disable-apple_media \
 	--disable-bs2b \
