@@ -9,8 +9,8 @@ RDEPENDS_${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-PV = "59+gitr${SRCPV}"
-PKGV = "59+gitr${GITPKGV}"
+PV = "61+gitr${SRCPV}"
+PKGV = "61+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/e2iplayer/exteplayer3.git;branch=master \
 			file://use-ioctl-7-for-ac3plus.patch \
