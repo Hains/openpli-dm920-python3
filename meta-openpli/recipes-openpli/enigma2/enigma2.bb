@@ -115,7 +115,6 @@ SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://09-use-functional-depout-macro.patch \
 			file://010-define-deprecated-macros.patch \
-			file://011-restore-bootlogo-during-restart.patch \
 			file://screensaverpicture.png \
 			"
 
