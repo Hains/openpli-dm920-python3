@@ -9,7 +9,7 @@ In comparison to OpenPLi this repository has:<br>
 &nbsp;with git snapshot of February 8th, 2019.<br>
 -GCC 8.2.0<br>
 -Glibc 2.29<br>
--GStreamer 1.15.1<br>
+-GStreamer 1.15.2<br>
 -Python 2.7.15<br>
 -OpenSSL 1.1.1a<br>
 -Dreambox kernel 3.2.102<br>
