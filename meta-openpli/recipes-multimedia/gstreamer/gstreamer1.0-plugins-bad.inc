@@ -2,7 +2,7 @@ require gstreamer1.0-plugins.inc
 
 LICENSE = "GPLv2+ & LGPLv2+ & LGPLv2.1+"
 
-DEPENDS += "gstreamer1.0-plugins-base libpng jpeg"
+DEPENDS += "gstreamer1.0-plugins-base"
 
 inherit gettext bluetooth
 
@@ -12,7 +12,7 @@ PACKAGECONFIG ??= " \
 	${@bb.utils.contains('DISTRO_FEATURES', 'directfb', 'directfb', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)} \
 	bz2 curl dash dtls hls rsvg sbc smoothstreaming sndfile uvch264 webp \
-	orc faac faad libmms rtmp opus \
+	orc faac faad libmms rtmp \
 	"
 
 PACKAGECONFIG[assrender]		= "--enable-assrender,--disable-assrender,libass"
@@ -32,7 +32,12 @@ PACKAGECONFIG[libssh2]			= "--enable-libssh2,--disable-libssh2,libssh2"
 PACKAGECONFIG[modplug]			= "--enable-modplug,--disable-modplug,libmodplug"
 PACKAGECONFIG[openal]			= "--enable-openal,--disable-openal,openal-soft"
 PACKAGECONFIG[opencv]			= "--enable-opencv,--disable-opencv,opencv"
-PACKAGECONFIG[opus]				= "--enable-opus,--disable-opus,libopus"
+PACKAGECONFIG[openh264]			= "--enable-openh264,--disable-openh264,openh264"
+PACKAGECONFIG[openjpeg]			= "--enable-openjpeg,--disable-openjpeg,openjpeg"
+PACKAGECONFIG[openmpt]			= "--enable-openmpt,--disable-openmpt,libopenmpt"
+# the opus encoder/decoder elements are now in the -base package,
+# but the opus parser remains in -bad
+PACKAGECONFIG[opusparse]		= "--enable-opus,--disable-opus,libopus"
 PACKAGECONFIG[resindvd]			= "--enable-resindvd,--disable-resindvd,libdvdread libdvdnav"
 PACKAGECONFIG[rsvg]				= "--enable-rsvg,--disable-rsvg,librsvg"
 PACKAGECONFIG[rtmp]				= "--enable-rtmp,--disable-rtmp,rtmpdump"
