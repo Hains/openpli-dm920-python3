@@ -15,7 +15,6 @@ SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patc
 			file://003-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
 			file://004-rtsp-drop-incorrect-reference-to-gstreamer-sdp-in-Ma.patch \
 			file://005-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
-			file://006-fix-build.patch \
 			"
 
 S = "${WORKDIR}/git"
