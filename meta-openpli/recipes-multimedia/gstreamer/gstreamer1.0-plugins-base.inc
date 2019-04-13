@@ -5,7 +5,7 @@ LICENSE = "GPLv2+ & LGPLv2+"
 DEPENDS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'virtual/libx11 libxv', '', d)}"
 DEPENDS += "util-linux iso-codes zlib"
 
-inherit gettext
+inherit gettext gobject-introspection
 
 PACKAGES_DYNAMIC =+ "^libgst.*"
 

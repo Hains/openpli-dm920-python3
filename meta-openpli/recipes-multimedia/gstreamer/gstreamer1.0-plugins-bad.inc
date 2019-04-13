@@ -4,7 +4,7 @@ LICENSE = "GPLv2+ & LGPLv2+ & LGPLv2.1+"
 
 DEPENDS += "gstreamer1.0-plugins-base"
 
-inherit gettext bluetooth
+inherit gettext bluetooth gobject-introspection
 
 PACKAGECONFIG ??= " \
 	${GSTREAMER_ORC} \
