@@ -15,14 +15,13 @@ SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patc
 			file://003-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
 			file://004-rtsp-drop-incorrect-reference-to-gstreamer-sdp-in-Ma.patch \
 			file://005-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
-			file://006-Revert-decodebin-Protect-source-with-the-object-lock.patch \
 			"
 
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL = "1.15.90"
+GST_VERSION_FULL = "1.16.0"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
