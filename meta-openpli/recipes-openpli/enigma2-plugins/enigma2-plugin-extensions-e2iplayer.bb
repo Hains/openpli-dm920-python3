@@ -31,6 +31,7 @@ RRECOMMENDS_${PN} = " \
 	iptvsubparser \
 	lsdir \
 	python-core \
+	python-e2icjson \
 	rtmpdump \
 	uchardet \
 	wget \
