@@ -1,0 +1,52 @@
+diff --git a/lib/dvb_ci/res_content_ctrl.cpp b/lib/dvb_ci/res_content_ctrl.cpp
+index f0c4e8af1..993c79d21 100644
+--- a/lib/dvb_ci/res_content_ctrl.cpp
++++ b/lib/dvb_ci/res_content_ctrl.cpp
+@@ -310,8 +310,9 @@ namespace {
+ 
+ 		ret = X509_verify_cert(store_ctx);
+ 
+-		if (ret != 1)
+-			eWarning(X509_verify_cert_error_string(store_ctx->error));
++		// if (ret != 1)
++			// FIXME!
++			// eWarning(X509_verify_cert_error_string(store_ctx->error));
+ 
+ 		X509_STORE_CTX_free(store_ctx);
+ 
+@@ -778,14 +778,21 @@ int eDVBCICcSessionImpl::generate_dh_key()
+ 
+ 	dh = DH_new();
+ 
+-	dh->p = BN_bin2bn(dh_p, sizeof(dh_p), 0);
+-	dh->g = BN_bin2bn(dh_g, sizeof(dh_g), 0);
+-	dh->q = BN_bin2bn(dh_q, sizeof(dh_q), 0);
+-	dh->flags |= DH_FLAG_NO_EXP_CONSTTIME;
++	BIGNUM *p, *g, *q;
++	const BIGNUM *pub_key;
++
++	p = BN_bin2bn(dh_p, sizeof(dh_p), 0);
++	g = BN_bin2bn(dh_g, sizeof(dh_g), 0);
++	q = BN_bin2bn(dh_q, sizeof(dh_q), 0);
++	// Deprecated!   dh->flags |= DH_FLAG_NO_EXP_CONSTTIME;
++
++	DH_set0_pqg(dh, p, q, g);
+ 
+ 	DH_generate_key(dh);
+ 
+-	len = BN_num_bytes(dh->pub_key);
++	DH_get0_key(dh, &pub_key, NULL);
++
++	len = BN_num_bytes(pub_key);
+ 	if (len > 256) {
+ 		eWarning("too long public key");
+ 		return -1;
+@@ -862,7 +870,7 @@ int eDVBCIContentControlManagerSessionImpl::generate_dh_key()
+ 
+ 	gap = 256 - len;
+ 	memset(dhph, 0, gap);
+-	BN_bn2bin(dh->pub_key, &dhph[gap]);
++	BN_bn2bin(pub_key, &dhph[gap]);
+ 
+ 	element_set(DHPH, dhph, sizeof(dhph));
+ 
