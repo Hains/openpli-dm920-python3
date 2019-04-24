@@ -116,6 +116,7 @@ SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_B
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://09-use-functional-depout-macro.patch \
 			file://010-define-deprecated-macros.patch \
+			file://011-fix-hardware-name.patch \
 			file://screensaverpicture.png \
 			"
 
