@@ -47,6 +47,7 @@ PYTHON_RDEPS = " \
 	python-netserver \
 	python-numbers \
 	python-pickle \
+	python-pyusb \
 	python-re \
 	python-service-identity \
 	python-shell \
@@ -104,9 +105,9 @@ PKGV = "2.7+git${GITPKGV}"
 ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
 
-SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
+SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH} \
 			file://01-set-default-debug-level-at-4.patch \
-			file://02-fix-wrong-driver-date.patch \
+			file://02-fix-build-openssl111.patch \
 			file://03-workaround-for-dns-no-dhcp.patch \
 			file://04-restore-last-update-date.patch \
 			file://05-revert-kill-the-pinguin.patch \
@@ -115,6 +116,7 @@ SRC_URI = " ${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://09-use-functional-depout-macro.patch \
 			file://010-define-deprecated-macros.patch \
+			file://011-fix-hardware-name.patch \
 			file://screensaverpicture.png \
 			"
 
