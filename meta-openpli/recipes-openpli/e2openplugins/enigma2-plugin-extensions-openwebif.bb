@@ -34,9 +34,9 @@ python do_cleanup () {
     images = "%s/public/images/" % pluginpath
     keymaps = "%s/public/static/" % pluginpath
 
-    target_box = 'dm8000.png'
-    target_remote = 'dmm1.png'
-    target_keymap = 'dmm1.html'
+    target_box = 'dm920.png'
+    target_remote = 'dmm2.png'
+    target_keymap = 'dmm2.html'
     exception = ''
 
     for root, dirs, files in os.walk(images + 'boxes', topdown=False):
