@@ -6,10 +6,7 @@ PRIORITY = "required"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-BCMNUMBER = "bcm7435"
-BCMNUMBER_dm520 = "bcm73625"
-BCMNUMBER_dm900 = "bcm7439"
-BCMNUMBER_dm920 = "bcm7439"
+BCMNUMBER = "bcm7439"
 
 DREAMBOX_DVB_MODULES_MIRROR ?= "http://dreamboxupdate.com/download/opendreambox/2.5.0/dreambox-dvb-modules/${KV}-${MACHINE}-${DRIVERDATE}/${MACHINE}/${MD5SUM}"
 
@@ -47,9 +44,7 @@ do_install_append() {
 
 PACKAGES =+ "${PN}-lcd ${PN}-stb-core"
 
-RDEPENDS_${PN} = "dreambox-secondstage-${MACHINE} kernel-${DM_LOCALVERSION} ${PN}-stb-core"
-RDEPENDS_${PN}_dm900 = "kernel-${KV}-${MACHINE} ${PN}-stb-core"
-RDEPENDS_${PN}_dm920 = "kernel-${KV}-${MACHINE} ${PN}-stb-core"
+RDEPENDS_${PN} = "kernel-${KV}-${MACHINE} ${PN}-stb-core"
 RDEPENDS_${PN}-lcd = "${PN}-stb-core"
 RRECOMMENDS_${PN} = "${PN}-lcd"
 
