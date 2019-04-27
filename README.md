@@ -1,4 +1,4 @@
-Build environment dreambox 8000 based on OpenPLi-homebuild(develop branch).
+Build environment dreambox 920 based on OpenPLi-homebuild(develop branch).
 
 https://github.com/OpenPLi/openpli-oe-core/commits/develop
 
@@ -13,7 +13,6 @@ In comparison to OpenPLi this repository has:<br>
 -Python 2.7.16<br>
 -OpenSSL 1.1.1b<br>
 -Busybox 1.30.1<br>
--Dreambox kernel 3.2.102<br>
 and more.<br>
 <br>
 <br>
@@ -28,15 +27,15 @@ sudo apt install autoconf automake bison bzip2 cvs diffstat flex g++ gawk gcc ge
 ```
 To build image:
 ```
-git clone https://github.com/Hains/openpli-dm8000-oe-core.git
+git clone https://github.com/Hains/openvision-dm920-oe-core.git
 
-cd openpli-dm8000-oe-core
+cd openvision-dm920-oe-core
 
 make image
 ```
-When the build is finished, the image openpli-enigma2-homebuild-dm8000.nfi is in the:
+When the build is finished, the image openpli-enigma2-homebuild-dm920.tar.bz2 is in the:
 ```
-build/tmp/deploy/images/dm8000/
+build/tmp/deploy/images/dm920/
 ```
 directory.
 
@@ -55,18 +54,18 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openpli-homebuild;cd openpli-homebuild;
+sudo mkdir feeds;cd feeds;sudo mkdir openvision-homebuild;cd openvision-homebuild;
 
-sudo ln -s /home/<your username>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/dm8000 dm8000 
+sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/dm920 dm920 
 
-sudo ln -s /home/<your username>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/all all
+sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/all all
 
-sudo ln -s /home/<your username>/openpli-dm8000-oe-core/build/tmp/deploy/ipk/mips32el mips32el
+sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/cortexa15hf-neon-vfpv4 cortexa15hf-neon-vfpv4
 ```
 When it doesn't work, with FTP you can change the opkg config files of the box in etc/opkg/<br>
 -all-feed.conf<br>
--dm8000-feed.conf<br>
--mips32el-feed.conf<br>
+-dm920-feed.conf<br>
+-cortexa15hf-neon-vfpv4.conf<br>
 
 With these files you can change e.g. hostname or ipadress and change path corresponding to the symlinks.
 <br>
