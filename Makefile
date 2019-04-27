@@ -42,7 +42,7 @@ SSTATE_DIR = $(TOPDIR)/sstate-cache
 TMPDIR = $(TOPDIR)/tmp
 DEPDIR = $(TOPDIR)/.deps
 
-MACHINE=dm8000
+MACHINE=dm920
 
 BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-oe \
