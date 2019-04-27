@@ -110,14 +110,12 @@ SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_B
 			file://02-fix-build-openssl111.patch \
 			file://03-workaround-for-dns-no-dhcp.patch \
 			file://04-restore-last-update-date.patch \
-			file://05-revert-kill-the-pinguin.patch \
 			file://06-add-skin_display_dm8000.patch \
 			file://07-Do-not-use-o-option-for-ip-busybox.patch \
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://09-use-functional-depout-macro.patch \
 			file://010-define-deprecated-macros.patch \
 			file://011-fix-hardware-name.patch \
-			file://screensaverpicture.png \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
@@ -182,10 +180,6 @@ FILES_${PN}-src += "\
 	${libdir}/enigma2/python/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*.py \
 	"
-
-do_install_prepend() {
-	mv ${WORKDIR}/screensaverpicture.png ${B}/data/skin_default/screensaverpicture.png
-}
 
 do_install_append() {
 	install -d ${D}${datadir}/keymaps
