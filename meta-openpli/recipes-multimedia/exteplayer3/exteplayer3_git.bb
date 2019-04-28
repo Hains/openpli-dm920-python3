@@ -13,7 +13,7 @@ PV = "61+gitr${SRCPV}"
 PKGV = "61+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/e2iplayer/exteplayer3.git;branch=master \
-			file://use-ioctl-7-for-ac3plus.patch \
+			file://swap-ioctl-for-h265-and-ddp.patch \
 			file://define-audio-get-pts.patch \
 "
 
