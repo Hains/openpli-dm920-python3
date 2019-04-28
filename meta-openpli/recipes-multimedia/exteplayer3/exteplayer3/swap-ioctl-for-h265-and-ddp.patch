@@ -1,5 +1,5 @@
 diff --git a/include/bcm_ioctls.h b/include/bcm_ioctls.h
-index 81b0dd0..18f9d2e 100755
+index e0a7eef..65c6d61 100755
 --- a/include/bcm_ioctls.h
 +++ b/include/bcm_ioctls.h
 @@ -44,7 +44,7 @@ typedef enum {
@@ -11,16 +11,12 @@ index 81b0dd0..18f9d2e 100755
  	STREAMTYPE_VB8 = 8,
  	STREAMTYPE_VB9 = 9,
  	STREAMTYPE_XVID = 10,
-diff --git a/include/bcm_ioctls.h b/include/bcm_ioctls.h
-index 81b0dd0..112dc21 100755
---- a/include/bcm_ioctls.h
-+++ b/include/bcm_ioctls.h
-@@ -70,7 +70,7 @@ typedef enum {
+@@ -72,7 +72,7 @@ typedef enum {
  	AUDIOTYPE_DTS_HD = 0x10,
  	AUDIOTYPE_WMA = 0x20,
  	AUDIOTYPE_WMA_PRO = 0x21,
 -	AUDIOTYPE_AC3_PLUS = 0x22,
 +	AUDIOTYPE_AC3_PLUS = 7,
  	AUDIOTYPE_AMR = 0x23,
- 	AUDIOTYPE_RAW = 0xf
- } audio_stream_type_t;
+ 	AUDIOTYPE_OPUS = 0x24,
+ 	AUDIOTYPE_VORBIS = 0x25,
