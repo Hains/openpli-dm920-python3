@@ -6,7 +6,9 @@ DEPENDS = "libpng freetype zlib"
 inherit gitpkgv
 
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/tuxtxt.git"
+SRC_URI = " ${GITHUB_URI}/OpenPLi/tuxtxt.git \
+			file://0001-fix-secfault-w-use-wrong-line_length.patch \
+			"
 
 S = "${WORKDIR}/git/libtuxtxt"
 
