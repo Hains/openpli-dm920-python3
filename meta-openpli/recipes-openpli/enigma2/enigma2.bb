@@ -110,6 +110,7 @@ SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_B
 			file://02-fix-build-openssl111.patch \
 			file://03-workaround-for-dns-no-dhcp.patch \
 			file://04-restore-last-update-date.patch \
+			file://05-fix-gsod-box-brand.patch \
 			file://07-Do-not-use-o-option-for-ip-busybox.patch \
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://09-use-functional-depout-macro.patch \
@@ -142,6 +143,7 @@ EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	--with-colorlcd400 \
+	--with-boxbrand="${BOX_BRAND}" \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@get_crashaddr(d)} \
 	BUILD_SYS=${BUILD_SYS} \
