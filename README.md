@@ -33,7 +33,7 @@ cd openvision-dm920-oe-core
 
 make image
 ```
-When the build is finished, the image openpli-enigma2-homebuild-dm920.tar.bz2 is in the:
+When the build is finished, the image openpli-enigma2-homebuild-dm920.rootfs.tar.bz2 is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
