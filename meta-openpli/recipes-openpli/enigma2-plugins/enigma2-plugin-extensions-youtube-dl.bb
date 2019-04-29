@@ -11,7 +11,7 @@ PV = "2019.04.24+git${SRCPV}"
 PKGV = "2019.04.24+git${GITPKGV}"
 PR = "r1"
 
-SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;branch=master"
+SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 
@@ -36,6 +36,7 @@ RDEPENDS_${PN} = " \
 	python-unixadmin \
 	python-ctypes \
 	python-argparse \
+	python-html \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"
