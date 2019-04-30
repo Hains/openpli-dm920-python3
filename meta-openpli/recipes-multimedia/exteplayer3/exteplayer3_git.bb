@@ -9,8 +9,8 @@ RDEPENDS_${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-PV = "61+gitr${SRCPV}"
-PKGV = "61+gitr${GITPKGV}"
+PV = "63+gitr${SRCPV}"
+PKGV = "63+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/e2iplayer/exteplayer3.git;branch=master \
 			file://swap-ioctl-for-h265-and-ddp.patch \
@@ -22,6 +22,7 @@ S = "${WORKDIR}/git/"
 SOURCE_FILES =  "main/exteplayer.c"
 SOURCE_FILES =+ "container/container.c"
 SOURCE_FILES =+ "container/container_ffmpeg.c"
+SOURCE_FILES =+ "output/graphic_subtitle.c"
 SOURCE_FILES =+ "manager/manager.c"
 SOURCE_FILES =+ "manager/audio.c"
 SOURCE_FILES =+ "manager/video.c"
@@ -60,9 +61,10 @@ SOURCE_FILES =+ "external/flv2mpeg4/src/m4vencode.c"
 SOURCE_FILES =+ "external/flv2mpeg4/src/flvdecoder.c"
 SOURCE_FILES =+ "external/flv2mpeg4/src/dcprediction.c"
 SOURCE_FILES =+ "external/flv2mpeg4/src/flv2mpeg4.c"
+SOURCE_FILES =+ "external/plugins/src/png.c"
 
 do_compile() {
-    ${CC} ${SOURCE_FILES} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -DHAVE_FLV2MPEG4_CONVERTER -I${S}/include -I${S}/external -I${S}/external/flv2mpeg4 -I${D}/${libdir} -I${D}/${includedir} -lpthread -lavformat -lavcodec -lavutil -lswresample -o exteplayer3 ${LDFLAGS}
+    ${CC} ${SOURCE_FILES} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -DHAVE_FLV2MPEG4_CONVERTER -I${S}/include -I${S}/external -I${S}/external/flv2mpeg4 -I${D}/${libdir} -I${D}/${includedir} -lswscale -ldl -lpthread -lavformat -lavcodec -lavutil -lswresample -o exteplayer3 ${LDFLAGS}
 }
 
 do_install() {
