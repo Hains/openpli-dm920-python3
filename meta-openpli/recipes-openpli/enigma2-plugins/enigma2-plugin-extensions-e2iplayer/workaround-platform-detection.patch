@@ -1,26 +1,27 @@
 diff --git a/IPTVPlayer/setup/iptvsetupimpl.py b/IPTVPlayer/setup/iptvsetupimpl.py
-index b961851b..9ab640d1 100644
+index 1cd7f132..10a4af41 100644
 --- a/IPTVPlayer/setup/iptvsetupimpl.py
 +++ b/IPTVPlayer/setup/iptvsetupimpl.py
-@@ -191,7 +191,7 @@ class IPTVSetupImpl:
+@@ -190,27 +190,23 @@ class IPTVSetupImpl:
+         cmdTabs = []
+         for platform in self.supportedPlatforms:
+             platformtesterPath = resolveFilename(SCOPE_PLUGINS, "Extensions/IPTVPlayer/bin/%s/platformtester" % platform)
+-            try: os_chmod(platformtesterPath, 0777)
+-            except Exception: printExc()
+             cmdTabs.append(platformtesterPath + "  2>&1 ")
          def _platformValidator(code, data):
-             printDBG("IPTVSetupImpl._platformValidator")
-             if "Test platform OK" in data: return True,False
+-            printDBG("IPTVSetupImpl._platformValidator")
+-            if "Test platform OK" in data: return True,False
 -            else: return False,True
-+            else: return True,False
++            return True,False
          self.workingObj = CCmdValidator(self.platformDetectFinished, _platformValidator, cmdTabs)
          self.workingObj.start()
          
-diff --git a/IPTVPlayer/setup/iptvsetupimpl.py b/IPTVPlayer/setup/iptvsetupimpl.py
-index 1cd7f132..37c9e666 100644
---- a/IPTVPlayer/setup/iptvsetupimpl.py
-+++ b/IPTVPlayer/setup/iptvsetupimpl.py
-@@ -203,14 +203,14 @@ class IPTVSetupImpl:
      def platformDetectFinished(self, stsTab, dataTab):
          printDBG("IPTVSetupImpl.platformDetectFinished")
          def _saveConfig(platform):
 -            self.platform = platform
-+            self.platform = "mipsel"
++            self.platform = "armv7"
              config.plugins.iptvplayer.plarform.value = self.platform
              printDBG("IPTVSetupImpl.platformDetectFinished platform[%s]" % self.platform)
              config.plugins.iptvplayer.plarform.save()
@@ -28,7 +29,7 @@ index 1cd7f132..37c9e666 100644
          
          if len(stsTab) > 0 and True == stsTab[-1]:
 -            _saveConfig( self.supportedPlatforms[len(stsTab)-1] )
-+            _saveConfig( self.supportedPlatforms[1] )
++            _saveConfig( self.supportedPlatforms[3] )
              self.detectFPU()
          else:
              _saveConfig( "unknown" )
