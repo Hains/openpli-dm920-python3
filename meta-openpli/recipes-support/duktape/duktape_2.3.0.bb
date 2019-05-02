@@ -1,14 +1,14 @@
 DESCRIPTION = "Duktape is an embeddable Javascript engine, with a focus on portability and compact footprint."
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=fddbe4ed8ac933555f193488d973da85"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7f60a8314f5ae7d0bed856bd375a4423"
 
 SRC_URI = " \
 	http://duktape.org/duktape-${PV}.tar.xz \
 	file://iptvplayer.patch \
 	"
 
-SRC_URI[md5sum] = "0f7c9fac5547f7f3fc1c671fc90b2ccf"
-SRC_URI[sha256sum] = "62f72206427633077cb02e7ccd2599ace4d254db409334593b86d262c0d50c14"
+SRC_URI[md5sum] = "352105b39979fc766bbd0b3721e8c2b5"
+SRC_URI[sha256sum] = "ed6e2f3ab2061628a7aeee27ccff16538ba6a151480cccf2e846bd061e45afe8"
 
 do_compile() {
 	oe_runmake -f Makefile.cmdline

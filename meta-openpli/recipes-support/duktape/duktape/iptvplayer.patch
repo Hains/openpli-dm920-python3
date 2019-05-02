@@ -6,12 +6,12 @@ index a5fffb7..d92cd48 100644
  CMDLINE_SOURCES = \
  	examples/cmdline/duk_cmdline.c
  
--CC	= gcc
+-CC = gcc
 +# Let bitbake specify CC and LDFLAGS
 +# CC	= gcc
- CCOPTS	= -Os -pedantic -std=c99 -Wall -fstrict-aliasing -fomit-frame-pointer
+ CCOPTS = -Os -pedantic -std=c99 -Wall -fstrict-aliasing -fomit-frame-pointer
  CCOPTS += -I./examples/cmdline -I./src   # duktape.h and duk_config.h must be in include path
- CCLIBS	= -lm
+ CCLIBS = -lm
 @@ -22,12 +23,12 @@ CCOPTS += -DDUK_CMDLINE_CONSOLE_SUPPORT -I./extras/console
  CMDLINE_SOURCES += extras/console/duk_console.c
  
@@ -32,7 +32,7 @@ index a5fffb7..d92cd48 100644
 @@ -40,7 +41,7 @@ CMDLINE_SOURCES += extras/module-duktape/duk_module_duktape.c
  # http://wiki.duktape.org/Configuring.html
  
- duk:	$(DUKTAPE_SOURCES) $(CMDLINE_SOURCES)
+ duk: $(DUKTAPE_SOURCES) $(CMDLINE_SOURCES)
 -	$(CC) -o $@ $(DEFINES) $(CCOPTS) $(DUKTAPE_SOURCES) $(CMDLINE_SOURCES) $(CCLIBS)
 +	$(CC) -o $@ $(DEFINES) $(CCOPTS) $(DUKTAPE_SOURCES) $(CMDLINE_SOURCES) $(CCLIBS) $(LDFLAGS)
  
@@ -182,87 +182,3 @@ index b55ec66..54705fe 100644
  	fprintf(stderr, "Usage: duk [options] [<filenames>]\n"
  	                "\n"
  	                "   -i                 enter interactive mode after executing argument file(s) / eval code\n"
-diff --git a/src-noline/duk_source_meta.json b/src-noline/duk_source_meta.json
-index 64edf75..49d77af 100644
---- a/src-noline/duk_source_meta.json
-+++ b/src-noline/duk_source_meta.json
-@@ -1,6 +1,6 @@
- {
-     "comment": "Metadata for Duktape sources", 
--    "duk_version_string": "2.2.0", 
-+    "duk_version_string": "2.1.99", 
-     "type": "duk_source_meta", 
-     "line_map": [
-         {
-@@ -1653,7 +1653,7 @@
-         "c3RhdGlj", 
-         "eWllbGQ="
-     ], 
--    "git_describe": "v2.2.0", 
-+    "git_describe": "v2.1.99", 
-     "builtin_strings": [
-         "Undefined", 
-         "Null", 
-@@ -1818,4 +1818,4 @@
-         "static", 
-         "yield"
-     ]
--}
-\ No newline at end of file
-+}
-diff --git a/src-separate/duk_source_meta.json b/src-separate/duk_source_meta.json
-index cf4f16a..a66a63e 100644
---- a/src-separate/duk_source_meta.json
-+++ b/src-separate/duk_source_meta.json
-@@ -1,6 +1,6 @@
- {
-     "comment": "Metadata for Duktape sources", 
--    "duk_version_string": "2.2.0", 
-+    "duk_version_string": "2.1.99", 
-     "type": "duk_source_meta", 
-     "duk_version": 20200, 
-     "git_branch": "master", 
-@@ -981,7 +981,7 @@
-         "c3RhdGlj", 
-         "eWllbGQ="
-     ], 
--    "git_describe": "v2.2.0", 
-+    "git_describe": "v2.1.99", 
-     "builtin_strings": [
-         "Undefined", 
-         "Null", 
-@@ -1146,4 +1146,4 @@
-         "static", 
-         "yield"
-     ]
--}
-\ No newline at end of file
-+}
-diff --git a/src/duk_source_meta.json b/src/duk_source_meta.json
-index b80eb1e..f1cce87 100644
---- a/src/duk_source_meta.json
-+++ b/src/duk_source_meta.json
-@@ -1,6 +1,6 @@
- {
-     "comment": "Metadata for Duktape sources", 
--    "duk_version_string": "2.2.0", 
-+    "duk_version_string": "2.1.99", 
-     "type": "duk_source_meta", 
-     "line_map": [
-         {
-@@ -1653,7 +1653,7 @@
-         "c3RhdGlj", 
-         "eWllbGQ="
-     ], 
--    "git_describe": "v2.2.0", 
-+    "git_describe": "v2.1.99", 
-     "builtin_strings": [
-         "Undefined", 
-         "Null", 
-@@ -1818,4 +1818,4 @@
-         "static", 
-         "yield"
-     ]
--}
-\ No newline at end of file
-+}
