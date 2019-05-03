@@ -104,7 +104,7 @@ init: $(BBLAYERS) $(CONFFILES)
 
 image: init
 	@echo 'Building image for $(MACHINE)'
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openvison-enigma2-image
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openvision-enigma2-image
 
 feed: init
 	@echo 'Building feed for $(MACHINE)'
@@ -122,7 +122,7 @@ update:
 	else \
 		$(GIT) submodule sync && \
 		$(GIT) submodule update --init && \
-		echo "The openvison OE is now up-to-date."; \
+		echo "The openvision OE is now up-to-date."; \
 	fi
 
 .PHONY: all image init initialize update usage
