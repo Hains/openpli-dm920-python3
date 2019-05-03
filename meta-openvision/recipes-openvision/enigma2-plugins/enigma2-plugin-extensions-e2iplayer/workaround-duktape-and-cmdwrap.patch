@@ -1,8 +1,8 @@
 diff --git a/IPTVPlayer/setup/iptvsetupimpl.py b/IPTVPlayer/setup/iptvsetupimpl.py
-index 842498fa..078086a6 100644
+index 0c6ff9b8..8256cfff 100644
 --- a/IPTVPlayer/setup/iptvsetupimpl.py
 +++ b/IPTVPlayer/setup/iptvsetupimpl.py
-@@ -885,14 +885,7 @@ class IPTVSetupImpl:
+@@ -889,14 +889,7 @@ class IPTVSetupImpl:
          printDBG("IPTVSetupImpl.cmdwrapStep")
              
          def _detectValidator(code, data):
@@ -18,7 +18,7 @@ index 842498fa..078086a6 100644
          
          def _deprecatedHandler(paths, stsTab, dataTab):
              sts, retPath = False, ""
-@@ -946,14 +939,7 @@ class IPTVSetupImpl:
+@@ -950,14 +943,7 @@ class IPTVSetupImpl:
          self.binaryInstalledSuccessfully = False
              
          def _detectValidator(code, data):
