@@ -5,11 +5,8 @@ SECTION = "multimedia"
 LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://IPTVPlayer/plugin.py;md5=568b5712cb5766a80994428d998c8a1c"
 SRC_URI = " git://gitlab.com/e2i/e2iplayer.git;protocol=http \
-			file://skip-setup-menu.patch \
-			file://workaround-platform-detection.patch \
 			file://detect-openssl110x-as-well.patch \
 			file://workaround-duktape-and-cmdwrap.patch \
-			file://finish-after-ffmpeg.patch \
 			"
 
 S = "${WORKDIR}/git"
