@@ -84,4 +84,4 @@ IMAGE_INSTALL += " \
 	${EXTERNAL_WIFI_DRIVERS} \
 	"
 
-export IMAGE_BASENAME = "openpli-enigma2"
+export IMAGE_BASENAME = "openvision-enigma2"
