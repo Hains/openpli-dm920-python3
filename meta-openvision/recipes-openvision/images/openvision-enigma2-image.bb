@@ -52,6 +52,7 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-cablescan \
 	enigma2-plugin-systemplugins-commoninterfaceassignment \
 	enigma2-plugin-systemplugins-fastscan \
+	enigma2-plugin-systemplugins-fsblupdater \
 	enigma2-plugin-systemplugins-hotplug \
 	enigma2-plugin-systemplugins-networkbrowser \
 	enigma2-plugin-systemplugins-osd3dsetup \
