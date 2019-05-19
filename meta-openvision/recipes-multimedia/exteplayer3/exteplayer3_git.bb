@@ -9,8 +9,8 @@ RDEPENDS_${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-PV = "63+gitr${SRCPV}"
-PKGV = "63+gitr${GITPKGV}"
+PV = "68+gitr${SRCPV}"
+PKGV = "68+gitr${GITPKGV}"
 
 SRC_URI = " git://github.com/e2iplayer/exteplayer3.git;branch=master \
 			file://swap-ioctl-for-h265-and-ddp.patch \
