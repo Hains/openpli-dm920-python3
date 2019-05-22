@@ -13,7 +13,6 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gstreamer;branch=master;name
 			"
 
 SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
-			file://002-gtk-doc-tweaks.patch \
 			file://003-revert-use-new-gst-adapter-get-buffer.patch \
 			file://004-Revert-plugin-Unify-static-and-dynamic-plugin-interface.patch \
 			file://005-fix-build.patch \
@@ -23,7 +22,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-GST_VERSION_FULL = "1.16.0"
+GST_VERSION_FULL = "1.17.0.1"
 PV = "${GST_VERSION_FULL}+git${SRCPV}"
 PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
 
