@@ -47,6 +47,7 @@ PYTHON_RDEPS = " \
 	python-netserver \
 	python-numbers \
 	python-pickle \
+	python-process \
 	python-pyusb \
 	python-re \
 	python-service-identity \
