@@ -1,15 +1,13 @@
-Build environment dreambox 920 based on OpenPLi-homebuild(develop branch).
+Experimental build environment for dreambox 920 based on Open Vision (unofficial).
 
-https://github.com/OpenPLi/openpli-oe-core/commits/develop
+https://github.com/OpenVisionE2/openvision-oe
 
-Thanks to OpenPLi to make this possible.
-
-In comparison to OpenPLi this repository has:<br>
+In comparison to official Open Vision this build envirionmetn has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of April 21th, 2019.<br>
--GCC 8.3.0<br>
+&nbsp;with git snapshot of May 30th, 2019.<br>
+-GCC 9.1.0<br>
 -Glibc 2.29<br>
--GStreamer 1.16.0<br>
+-GStreamer 1.17.0.1<br>
 -Python 2.7.16<br>
 -OpenSSL 1.1.1b<br>
 -Busybox 1.30.1<br>
