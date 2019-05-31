@@ -1,5 +1,3 @@
-DEFAULT_PREFERENCE = "1"
-
 include gstreamer1.0.inc
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6762ed442b3822387a51c92d928ead0d \
