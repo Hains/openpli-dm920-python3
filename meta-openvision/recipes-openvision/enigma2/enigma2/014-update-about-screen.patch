@@ -1,22 +1,22 @@
-Get rid of flash type, version and revision, since we don't have versioninfo.bb
+Get rid of flash type, version, revision and VisionModule since we don't have versioninfo.bb
 and we don't use a revision number.
 Also we known it's a normal image and not a small flash image.
 Use the old way to display version number (after image name).
 Add 'unofficial'  to image name to make it clear it's not an official Open Vision image.
 
-diff --git a/lib/python/Components/About.py b/lib/python/Components/About.py
-index 9f53d3077..e75920036 100644
+iff --git a/lib/python/Components/About.py b/lib/python/Components/About.py
+index a654a76e5..e75920036 100644
 --- a/lib/python/Components/About.py
 +++ b/lib/python/Components/About.py
-@@ -140,24 +140,6 @@ def getCPUBrand():
+@@ -140,30 +140,6 @@ def getCPUBrand():
  	else:
  		return _("Broadcom")
  
 -def getFlashType():
 -	if SystemInfo["SmallFlash"]:
--		return _("Small, this is a lite image")
+-		return _("Small - Lite image")
 -	else:
--		return _("Normal, this is a normal image")
+-		return _("Normal - Vision image")
 -
 -def getVisionVersion():
 -	try:
@@ -30,22 +30,28 @@ index 9f53d3077..e75920036 100644
 -	except:
 -		return _("It's not a genuine Open Vision!")
 -
+-def getVisionModule():
+-	if SystemInfo["OpenVisionModule"]:
+-		return _("Loaded")
+-	else:
+-		return _("Unknown, multiboot situation!")
+-
  def getDriverInstalledDate():
  	try:
  		from glob import glob
 diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
-index fe3220050..77b2dcc03 100644
+index 1ea6bb61c..4f451c906 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -28,10 +28,7 @@ class About(Screen):
+@@ -28,11 +28,7 @@ class About(Screen):
  		AboutText += _("Brand: ") + about.getHardwareBrand() + "\n"
  		AboutText += _("CPU: ") + about.getCPUInfoString() + "\n"
  		AboutText += _("CPU brand: ") + about.getCPUBrand() + "\n"
 -		AboutText += _("Flash type: ") + about.getFlashType() + "\n"
--		AboutText += _("Image: ") + about.getImageTypeString() + "\n"
+ 		AboutText += _("Image: ") + about.getImageTypeString() + "\n"
 -		AboutText += _("Open Vision version: ") + about.getVisionVersion() + "\n"
 -		AboutText += _("Open Vision revision: ") + about.getVisionRevision() + "\n"
-+		AboutText += _("Image: ") + about.getImageTypeString() + " (unofficial)\n"
+-		AboutText += _("Open Vision module: ") + about.getVisionModule() + "\n"
  		AboutText += _("Build date: ") + about.getBuildDateString() + "\n"
  		ImageVersion = _("Last upgrade: ") + about.getImageVersionString()
  		self["ImageVersion"] = StaticText(ImageVersion)
