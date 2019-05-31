@@ -6,9 +6,7 @@ SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=master;name=base \
 			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
-			"
-
-SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			file://002-Makefile.am-prefix-calls-to-pkg-config-with-PKG_CONF.patch \
 			file://003-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
 			file://004-rtsp-drop-incorrect-reference-to-gstreamer-sdp-in-Ma.patch \

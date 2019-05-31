@@ -8,9 +8,7 @@ SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=master;name=base \
 			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
-			"
-
-SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			file://002-fix-maybe-uninitialized-warnings-when-compiling-with-Os.patch \
 			file://003-configure-allow-to-disable-libssh2.patch \
 			file://004-rtmp-fix-seeking-and-potential-segfault.patch \

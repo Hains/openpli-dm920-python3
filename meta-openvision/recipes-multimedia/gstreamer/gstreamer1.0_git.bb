@@ -8,9 +8,7 @@ SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gstreamer;branch=master;name=base \
 			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
-			"
-
-SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			file://003-revert-use-new-gst-adapter-get-buffer.patch \
 			file://004-Revert-plugin-Unify-static-and-dynamic-plugin-interface.patch \
 			file://005-fix-build.patch \

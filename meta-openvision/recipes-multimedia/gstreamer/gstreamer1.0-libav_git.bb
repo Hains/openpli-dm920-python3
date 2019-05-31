@@ -6,8 +6,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 
 SRCREV_FORMAT = "base"
 
-SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master;name=base"
-SRC_URI += "file://0001-Disable-yasm-for-libav-when-disable-yasm.patch"
+SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master;name=base \
+			file://0001-Disable-yasm-for-libav-when-disable-yasm.patch \
+			"
 
 S = "${WORKDIR}/git"
 

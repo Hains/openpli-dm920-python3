@@ -8,9 +8,7 @@ SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-good;branch=master;name=base \
 			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
-			"
-
-SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
+			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			file://002-gstrtpmp4gpay-set-dafault-value-for-MPEG4-without-co.patch \
 			"
 
