@@ -1,10 +1,10 @@
 diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
-index 1303c7153..fe3220050 100644
+index e27ad3539..1ea6bb61c 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -33,7 +33,9 @@ class About(Screen):
- 		AboutText += _("Open Vision version: ") + about.getVisionVersion() + "\n"
+@@ -34,7 +34,9 @@ class About(Screen):
  		AboutText += _("Open Vision revision: ") + about.getVisionRevision() + "\n"
+ 		AboutText += _("Open Vision module: ") + about.getVisionModule() + "\n"
  		AboutText += _("Build date: ") + about.getBuildDateString() + "\n"
 -		AboutText += _("Last upgrade: ") + about.getUpdateDateString() + "\n"
 +		ImageVersion = _("Last upgrade: ") + about.getImageVersionString()
