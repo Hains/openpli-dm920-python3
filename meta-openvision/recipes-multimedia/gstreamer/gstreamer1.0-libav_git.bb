@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master;name=base \
+			git://github.com/FFmpeg/FFmpeg.git;destsuffix=git/gst-libs/ext/libav;branch=release/4.1;name=ffmpeg \
 			file://0001-Disable-yasm-for-libav-when-disable-yasm.patch \
 			"
 
