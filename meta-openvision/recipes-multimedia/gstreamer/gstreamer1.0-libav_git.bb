@@ -9,6 +9,7 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master;name
 			git://github.com/FFmpeg/FFmpeg.git;destsuffix=git/gst-libs/ext/libav;branch=release/4.1;name=ffmpeg \
 			file://0001-Disable-yasm-for-libav-when-disable-yasm.patch \
 			file://0002-configure-check-for-armv7ve-variant.patch \
+			file://003-fix-host-contamination.patch \
 			"
 
 LIBAV_EXTRA_CONFIGURE_COMMON_ARG = "--target-os=linux \
