@@ -107,19 +107,19 @@ ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
 
 SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH} \
-			file://01-set-default-debug-level-at-4.patch \
-			file://02-fix-build-openssl111.patch \
-			file://03-workaround-for-dns-no-dhcp.patch \
-			file://04-update-about-screen.patch \
-			file://05-set-box-brand-to-dreambox.patch \
-			file://07-Do-not-use-o-option-for-ip-busybox.patch \
-			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
-			file://09-use-functional-depout-macro.patch \
+			file://001-set-default-debug-level-at-4.patch \
+			file://002-fix-build-openssl111.patch \
+			file://003-workaround-for-dns-no-dhcp.patch \
+			file://004-update-about-screen.patch \
+			file://005-set-box-brand-to-dreambox.patch \
+			file://006-make-PLi-FullNightHD-skin-default.patch \
+			file://007-Do-not-use-o-option-for-ip-busybox.patch \
+			file://008-enigma2-adapt-network-to-new-ip-formatting.patch \
+			file://009-use-functional-depout-macro.patch \
 			file://010-define-deprecated-macros.patch \
 			file://011-fix-hardware-name.patch \
 			file://012-set-default-hide-channel-list-radio.patch \
 			file://013-Revert-startwizard.xml-Add-PESpeedUp.patch \
-			file://014-make-PLi-FullNightHD-skin-default.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
