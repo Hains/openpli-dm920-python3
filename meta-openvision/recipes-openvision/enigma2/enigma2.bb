@@ -110,7 +110,7 @@ SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_B
 			file://01-set-default-debug-level-at-4.patch \
 			file://02-fix-build-openssl111.patch \
 			file://03-workaround-for-dns-no-dhcp.patch \
-			file://04-restore-last-update-date.patch \
+			file://04-update-about-screen.patch \
 			file://05-set-box-brand-to-dreambox.patch \
 			file://07-Do-not-use-o-option-for-ip-busybox.patch \
 			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
@@ -119,7 +119,6 @@ SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_B
 			file://011-fix-hardware-name.patch \
 			file://012-set-default-hide-channel-list-radio.patch \
 			file://013-Revert-startwizard.xml-Add-PESpeedUp.patch \
-			file://014-update-about-screen.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
