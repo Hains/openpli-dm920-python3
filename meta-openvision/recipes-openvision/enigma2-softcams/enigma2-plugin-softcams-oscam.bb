@@ -6,14 +6,14 @@ DESCRIPTION = "OScam ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PV = "svn${SRCPV}"
-PKGV = "${PV}"
+PV = "1.20+git${SRCPV}"
+PKGV = "1.20+git${GITPKGV}"
 
-SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep"
+SRC_URI = "git://github.com/OpenVisionE2/oscam.git;protocol=https"
 
 DEPENDS = "libusb openssl"
 
-S = "${WORKDIR}/trunk"
+S = "${WORKDIR}/git"
 B = "${S}"
 
 CAMNAME = "oscam"

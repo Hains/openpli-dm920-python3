@@ -6,10 +6,10 @@ DESCRIPTION = "OScam-emu ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PV = "svn${SRCPV}"
-PKGV = "${PV}"
+PV = "1.20+git${SRCPV}"
+PKGV = "1.20+git${GITPKGV}"
 
-SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep"
+SRC_URI = "git://github.com/OpenVisionE2/oscam.git;protocol=https"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
 PATCHREV = "eb6394edb53f9bcd5d59dae507012994b6cd0573"
@@ -21,7 +21,7 @@ SRC_URI[emu.sha256sum] = "b3a2d0122d0c128cfc42cfc0a672ec718850412f86fe5231ed9677
 
 DEPENDS = "libusb openssl"
 
-S = "${WORKDIR}/trunk"
+S = "${WORKDIR}/git"
 B = "${S}"
 
 CAMNAME = "oscam-emu"
