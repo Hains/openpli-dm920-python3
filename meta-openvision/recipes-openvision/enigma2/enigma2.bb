@@ -30,6 +30,7 @@ RDEPENDS_${PN} = " \
 
 RRECOMMENDS_${PN} = " \
 	enigma2-plugin-skins-pli-hd \
+	enigma2-plugin-skins-octetfhd \
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
 	python-sendfile \
