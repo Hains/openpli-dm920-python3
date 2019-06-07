@@ -1,6 +1,6 @@
 require conf/license/openpli-gplv2.inc
 require softcam.inc
-inherit cmake
+inherit cmake gitpkgv
 
 DESCRIPTION = "OScam-emu ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
