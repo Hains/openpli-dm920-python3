@@ -5,7 +5,6 @@ SECTION = "multimedia"
 LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://IPTVPlayer/plugin.py;md5=568b5712cb5766a80994428d998c8a1c"
 SRC_URI = " git://github.com/OpenVisionE2/e2iplayer-for-e2.git \
-			file://detect-openssl110x-as-well.patch \
 			file://workaround-duktape-and-cmdwrap.patch \
 			"
 
