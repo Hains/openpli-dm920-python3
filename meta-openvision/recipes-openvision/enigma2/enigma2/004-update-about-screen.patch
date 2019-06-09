@@ -7,12 +7,12 @@ CPU-arch already displayed in CPU info (duplicate).
 Restore time of update.
 
 diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
-index ae867a3c1..c6cc07f14 100644
+index f960464fe..c5a97add7 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -28,15 +28,11 @@ class About(Screen):
- 		AboutText += _("Brand: ") + about.getHardwareBrand() + "\n"
- 		AboutText += _("CPU: ") + about.getCPUInfoString() + "\n"
+@@ -29,15 +29,11 @@ class About(Screen):
+ 		cpu = about.getCPUInfoString()
+ 		AboutText += _("CPU: ") + cpu + "\n"
  		AboutText += _("CPU brand: ") + about.getCPUBrand() + "\n"
 -		AboutText += _("CPU architecture: ") + about.getCPUArch() + "\n"
 -		AboutText += _("Flash type: ") + about.getFlashType() + "\n"
