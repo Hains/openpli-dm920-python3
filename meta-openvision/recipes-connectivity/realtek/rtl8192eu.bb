@@ -1,7 +1,7 @@
 SUMMARY = "Driver for Realtek USB wireless device 8192eu"
 HOMEPAGE = "http://www.realtek.com/"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://README.md;md5=9d1f23c3fab78b33b7a975239f6ecf56"
+LIC_FILES_CHKSUM = "file://README.md;md5=be8c96073836ae962143b35bebc83551"
 
 inherit module siteinfo
 
