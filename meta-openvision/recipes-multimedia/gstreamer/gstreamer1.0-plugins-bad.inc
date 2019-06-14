@@ -59,7 +59,7 @@ PACKAGECONFIG[webp]				= "--enable-webp,--disable-webp,libwebp"
 # openni2 winks direct3d directsound winscreencap
 # apple_media android_media avc bs2b chromaprint dts gme gsm kate ladspa
 # libde265 mimic mpeg2enc mplex ofa openh264 opensles soundtouch spandsp
-# vdpau wasapi x265 zbar
+# wasapi x265 zbar
 
 EXTRA_OECONF += " \
 	--enable-decklink \
@@ -92,7 +92,6 @@ EXTRA_OECONF += " \
 	--disable-soundtouch \
 	--disable-spandsp \
 	--disable-teletextdec \
-	--disable-vdpau \
 	--disable-wasapi \
 	--disable-wildmidi \
 	--disable-winks \
