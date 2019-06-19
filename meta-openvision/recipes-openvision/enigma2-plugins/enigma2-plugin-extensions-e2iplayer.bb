@@ -2,9 +2,10 @@ SUMMARY = "E2i Player for E2"
 DESCRIPTION = "E2i Player for E2"
 HOMEPAGE = "http://www.iptvplayer.gitlab.io/"
 SECTION = "multimedia"
-LICENSE = "PD"
-LIC_FILES_CHKSUM = "file://IPTVPlayer/plugin.py;md5=568b5712cb5766a80994428d998c8a1c"
-SRC_URI = " git://github.com/OpenVisionE2/e2iplayer-for-e2.git \
+LICENSE = "GPLv3"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
+
+SRC_URI = " git://github.com/persianpros/e2iplayer.git;protocol=http \
 			file://workaround-duktape-and-cmdwrap.patch \
 			"
 
@@ -35,6 +36,7 @@ RRECOMMENDS_${PN} = " \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"
+
 FILES_${PN}-src = " \
 	${libdir}/enigma2/python/Plugins/*/*.py \
 	${libdir}/enigma2/python/Plugins/*/*/*.py \
