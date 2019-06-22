@@ -7,7 +7,7 @@ index c2cdab076..0be9d12ff 100644
  	device_name = _("unavailable")
  	device_model = None
 -	device_brand = _("unavailable")
-+	device_brand = _("dreambox")
++	device_brand = _("Dreambox")
  	device_version = ""
  	device_revision = ""
  	device_hdmi = False
