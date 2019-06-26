@@ -1,0 +1,72 @@
+From f3c9d43eb07d774918e8ac7ddb799adefeb794dc Mon Sep 17 00:00:00 2001
+From: Hains van den Bosch <hainsvdbosch@ziggo.nl>
+Date: Tue, 25 Jun 2019 19:51:51 +0200
+Subject: [PATCH] Revert "Correct HAVE_TEXTLCD and HAVE_7SEGMENT"
+
+This reverts commit d169c15b242b6dfc2c0e95ed780dcacd594ff162.
+---
+ lib/gdi/glcddc.cpp | 2 +-
+ lib/gdi/lcd.cpp    | 6 +++---
+ lib/gdi/lcd.h      | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/lib/gdi/glcddc.cpp b/lib/gdi/glcddc.cpp
+index b3df94665..bfb34639b 100644
+--- a/lib/gdi/glcddc.cpp
++++ b/lib/gdi/glcddc.cpp
+@@ -63,7 +63,7 @@ void gLCDDC::exec(const gOpcode *o)
+ 		lcd->setPalette(surface);
+ 		break;
+ 	}
+-#if defined(HAVE_TEXTLCD) || defined(HAVE_7SEGMENT)
++#ifdef HAVE_TEXTLCD
+ 	case gOpcode::renderText:
+ 		if (o->parm.renderText->text)
+ 		{
+diff --git a/lib/gdi/lcd.cpp b/lib/gdi/lcd.cpp
+index 79dc9c9a7..d6ef8c08e 100644
+--- a/lib/gdi/lcd.cpp
++++ b/lib/gdi/lcd.cpp
+@@ -7,7 +7,7 @@
+ #include <lib/gdi/esize.h>
+ #include <lib/base/init.h>
+ #include <lib/base/init_num.h>
+-#if defined(HAVE_TEXTLCD) || defined(HAVE_7SEGMENT)
++#ifdef HAVE_TEXTLCD
+ 	#include <lib/base/estring.h>
+ #endif
+ #include <lib/gdi/glcddc.h>
+@@ -57,7 +57,7 @@ void eLCD::unlock()
+ 	locked = 0;
+ }
+ 
+-#if defined(HAVE_TEXTLCD) || defined(HAVE_7SEGMENT)
++#ifdef HAVE_TEXTLCD
+ void eLCD::renderText(ePoint start, const char *text)
+ {
+ 	if (lcdfd >= 0 && start.y() < 5)
+@@ -219,7 +219,7 @@ eDBoxLCD::~eDBoxLCD()
+ 
+ void eDBoxLCD::update()
+ {
+-#if !defined(HAVE_TEXTLCD) && !defined(HAVE_7SEGMENT)
++#ifndef HAVE_TEXTLCD
+ 	if (lcdfd < 0)
+ 		return;
+ 
+diff --git a/lib/gdi/lcd.h b/lib/gdi/lcd.h
+index 7ad523294..6403571c0 100644
+--- a/lib/gdi/lcd.h
++++ b/lib/gdi/lcd.h
+@@ -49,7 +49,7 @@ public:
+ 	int stride() { return _stride; };
+ 	virtual eSize size() { return res; };
+ 	virtual void update()=0;
+-#if defined(HAVE_TEXTLCD) || defined(HAVE_7SEGMENT)
++#ifdef HAVE_TEXTLCD
+ 	virtual void renderText(ePoint start, const char *text);
+ #endif
+ #endif
+-- 
+2.20.1
+

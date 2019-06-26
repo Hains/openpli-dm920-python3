@@ -120,6 +120,8 @@ SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_B
 			file://011-fix-hardware-name.patch \
 			file://012-set-default-hide-channel-list-radio.patch \
 			file://013-Revert-startwizard.xml-Add-PESpeedUp.patch \
+			file://0001-Revert-Correct-HAVE_TEXTLCD-and-HAVE_7SEGMENT.patch \
+			file://0001-Revert-Update-Makefile.am.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
