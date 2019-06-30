@@ -52,7 +52,7 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openvision-homebuild;cd openvision-homebuild;
+sudo mkdir feeds;cd feeds;sudo mkdir openvision-9.1;cd openvision-homebuild;
 
 sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/dm920 dm920 
 
@@ -60,14 +60,10 @@ sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/a
 
 sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/cortexa15hf-neon-vfpv4 cortexa15hf-neon-vfpv4
 ```
-When it doesn't work, with FTP you can change the opkg config files of the box in etc/opkg/<br>
--all-feed.conf<br>
--dm920-feed.conf<br>
--cortexa15hf-neon-vfpv4.conf<br>
-
-With these files you can change e.g. hostname or ipadress and change path corresponding to the symlinks.
-<br>
-<br>
+Add hostname or ip address to the site.conf file (exist after make command), e.g. at the end of the file.
+```
+DISTRO_HOST = " <your ip address or hostname> "
+```
 To update the image, run:
 ```
 make image                         // update image only.
