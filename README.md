@@ -4,12 +4,12 @@ https://github.com/OpenVisionE2/openvision-oe
 
 In comparison to official Open Vision this build environment has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of May 30th, 2019.<br>
+&nbsp;with git snapshot of June 13th, 2019.<br>
 -GCC 9.1.0<br>
 -Glibc 2.29<br>
 -GStreamer 1.17.0.1<br>
 -Python 2.7.16<br>
--OpenSSL 1.1.1b<br>
+-OpenSSL 1.1.1c<br>
 -Busybox 1.30.1<br>
 and more.<br>
 <br>
@@ -31,7 +31,7 @@ cd openvision-dm920-oe-core
 
 make image
 ```
-When the build is finished, the image openpli-enigma2-homebuild-dm920.rootfs.tar.bz2 is in the:
+When the build is finished, the image openvision-enigma2-9.1-dm920.rootfs.tar.bz2 is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
