@@ -52,7 +52,7 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openvision-9.1;cd openvision-homebuild;
+sudo mkdir feeds;cd feeds;sudo mkdir openvision-9.1;cd openvision-9.1;
 
 sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/dm920 dm920 
 
