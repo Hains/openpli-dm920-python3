@@ -4,6 +4,8 @@ CAMNAME = "CCcam"
 
 RDEPENDS_${PN} = "libxcrypt"
 
+INSANE_SKIP_${PN} += "file-rdeps"
+
 SRC_URI = " http://downloads.openpli.org/softcams/CCcam-${PV}.zip;name=softcam \
 			http://downloads.openpli.org/softcams/CCcam.xml;name=ppanel \
 			"
