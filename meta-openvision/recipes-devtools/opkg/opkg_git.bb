@@ -13,8 +13,8 @@ inherit autotools pkgconfig systemd gitpkgv
 
 PE = "1"
 
-PV = "0.4.1+git${SRCPV}"
-PKGV = "0.4.1+git${GITPKGV}"
+PV = "0.4.2+git${SRCPV}"
+PKGV = "0.4.2+git${GITPKGV}"
 
 SRC_URI = " git://git.yoctoproject.org/opkg \
 			file://01-opkg_conf-create-opkg.lock-in-run-instead-of-var-run.patch \
