@@ -11,4 +11,5 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gstreamer;branch=master;name
 			file://003-revert-use-new-gst-adapter-get-buffer.patch \
 			file://004-Revert-plugin-Unify-static-and-dynamic-plugin-interface.patch \
 			file://005-fix-build.patch \
+			file://006-Revert-gsttracer-Add-new-API-to-fetch-the-list-of-ac.patch \
 			"
