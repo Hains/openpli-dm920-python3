@@ -18,7 +18,6 @@ PKGV = "0.4.2+git${GITPKGV}"
 
 SRC_URI = " git://git.yoctoproject.org/opkg \
 			file://01-opkg_conf-create-opkg.lock-in-run-instead-of-var-run.patch \
-			file://02-revert-commit-7a8c2f6.patch \
 			file://03-opkg-symlink-to-directory-workarounds.patch \
 			file://opkg-configure.service \
 			file://opkg.conf \
