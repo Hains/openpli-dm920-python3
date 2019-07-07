@@ -4,13 +4,13 @@ https://github.com/OpenVisionE2/openvision-oe
 
 In comparison to official Open Vision this build environment has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of June 13th, 2019.<br>
+&nbsp;with git snapshot of July 7th, 2019.<br>
 -GCC 9.1.0<br>
 -Glibc 2.29<br>
 -GStreamer 1.17.0.1<br>
 -Python 2.7.16<br>
 -OpenSSL 1.1.1c<br>
--Busybox 1.30.1<br>
+-Busybox 1.31.0<br>
 and more.<br>
 <br>
 <br>
