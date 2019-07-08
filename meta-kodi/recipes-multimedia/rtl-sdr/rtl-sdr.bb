@@ -4,19 +4,19 @@ MAINTAINER = "http://osmocom.org/projects/sdr"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
-inherit gitpkgv cmake
+inherit gitpkgv
 
-SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-SRC_URI = "git://git.osmocom.org/rtl-sdr.git;protocol=git"
+SRC_URI = "git://git.osmocom.org/rtl-sdr;protocol=https"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
 DEPENDS = "libusb1"
 
-EXTRA_OECMAKE += " -DLIB_INSTALL_DIR=${libdir}"
+EXTRA_OECMAKE += " -DLIB_INSTALL_DIR=${libdir}" 
 
 inherit cmake
 
