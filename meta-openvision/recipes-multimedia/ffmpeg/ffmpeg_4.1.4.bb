@@ -36,7 +36,7 @@ SRC_URI_append = "\
 		file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
 		file://07-fix-edit-list-parsing.patch \
 		file://08-hls-replace-key-uri.patch \
-		file://09-remove_avpriv_request_sample.patch \
+		file://09-remove_avpriv_request_sample.patch;apply=no \
 		"
 
 S = "${WORKDIR}/git"
