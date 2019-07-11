@@ -11,13 +11,7 @@ inherit autotools-brokensep gitpkgv pkgconfig
 PV = "10.3+git${SRCPV}"
 PKGV = "10.3+git${GITPKGV}"
 
-SRC_URI = " git://github.com/OpenVisionE2/cdparanoia.git \
-			file://fixes10.patch \
-			file://Makefile-in.patch \
-			file://interface_Makefile.in.patch \
-			file://paranoia_Makefile.in.patch \
-			file://configure.in.patch \
-			"
+SRC_URI = "git://github.com/OpenVisionE2/cdparanoia.git"
 
 S = "${WORKDIR}/git"
 
