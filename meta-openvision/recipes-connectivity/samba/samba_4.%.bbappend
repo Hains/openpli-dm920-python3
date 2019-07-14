@@ -10,20 +10,13 @@ EXTRA_OECONF += " \
 			--with-ads \
 			--with-sockets-dir=${localstatedir}/run \
 			--with-logfilebase=${localstatedir}/log/samba \
-			--without-ad-dc \
 			--without-dnsupdate \
 			--without-profiling-data \
 			--without-quotas \
 			--without-syslog \
 			--without-winbind \
 			--disable-iprint \
-			--disable-python \
 			--nopyc \
-			"
-
-EXTRA_OECONF_remove = " \
-			--with-profiling-data \
-			--with-sockets-dir=/run/samba \
 			"
 
 SRC_URI += " \
