@@ -10,7 +10,7 @@ This reverts commit 21d0082169bb61417aa7a564050f930808764ac8.
  1 file changed, 4 insertions(+)
 
 diff --git a/source3/wscript b/source3/wscript
-index cf7beb7dc46..47b13432c70 100644
+index 6feda38..1bfa069 100644
 --- a/source3/wscript
 +++ b/source3/wscript
 @@ -46,6 +46,7 @@ def options(opt):
@@ -19,9 +19,9 @@ index cf7beb7dc46..47b13432c70 100644
      opt.SAMBA3_ADD_OPTION('pam')
 +    opt.SAMBA3_ADD_OPTION('pam_smbpass')
      opt.SAMBA3_ADD_OPTION('quotas')
-     opt.SAMBA3_ADD_OPTION('sendfile-support')
+     opt.SAMBA3_ADD_OPTION('sendfile-support', default=None)
      opt.SAMBA3_ADD_OPTION('utmp')
-@@ -918,6 +919,9 @@ int i; i = PAM_RADIO_TYPE;
+@@ -920,6 +921,9 @@ int i; i = PAM_RADIO_TYPE;
                         "or headers not found. Use --without-pam to disable "
                         "PAM support.");
  
