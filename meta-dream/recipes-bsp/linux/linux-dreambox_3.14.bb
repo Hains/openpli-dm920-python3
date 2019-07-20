@@ -4,7 +4,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 COMPATIBLE_MACHINE = "dm920"
 
-MACHINE_KERNEL_PR_append = ".2"
+MACHINE_KERNEL_PR_append = ".3"
 
 PATCHREV = "6fa88d2001194cbff63ad94cb713b6cd5ea02739"
 PATCHLEVEL = "79"
@@ -22,6 +22,7 @@ SRC_URI = " \
 	file://0004-log2-give-up-on-gcc-constant-optimizations.patch \
 	file://0005-uaccess-dont-mark-register-as-const.patch \
 	file://0006-makefile-silence-packed-not-aligned-warn.patch \
+	file://100-overlayfs.patch \
 "
 
 SRC_URI[kernel.md5sum] = "b621207b3f6ecbb67db18b13258f8ea8"
