@@ -1,0 +1,12 @@
+diff --git a/sys/nvcodec/gstnvbaseenc.c b/sys/nvcodec/gstnvbaseenc.c
+index e1a73d9bd..7b7b46bad 100644
+--- a/sys/nvcodec/gstnvbaseenc.c
++++ b/sys/nvcodec/gstnvbaseenc.c
+@@ -977,7 +977,6 @@ static void
+ gst_nv_base_enc_free_buffers (GstNvBaseEnc * nvenc)
+ {
+   NVENCSTATUS nv_ret;
+-  CUresult cuda_ret;
+   guint i;
+ 
+   if (nvenc->encoder == NULL)
