@@ -15,6 +15,7 @@ IMAGE_INSTALL = "\
 	fakelocale \
 	fuse-exfat \
 	glibc-binary-localedata-en-gb \
+	hdparm \
 	kernel-params \
 	modutils-loadscript \
 	nfs-utils \
