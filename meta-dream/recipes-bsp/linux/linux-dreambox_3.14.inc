@@ -22,7 +22,7 @@ RDEPENDS_${KERNEL_PACKAGE_NAME}-image = "kernel-devicetree flash-scripts"
 pkg_postinst_kernel-image () {
 #!/bin/sh
 if [ -z "$D" ]; then
-    dd if=/boot/zImage-3.14-1.17-dm920 of=/dev/mmcblk0p1
+    flash-kernel /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${LINUX_VERSION}
 fi
 }
 
