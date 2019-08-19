@@ -24,12 +24,6 @@ EMMCRDEPENDS_recovery = " \
 EMMCRDEPENDS_flash-scripts = " \
     util-linux-sfdisk \
 "
-NANDRDEPENDS_recovery = " \
-    mtd-utils-ubifs \
-"
-NANDRDEPENDS_flash-scripts = " \
-    mtd-utils \
-"
 
 RDEPENDS_${PN} = " \
     flash-scripts \
