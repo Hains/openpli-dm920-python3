@@ -21,9 +21,6 @@ EMMCRDEPENDS_recovery = " \
     e2fsprogs-mke2fs \
     gptfdisk \
 "
-EMMCRDEPENDS_flash-scripts = " \
-    util-linux-sfdisk \
-"
 
 RDEPENDS_${PN} = " \
     flash-scripts \
@@ -38,10 +35,7 @@ RDEPENDS_${PN}_append = " \
 
 RDEPENDS_flash-scripts = " \
     coreutils-realpath \
-"
-
-RDEPENDS_flash-scripts_append = " \
-    ${EMMCRDEPENDS_flash-scripts} \
+    util-linux-sfdisk \
 "
 
 FILES_flash-scripts = " \
