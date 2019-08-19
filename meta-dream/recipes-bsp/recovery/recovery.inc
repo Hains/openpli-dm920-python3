@@ -31,7 +31,6 @@ NANDRDEPENDS_flash-scripts = " \
     mtd-utils \
 "
 FASTBOOTRDEPENDS_flash-scripts = " \
-    fastboot \
     mkbootblob \
 "
 
