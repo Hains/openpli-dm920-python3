@@ -17,20 +17,13 @@ PACKAGES =+ "flash-scripts"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-EMMCRDEPENDS_recovery = " \
-    e2fsprogs-mke2fs \
-    gptfdisk \
-"
-
 RDEPENDS_${PN} = " \
     flash-scripts \
     gpgv \
     pigz \
     util-linux-mount \
-"
-
-RDEPENDS_${PN}_append = " \
-    ${EMMCRDEPENDS_recovery} \
+    e2fsprogs-mke2fs \
+    gptfdisk \
 "
 
 RDEPENDS_flash-scripts = " \
