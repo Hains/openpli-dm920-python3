@@ -30,9 +30,6 @@ NANDRDEPENDS_recovery = " \
 NANDRDEPENDS_flash-scripts = " \
     mtd-utils \
 "
-FASTBOOTRDEPENDS_flash-scripts = " \
-    mkbootblob \
-"
 
 RDEPENDS_${PN} = " \
     flash-scripts \
