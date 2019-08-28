@@ -11,6 +11,8 @@ inherit gitpkgv allarch
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
+RRECOMMENDS_${PN} = "enigma2-plugin-extensions-weatherplugin2"
+
 SRC_URI="git://github.com/OpenVisionE2/OctEtFHD-skin.git;protocol=git"
 
 S = "${WORKDIR}/git"
@@ -22,17 +24,3 @@ do_package_qa[noexec] = "1"
 do_install() {
     cp -r  --preserve=mode,links ${S}/usr ${D}/
 }
-
-do_install_append() {
-    # remove unused .pyc files
-    find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
-}
-
-do_compile_append() {
-    python -O -m compileall ${S}
-}
-
-FILES_${PN}-src = "\
-    /usr/lib/enigma2/python/*/*.py \
-    /usr/lib/enigma2/python/*/*/*.py \
-    "
