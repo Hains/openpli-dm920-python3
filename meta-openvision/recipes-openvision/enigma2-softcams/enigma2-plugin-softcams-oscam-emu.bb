@@ -12,12 +12,12 @@ PKGV = "1.20+git${GITPKGV}"
 SRC_URI = "git://github.com/OpenVisionE2/oscam.git;protocol=https"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam:"
-PATCHREV = "fbbacf2f73a0821b75e9975ed62e35119cf75f58"
+PATCHREV = "7545f253ec28fca0f5aff686bfe76f3f3f46dc99"
 PR = "r797"
 SRC_URI += "https://raw.githubusercontent.com/oscam-emu/oscam-emu/${PATCHREV}/oscam-emu.patch?${PATCHREV};downloadfilename=oscam-emu.${PATCHREV}.patch;name=emu;striplevel=0"
 
-SRC_URI[emu.md5sum] = "268f16591749665ddf12886b1c528c0e"
-SRC_URI[emu.sha256sum] = "28e5c96165ab66ec529ecc4322c0a4dcf008a9ae9e32189d9cd40a85e91c62b1"
+SRC_URI[emu.md5sum] = "0a6efdc153daeda58c44e7e177f4d77b"
+SRC_URI[emu.sha256sum] = "4d345b2ea7483775dd3c92e2c7ae63501f7f3c7c4a8cec717f49955a0ae2ea1d"
 
 DEPENDS = "libusb openssl"
 
@@ -52,7 +52,7 @@ EXTRA_OECMAKE += "\
 	-DCARDREADER_PCSC=1 \
 	-DCW_CYCLE_CHECK=1 \
 	-DCS_CACHEEX=1 \
-	-DMODULE_CONSTCW=1 \
+	-DMODULE_CONSTCW=1 \	
 	"
 
 do_install() {
