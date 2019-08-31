@@ -4,8 +4,8 @@ https://github.com/OpenVisionE2/openvision-oe
 
 In comparison to official Open Vision this build environment has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of August 18th, 2019.<br>
--GCC 9.1.0<br>
+&nbsp;with git snapshot of August 31th, 2019.<br>
+-GCC 9.2.0<br>
 -Glibc 2.30<br>
 -GStreamer 1.17.0.1<br>
 -Python 2.7.16<br>
@@ -52,7 +52,7 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openvision-9.1;cd openvision-9.1;
+sudo mkdir feeds;cd feeds;sudo mkdir openvision-9.2;cd openvision-9.2;
 
 sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/dm920 dm920 
 
