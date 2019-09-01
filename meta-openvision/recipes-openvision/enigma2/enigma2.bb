@@ -108,12 +108,9 @@ GITHUB_URI ?= "git://github.com"
 
 SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH} \
 			file://001-set-default-debug-level-at-4.patch \
-			file://002-fix-build-openssl111.patch \
 			file://004-update-about-screen.patch \
 			file://005-set-box-brand-to-dreambox.patch \
 			file://006-make-PLi-FullNightHD-skin-default.patch \
-			file://007-Do-not-use-o-option-for-ip-busybox.patch \
-			file://008-enigma2-adapt-network-to-new-ip-formatting.patch \
 			file://011-fix-hardware-name.patch \
 			file://012-set-default-hide-channel-list-radio.patch \
 			file://013-Revert-startwizard.xml-Add-PESpeedUp.patch \
@@ -144,6 +141,7 @@ EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	--with-colorlcd400 \
+	--with-oever="9.2" \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@get_crashaddr(d)} \
 	BUILD_SYS=${BUILD_SYS} \
