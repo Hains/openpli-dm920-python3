@@ -108,6 +108,7 @@ GITHUB_URI ?= "git://github.com"
 
 SRC_URI = " ${GITHUB_URI}/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH} \
 			file://001-set-default-debug-level-at-4.patch \
+			file://002-set-oeversion-to-92.patch \
 			file://004-update-about-screen.patch \
 			file://005-set-box-brand-to-dreambox.patch \
 			file://006-make-PLi-FullNightHD-skin-default.patch \
