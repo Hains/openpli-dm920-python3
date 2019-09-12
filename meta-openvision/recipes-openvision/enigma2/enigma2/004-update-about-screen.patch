@@ -6,29 +6,30 @@ Add 'unofficial'  to image name to make it clear it's not an official Open Visio
 Restore time of update.
 
 diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
-index 1f06df182..b0659c5bf 100644
+index f4558ec61..4e0c3ae52 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -34,16 +34,12 @@ class About(Screen):
+@@ -37,18 +37,11 @@ class About(Screen):
+ 		AboutText += _("CPU: ") + cpu + "\n"
  		AboutText += _("CPU brand: ") + about.getCPUBrand() + "\n"
  		AboutText += _("CPU architecture: ") + about.getCPUArch() + "\n"
- 
+-		AboutText += _("Image architecture: ") + boxbranding.getImageArch() + "\n"
+-
 -		AboutText += _("Flash type: ") + about.getFlashType() + "\n"
 -
--		AboutText += _("Image: ") + about.getImageTypeString() + "\n"
+-		AboutText += "\n" + _("Image: ") + about.getImageTypeString() + "\n"
+-		AboutText += _("Feed URL: ") + boxbranding.getFeedsUrl() + "\n"
 -
 -		AboutText += _("Open Vision version: ") + about.getVisionVersion() + "\n"
 -		AboutText += _("Open Vision revision: ") + about.getVisionRevision() + "\n"
 -		AboutText += _("Open Vision module: ") + about.getVisionModule() + "\n"
-+		AboutText += _("Image: ") + about.getImageTypeString() + " (unofficial)\n"
- 
+-
++		AboutText += _("Image: ") + "Open Vision (unofficial)\n"
  		AboutText += _("Build date: ") + about.getBuildDateString() + "\n"
--		AboutText += _("Last upgrade: ") + about.getUpdateDateString() + "\n"
 +		ImageVersion = _("Last upgrade: ") + about.getImageVersionString()
 +		self["ImageVersion"] = StaticText(ImageVersion)
 +		AboutText += ImageVersion + "\n"
+ 		AboutText += _("Last upgrade: ") + about.getUpdateDateString() + "\n"
  
  		# [WanWizard] Removed until we find a reliable way to determine the installation date
- 		# AboutText += _("Installed: ") + about.getFlashDateString() + "\n"
-
  
