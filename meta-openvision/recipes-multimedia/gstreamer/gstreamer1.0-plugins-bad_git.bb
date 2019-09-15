@@ -12,7 +12,6 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=maste
 			file://003-configure-allow-to-disable-libssh2.patch \
 			file://004-rtmp-fix-seeking-and-potential-segfault.patch \
 			file://005-rtmp-hls-tsdemux-fix.patch \
-			file://006-remove-unused-variable.patch \
 			"
 
 EXTRA_OECONF += " \
