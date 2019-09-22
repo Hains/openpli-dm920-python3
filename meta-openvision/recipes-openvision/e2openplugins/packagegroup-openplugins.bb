@@ -18,6 +18,7 @@ DEPENDS = " \
 	enigma2-plugin-extensions-cacheflush \
 	enigma2-plugin-extensions-changerootpassword \
 	enigma2-plugin-extensions-epgimportfilter \
+	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-foreca \
 	enigma2-plugin-extensions-hetweer \
 	enigma2-plugin-extensions-meteoitalia \
