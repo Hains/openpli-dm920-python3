@@ -147,6 +147,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-systemplugins-serviceapp \
 	enigma2-plugin-systemplugins-hrtunerproxy \
 	enigma2-plugin-systemplugins-signalfinder \
+	enigma2-plugin-systemplugins-newvirtualkeyboard \
 	enigma2-plugins \
 	enigma2-skins \
 	kodi-addons-meta \
