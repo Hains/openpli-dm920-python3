@@ -5,7 +5,7 @@ HOMEPAGE = "http://code.google.com/p/opkg/"
 BUGTRACKER = "http://code.google.com/p/opkg/issues/list"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
-					file://src/opkg.c;beginline=2;endline=21;md5=90435a519c6ea69ef22e4a88bcc52fa0"
+					file://src/opkg.c;beginline=2;endline=21;md5=a20bb4061b517d872b0d8346ae70a48d"
 
 DEPENDS = "libarchive"
 
