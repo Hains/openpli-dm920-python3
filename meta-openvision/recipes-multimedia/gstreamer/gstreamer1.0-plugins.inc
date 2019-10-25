@@ -5,7 +5,7 @@ SECTION = "multimedia"
 
 DEPENDS = "gstreamer1.0 glib-2.0-native"
 
-inherit autotools pkgconfig upstream-version-is-even
+inherit meson pkgconfig upstream-version-is-even
 
 acpaths = "-I ${S}/common/m4 -I ${S}/m4"
 
@@ -18,21 +18,10 @@ require gst-plugins-package.inc
 
 GSTREAMER_ORC ?= "orc"
 
-PACKAGECONFIG[debug] = "--enable-debug,--disable-debug"
-PACKAGECONFIG[orc] = "--enable-orc,--disable-orc,orc orc-native"
-PACKAGECONFIG[valgrind] = "--enable-valgrind,--disable-valgrind,valgrind"
-
 export ORCC = "${STAGING_DIR_NATIVE}${bindir}/orcc"
 
 EXTRA_OECONF = " \
     --disable-examples \
 "
-
-delete_pkg_m4_file() {
-	# This m4 file is out of date and is missing PKG_CONFIG_SYSROOT_PATH tweaks which we need for introspection
-	rm "${S}/common/m4/pkg.m4" || true
-}
-
-do_configure[prefuncs] += " delete_pkg_m4_file"
 
 PACKAGES_DYNAMIC = "^${PN}-.*"
