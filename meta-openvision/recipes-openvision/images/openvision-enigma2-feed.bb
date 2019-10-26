@@ -78,6 +78,7 @@ OPTIONAL_PACKAGES += " \
 	rtl8723bs \
 	rtl8814au \
 	rtl8822bu \
+	rt8812au \
 	rtl-sdr \
 	rtorrent \
 	sabnzbd \
