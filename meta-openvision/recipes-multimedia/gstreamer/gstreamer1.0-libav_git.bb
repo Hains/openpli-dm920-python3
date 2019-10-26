@@ -9,6 +9,7 @@ SRCREV_FORMAT = "base"
 
 SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master;name=base \
 			git://github.com/FFmpeg/FFmpeg.git;destsuffix=git/gst-libs/ext/libav;branch=release/4.1;name=ffmpeg \
+			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
 			file://001-Disable-yasm-for-libav-when-disable-yasm.patch \
 			file://002-configure-check-for-armv7ve-variant.patch \
 			file://003-fix-host-contamination.patch \
