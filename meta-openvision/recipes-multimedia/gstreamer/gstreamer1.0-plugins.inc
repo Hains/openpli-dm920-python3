@@ -5,9 +5,7 @@ SECTION = "multimedia"
 
 DEPENDS = "gstreamer1.0 glib-2.0-native"
 
-inherit meson pkgconfig upstream-version-is-even
-
-acpaths = "-I ${S}/common/m4 -I ${S}/m4"
+inherit gettext meson pkgconfig upstream-version-is-even
 
 LIBV = "1.0"
 require gst-plugins-package.inc
@@ -19,9 +17,5 @@ require gst-plugins-package.inc
 GSTREAMER_ORC ?= "orc"
 
 export ORCC = "${STAGING_DIR_NATIVE}${bindir}/orcc"
-
-EXTRA_OECONF = " \
-    --disable-examples \
-"
 
 PACKAGES_DYNAMIC = "^${PN}-.*"

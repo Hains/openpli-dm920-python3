@@ -4,8 +4,6 @@ LICENSE = "GPLv2+ & LGPLv2+"
 
 DEPENDS += "util-linux iso-codes zlib"
 
-inherit meson gettext
-
 PACKAGES_DYNAMIC =+ "^libgst.*"
 
 PACKAGECONFIG ??= "alsa cdparanoia ogg opus pango theora vorbis"
