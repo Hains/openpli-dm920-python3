@@ -1,11 +1,8 @@
-# I hope it solves the PAK archive (application/x-pak) problem
-PACKAGES =+ "${PN}-realpath ${PN}-stdbuf"
+# Provide package coreutils-realpath
+PACKAGES =+ "${PN}-realpath"
 
 FILES_${PN}-realpath = "${bindir}/realpath.${PN}"
-FILES_${PN}-stdbuf = "${bindir}/stdbuf.${PN} ${libdir}/coreutils/libstdbuf.so"
 
-RRECOMMENDS_${PN}_append_class-target = "${PN}-realpath ${PN}-stdbuf"
+RRECOMMENDS_${PN}_append_class-target = "${PN}-realpath"
 
-ALTERNATIVE_${PN}_remove = "realpath stdbuf"
 ALTERNATIVE_${PN}-realpath = "realpath"
-ALTERNATIVE_${PN}-stdbuf = "stdbuf"
