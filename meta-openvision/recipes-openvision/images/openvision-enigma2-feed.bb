@@ -31,6 +31,7 @@ OPTIONAL_PACKAGES += " \
 	exfat-utils \
 	exteplayer3 \
 	gdb \
+	google-dns \
 	grep \
 	gstplayer \
 	hddtemp \
