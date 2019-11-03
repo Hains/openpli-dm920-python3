@@ -16,6 +16,7 @@ OPTIONAL_PACKAGES += " \
 	autofs \
 	autossh \
 	ccid \
+	cloudflare-dns \
 	ctorrent \
 	cups \
 	davfs2 \
