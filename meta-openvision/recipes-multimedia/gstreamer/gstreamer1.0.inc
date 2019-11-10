@@ -10,28 +10,10 @@ DEPENDS = "glib-2.0 glib-2.0-native libcap libxml2 bison-native flex-native"
 
 inherit meson pkgconfig gettext upstream-version-is-even
 
-# This way common/m4/introspection.m4 will come first
-# (it has a custom INTROSPECTION_INIT macro, and so must be used instead of our common introspection.m4 file)
-acpaths = "-I ${S}/common/m4 -I ${S}/m4"
-
 PACKAGECONFIG ??= ""
-
-EXTRA_OECONF = " \
-	--disable-dependency-tracking \
-	--disable-examples \
-	"
-
-CACHED_CONFIGUREVARS += "ac_cv_header_valgrind_valgrind_h=no"
-
-# musl libc generates warnings if <sys/poll.h> is included directly
-CACHED_CONFIGUREVARS += "ac_cv_header_sys_poll_h=no"
 
 PACKAGES += "${PN}-bash-completion"
 
 FILES_${PN} += "${libdir}/gstreamer-1.0/*.so /usr/share/"
 FILES_${PN}-dev += "${libdir}/gstreamer-1.0/*.la ${libdir}/gstreamer-1.0/*.a ${libdir}/gstreamer-1.0/include"
 FILES_${PN}-bash-completion += "${datadir}/bash-completion/completions/ ${datadir}/bash-completion/helpers/gst*"
-
-RRECOMMENDS_${PN}_qemux86 += "kernel-module-snd-ens1370 kernel-module-snd-rawmidi"
-RRECOMMENDS_${PN}_qemux86-64 += "kernel-module-snd-ens1370 kernel-module-snd-rawmidi"
-
