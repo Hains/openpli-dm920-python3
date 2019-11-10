@@ -11,7 +11,7 @@ PR = "r1"
 
 DEPENDS = "libcdio virtual/gettext"
 
-SRC_URI = "https://sourceforge.net/projects/${PN}/files/latest/download/${BP}.tar.bz2"
+SRC_URI = "https://sourceforge.net/projects/${BPN}/files/latest/download/${BPN}.tar.bz2"
 
 SRC_URI[md5sum] = "8bb4a6f542197e8e9648ae597cd6bc8a"
 SRC_URI[sha256sum] = "35ce0ee1741ea38def304ddfe84a958901413aa829698357f0bee5bb8f0a223b"
