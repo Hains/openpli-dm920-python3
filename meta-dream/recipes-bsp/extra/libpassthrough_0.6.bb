@@ -20,7 +20,7 @@ do_license() {
 }
 
 do_install_append () {
-	rm ${WORKDIR}/LICENSE-CLOSE
+	rm ${WORKDIR}/image/LICENSE-CLOSE
 }
 
 addtask do_license before do_populate_lic after do_unpack
