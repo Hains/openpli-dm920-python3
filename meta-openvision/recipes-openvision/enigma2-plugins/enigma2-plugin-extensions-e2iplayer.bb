@@ -17,6 +17,7 @@ PKGV = "1+git${GITPKGV}"
 inherit allarch distutils-openplugins
 
 RRECOMMENDS_${PN} = " \
+	cmdwrapper \
 	duktape \
 	exteplayer3 \
 	f4mdump \
