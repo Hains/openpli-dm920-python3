@@ -48,6 +48,7 @@ EXTRA_OECONF = " \
     --with-arch="${DEFAULTTUNE}" \
     --with-display-type="${DISPLAY_TYPE}" \
     --with-transcoding="${TRANSCODING}" \
+    --with-tfpu="${TARGET_FPU}" \
     --with-multitranscoding="${MULTITRANSCODING}" \
     "
 
