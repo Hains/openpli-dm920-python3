@@ -9,10 +9,10 @@ diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
 index f4e24db0e..9a5d65e3c 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -43,7 +43,6 @@ class About(Screen):
- 		AboutText += _("CPU brand: ") + about.getCPUBrand() + "\n"
+@@ -44,7 +44,6 @@ class About(Screen):
  		AboutText += _("CPU architecture: ") + about.getCPUArch() + "\n"
- 		AboutText += _("FPU: ") + boxbranding.getImageFPU() + "\n"
+ 		if boxbranding.getImageFPU() != "":
+ 			AboutText += _("FPU: ") + boxbranding.getImageFPU() + "\n"
 -		AboutText += _("Image architecture: ") + boxbranding.getImageArch() + "\n"
  
  		if boxbranding.getImageArch() == "aarch64":
