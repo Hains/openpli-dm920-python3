@@ -154,7 +154,6 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-systemplugins-serviceapp \
 	enigma2-plugin-systemplugins-signalfinder \
 	enigma2-plugins \
-	enigma2-skins \
 	kodi-addons-meta \
 	meta-enigma2-dvdburn \
 	picons-enigma2-meta \
