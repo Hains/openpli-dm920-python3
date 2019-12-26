@@ -29,6 +29,7 @@ RRECOMMENDS_${PN} = " \
 	lsdir \
 	python-core \
 	python-e2icjson \
+	python-pycurl \
 	rtmpdump \
 	uchardet \
 	wget \
