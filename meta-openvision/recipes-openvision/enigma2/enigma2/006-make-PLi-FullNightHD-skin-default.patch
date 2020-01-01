@@ -1,13 +1,13 @@
 diff --git a/skin.py b/skin.py
-index 9c84bee9d..0628e04cd 100644
+index 68dfd3db6..60160c6f3 100644
 --- a/skin.py
 +++ b/skin.py
-@@ -92,7 +92,7 @@ def skin_user_skinname():
+@@ -14,7 +14,7 @@ from Tools.Directories import SCOPE_CONFIG, SCOPE_CURRENT_LCDSKIN, SCOPE_CURRENT
+ from Tools.Import import my_import
+ from Tools.LoadPixmap import LoadPixmap
  
- config.skin = ConfigSubsection()
- if SystemInfo["HasFullHDSkinSupport"]:
--	DEFAULT_SKIN = "OctEtFHD/skin.xml"
-+	DEFAULT_SKIN = "PLi-FullNightHD/skin.xml"
- else:
- 	DEFAULT_SKIN = "PLi-HD/skin.xml"
- # on SD hardware, HD skin will not be available
+-DEFAULT_SKIN = SystemInfo["HasFullHDSkinSupport"] and "OctEtFHD/skin.xml" or "PLi-HD/skin.xml"  # On SD hardware HD will not be available.
++DEFAULT_SKIN = SystemInfo["HasFullHDSkinSupport"] and "PLi-FullNightHD/skin.xml" or "PLi-HD/skin.xml"  # On SD hardware HD will not be available.
+ DEFAULT_SD_SKIN = "skin.xml"
+ EMERGENCY_SKIN = "skin_default.xml"
+ DEFAULT_DISPLAY_SKIN = SystemInfo["grautec"] and "display/skin_display_grautec.xml" or "display/skin_display.xml"
