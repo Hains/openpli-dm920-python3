@@ -6,10 +6,9 @@ DEPENDS += "util-linux iso-codes zlib"
 
 PACKAGES_DYNAMIC =+ "^libgst.*"
 
-PACKAGECONFIG ??= "alsa cdparanoia ogg opus pango theora vorbis"
+PACKAGECONFIG ??= "alsa ogg opus pango theora vorbis"
 
 PACKAGECONFIG[alsa]			= "-Dalsa=enabled,-Dalsa=disabled,alsa-lib"
-PACKAGECONFIG[cdparanoia]	= "-Dcdparanoia=enabled,-Dcdparanoia=disabled,cdparanoia"
 PACKAGECONFIG[ogg]			= "-Dogg=enabled,-Dogg=disabled,libogg"
 PACKAGECONFIG[opus]			= "-Dopus=enabled,-Dopus=disabled,libopus"
 PACKAGECONFIG[pango]		= "-Dpango=enabled,-Dpango=disabled,pango"
