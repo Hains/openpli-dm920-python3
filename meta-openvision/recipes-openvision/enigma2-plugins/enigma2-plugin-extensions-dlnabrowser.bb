@@ -12,9 +12,9 @@ inherit gitpkgv
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-DEPENDS = "fuse libupnp"
+DEPENDS = "djmount fuse libupnp"
 PROVIDES = "enigma2-plugin-systemplugins-dlnabrowser"
-RDEPENDS_${PN} = "fuse-utils fuse libupnp"
+RDEPENDS_${PN} = "djmount fuse-utils fuse libupnp"
 RRECOMMENDS_${PN} = "kernel-module-fuse"
 FILES_${PN} = "${libdir}/enigma2/python/Plugins/Extensions/DLNABrowser/*"
 PACKAGES = "${PN}"
