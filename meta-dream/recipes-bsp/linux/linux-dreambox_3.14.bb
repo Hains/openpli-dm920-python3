@@ -23,6 +23,14 @@ SRC_URI = " \
 	file://0005-uaccess-dont-mark-register-as-const.patch \
 	file://0006-makefile-silence-packed-not-aligned-warn.patch \
 	file://100-overlayfs.patch \
+	file://genksyms_fix_typeof_handling.patch \
+	file://0001-tuners-tda18273-silicon-tuner-driver.patch \
+	file://01-10-si2157-Silicon-Labs-Si2157-silicon-tuner-driver.patch \
+	file://02-10-si2168-Silicon-Labs-Si2168-DVB-T-T2-C-demod-driver.patch \
+	file://0003-cxusb-Geniatech-T230-support.patch \
+	file://CONFIG_DVB_SP2.patch \
+	file://dvbsky.patch \
+	file://rtl2832u-2.patch \
 "
 
 SRC_URI[kernel.md5sum] = "b621207b3f6ecbb67db18b13258f8ea8"
