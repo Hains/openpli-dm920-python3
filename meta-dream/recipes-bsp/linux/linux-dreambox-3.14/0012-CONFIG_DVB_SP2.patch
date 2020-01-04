@@ -1,6 +1,8 @@
+diff --git a/drivers/media/dvb-frontends/Kconfig b/drivers/media/dvb-frontends/Kconfig
+index 40dddccb..e8f1235f 100644
 --- a/drivers/media/dvb-frontends/Kconfig
 +++ b/drivers/media/dvb-frontends/Kconfig
-@@ -725,6 +725,13 @@ config DVB_A8293
+@@ -701,6 +701,13 @@ config DVB_A8293
  	depends on DVB_CORE && I2C
  	default m if !MEDIA_SUBDRV_AUTOSELECT
  
@@ -14,9 +16,11 @@
  config DVB_LGS8GL5
  	tristate "Silicon Legend LGS-8GL5 demodulator (OFDM)"
  	depends on DVB_CORE && I2C
+diff --git a/drivers/media/dvb-frontends/Makefile b/drivers/media/dvb-frontends/Makefile
+index dc848337..bad2289d 100644
 --- a/drivers/media/dvb-frontends/Makefile
 +++ b/drivers/media/dvb-frontends/Makefile
-@@ -107,6 +107,7 @@ obj-$(CONFIG_DVB_DRXK) += drxk.o
+@@ -101,6 +101,7 @@ obj-$(CONFIG_DVB_DRXK) += drxk.o
  obj-$(CONFIG_DVB_TDA18271C2DD) += tda18271c2dd.o
  obj-$(CONFIG_DVB_IT913X_FE) += it913x-fe.o
  obj-$(CONFIG_DVB_A8293) += a8293.o
@@ -24,6 +28,9 @@
  obj-$(CONFIG_DVB_TDA10071) += tda10071.o
  obj-$(CONFIG_DVB_RTL2830) += rtl2830.o
  obj-$(CONFIG_DVB_RTL2832) += rtl2832.o
+diff --git a/drivers/media/dvb-frontends/sp2.c b/drivers/media/dvb-frontends/sp2.c
+new file mode 100644
+index 00000000..8fd42767
 --- /dev/null
 +++ b/drivers/media/dvb-frontends/sp2.c
 @@ -0,0 +1,441 @@
@@ -468,6 +475,9 @@
 +MODULE_DESCRIPTION("CIMaX SP2/HF CI driver");
 +MODULE_AUTHOR("Olli Salonen <olli.salonen@iki.fi>");
 +MODULE_LICENSE("GPL");
+diff --git a/drivers/media/dvb-frontends/sp2.h b/drivers/media/dvb-frontends/sp2.h
+new file mode 100644
+index 00000000..6cceea02
 --- /dev/null
 +++ b/drivers/media/dvb-frontends/sp2.h
 @@ -0,0 +1,53 @@
@@ -524,6 +534,9 @@
 +					int slot, int open);
 +
 +#endif
+diff --git a/drivers/media/dvb-frontends/sp2_priv.h b/drivers/media/dvb-frontends/sp2_priv.h
+new file mode 100644
+index 00000000..37fef7bc
 --- /dev/null
 +++ b/drivers/media/dvb-frontends/sp2_priv.h
 @@ -0,0 +1,50 @@
