@@ -6,8 +6,8 @@ index 68dfd3db6..60160c6f3 100644
  from Tools.Import import my_import
  from Tools.LoadPixmap import LoadPixmap
  
--DEFAULT_SKIN = SystemInfo["HasFullHDSkinSupport"] and "OctEtFHD/skin.xml" or "PLi-HD/skin.xml"  # On SD hardware HD will not be available.
+-DEFAULT_SKIN = SystemInfo["HasFullHDSkinSupport"] and "OctEtFHD/skin.xml" or "PLi-HD/skin.xml"  # SD hardware is no longer supported by the default skin.
 +DEFAULT_SKIN = SystemInfo["HasFullHDSkinSupport"] and "PLi-FullNightHD/skin.xml" or "PLi-HD/skin.xml"  # On SD hardware HD will not be available.
- DEFAULT_SD_SKIN = "skin.xml"
+ # DEFAULT_SD_SKIN = "skin.xml"
  EMERGENCY_SKIN = "skin_default.xml"
  DEFAULT_DISPLAY_SKIN = SystemInfo["grautec"] and "display/skin_display_grautec.xml" or "display/skin_display.xml"
