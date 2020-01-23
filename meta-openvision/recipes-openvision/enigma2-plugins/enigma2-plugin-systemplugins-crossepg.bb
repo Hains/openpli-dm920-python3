@@ -3,8 +3,8 @@ HOMEPAGE = "https://github.com/oe-alliance/e2openplugin-CrossEPG"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=4fbd65380cdd255951079008b364516c"
 
-DEPENDS += "libxml2 zlib python swig-native curl python"
-RDEPENDS_${PN} += "libcurl enigma2 python-compression python-lzma xz"
+DEPENDS += "libxml2 zlib python3 swig-native curl"
+RDEPENDS_${PN} += "libcurl enigma2 python3-compression python3-lzma xz"
 
 inherit gitpkgv
 
@@ -15,7 +15,7 @@ PV = "0.8.6+gitr${SRCPV}"
 PKGV = "0.8.6+gitr${GITPKGV}"
 PR = "r0"
 
-inherit python-dir
+inherit python3-dir
 
 ALLOW_EMPTY_${PN} = "1"
 

@@ -12,7 +12,7 @@ SRC_URI = "\
 
 S = "${WORKDIR}/backports.lzma-${PV}"
 
-inherit setuptools
+inherit setuptools3
 
 SRC_URI[md5sum] = "49b626f282be13acfc0fe2bc24732b3d"
 

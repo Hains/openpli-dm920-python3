@@ -10,7 +10,7 @@ DEPENDS = "curl ${PYTHON_PN}"
 RDEPENDS_${PN} = "${PYTHON_PN}-core curl"
 SRCNAME = "pycurl"
 
-inherit distutils
+inherit distutils3
 
 SRC_URI = "\
   http://${SRCNAME}.sourceforge.net/download/${SRCNAME}-${PV}.tar.gz;name=archive \

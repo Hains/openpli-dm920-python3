@@ -5,7 +5,7 @@ SRCNAME = "process"
 
 require conf/license/license-gplv2.inc
 
-inherit distutils-base
+inherit distutils3-base
 
 PV = "1.0"
 PKGV = "1.0"
@@ -21,7 +21,7 @@ FILES_${PN}-src = "${PYTHON_SITEPACKAGES_DIR}/process.py"
 RDEPENDS_{PN}-src = "${PN}"
 
 do_compile() {
-    python2 -O -m compileall ${WORKDIR}/process.py
+    python -O -m compileall ${WORKDIR}/process.py
 }
 
 do_install() {

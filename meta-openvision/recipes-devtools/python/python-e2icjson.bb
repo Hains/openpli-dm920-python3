@@ -7,7 +7,7 @@ SRC_URI = "git://github.com/e2iplayer/python-cjson.git;protocol=http"
 
 S = "${WORKDIR}/git"
 
-inherit distutils gitpkgv
+inherit distutils3 gitpkgv
 
 PV = "1.2.1+git${SRCPV}"
 PKGV = "1.2.1+git${GITPKGV}"

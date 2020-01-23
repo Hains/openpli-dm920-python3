@@ -52,7 +52,7 @@ DEPENDS = " \
             libxslt \
             lzo \
             mpeg2dec \
-            python \
+            python3 \
             samba \
             mysql5 \
             sqlite3 \
@@ -115,7 +115,7 @@ SRC_URI_append_libc-musl = " \
            file://0002-Remove-FILEWRAP.patch \
 "
 
-inherit autotools-brokensep gettext gitpkgv pythonnative
+inherit autotools-brokensep gettext gitpkgv python3native
 
 S = "${WORKDIR}/git"
 
@@ -209,57 +209,57 @@ FILES_${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi
 # OpenGL builds need glxinfo, that's in mesa-demos
 RRECOMMENDS_${PN}_append = " \
    libcec \
-   python \
-   python-ctypes \
-   python-lang \
-   python-re \
-   python-netclient \
-   python-html \
-   python-difflib \
-   python-json \
-   python-zlib \
-   python-shell \
-   python-sqlite3 \
-   python-compression \
-   python-profile \
-   python-mmap \
+   python3 \
+   python3-ctypes \
+   python3-lang \
+   python3-re \
+   python3-netclient \
+   python3-html \
+   python3-difflib \
+   python3-json \
+   python3-zlib \
+   python3-shell \
+   python3-sqlite3 \
+   python3-compression \
+   python3-profile \
+   python3-mmap \
    libcurl \
    os-release \
    ${@bb.utils.contains('PACKAGECONFIG', 'x11', 'xrandr xdpyinfo', '', d)} \
    \
-    python-distutils \
-    python-subprocess \
-    python-robotparser \
-    python-mechanize \
-    python-threading \
-    python-xml \
-    python-netserver \
-    python-misc \
-    python-textutils \
-    python-simplejson \
-    python-xmlrpc   \
-    python-pprint \
-    python-email \
-    python-compile \
-    python-compiler \
-    python-numbers \
-    python-pkgutil \
-    python-pycurl \
-    python-docutils \
-    python-iniparse \
-    python-hotshot \
-    python-curses \
-    python-pycrypto \
-    python-db \
-    python-argparse \
-    python-doctest \
-    python-plistlib\
-    python-mailbox \
-    python-terminal \
-    python-smtpd \
-    python-pydoc \
-    python-syslog \
-    python-resource \
+    python3-distutils \
+    python3-subprocess \
+    python3-robotparser \
+    python3-mechanize \
+    python3-threading \
+    python3-xml \
+    python3-netserver \
+    python3-misc \
+    python3-textutils \
+    python3-simplejson \
+    python3-xmlrpc   \
+    python3-pprint \
+    python3-email \
+    python3-compile \
+    python3-compiler \
+    python3-numbers \
+    python3-pkgutil \
+    python3-pycurl \
+    python3-docutils \
+    python3-iniparse \
+    python3-hotshot \
+    python3-curses \
+    python3-pycrypto \
+    python3-db \
+    python3-argparse \
+    python3-doctest \
+    python3-plistlib\
+    python3-mailbox \
+    python3-terminal \
+    python3-smtpd \
+    python3-pydoc \
+    python3-syslog \
+    python3-resource \
 "
 RRECOMMENDS_${PN}_append_libc-glibc = " \
     glibc-charmap-ibm850 \

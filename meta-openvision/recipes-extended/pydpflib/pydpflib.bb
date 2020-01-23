@@ -9,7 +9,7 @@ DEPENDS = "libusb"
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv setuptools
+inherit gitpkgv setuptools3
 
 PV = "0.14+git${SRCPV}"
 PKGV = "0.14+git${GITPKGV}"

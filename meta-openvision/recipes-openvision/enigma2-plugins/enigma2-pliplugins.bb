@@ -3,9 +3,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 #There's only one working plugin in this repository
 PACKAGES = "enigma2-plugin-extensions-openuitzendinggemist"
-RDEPENDS_enigma2-plugin-extensions-openuitzendinggemist = "python-argparse"
 
-inherit allarch pythonnative gitpkgv autotools-brokensep
+inherit allarch python3native gitpkgv autotools-brokensep
 
 PV = "2+git${SRCPV}"
 PKGV = "2+git${GITPKGV}"

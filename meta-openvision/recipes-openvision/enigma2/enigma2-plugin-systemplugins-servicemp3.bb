@@ -92,7 +92,7 @@ SRC_URI = "git://github.com/Hains/servicemp3.git;branch=master"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig
+inherit autotools gitpkgv python3native pkgconfig
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

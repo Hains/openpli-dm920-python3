@@ -11,7 +11,7 @@ SRC_URI = "https://pypi.python.org/packages/52/f8/e0d81d2a1db4025fa6dfa2e0a63f72
 
 S = "${WORKDIR}/Js2Py-${PV}"
 
-inherit setuptools
+inherit setuptools3
 
 SRC_URI[md5sum] = "c40b07dc7e8e51d268a70146e32b0603"
 SRC_URI[sha256sum] = "3bdc8c57518a21cec2cb97a922ecaeb826471d5e13de45a63a91a2b16ad3a1ac"

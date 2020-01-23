@@ -10,7 +10,7 @@ require openplugins.inc
 
 inherit autotools gettext
 
-DEPENDS += "python"
+DEPENDS += "python3"
 
 EXTRA_OECONF = " \
     STAGING_INCDIR=${STAGING_INCDIR} \

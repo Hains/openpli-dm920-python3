@@ -24,7 +24,7 @@ RRECOMMENDS_enigma2-plugin-systemplugins-blindscan = "virtual/blindscan-dvbs"
 RRECOMMENDS_enigma2-plugin-systemplugins-systemtime = "ntpdate"
 RRECOMMENDS_enigma2-plugin-extensions-transmission = "transmission transmission-client"
 
-inherit gitpkgv pythonnative pkgconfig
+inherit gitpkgv python3native pkgconfig
 
 PV = "y-git${SRCPV}"
 PKGV = "y-git${GITPKGV}"
@@ -62,10 +62,10 @@ inherit autotools-brokensep
 S = "${WORKDIR}/git"
 
 DEPENDS = " \
-	python-pyopenssl \
+	python3-pyopenssl \
 	streamripper \
 	python-mutagen \
-	python-twisted \
+	python3-twisted \
 	python-daap \
 	libcddb \
 	dvdbackup \

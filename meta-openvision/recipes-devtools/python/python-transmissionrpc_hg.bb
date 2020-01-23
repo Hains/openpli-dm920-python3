@@ -10,6 +10,6 @@ SRC_URI = "hg://bitbucket.org/blueluna;protocol=http;module=transmissionrpc;rev=
 
 S = "${WORKDIR}/transmissionrpc"
 
-inherit setuptools
+inherit setuptools3
 
 include python-package-split.inc

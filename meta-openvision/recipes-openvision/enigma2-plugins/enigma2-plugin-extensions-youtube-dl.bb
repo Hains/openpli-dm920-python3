@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;protocol=https;branch=master
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv setuptools
+inherit gitpkgv setuptools3
 
 EXTRA_OEMAKE = "PYTHON=${PYTHON}"
 
@@ -30,13 +30,13 @@ do_install_append() {
 }
 
 RDEPENDS_${PN} = " \
-	python-email \
-	python-gdata \
-	python-subprocess \
-	python-unixadmin \
-	python-ctypes \
-	python-argparse \
-	python-html \
+	python3-email \
+	python3-gdata \
+	python3-subprocess \
+	python3-unixadmin \
+	python3-ctypes \
+	python3-argparse \
+	python3-html \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"

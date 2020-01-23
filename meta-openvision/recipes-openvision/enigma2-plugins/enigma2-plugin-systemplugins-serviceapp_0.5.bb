@@ -6,14 +6,14 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "enigma2 uchardet openssl"
-RDEPENDS_${PN} = "enigma2 uchardet openssl python-json"
+RDEPENDS_${PN} = "enigma2 uchardet openssl python3-json"
 RRECOMMENDS_${PN} = "exteplayer3 gstplayer"
 
 SRC_URI = "git://github.com/mx3L/serviceapp.git;branch=develop"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig
+inherit autotools gitpkgv python3native pkgconfig
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

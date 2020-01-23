@@ -12,4 +12,4 @@ SRC_URI[sha256sum] = "d9d85dd9c073ea021f8b46670bf075bc3de228ac00c717ca20834821ae
 SRC_URI = "http://iniparse.googlecode.com/files/iniparse-${PV}.tar.gz"
 S = "${WORKDIR}/iniparse-${PV}"
 
-inherit distutils
+inherit distutils3

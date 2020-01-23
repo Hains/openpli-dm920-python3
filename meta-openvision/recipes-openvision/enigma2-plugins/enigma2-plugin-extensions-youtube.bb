@@ -15,13 +15,12 @@ PKGV = "1+git${GITPKGV}"
 inherit distutils-openplugins
 
 RDEPENDS_${PN} = " \
-	python-core \
-	python-codecs \
-	python-json \
-	python-netclient \
-	python-pyopenssl \
-	python-zlib \
-	python-twisted-web \
+	python3-core \
+	python3-codecs \
+	python3-json \
+	python3-netclient \
+	python3-pyopenssl \
+	python3-twisted-web \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"

@@ -5,12 +5,12 @@ LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fbc093901857fcd118f065f900982c24"
 PR = "r2"
 
-inherit distutils
+inherit distutils3
 
 SRC_URI = "http://jerakeen.org/files/PythonDaap-${PV}.tar.gz"
 S = "${WORKDIR}/PythonDaap-${PV}"
 
-RDEPENDS_${PN} = "python-compression"
+RDEPENDS_${PN} = "python3-compression"
 
 
 SRC_URI[md5sum] = "b3db3d60b0ee83f5f23101d2c3bb99e0"
