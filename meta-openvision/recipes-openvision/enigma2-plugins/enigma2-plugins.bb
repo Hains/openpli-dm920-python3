@@ -30,7 +30,7 @@ PV = "y-git${SRCPV}"
 PKGV = "y-git${GITPKGV}"
 
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
+SRC_URI = "${GITHUB_URI}/Hains/${BPN}.git"
 
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \
@@ -66,7 +66,6 @@ DEPENDS = " \
 	streamripper \
 	python-mutagen \
 	python3-twisted \
-	python-daap \
 	libcddb \
 	dvdbackup \
 	libtirpc \
