@@ -88,7 +88,7 @@ RRECOMMENDS_${PN} = "\
 	${GST_UGLY_RDEPS} \
 	"
 
-SRC_URI = "git://github.com/Hains/servicemp3.git;branch=master"
+SRC_URI = "git://github.com/Hains/servicemp3.git;branch=python3"
 
 S = "${WORKDIR}/git"
 
@@ -104,10 +104,6 @@ EXTRA_OECONF = "\
 	STAGING_INCDIR=${STAGING_INCDIR} \
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
 	"
-
-do_install_append() {
-	rm ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.pyc
-}
 
 FILES_${PN} = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.pyo \
