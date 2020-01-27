@@ -158,30 +158,6 @@ FILES_${PN}-dbg += "\
 	${libdir}/enigma2/python/Plugins/*/*/.debug \
 	"
 
-# Swig generated 200k enigma.py file has no purpose for end users
-# Save some space by not installing sources (mytest.py must remain)
-FILES_${PN}-src += "\
-	${libdir}/enigma2/python/GlobalActions.py \
-	${libdir}/enigma2/python/Navigation.py \
-	${libdir}/enigma2/python/NavigationInstance.py \
-	${libdir}/enigma2/python/RecordTimer.py \
-	${libdir}/enigma2/python/ServiceReference.py \
-	${libdir}/enigma2/python/SleepTimer.py \
-	${libdir}/enigma2/python/e2reactor.py \
-	${libdir}/enigma2/python/enigma.py \
-	${libdir}/enigma2/python/keyids.py \
-	${libdir}/enigma2/python/keymapparser.py \
-	${libdir}/enigma2/python/skin.py \
-	${libdir}/enigma2/python/timer.py \
-	${libdir}/enigma2/python/BoxBrandingTest.py \
-	${libdir}/enigma2/python/PowerTimer.py \
-	${libdir}/enigma2/python/*/*.py \
-	${libdir}/enigma2/python/*/*/*.py \
-	${libdir}/enigma2/python/*/*/*/*.py \
-	${libdir}/enigma2/python/*/*/*/*/*.py \
-	${libdir}/enigma2/python/*/*/*/*/*/*.py \
-	"
-
 do_install_append() {
 	install -d ${D}${datadir}/keymaps
 	find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
