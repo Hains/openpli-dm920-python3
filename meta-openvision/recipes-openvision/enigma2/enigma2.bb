@@ -115,6 +115,7 @@ SRC_URI = " ${GITHUB_URI}/Hains/enigma2-openvision.git;branch=${ENIGMA2_BRANCH} 
 			"
 
 LDFLAGS_prepend = " -lxml2 "
+PYTHONDONTWRITEBYTECODE = "1"
 
 S = "${WORKDIR}/git"
 

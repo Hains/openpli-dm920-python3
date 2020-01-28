@@ -97,6 +97,8 @@ inherit autotools gitpkgv python3native pkgconfig
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
+PYTHONDONTWRITEBYTECODE = "1"
+
 EXTRA_OECONF = "\
 	--with-gstversion=${GST_VERSION} \
 	BUILD_SYS=${BUILD_SYS} \
