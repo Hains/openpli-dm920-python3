@@ -50,6 +50,7 @@ EXTRA_OECONF = " \
     --with-transcoding="${TRANSCODING}" \
     --with-tfpu="${TARGET_FPU}" \
     --with-multitranscoding="${MULTITRANSCODING}" \
+    --with-multilib=False \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"
