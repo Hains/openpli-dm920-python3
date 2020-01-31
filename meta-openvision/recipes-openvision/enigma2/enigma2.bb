@@ -54,7 +54,7 @@ PYTHON_RDEPS = " \
 	python3-shell \
 	python3-threading \
 	python3-twisted-core \
-	python3-twisted-web \
+	python3-twisted \
 	python3-xml \
 	python3-zopeinterface \
 	"
@@ -78,8 +78,8 @@ DESCRIPTION_append_enigma2-plugin-systemplugins-positionersetup = "helps you ins
 DESCRIPTION_append_enigma2-plugin-systemplugins-satelliteequipmentcontrol = "allows you to fine-tune DiSEqC-settings."
 DESCRIPTION_append_enigma2-plugin-systemplugins-satfinder = "helps you to align your dish."
 DESCRIPTION_append_enigma2-plugin-systemplugins-videomode = "selects advanced video modes"
-RDEPENDS_enigma2-plugin-systemplugins-nfiflash = "python3-twisted-web"
-RDEPENDS_enigma2-plugin-systemplugins-softwaremanager = "python-twisted-web"
+RDEPENDS_enigma2-plugin-systemplugins-nfiflash = "python3-twisted"
+RDEPENDS_enigma2-plugin-systemplugins-softwaremanager = "python3-twisted"
 DESCRIPTION_append_enigma2-plugin-systemplugins-wirelesslan = "helps you configuring your wireless lan"
 RDEPENDS_enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
 DESCRIPTION_append_enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
