@@ -55,6 +55,7 @@ PYTHON_RDEPS = " \
 	python3-threading \
 	python3-twisted-core \
 	python3-twisted \
+	python3-urllib3 \
 	python3-xml \
 	python3-zopeinterface \
 	"
