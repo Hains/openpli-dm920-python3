@@ -1,0 +1,78 @@
+diff --git a/plugin/controllers/file.py b/plugin/controllers/file.py
+index 93889992..4b74d62f 100644
+--- a/plugin/controllers/file.py
++++ b/plugin/controllers/file.py
+@@ -12,7 +12,7 @@
+ import os
+ import re
+ import glob
+-from urllib import quote
++from urllib.parse import quote
+ import json
+ 
+ from twisted.web import static, resource, http
+diff --git a/plugin/controllers/mobile.py b/plugin/controllers/mobile.py
+index c3c98aaf..828d52bb 100644
+--- a/plugin/controllers/mobile.py
++++ b/plugin/controllers/mobile.py
+@@ -24,7 +24,7 @@ from Plugins.Extensions.OpenWebif.controllers.base import BaseController
+ from Plugins.Extensions.OpenWebif.controllers.models.movies import getMovieList
+ from Plugins.Extensions.OpenWebif.controllers.models.timers import getTimers
+ from Plugins.Extensions.OpenWebif.controllers.models.services import getBouquets, getChannels, getChannelEpg, getEvent, getPicon
+-from urllib import quote
++from urllib.parse import quote
+ from time import localtime, strftime
+ 
+ from Plugins.Extensions.OpenWebif.controllers.defaults import TRANSCODING
+diff --git a/plugin/controllers/models/servicelist.py b/plugin/controllers/models/servicelist.py
+index 56d8c9be..bd17e45c 100644
+--- a/plugin/controllers/models/servicelist.py
++++ b/plugin/controllers/models/servicelist.py
+@@ -8,7 +8,7 @@
+ #               published by the Free Software Foundation.                   #
+ #                                                                            #
+ ##############################################################################
+-from urllib import unquote
++from urllib.parse import unquote
+ from enigma import eDVBDB
+ from Components.NimManager import nimmanager
+ import Components.ParentalControl
+diff --git a/plugin/controllers/models/services.py b/plugin/controllers/models/services.py
+index b6ec7884..465e5534 100644
+--- a/plugin/controllers/models/services.py
++++ b/plugin/controllers/models/services.py
+@@ -23,7 +23,7 @@ from Screens.ChannelSelection import service_types_tv, service_types_radio, FLAG
+ from Screens.InfoBar import InfoBar
+ from enigma import eServiceCenter, eServiceReference, iServiceInformation, eEPGCache
+ from Plugins.Extensions.OpenWebif.controllers.models.info import GetWithAlternative, getOrbitalText, getOrb
+-from urllib import quote, unquote
++from urllib.parse import quote, unquote
+ from ..utilities import parse_servicereference, SERVICE_TYPE_LOOKUP, NS_LOOKUP
+ from ..i18n import _, tstrings
+ from ..defaults import PICON_PATH
+diff --git a/plugin/controllers/models/stream.py b/plugin/controllers/models/stream.py
+index e2e60535..f9158484 100644
+--- a/plugin/controllers/models/stream.py
++++ b/plugin/controllers/models/stream.py
+@@ -11,7 +11,7 @@
+ from enigma import eServiceReference, getBestPlayableServiceReference
+ from ServiceReference import ServiceReference
+ from Plugins.Extensions.OpenWebif.controllers.models.info import getInfo
+-from urllib import unquote, quote
++from urllib.parse import unquote, quote
+ import os
+ import re
+ from Components.config import config
+diff --git a/plugin/controllers/models/timers.py b/plugin/controllers/models/timers.py
+index e26270a6..f37e2c97 100644
+--- a/plugin/controllers/models/timers.py
++++ b/plugin/controllers/models/timers.py
+@@ -17,7 +17,7 @@ from Components.TimerSanityCheck import TimerSanityCheck
+ from RecordTimer import RecordTimerEntry, RecordTimer, parseEvent
+ from ServiceReference import ServiceReference
+ from time import time, strftime, localtime, mktime
+-from urllib import unquote
++from urllib.parse import unquote
+ from Plugins.Extensions.OpenWebif.controllers.models.info import GetWithAlternative
+ from ..i18n import _
+ 
