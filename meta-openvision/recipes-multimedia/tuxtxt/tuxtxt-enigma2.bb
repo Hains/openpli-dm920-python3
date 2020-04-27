@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
 DEPENDS = "freetype libtuxtxt"
 DESCRIPTION = "tuxbox tuxtxt for enigma2"
 
-inherit gitpkgv
+inherit autotools gitpkgv pkgconfig python3native
 
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/tuxtxt.git"
@@ -19,8 +19,6 @@ PACKAGES = "${PN}-src ${PN}-dbg ${PN}-dev ${PN}"
 FILES_${PN}-src = "/usr/src ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/*.py"
 FILES_${PN} = "${libdir}/libtuxtxt32bpp.so.* ${datadir}/fonts ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/*.pyo ${sysconfdir}/tuxtxt"
 CONFFILES_${PN} = "${sysconfdir}/tuxtxt/tuxtxt2.conf"
-
-inherit autotools pkgconfig
 
 EXTRA_OECONF = "--with-boxtype=generic --with-configdir=/etc \
 	DVB_API_VERSION=5\
