@@ -22,8 +22,8 @@ index c3c98aaf..828d52bb 100644
 -from urllib import quote
 +from urllib.parse import quote
  from time import localtime, strftime
+ from boxbranding import getHaveTranscoding
  
- from Plugins.Extensions.OpenWebif.controllers.defaults import TRANSCODING
 diff --git a/plugin/controllers/models/servicelist.py b/plugin/controllers/models/servicelist.py
 index 56d8c9be..bd17e45c 100644
 --- a/plugin/controllers/models/servicelist.py
