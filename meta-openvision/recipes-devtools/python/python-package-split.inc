@@ -5,12 +5,6 @@ RDEPENDS_{PN}-src = "${PN}"
 SSTATE_DUPWHITELIST += "${STAGING_LIBDIR}/python3.8/site-packages/tests/__init__.py ${STAGING_LIBDIR}/python3.8/site-packages/tests/__init__.pyo"
 
 FILES_${PN}-src = " \
-    ${PYTHON_SITEPACKAGES_DIR}/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*.py \
     ${PYTHON_SITEPACKAGES_DIR}/*.c \
     ${PYTHON_SITEPACKAGES_DIR}/*/*.c \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*.c \
