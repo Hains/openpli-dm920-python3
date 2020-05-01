@@ -17,6 +17,7 @@ RDEPENDS_${PN} = "\
 	python3-numbers \
 	python3-pyopenssl \
 	python3-shell \
+	python3-six \
 	python3-unixadmin \
 	"
 
