@@ -39,7 +39,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-moviecut \
 	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-pictureplayer \
-	enigma2-plugin-extensions-ppanel \
 	\
 	enigma2-plugin-softcams-oscam \
 	\
