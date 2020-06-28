@@ -68,12 +68,12 @@ OPTIONAL_PACKAGES += " \
 	procps \
 	pv \
 	pyload \
-	python-beautifulsoup4 \
+	python3-beautifulsoup4 \
 	python-js2py \
-	python-lxml \
+	python3-lxml \
 	python-mechanize \
 	python-ntplib \
-	python-requests \
+	python3-requests \
 	rsync \
 	rt3573 \
 	rt5572 \

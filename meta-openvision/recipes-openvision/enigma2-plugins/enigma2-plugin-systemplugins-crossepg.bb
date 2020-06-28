@@ -4,7 +4,7 @@ LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=4fbd65380cdd255951079008b364516c"
 
 DEPENDS += "libxml2 zlib python3 swig-native curl"
-RDEPENDS_${PN} += "libcurl enigma2 python3-compression python3-lzma xz"
+RDEPENDS_${PN} += "libcurl enigma2 python3-compression python-lzma xz"
 
 inherit gitpkgv
 

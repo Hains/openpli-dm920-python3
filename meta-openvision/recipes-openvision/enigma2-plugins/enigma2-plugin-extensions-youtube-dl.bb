@@ -31,11 +31,8 @@ do_install_append() {
 
 RDEPENDS_${PN} = " \
 	python3-email \
-	python3-gdata \
-	python3-subprocess \
 	python3-unixadmin \
 	python3-ctypes \
-	python3-argparse \
 	python3-html \
 	"
 

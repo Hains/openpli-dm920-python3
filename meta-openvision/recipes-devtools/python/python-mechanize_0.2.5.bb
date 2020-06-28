@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING.txt;md5=a7939d3efc8493ae7054e3d2c4644b28"
 
 PR = "r2"
 
-RDEPENDS_${PN} = "python-core python-robotparser"
+RDEPENDS_${PN} = "python3-core"
 
 SRC_URI = "https://pypi.python.org/packages/source/m/mechanize/mechanize-${PV}.tar.gz"
 

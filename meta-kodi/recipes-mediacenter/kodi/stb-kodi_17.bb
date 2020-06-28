@@ -211,13 +211,10 @@ RRECOMMENDS_${PN}_append = " \
    libcec \
    python3 \
    python3-ctypes \
-   python3-lang \
-   python3-re \
    python3-netclient \
    python3-html \
    python3-difflib \
    python3-json \
-   python3-zlib \
    python3-shell \
    python3-sqlite3 \
    python3-compression \
@@ -228,30 +225,24 @@ RRECOMMENDS_${PN}_append = " \
    ${@bb.utils.contains('PACKAGECONFIG', 'x11', 'xrandr xdpyinfo', '', d)} \
    \
     python3-distutils \
-    python3-subprocess \
-    python3-robotparser \
-    python3-mechanize \
+    python-mechanize \
     python3-threading \
     python3-xml \
     python3-netserver \
     python3-misc \
-    python3-textutils \
     python3-simplejson \
     python3-xmlrpc   \
     python3-pprint \
     python3-email \
     python3-compile \
-    python3-compiler \
     python3-numbers \
     python3-pkgutil \
     python3-pycurl \
     python3-docutils \
     python3-iniparse \
-    python3-hotshot \
     python3-curses \
     python3-pycrypto \
     python3-db \
-    python3-argparse \
     python3-doctest \
     python3-plistlib\
     python3-mailbox \

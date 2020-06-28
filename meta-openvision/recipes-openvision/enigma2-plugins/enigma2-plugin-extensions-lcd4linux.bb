@@ -20,11 +20,10 @@ RDEPENDS_${PN} += "\
 	python3-email \
 	python3-image \
 	python3-imaging \
-	python3-mutagen \
+	python-mutagen \
 	python3-pyusb \
 	python3-shell \
 	python3-simplejson \
-	python3-textutils \
 "
 
 S = "${WORKDIR}/git"

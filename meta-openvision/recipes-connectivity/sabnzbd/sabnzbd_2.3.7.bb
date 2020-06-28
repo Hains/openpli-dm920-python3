@@ -4,10 +4,10 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=6c2cd2089133de5067e13a6d4f75afef"
 
 PR = "r1"
 
-DEPENDS = "python"
+DEPENDS = "python3"
 RDEPENDS_${PN} = "\
-	python-core python-shell python-compression python-crypt python-ctypes python-sqlite3 \
-	python-cheetah python-misc python-subprocess python-html python-email python-yenc \
+	python3-core python3-shell python3-compression python3-crypt python3-ctypes python3-sqlite3 \
+	python3-cheetah python3-misc python3-html python3-email python-yenc \
 	"
 RRECOMMENDS_${PN} = "par2cmdline unrar"
 
@@ -27,7 +27,7 @@ INSTALLDIR = "${libdir}/${PN}"
 PACKAGES = "${PN}-doc ${PN}-src ${PN}"
 
 FILES_${PN}-src = "${INSTALLDIR}/*/*.py ${INSTALLDIR}/*/*/*.py"
-RDEPENDS_${PN}-src = "python"
+RDEPENDS_${PN}-src = "python3"
 FILES_${PN}-doc = "${INSTALLDIR}/*.txt ${INSTALLDIR}/licenses ${INSTALLDIR}/interfaces/*/licenses"
 FILES_${PN} = "${INSTALLDIR} /etc/init.d/sabnzbd /etc/init.d/init-functions /etc/enigma2/sabnzbd.conf"
 

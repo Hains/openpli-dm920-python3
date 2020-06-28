@@ -2,8 +2,8 @@ MODULE = "EPGImportFilter"
 DESCRIPTION = "EPGImport Filter"
 
 RDEPENDS_${PN} = "\
-	python-difflib \
-	python-shell \
+	python3-difflib \
+	python3-shell \
 	"
 
 inherit gitpkgv
