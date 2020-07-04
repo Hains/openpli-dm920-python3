@@ -44,6 +44,7 @@ PYTHON_RDEPS = " \
 	python3-crypt \
 	python3-fcntl \
 	python3-logging \
+	python3-mmap \
 	python3-netclient \
 	python3-netserver \
 	python3-numbers \
