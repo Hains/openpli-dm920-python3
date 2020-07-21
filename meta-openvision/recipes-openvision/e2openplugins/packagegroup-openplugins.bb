@@ -12,7 +12,6 @@ DEPENDS = " \
 	enigma2-plugin-extensions-antilogo \
 	enigma2-plugin-extensions-autobackup \
 	enigma2-plugin-extensions-autobouquets \
-	enigma2-plugin-extensions-bitrate \
 	enigma2-plugin-extensions-blackoutblind \
 	enigma2-plugin-extensions-buienradar \
 	enigma2-plugin-extensions-cacheflush \
