@@ -28,7 +28,6 @@ SRC_URI = "git://github.com/FFmpeg/FFmpeg.git \
 "
 
 SRC_URI_append = "\
-		file://01-mips64_cpu_detection.patch \
 		file://02-fix-hls.patch \
 		file://03-buffer-size.patch \
 		file://04-aac.patch \
