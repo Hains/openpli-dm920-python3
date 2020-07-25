@@ -31,7 +31,7 @@ RDEPENDS_${PN} = " \
 	lsdir \
 	python3-core \
 	python-e2icjson \
-	python-pycurl \
+	python3-pycurl \
 	rtmpdump \
 	uchardet \
 	wget \
