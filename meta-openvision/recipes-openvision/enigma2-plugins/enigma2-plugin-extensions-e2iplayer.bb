@@ -30,7 +30,6 @@ RDEPENDS_${PN} = " \
 	iptvsubparser \
 	lsdir \
 	python3-core \
-	python-e2icjson \
 	python3-pycurl \
 	rtmpdump \
 	uchardet \
