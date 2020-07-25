@@ -36,7 +36,7 @@ INITSCRIPT_NAME = "sabnzbd"
 INITSCRIPT_PARAMS = "defaults"
 
 do_compile() {
-	python2 -O -m compileall .
+	python3 -O -m compileall .
 }
 
 do_install() {

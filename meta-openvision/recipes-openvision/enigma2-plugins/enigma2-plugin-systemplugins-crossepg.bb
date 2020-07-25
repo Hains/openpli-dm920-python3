@@ -8,7 +8,7 @@ RDEPENDS_${PN} += "libcurl enigma2 python3-compression python-lzma xz"
 
 inherit gitpkgv
 
-SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;protocol=git"
+SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;branch=dev;protocol=git"
 SRC_URI_append = " file://add-dummy-boxbranding.patch"
 
 PV = "0.8.6+gitr${SRCPV}"
@@ -41,7 +41,7 @@ rm -fr ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG > /dev/null 2>&1
 
 # Just a quick hack to "compile" the python parts.
 do_compile_append() {
-    python2 -O -m compileall ${S}
+    python3 -O -m compileall ${S}
 }
 
 python populate_packages_prepend() {

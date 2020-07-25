@@ -15,7 +15,7 @@ FILES_${PN} = "/usr/"
 S = "${WORKDIR}/git"
 
 do_compile() {
-	python2 -O -m compileall ${S}/usr/lib/enigma2/python/Components/
+	python3 -O -m compileall ${S}/usr/lib/enigma2/python/Components/
 }
 
 do_install() {
