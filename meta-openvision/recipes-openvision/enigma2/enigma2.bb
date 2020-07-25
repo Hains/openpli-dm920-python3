@@ -140,7 +140,8 @@ EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	--with-colorlcd400 \
-	--with-oever="10.1" \
+	--with-oever=${VISIONVERSION} \
+	--with-boxbrand=${BOX_BRAND} \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@get_crashaddr(d)} \
 	BUILD_SYS=${BUILD_SYS} \
