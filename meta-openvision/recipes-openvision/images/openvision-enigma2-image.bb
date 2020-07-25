@@ -30,15 +30,20 @@ EXTERNAL_WIFI_DRIVERS = " \
 
 ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-audiosync \
+	enigma2-plugin-extensions-bitrate \
 	enigma2-plugin-extensions-cdinfo \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-dvdplayer \
+	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
 	enigma2-plugin-extensions-moviecut \
 	enigma2-plugin-extensions-openwebif \
+	enigma2-plugin-extensions-oscamstatus \
 	enigma2-plugin-extensions-pictureplayer \
+	enigma2-plugin-extensions-systemtools \
+	enigma2-plugin-extensions-youtube \
 	\
 	enigma2-plugin-softcams-oscam \
 	\
