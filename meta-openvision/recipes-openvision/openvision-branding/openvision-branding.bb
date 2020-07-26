@@ -10,10 +10,6 @@ inherit autotools-brokensep gitpkgv python3native
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-PR[vardepsexclude] += "DATE"
-
-do_configure[nostamp] = "1"
-
 SRC_URI="git://github.com/Hains/branding-module.git;protocol=git"
 
 S = "${WORKDIR}/git"
