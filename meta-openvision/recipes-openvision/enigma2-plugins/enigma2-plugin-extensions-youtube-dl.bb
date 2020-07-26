@@ -36,13 +36,4 @@ RDEPENDS_${PN} = " \
 	python3-html \
 	"
 
-RDEPENDS_{PN}-src = "${PN}"
-FILES_${PN}-src = " \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*.py \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*/*.py \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*.py \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*/*.py \
-	${datadir}/etc/* \
-	"
-
 FILES_${PN} += "${sysconfdir}"
