@@ -1,22 +1,22 @@
-Experimental build environment for dreambox 920 based on Open Vision (unofficial).
+Experimental build environment for dreambox 920 based on Open Vision with Python 3.
+Work in progeress, so not suitable for daily use!
 
 https://github.com/OpenVisionE2/openvision-oe
 
-In comparison to official Open Vision this build environment has:<br>
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of January 3rd, 2019.<br>
--GCC 9.2.0<br>
--Glibc 2.30<br>
--GStreamer 1.17.0.1<br>
--Python 2.7.17<br>
--OpenSSL 1.1.1d<br>
--Busybox 1.31.0<br>
+&nbsp;with git snapshot of August 1st, 2020.<br>
+-GCC 10.1.0<br>
+-Glibc 2.31<br>
+-GStreamer 1.17.2.1<br>
+-Python 3.8.5<br>
+-OpenSSL 1.1.1g<br>
+-Busybox 1.32.0<br>
 and more.<br>
 <br>
 <br>
 Feel free to send pull-request.
 
-Tested on Ubuntu 19.10.
+Tested wit Ubuntu 20.04.
 <br>
 <br>
 Dependencies:
@@ -25,13 +25,13 @@ sudo apt install autoconf automake bison bzip2 cvs diffstat flex g++ gawk gcc ge
 ```
 To build image:
 ```
-git clone https://github.com/Hains/openvision-dm920-oe-core.git
+git clone https://github.com/Hains/openvision-dm920-python3.git
 
-cd openvision-dm920-oe-core
+cd openvision-dm920-python3
 
 make image
 ```
-When the build is finished, the image openvision-enigma2-9.3-dm920.rootfs.tar.bz2 is in the:
+When the build is finished, the image openvision-enigma2-10.1-dm920.rootfs.tar.bz2 is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
@@ -52,13 +52,13 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openvision-9.3;cd openvision-9.3;
+sudo mkdir feeds;cd feeds;sudo mkdir openvision-10.1;cd openvision-10.1;
 
-sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/dm920 dm920 
+sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/dm920 dm920 
 
-sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/all all
+sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/all all
 
-sudo ln -s /home/<your username>/openvision-dm920-oe-core/build/tmp/deploy/ipk/cortexa15hf-neon-vfpv4 cortexa15hf-neon-vfpv4
+sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/cortexa15hf-neon-vfpv4 cortexa15hf-neon-vfpv4
 ```
 Add hostname or ip address to the site.conf file (exist after make command), e.g. at the end of the file.
 ```
