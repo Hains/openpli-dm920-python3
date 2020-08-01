@@ -1,5 +1,5 @@
-Experimental build environment for dreambox 920 based on Open Vision with Python 3.
-Work in progeress, so not suitable for daily use!
+Experimental build environment for dreambox 920 based on Open Vision with Python 3.<br>
+Work in progress, so not suitable for daily use!<br>
 
 https://github.com/OpenVisionE2/openvision-oe
 
