@@ -39,11 +39,6 @@ RDEPENDS_${PN} = " \
 RDEPENDS_{PN}-src = "${PN}"
 
 FILES_${PN}-src = " \
-	${libdir}/enigma2/python/Plugins/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*/*/*.py \
 	${libdir}/enigma2/python/Plugins/*-py3.8.egg-info/* \
 	${libdir}/enigma2/python/Plugins/*/locale/*/LC_MESSAGES/*.po \
 	"
