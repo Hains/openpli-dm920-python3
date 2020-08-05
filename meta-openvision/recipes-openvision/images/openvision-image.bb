@@ -6,6 +6,7 @@ IMAGE_INSTALL = "\
 	${ROOTFS_PKGMANAGE} \
 	avahi-daemon \
 	ca-certificates \
+	dhrystone \
 	distro-feed-configs \
 	dropbear \
 	e2fsprogs-e2fsck \
