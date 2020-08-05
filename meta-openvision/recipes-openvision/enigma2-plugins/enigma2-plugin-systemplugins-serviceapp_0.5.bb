@@ -9,7 +9,7 @@ DEPENDS = "enigma2 uchardet openssl"
 RDEPENDS_${PN} = "enigma2 uchardet openssl python3-json"
 RRECOMMENDS_${PN} = "exteplayer3 gstplayer"
 
-SRC_URI = "git://github.com/mx3L/serviceapp.git;branch=develop"
+SRC_URI = "git://github.com/OpenVisionE2/serviceapp.git;branch=develop"
 
 S = "${WORKDIR}/git"
 
@@ -30,11 +30,10 @@ do_install_append() {
 }
 
 FILES_${PN} = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.pyo \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.pyc \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/locale/*/LC_MESSAGES/ServiceApp.mo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.so"
 
 FILES_${PN}-dev = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.py \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.la"
 
