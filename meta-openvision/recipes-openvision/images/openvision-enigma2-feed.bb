@@ -125,6 +125,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-skins-pli-hd \
 	enigma2-plugin-skins-pli-hd-fullnight \
 	enigma2-plugin-systemplugins-newvirtualkeyboard \
+	enigma2-plugin-systemplugins-serviceapp \
 	enigma2-plugins \
 	meta-enigma2-dvdburn \
 	picons-enigma2-meta \
