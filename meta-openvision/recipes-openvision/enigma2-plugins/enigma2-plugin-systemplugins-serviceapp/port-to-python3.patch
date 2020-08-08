@@ -14,7 +14,7 @@ index 34c71eb..56c39f1 100644
          return 1;
      }
 -    py_unicode = PyString_AsDecodedObject(py_string, input_encoding.c_str(), "strict");
-+    py_unicode = py_string;
++    py_unicode = PyUnicode_AsDecodedObject(py_string, input_encoding.c_str(), "strict");
      if (py_unicode == NULL)
      {
          Py_DECREF(py_string);
