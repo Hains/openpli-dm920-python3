@@ -1,0 +1,58 @@
+diff --git a/src/serviceapp/common.cpp b/src/serviceapp/common.cpp
+index 34c71eb..56c39f1 100644
+--- a/src/serviceapp/common.cpp
++++ b/src/serviceapp/common.cpp
+@@ -221,13 +221,13 @@ int detectEncoding(const std::string &content, std::string &encoding)
+ int convertToUTF8(const std::string &input_string, const std::string &input_encoding, std::string &output_string)
+ {
+     PyObject *py_string, *py_unicode;
+-    py_string = PyString_FromStringAndSize(input_string.c_str(), input_string.length());
++    py_string = PyUnicode_FromStringAndSize(input_string.c_str(), input_string.length());
+     if (py_string == NULL)
+     {
+         PyErr_Print();
+         return 1;
+     }
+-    py_unicode = PyString_AsDecodedObject(py_string, input_encoding.c_str(), "strict");
++    py_unicode = py_string;
+     if (py_unicode == NULL)
+     {
+         Py_DECREF(py_string);
+@@ -243,7 +243,7 @@ int convertToUTF8(const std::string &input_string, const std::string &input_enco
+         return 1;
+     }
+     Py_DECREF(py_unicode);
+-    output_string = PyString_AsString(py_string);
++    output_string = PyUnicode_AsUTF8(py_string);
+     Py_DECREF(py_string);
+     return 0;
+ }
+diff --git a/src/serviceapp/serviceapp.cpp b/src/serviceapp/serviceapp.cpp
+index 684ac14..052d86f 100644
+--- a/src/serviceapp/serviceapp.cpp
++++ b/src/serviceapp/serviceapp.cpp
+@@ -1681,10 +1681,21 @@ static PyMethodDef serviceappMethods[] = {
+ 	 {NULL,NULL,0,NULL}
+ };
+ 
+-PyMODINIT_FUNC
+-initserviceapp(void)
++static struct PyModuleDef moduledef = {
++	PyModuleDef_HEAD_INIT,
++	"serviceapp",         /* m_name */
++	"serviceapp",        /* m_doc */
++	-1,                  /* m_size */
++	serviceappMethods,   /* m_methods */
++	NULL,                /* m_reload */
++	NULL,                /* m_traverse */
++	NULL,                /* m_clear */
++	NULL,                /* m_free */
++};
++
++PyMODINIT_FUNC PyInit_serviceapp(void)
+ {
+-	Py_InitModule("serviceapp", serviceappMethods);
++	PyModule_Create(&moduledef);
+ 	g_GstPlayerOptionsServiceMP3 = new GstPlayerOptions();
+ 	g_GstPlayerOptionsServiceGst = new GstPlayerOptions();
+ 	g_GstPlayerOptionsUser = new GstPlayerOptions();
