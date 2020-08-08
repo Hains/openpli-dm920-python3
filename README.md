@@ -4,9 +4,9 @@ Work in progress, so not suitable for daily use!<br>
 https://github.com/OpenVisionE2/openvision-oe
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of August 1st, 2020.<br>
+&nbsp;with git snapshot of August 8th, 2020.<br>
 -GCC 10.1.0<br>
--Glibc 2.31<br>
+-Glibc 2.32<br>
 -GStreamer 1.17.2.1<br>
 -Python 3.8.5<br>
 -OpenSSL 1.1.1g<br>
