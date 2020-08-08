@@ -30,7 +30,7 @@ do_install_append() {
 }
 
 FILES_${PN} = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.pyc \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.py* \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/locale/*/LC_MESSAGES/ServiceApp.mo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.so"
 
