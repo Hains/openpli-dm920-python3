@@ -18,3 +18,5 @@ pkg_postrm_${PN}() {
 }
 
 FILES_${PN} = "${PLUGINPATH}"
+
+SRC_URI = "git://github.com/Hains/e2openplugin-HetWeer.git;branch=python3"
