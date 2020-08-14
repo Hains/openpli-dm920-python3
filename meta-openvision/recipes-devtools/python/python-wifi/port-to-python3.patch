@@ -1,5 +1,5 @@
 diff --git a/pythonwifi/iwlibs.py b/pythonwifi/iwlibs.py
-index 513d310..da5aa8d 100644
+index 513d310..6413827 100644
 --- a/pythonwifi/iwlibs.py
 +++ b/pythonwifi/iwlibs.py
 @@ -32,7 +32,6 @@ import time
@@ -10,13 +10,29 @@ index 513d310..da5aa8d 100644
  
  
  KILO = 10**3
-@@ -110,7 +109,8 @@ def getConfiguredWNICnames():
+@@ -96,7 +95,7 @@ def getConfiguredWNICnames():
+     """
+     iwstruct = Iwstruct()
+     ifnames = []
+-    buff = array.array('c', '\0'*1024)
++    buff = array.array('B', b'\0'*1024)
+     caddr_t, length = buff.buffer_info()
+     datastr = iwstruct.pack('iP', length, caddr_t)
+     result = iwstruct._fcntl(pythonwifi.flags.SIOCGIFCONF, datastr)
+@@ -104,13 +103,14 @@ def getConfiguredWNICnames():
+     for i in range(0, 1024, 32):
+         ifname = buff.tostring()[i:i+32]
+         ifname = struct.unpack('32s', ifname)[0]
+-        ifname = ifname.split('\0', 1)[0]
++        ifname = ifname.split(b'\0', 1)[0]
+         if ifname:
+             # verify if ifnames are really wifi devices
              wifi = Wireless(ifname)
              try:
                  result = wifi.getAPaddr()
 -            except IOError, (errno, strerror):
-+            except IOError as errno_strerror:
-+                (errno, strerror) = errno_strerror
++            except IOError as e:
++                errno = e.args
                  # don't stop on an individual error
                  pass
              if result[0] == 0:
@@ -29,7 +45,34 @@ index 513d310..da5aa8d 100644
              raise ValueError("Invalid mode")
          datastr = self.iwstruct.pack('I', wifimode)
          status, result = self.iwstruct.iw_set_ext(self.ifname,
-@@ -1214,7 +1214,7 @@ class Iwpoint(object):
+@@ -999,7 +999,7 @@ class Iwstruct(object):
+         # ioctl itself looks for the pointer to the address in our
+         # memory and the size of it.
+         # Don't change the order how the structure is packed!!!
+-        buff = array.array('c', '\0'*buffsize)
++        buff = array.array('B', b'\0'*buffsize)
+         caddr_t, length = buff.buffer_info()
+         datastr = struct.pack('Pi', caddr_t, length)
+         return buff, datastr
+@@ -1007,7 +1007,7 @@ class Iwstruct(object):
+     def pack_test(self, string, buffsize):
+         """ Packs wireless request data for sending it to the kernel. """
+         buffsize = buffsize - len(string)
+-        buff = array.array('c', string+'\0'*buffsize)
++        buff = array.array('B', string+b'\0'*buffsize)
+         caddr_t, length = buff.buffer_info()
+         s = struct.pack('PHH', caddr_t, length, 1)
+         return buff, s
+@@ -1022,7 +1022,7 @@ class Iwstruct(object):
+     def iw_get_ext(self, ifname, request, data=None):
+         """ Read information from ifname. """
+         buff = pythonwifi.flags.IFNAMSIZE-len(ifname)
+-        ifreq = array.array('c', ifname + '\0'*buff)
++        ifreq = array.array('B', ifname + b'\0'*buff)
+         # put some additional data behind the interface name
+         if data is not None:
+             ifreq.extend(data)
+@@ -1214,11 +1214,11 @@ class Iwpoint(object):
  
      def __init__(self, data=None, flags=0):
          if data is None:
@@ -38,13 +81,18 @@ index 513d310..da5aa8d 100644
          # P pointer to data, H length, H flags
          self.fmt = 'PHH'
          self.flags = flags
+-        self.buff = array.array('c', data)
++        self.buff = array.array('B', data)
+         self.caddr_t, self.length = self.buff.buffer_info()
+         self.packed_data = struct.pack(self.fmt, self.caddr_t,
+                                        self.length, self.flags)
 @@ -1420,7 +1420,8 @@ class Iwscan(object):
                  status, result = iwstruct.iw_get_ext(self.ifname,
                                                  pythonwifi.flags.SIOCGIWSCAN,
                                                  data=datastr)
 -            except IOError, (error_number, error_string):
-+            except IOError as error_number_error_string:
-+                (error_number, error_string) = error_number_error_string
++            except IOError as e:
++                error_number, error_string) = e.args
                  if error_number == errno.E2BIG:
                      # Keep resizing the buffer until it's
                      #   large enough to hold the scan
