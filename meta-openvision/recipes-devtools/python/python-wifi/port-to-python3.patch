@@ -92,7 +92,7 @@ index 513d310..6413827 100644
                                                  data=datastr)
 -            except IOError, (error_number, error_string):
 +            except IOError as e:
-+                error_number, error_string) = e.args
++                (error_number, error_string) = e.args
                  if error_number == errno.E2BIG:
                      # Keep resizing the buffer until it's
                      #   large enough to hold the scan
