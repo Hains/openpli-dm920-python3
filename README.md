@@ -31,7 +31,7 @@ cd openvision-dm920-python3
 
 make image
 ```
-When the build is finished, the image openvision-enigma2-10.1-dm920.rootfs.tar.bz2 is in the:
+When the build is finished, the openvision-enigma2-10.2-dm920.rootfs.tar.bz2 file is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
@@ -52,7 +52,7 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openvision-10.1;cd openvision-10.1;
+sudo mkdir feeds;cd feeds;sudo mkdir openvision-10.2;cd openvision-10.2;
 
 sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/dm920 dm920 
 
@@ -60,7 +60,7 @@ sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/a
 
 sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/cortexa15hf-neon-vfpv4 cortexa15hf-neon-vfpv4
 ```
-Add hostname or ip address to the site.conf file (exist after make command), e.g. at the end of the file.
+Add hostname or ip address to the site.conf file (file exist after make command), e.g. at the end of the file.
 ```
 DISTRO_HOST = " <your ip address or hostname> "
 ```
