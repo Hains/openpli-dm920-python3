@@ -7,5 +7,5 @@ PR = "r3"
 inherit autotools pkgconfig git-project
 
 SRC_URI = " git://github.com/mirakels/libdreamdvd.git \
-			file://make-function-pointers-extern.patch \
+			file://move-function-pointer-away-from-header.patch \
 			"
