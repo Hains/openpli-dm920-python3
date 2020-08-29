@@ -19,6 +19,7 @@ OPTIONAL_PACKAGES += " \
 	cloudflare-dns \
 	ctorrent \
 	cups \
+	davfs2 \
 	diffutils \
 	djmount \
 	dosfstools \
