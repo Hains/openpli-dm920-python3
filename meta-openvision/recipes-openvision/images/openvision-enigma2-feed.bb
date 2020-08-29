@@ -98,6 +98,7 @@ OPTIONAL_PACKAGES += " \
 	v4l-utils \
 	vim \
 	wget \
+	wscan \
 	wireless-tools \
 	xfsprogs \
 	yafc \
