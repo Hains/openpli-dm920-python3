@@ -19,7 +19,6 @@ OPTIONAL_PACKAGES += " \
 	cloudflare-dns \
 	ctorrent \
 	cups \
-	davfs2 \
 	diffutils \
 	djmount \
 	dosfstools \
@@ -96,11 +95,9 @@ OPTIONAL_PACKAGES += " \
 	udpxy \
 	usb-modeswitch \
 	usb-modeswitch-data \
-	ushare \
 	v4l-utils \
 	vim \
 	wget \
-	wscan \
 	wireless-tools \
 	xfsprogs \
 	yafc \
