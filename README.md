@@ -29,7 +29,7 @@ cd openvision-dm920-python3
 
 make image
 ```
-When the build is finished, the openvision-enigma2-10.2-dm920.rootfs.tar.bz2 file is in the:
+When the build is finished, the openvision-enigma2-dm920-< timestamp>.rootfs file is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
