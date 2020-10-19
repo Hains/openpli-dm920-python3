@@ -29,6 +29,7 @@ IMAGE_INSTALL = "\
 	python3-ipaddress  \
 	python3-netifaces \
 	python-pysmb \
+	python3-requests \
 	sdparm \
 	tuxbox-common \
 	util-linux-ionice \
