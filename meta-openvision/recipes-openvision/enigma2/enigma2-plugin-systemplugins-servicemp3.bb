@@ -88,9 +88,7 @@ RRECOMMENDS_${PN} = "\
 	${GST_UGLY_RDEPS} \
 	"
 
-SRC_URI = " git://github.com/OpenVisionE2/servicemp3.git \
-			file://0001-Map-python2-c-api-functions.patch \
-"
+SRC_URI = "git://github.com/OpenVisionE2/servicemp3.git"
 
 S = "${WORKDIR}/git"
 
