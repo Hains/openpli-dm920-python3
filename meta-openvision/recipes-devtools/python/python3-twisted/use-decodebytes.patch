@@ -1,0 +1,13 @@
+diff --git a/src/twisted/web/http.py b/src/twisted/web/http.py
+index b7afa8b..97516c1 100644
+--- a/src/twisted/web/http.py
++++ b/src/twisted/web/http.py
+@@ -1541,7 +1541,7 @@ class Request:
+             bas, upw = authh.split()
+             if bas.lower() != b"basic":
+                 raise ValueError()
+-            upw = base64.decodestring(upw)
++            upw = base64.decodebytes(upw)
+             self.user, self.password = upw.split(b':', 1)
+         except (binascii.Error, ValueError):
+             self.user = self.password = b''
