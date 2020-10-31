@@ -2,7 +2,7 @@ inherit python3-dir
 
 RDEPENDS_{PN}-src = "${PN}"
 
-SSTATE_DUPWHITELIST += "${STAGING_LIBDIR}/python3.8/site-packages/tests/__init__.py ${STAGING_LIBDIR}/python3.8/site-packages/tests/__init__.pyo"
+SSTATE_DUPWHITELIST += "${STAGING_LIBDIR}/python3.9/site-packages/tests/__init__.py ${STAGING_LIBDIR}/python3.9/site-packages/tests/__init__.pyo"
 
 FILES_${PN}-src = " \
     ${PYTHON_SITEPACKAGES_DIR}/*.c \

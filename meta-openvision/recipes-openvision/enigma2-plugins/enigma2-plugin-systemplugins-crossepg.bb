@@ -54,7 +54,7 @@ python populate_packages_prepend() {
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\/.*\.po$', 'enigma2-plugin-%s-po', '%s (translations)', recursive=True, match_path=True, prepend=True)
 }
 
-FILES_${PN}_append = " /usr/crossepg ${libdir}/python3.8"
-FILES_${PN}-src_append = " ${libdir}/python3.8/crossepg.py"
+FILES_${PN}_append = " /usr/crossepg ${libdir}/python3.9"
+FILES_${PN}-src_append = " ${libdir}/python3.9/crossepg.py"
 FILES_${PN}-dbg_append = " /usr/crossepg/scripts/mhw2epgdownloader/.debug"
 FILES_${PN}-dbg += "/usr/crossepg/scripts/mhw2epgdownloader/.debug"
