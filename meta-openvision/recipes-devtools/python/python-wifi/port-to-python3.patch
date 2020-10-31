@@ -1,5 +1,5 @@
 diff --git a/pythonwifi/iwlibs.py b/pythonwifi/iwlibs.py
-index 513d310..6413827 100644
+index 513d310..7a09298 100644
 --- a/pythonwifi/iwlibs.py
 +++ b/pythonwifi/iwlibs.py
 @@ -32,7 +32,6 @@ import time
@@ -10,7 +10,7 @@ index 513d310..6413827 100644
  
  
  KILO = 10**3
-@@ -96,7 +95,7 @@ def getConfiguredWNICnames():
+@@ -96,21 +95,22 @@ def getConfiguredWNICnames():
      """
      iwstruct = Iwstruct()
      ifnames = []
@@ -19,9 +19,10 @@ index 513d310..6413827 100644
      caddr_t, length = buff.buffer_info()
      datastr = iwstruct.pack('iP', length, caddr_t)
      result = iwstruct._fcntl(pythonwifi.flags.SIOCGIFCONF, datastr)
-@@ -104,13 +103,14 @@ def getConfiguredWNICnames():
+     # get the interface names out of the buffer
      for i in range(0, 1024, 32):
-         ifname = buff.tostring()[i:i+32]
+-        ifname = buff.tostring()[i:i+32]
++        ifname = buff.tobytes()[i:i+32]
          ifname = struct.unpack('32s', ifname)[0]
 -        ifname = ifname.split('\0', 1)[0]
 +        ifname = ifname.split(b'\0', 1)[0]
@@ -32,7 +33,7 @@ index 513d310..6413827 100644
                  result = wifi.getAPaddr()
 -            except IOError, (errno, strerror):
 +            except IOError as e:
-+                errno = e.args
++                (errno, strerror) = e.args
                  # don't stop on an individual error
                  pass
              if result[0] == 0:
@@ -45,6 +46,24 @@ index 513d310..6413827 100644
              raise ValueError("Invalid mode")
          datastr = self.iwstruct.pack('I', wifimode)
          status, result = self.iwstruct.iw_set_ext(self.ifname,
+@@ -719,7 +719,7 @@ class WirelessConfig(object):
+         """
+         status, result = self.iwstruct.iw_get_ext(self.ifname,
+                                              pythonwifi.flags.SIOCGIWNAME)
+-        return result.tostring().strip('\x00')
++        return result.tobytes().strip('\x00')
+ 
+     def getEncryption(self):
+         """ Returns the encryption status.
+@@ -791,7 +791,7 @@ class WirelessConfig(object):
+         status, result = self.iwstruct.iw_get_ext(self.ifname,
+                                              pythonwifi.flags.SIOCGIWESSID,
+                                              data=iwpoint.packed_data)
+-        raw_essid = iwpoint.buff.tostring()
++        raw_essid = iwpoint.buff.tobytes()
+         return raw_essid.strip('\x00')
+ 
+     def getMode(self):
 @@ -999,7 +999,7 @@ class Iwstruct(object):
          # ioctl itself looks for the pointer to the address in our
          # memory and the size of it.
@@ -72,6 +91,15 @@ index 513d310..6413827 100644
          # put some additional data behind the interface name
          if data is not None:
              ifreq.extend(data)
+@@ -1141,7 +1141,7 @@ class Iwstats(object):
+         if i > 0:
+             self.error = result
+             self.errorflag = i
+-        self._parse(buff.tostring())
++        self._parse(buff.tobytes())
+ 
+     def _parse(self, data):
+         """ Unpacks iwstruct data. """
 @@ -1214,11 +1214,11 @@ class Iwpoint(object):
  
      def __init__(self, data=None, flags=0):
@@ -86,6 +114,15 @@ index 513d310..6413827 100644
          self.caddr_t, self.length = self.buff.buffer_info()
          self.packed_data = struct.pack(self.fmt, self.caddr_t,
                                         self.length, self.flags)
+@@ -1313,7 +1313,7 @@ class Iwrange(object):
+         status, result = iwstruct.iw_get_ext(self.ifname,
+                                         pythonwifi.flags.SIOCGIWRANGE,
+                                         data=s)
+-        data = buff.tostring()
++        data = buff.tobytes()
+         self._parse(data)
+ 
+     def _parse(self, data):
 @@ -1420,7 +1420,8 @@ class Iwscan(object):
                  status, result = iwstruct.iw_get_ext(self.ifname,
                                                  pythonwifi.flags.SIOCGIWSCAN,
@@ -96,6 +133,15 @@ index 513d310..6413827 100644
                  if error_number == errno.E2BIG:
                      # Keep resizing the buffer until it's
                      #   large enough to hold the scan
+@@ -1446,7 +1447,7 @@ class Iwscan(object):
+         pbuff, reslen = iwstruct.unpack('Pi', datastr)
+         if reslen > 0:
+             # Initialize the stream, and turn it into an enumerator
+-            self.aplist = self._parse(buff.tostring())
++            self.aplist = self._parse(buff.tobytes())
+ 
+     def _parse(self, data):
+         """ Parse the event stream, and return a list of Iwscanresult
 @@ -1486,7 +1487,7 @@ class Iwscan(object):
              if scanresult.bssid != "00:00:00:00:00:00":
                  aplist.append(scanresult)
