@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/OpenVisionE2/serviceapp.git;branch=develop"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv python3native pkgconfig
+inherit autotools gitpkgv pkgconfig python3native python3targetconfig
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

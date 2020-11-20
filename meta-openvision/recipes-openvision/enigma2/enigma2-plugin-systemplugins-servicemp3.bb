@@ -92,7 +92,7 @@ SRC_URI = "git://github.com/OpenVisionE2/servicemp3.git"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv python3native pkgconfig
+inherit autotools gitpkgv pkgconfig python3native python3targetconfig
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

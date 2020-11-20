@@ -98,7 +98,7 @@ RDEPENDS_${PN}-build-dependencies = "\
 	python3-twisted-web \
 	"
 
-inherit gitpkgv python3native
+inherit gitpkgv python3native python3targetconfig
 
 PV = "2.7+git${SRCPV}"
 PKGV = "2.7+git${GITPKGV}"
