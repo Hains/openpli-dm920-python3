@@ -6,6 +6,7 @@ IMAGE_INSTALL = "\
 	${ROOTFS_PKGMANAGE} \
 	avahi-daemon \
 	ca-certificates \
+	cifs-utils \
 	dhrystone \
 	distro-feed-configs \
 	dropbear \
