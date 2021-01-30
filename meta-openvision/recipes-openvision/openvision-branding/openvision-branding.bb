@@ -10,7 +10,7 @@ inherit autotools-brokensep gitpkgv python3native python3targetconfig
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-SRC_URI="git://github.com/OpenVisionE2/branding-module.git;protocol=git"
+SRC_URI="git://github.com/Hains/branding-module.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
