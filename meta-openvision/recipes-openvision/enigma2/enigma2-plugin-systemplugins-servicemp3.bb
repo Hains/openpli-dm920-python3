@@ -88,7 +88,7 @@ RRECOMMENDS_${PN} = "\
 	${GST_UGLY_RDEPS} \
 	"
 
-SRC_URI = "git://github.com/Hains/servicemp3.git;branch=python3 file://sigc3.patch"
+SRC_URI = "git://github.com/Hains/servicemp3-ov.git;branch=main file://sigc3.patch"
 
 S = "${WORKDIR}/git"
 
