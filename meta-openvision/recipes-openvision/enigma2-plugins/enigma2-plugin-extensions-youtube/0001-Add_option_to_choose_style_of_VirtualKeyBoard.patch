@@ -66,7 +66,7 @@ index afa6097..a149c75 100644
  		self.list.append(getConfigListEntry(_('Merge downloaded files:'),
  			config.plugins.YouTube.mergeFiles,
  			_('FFmpeg will be used to merge downloaded DASH video and audio files.\nFFmpeg will be installed if necessary.')))
-+		configlist.append(getConfigListEntry(_('Choose VirtualKeyBoard Style:'),
++		self.list.append(getConfigListEntry(_('Choose VirtualKeyBoard Style:'),
 +			config.plugins.YouTube.VirtualKeyBoard,
 +			_('You can choose what style of VirtualKeyBoard to use it.\nYouTube OR Image (VirtualKeyBoard).')))
  		for p in plugins.getPlugins(where=PluginDescriptor.WHERE_MENU):
