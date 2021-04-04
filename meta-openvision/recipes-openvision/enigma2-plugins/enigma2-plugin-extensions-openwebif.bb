@@ -26,9 +26,7 @@ inherit gitpkgv distutils-openplugins gettext
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-OpenWebif.git \
-			file://fix-inconsistent-use-of-tabs-and-spaces-in-indentation.patch \
-"
+SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-OpenWebif.git"
 
 S="${WORKDIR}/git"
 
