@@ -204,7 +204,7 @@ automount() {
 
 	# Deal with specific file system exceptions
 	case $ID_FS_TYPE in
-	xt2|ext3)
+	ext2|ext3)
 		# ext2 and ext3 devices need to be mounted with the ext4 driver
 		MOUNT="$MOUNT -t ext4"
 		;;
