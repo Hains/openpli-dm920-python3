@@ -82,6 +82,7 @@ OPTIONAL_PACKAGES += " \
 	rt8812au \
 	rtl-sdr \
 	rtorrent \
+	sabnzbd \
 	samba \
 	satipclient \
 	screen \

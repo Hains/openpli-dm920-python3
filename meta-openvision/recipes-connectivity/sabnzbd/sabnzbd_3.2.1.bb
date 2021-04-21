@@ -1,13 +1,13 @@
 MAINTAINER = "team@sabnzbd.org"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=6c2cd2089133de5067e13a6d4f75afef"
+LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=d4bfc20f13bd0e7363c57525136734ee"
 
 PR = "r1"
 
 DEPENDS = "python3"
 RDEPENDS_${PN} = "\
 	python3-core python3-shell python3-compression python3-crypt python3-ctypes python3-sqlite3 \
-	python3-cheetah python3-misc python3-html python3-email python-yenc \
+	python3-cheetah python3-misc python3-html python3-email python3-yenc \
 	"
 RRECOMMENDS_${PN} = "par2cmdline unrar"
 
@@ -17,8 +17,8 @@ SRC_URI = "https://github.com/sabnzbd/sabnzbd/archive/${PV}.tar.gz \
 	file://init-functions \
 	"
 
-SRC_URI[md5sum] = "ccee8c716f24d1a6f986844055c94cd0"
-SRC_URI[sha256sum] = "33999e3ed15c08bb36d58a07e4e936a2e17b2656f10e3b6ae4716e627ba15a39"
+SRC_URI[md5sum] = "19fe01a7d1499d9385737312dfe30dfa"
+SRC_URI[sha256sum] = "4a993b994f6db024707fc8e9adb4c5197ed5258cf544845837c76aa3ea18b26a"
 
 S = "${WORKDIR}/sabnzbd-${PV}"
 
