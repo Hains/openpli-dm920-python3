@@ -5,7 +5,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 HOMEPAGE = "http://parchive.sourceforge.net/"
-DEPENDS = "libsigc++-2.0"
+DEPENDS = "libsigc++-3"
 PR = "r2"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/parchive/${BPN}/${BPN}-${PV}.tar.gz \
