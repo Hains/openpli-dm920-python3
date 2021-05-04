@@ -117,8 +117,6 @@ LDFLAGS_prepend = " -lxml2 "
 
 S = "${WORKDIR}/git"
 
-CXXFLAGS = " -std=c++17"
-
 FILES_${PN} += "${datadir}/keymaps"
 FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"

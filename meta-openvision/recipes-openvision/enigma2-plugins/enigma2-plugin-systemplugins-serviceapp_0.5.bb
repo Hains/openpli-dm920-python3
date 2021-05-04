@@ -18,8 +18,6 @@ inherit autotools gitpkgv pkgconfig python3native python3targetconfig
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-CXXFLAGS = " -std=c++17"
-
 EXTRA_OECONF = "\
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
