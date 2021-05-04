@@ -2,8 +2,8 @@ Experimental build environment for dreambox 920 with Python 3.<br>
 Work in progress!<br>
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of May 2, 2021.<br>
--GCC 10.3.0<br>
+&nbsp;with git snapshot of May 4, 2021.<br>
+-GCC 11.1<br>
 -Glibc 2.33<br>
 -GStreamer 1.19.0.1<br>
 -Python 3.9.4<br>
@@ -29,7 +29,7 @@ cd openvision-dm920-python3
 
 make image
 ```
-When the build is finished, the openvision-enigma2-10.3-dm920.rootfs.tar.bz2 file is in the:
+When the build is finished, the openvision-enigma2-11.1-dm920.rootfs.tar.bz2 file is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
@@ -50,7 +50,7 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openvision-10.3;cd openvision-10.3;
+sudo mkdir feeds;cd feeds;sudo mkdir openvision-11.1;cd openvision-11.1;
 
 sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/dm920 dm920 
 
