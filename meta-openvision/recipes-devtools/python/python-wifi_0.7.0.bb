@@ -12,6 +12,7 @@ RDEPENDS_${PN} = "python3-ctypes python3-datetime"
 SRC_URI = " https://github.com/Opvolger/pythonwifi/releases/download/0.7.0/python-wifi-0.7.0.tar.bz2 \
 			file://rename-tostring-to-tobytes.patch \
 			file://dont-encode-ifname-to-bytes.patch \
+			file://use-bytes-to-split.patch \
 "
 
 SRC_URI[md5sum] = "2d7f2bab7345a2034c976096e31cc2ff"
