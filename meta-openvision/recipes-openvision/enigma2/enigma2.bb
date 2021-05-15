@@ -110,7 +110,6 @@ SRC_URI = " ${GITHUB_URI}/Hains/enigma2-python3.git;branch=${ENIGMA2_BRANCH} \
 			file://001-set-default-debug-level-at-4.patch \
 			file://003-restore-last-update-date-time.patch \
 			file://006-make-PLi-FullNightHD-skin-default.patch \
-			file://012-set-default-hide-channel-list-radio.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "
