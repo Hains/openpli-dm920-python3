@@ -29,7 +29,7 @@ IMAGE_INSTALL = "\
 	parted \
 	python3-ipaddress  \
 	python3-netifaces \
-	python-pysmb \
+	python3-pysmb \
 	python3-requests \
 	sdparm \
 	tuxbox-common \
