@@ -6,9 +6,14 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8a0f079f4e6a215d6bd6f9d97cab4d5f"
 
 RDEPENDS_${PN} = "python3-attrs python3-idna python3-pyasn1 python3-pyasn1-modules python3-pyopenssl"
 
-PYPI_PACKAGE = "service_identity"
+SRCNAME = "service-identity"
+SRC_URI = "https://files.pythonhosted.org/packages/09/2e/26ade69944773df4748c19d3053e025b282f48de02aad84906d34a29d28b/${SRCNAME}-${PV}.tar.gz"
 
-inherit pypi setuptools3
+SRC_URI[md5sum] = "5e5c195d8fcedc72f9068be2ad9b5a13"
+SRC_URI[sha256sum] = "6e6c6086ca271dc11b033d17c3a8bea9f24ebff920c587da090afc9519419d34"
 
-SRC_URI[md5sum] = "c6b8bac93e7d899a1da313a19cc6570a"
-SRC_URI[sha256sum] = "0858a54aabc5b459d1aafa8a518ed2081a285087f349fe3e55197989232e2e2d"
+S = "${WORKDIR}/${SRCNAME}-${PV}"
+
+inherit setuptools3
+
+include python-package-split.inc

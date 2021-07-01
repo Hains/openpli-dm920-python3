@@ -51,7 +51,7 @@ PYTHON_RDEPS = " \
 	python3-pickle \
 	python-process \
 	python3-pyusb \
-	python-service-identity \
+	python3-service-identity \
 	python3-shell \
 	python3-threading \
 	python3-twisted-core \
