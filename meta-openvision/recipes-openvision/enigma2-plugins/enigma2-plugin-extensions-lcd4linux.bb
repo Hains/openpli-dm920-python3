@@ -20,7 +20,7 @@ RDEPENDS_${PN} += "\
 	python3-email \
 	python3-image \
 	python3-imaging \
-	python-mutagen \
+	python3-mutagen \
 	python3-pyusb \
 	python3-shell \
 	python3-simplejson \

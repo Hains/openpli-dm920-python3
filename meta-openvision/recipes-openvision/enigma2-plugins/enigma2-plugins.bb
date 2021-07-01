@@ -64,7 +64,7 @@ S = "${WORKDIR}/git"
 DEPENDS = " \
 	python3-pyopenssl \
 	streamripper \
-	python-mutagen \
+	python3-mutagen \
 	python3-twisted \
 	libcddb \
 	dvdbackup \
