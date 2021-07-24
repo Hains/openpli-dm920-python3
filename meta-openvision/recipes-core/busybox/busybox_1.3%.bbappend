@@ -34,7 +34,7 @@ pkg_prerm:${PN}:append () {
 
 do_install:append() {
 	if grep -q "CONFIG_CRONTAB=y" ${WORKDIR}/defconfig; then
-		install -d ${D}${sysconfdir}/cron/crontabs
+		install -d ${D}${localstatedir}/spool/cron/crontabs
 	fi
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
 }
