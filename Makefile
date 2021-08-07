@@ -185,7 +185,7 @@ $(CURDIR)/site.conf:
 	@echo 'INHERIT += "rm_work"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
-	'BBLAYERS_CONF_VERSION = "2"' \
+	'BBLAYERS_CONF_VERSION = "0"' \
 	'CURDIR = "$(CURDIR)"' \
 	'BBLAYERS = "$(BBLAYERS)"' \
 	)
