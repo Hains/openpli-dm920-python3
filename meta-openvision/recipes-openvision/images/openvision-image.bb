@@ -46,12 +46,12 @@ IMAGE_FEATURES += "package-management"
 # Remove the mysterious var/lib/opkg/lists that appears to be the result
 # of the installer that populates the rootfs. I wanted to call this
 # rootfs_remove_opkg_leftovers but that fails to parse.
-rootfs_removeopkgleftovers() {
+removeopkgleftovers() {
 	rm -r ${IMAGE_ROOTFS}/var/lib/opkg/lists
 }
 
 # Switch from ssh-rsa to ecdsa-sha2-nistp521, as OpenSSH has deprecated ssh-rsa
-rootfs_speedup_dropbearkey() {
+speedupdropbearkey() {
 	echo 'DROPBEAR_RSAKEY_ARGS="-t ecdsa -s 521"' >> ${IMAGE_ROOTFS}${sysconfdir}/default/dropbear
 }
 
@@ -69,4 +69,4 @@ ssh_allow_empty_password () {
 license_create_manifest() {
 }
 
-ROOTFS_POSTPROCESS_COMMAND += "rootfs_removeopkgleftovers; rootfs_speedup_dropbearkey; "
+ROOTFS_POSTPROCESS_COMMAND += "removeopkgleftovers; speedupdropbearkey; "

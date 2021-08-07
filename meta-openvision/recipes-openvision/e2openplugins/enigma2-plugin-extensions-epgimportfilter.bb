@@ -1,7 +1,7 @@
 MODULE = "EPGImportFilter"
 DESCRIPTION = "EPGImport Filter"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
 	python3-difflib \
 	python3-shell \
 	"

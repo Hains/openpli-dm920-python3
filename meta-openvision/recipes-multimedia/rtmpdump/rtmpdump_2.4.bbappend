@@ -1,4 +1,4 @@
-DEPENDS_remove = "gnutls"
+DEPENDS:remove = "gnutls"
 DEPENDS += "openssl"
 
 PROVIDES =+ " librtmp librtmp1"
@@ -14,4 +14,4 @@ EXTRA_OEMAKE = " \
 	SYS=posix INC=-I=/usr/include DESTDIR=${D} \
 	prefix=${prefix} libdir=${libdir} incdir=${includedir}/librtmp bindir=${bindir} mandir=${mandir}"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"

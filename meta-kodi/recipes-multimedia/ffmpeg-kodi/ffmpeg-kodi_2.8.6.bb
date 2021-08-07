@@ -50,19 +50,19 @@ EXTRA_OECONF = " \
         --disable-vdpau \
 "
 
-EXTRA_OECONF_append_vusolo4k = " \
+EXTRA_OECONF:append:vusolo4k = " \
         --extra-cflags=' -march=armv7-a -mfloat-abi=hard -mfpu=neon -mtune=cortex-a15' \
 "
 
-EXTRA_OECONF_append_vuuno4k = " \
+EXTRA_OECONF:append:vuuno4k = " \
         --extra-cflags=' -march=armv7-a -mfloat-abi=hard -mfpu=neon -mtune=cortex-a15' \
 "
 
-EXTRA_OECONF_append_vuultimo4k = " \
+EXTRA_OECONF:append:vuultimo4k = " \
         --extra-cflags=' -march=armv7-a -mfloat-abi=hard -mfpu=neon -mtune=cortex-a15' \
 "
 
-EXTRA_OECONF_append_wetekplay = " \
+EXTRA_OECONF:append:wetekplay = " \
 	--extra-cflags=' -march=armv7-a -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9' \
 	--enable-muxer=spdif \
 	--enable-muxer=adts \
@@ -107,4 +107,4 @@ do_install() {
    make -j 2 BUILDDIR=${BUILDDIR} DESTDIR=${D} install
 }
 
-FILES_${PN} += "/"
+FILES:${PN} += "/"

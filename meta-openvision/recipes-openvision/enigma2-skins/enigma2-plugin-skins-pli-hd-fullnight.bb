@@ -12,7 +12,7 @@ SRC_URI = " git://github.com/littlesat/PLi-HD-FullNight.git \
 			file://01-split-eventname-and-full-description.patch \
 "
 
-FILES_${PN} = "${datadir}/enigma2/"
+FILES:${PN} = "${datadir}/enigma2/"
 
 S = "${WORKDIR}/git"
 

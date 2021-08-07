@@ -11,7 +11,7 @@ inherit gitpkgv allarch
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-RRECOMMENDS_${PN} = "enigma2-plugin-extensions-weatherplugin2"
+RRECOMMENDS:${PN} = "enigma2-plugin-extensions-weatherplugin2"
 
 SRC_URI="git://github.com/OpenVisionE2/OctEtFHD-skin.git;protocol=git \	
 		file://OpenSans-Bold.ttf \
@@ -21,11 +21,11 @@ SRC_URI="git://github.com/OpenVisionE2/OctEtFHD-skin.git;protocol=git \
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "/usr"
+FILES:${PN} = "/usr"
 
 do_package_qa[noexec] = "1"
 
-do_install_prepend() {
+do_install:prepend() {
 	install -d ${B}${datadir}/fonts
 	cp -f ${WORKDIR}/OpenSans-Bold.ttf ${B}${datadir}/fonts/OpenSans-Bold.ttf
 	cp -f ${WORKDIR}/OpenSans-Regular.ttf ${B}${datadir}/fonts/OpenSans-Regular.ttf

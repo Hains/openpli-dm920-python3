@@ -42,4 +42,4 @@ do_install() {
 	install -m 0644 ${S}/var/tuxbox/config/enigma/services ${D}/etc/enigma2/lamedb
 }
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"

@@ -1,8 +1,8 @@
 # Provide package coreutils-realpath
 PACKAGES =+ "${PN}-realpath"
 
-FILES_${PN}-realpath = "${bindir}/realpath.${PN}"
+FILES:${PN}-realpath = "${bindir}/realpath.${PN}"
 
-RRECOMMENDS_${PN}_append_class-target = "${PN}-realpath"
+RRECOMMENDS:${PN}:append:class-target = "${PN}-realpath"
 
-ALTERNATIVE_${PN}-realpath = "realpath"
+ALTERNATIVE:${PN}-realpath = "realpath"

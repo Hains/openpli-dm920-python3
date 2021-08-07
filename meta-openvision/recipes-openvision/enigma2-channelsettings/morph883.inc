@@ -8,7 +8,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv allarch
 
-FILES_${PN} = "/etc/enigma2/"
+FILES:${PN} = "/etc/enigma2/"
 
 do_install () {
 	install -d ${D}/etc/enigma2

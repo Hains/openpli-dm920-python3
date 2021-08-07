@@ -10,11 +10,11 @@ SRC_URI += " \
         file://wpa_action.8 \
 "
 
-do_configure_append() {
+do_configure:append() {
         sed -e '/^CONFIG_TLS = gnutls/d' -i wpa_supplicant/.config
         echo "CONFIG_DEBUG_SYSLOG=y" >> wpa_supplicant/.config
 }
-do_install_append() {
+do_install:append() {
         rm -rf ${D}${sysconfdir}/network/if-*.d
 
         install -d ${D}${sysconfdir}/wpa_supplicant
@@ -38,4 +38,4 @@ do_install_append() {
         ln -s ../../wpa_supplicant/ifupdown.sh ${D}${sysconfdir}/network/if-up.d/${PN}
 }
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"

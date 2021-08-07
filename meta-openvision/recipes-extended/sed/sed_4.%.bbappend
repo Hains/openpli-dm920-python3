@@ -1,1 +1,1 @@
-ALTERNATIVE_${PN} = ""
+ALTERNATIVE:${PN} = ""

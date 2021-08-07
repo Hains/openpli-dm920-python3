@@ -4,7 +4,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "python3"
-RDEPENDS_${PN} = "python3-shell"
+RDEPENDS:${PN} = "python3-shell"
 
 SRC_URI = "https://files.pythonhosted.org/packages/f3/d9/2232a4cb9a98e2d2501f7e58d193bc49c956ef23756d7423ba1bd87e386d/mutagen-${PV}.tar.gz"
 

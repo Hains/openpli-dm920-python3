@@ -18,7 +18,7 @@ PKGV = "1+git${GITPKGV}"
 
 inherit distutils-openplugins
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	python3-core \
 	python3-codecs \
 	python3-json \

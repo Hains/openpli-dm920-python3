@@ -18,6 +18,6 @@ do_install() {
 	install -m 0644 ${S}/etc/enigma2/lamedb ${D}/etc/enigma2/
 }
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 
 inherit allarch

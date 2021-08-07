@@ -1,6 +1,6 @@
 MODULE = "Foreca"
 DESCRIPTION = "Weather forecast for the upcoming 10 days"
-RDEPENDS_${PN} = "python3-html"
+RDEPENDS:${PN} = "python3-html"
 
 inherit gitpkgv
 PV = "git${SRCPV}"
@@ -12,7 +12,7 @@ require openplugins-distutils.inc
 
 SRC_URI = "git://github.com/Hains/e2openplugin-Foreca.git;branch=python3"
 
-FILES_${PN} += "${sysconfdir}/enigma2/Foreca"
-CONFFILES_${PN} = "${sysconfdir}/enigma2/Foreca/City.cfg ${sysconfdir}/enigma2/Foreca/Filter.cfg"
+FILES:${PN} += "${sysconfdir}/enigma2/Foreca"
+CONFFILES:${PN} = "${sysconfdir}/enigma2/Foreca/City.cfg ${sysconfdir}/enigma2/Foreca/Filter.cfg"
 
-INSANE_SKIP_${PN} = "dev-so installed-vs-shipped"
+INSANE_SKIP:${PN} = "dev-so installed-vs-shipped"

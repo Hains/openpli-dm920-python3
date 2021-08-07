@@ -1,10 +1,10 @@
 inherit python3-dir
 
-RDEPENDS_{PN}-src = "${PN}"
+RDEPENDS:{PN}-src = "${PN}"
 
 SSTATE_DUPWHITELIST += "${STAGING_LIBDIR}/python3.9/site-packages/tests/__init__.py ${STAGING_LIBDIR}/python3.9/site-packages/tests/__init__.pyo"
 
-FILES_${PN}-src = " \
+FILES:${PN}-src = " \
     ${PYTHON_SITEPACKAGES_DIR}/*.c \
     ${PYTHON_SITEPACKAGES_DIR}/*/*.c \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*.c \
@@ -23,7 +23,7 @@ FILES_${PN}-src = " \
     "
 
 # some txt files which should go into -doc
-FILES_${PN}-doc += " \
+FILES:${PN}-doc += " \
     ${PYTHON_SITEPACKAGES_DIR}/*-info \
     ${PYTHON_SITEPACKAGES_DIR}/*/*-info \
     ${PYTHON_SITEPACKAGES_DIR}/*-INFO \
@@ -39,7 +39,7 @@ FILES_${PN}-doc += " \
     ${PYTHON_SITEPACKAGES_DIR}/README \
     "
 
-FILES_${PN}-dbg += " \
+FILES:${PN}-dbg += " \
     ${PYTHON_SITEPACKAGES_DIR}/*/.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/.debug \

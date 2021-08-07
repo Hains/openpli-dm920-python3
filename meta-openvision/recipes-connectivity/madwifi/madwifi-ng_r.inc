@@ -29,7 +29,7 @@ do_install() {
 
 PACKAGES =+ "${PN}-modules ${PN}-tools"
 
-RDEPENDS_${PN}-modules = "kernel-module-aes-generic"
+RDEPENDS:${PN}-modules = "kernel-module-aes-generic"
 
-FILES_${PN}-modules = "/lib/modules/"
-FILES_${PN}-tools = "${sbindir}/*"
+FILES:${PN}-modules = "/lib/modules/"
+FILES:${PN}-tools = "${sbindir}/*"

@@ -1,6 +1,6 @@
 SUMMARY = "Kodi Media Center"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=930e2a5f63425d8dd72dbd7391c43c46"
@@ -99,18 +99,18 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;branch=Krypton \
            file://visualizations.zip \
 "
 
-SRC_URI_append_u5 = " file://eglwrapper.patch"
-SRC_URI_append_u51 = " file://eglwrapper.patch"
-SRC_URI_append_u52 = " file://eglwrapper.patch"
-SRC_URI_append_u53 = " file://eglwrapper.patch"
-SRC_URI_append_u54 = " file://eglwrapper.patch"
-SRC_URI_append_u5pvr = " file://eglwrapper.patch"
+SRC_URI:append:u5 = " file://eglwrapper.patch"
+SRC_URI:append:u51 = " file://eglwrapper.patch"
+SRC_URI:append:u52 = " file://eglwrapper.patch"
+SRC_URI:append:u53 = " file://eglwrapper.patch"
+SRC_URI:append:u54 = " file://eglwrapper.patch"
+SRC_URI:append:u5pvr = " file://eglwrapper.patch"
 
-SRC_URI_append_AML8726 = " file://amlogic-codec-krypton-fixes.patch"
-SRC_URI_append_AMLS905 = " file://amlogic-codec-krypton-fixes.patch"
-SRC_URI_append_AML905D = " file://amlogic-codec-krypton-fixes.patch"
+SRC_URI:append:AML8726 = " file://amlogic-codec-krypton-fixes.patch"
+SRC_URI:append:AMLS905 = " file://amlogic-codec-krypton-fixes.patch"
+SRC_URI:append:AML905D = " file://amlogic-codec-krypton-fixes.patch"
 
-SRC_URI_append_libc-musl = " \
+SRC_URI:append:libc-musl = " \
            file://0001-Fix-file_Emu-on-musl.patch \
            file://0002-Remove-FILEWRAP.patch \
 "
@@ -157,7 +157,7 @@ FULL_OPTIMIZATION_armv7a = "-fexpensive-optimizations -fomit-frame-pointer -O3 -
 FULL_OPTIMIZATION_armv7ve = "-fexpensive-optimizations -fomit-frame-pointer -O3 -ffast-math"
 BUILD_OPTIMIZATION = "${FULL_OPTIMIZATION}"
 
-EXTRA_OECONF_append = " LIBTOOL=${STAGING_BINDIR_CROSS}/${HOST_SYS}-libtool"
+EXTRA_OECONF:append = " LIBTOOL=${STAGING_BINDIR_CROSS}/${HOST_SYS}-libtool"
 
 # for python modules
 export HOST_SYS
@@ -186,7 +186,7 @@ do_configure() {
     oe_runconf
 }
 
-do_compile_prepend() {
+do_compile:prepend() {
     for i in $(find . -name "Makefile") ; do
         sed -i -e 's:I/usr/include:I${STAGING_INCDIR}:g' $i
     done
@@ -196,18 +196,18 @@ do_compile_prepend() {
     done
 }
 
-INSANE_SKIP_${PN} = "rpaths already-stripped"
+INSANE_SKIP:${PN} = "rpaths already-stripped"
 
-FILES_${PN} = "${libdir}/kodi ${libdir}/xbmc"
-FILES_${PN} += "${bindir}/kodi ${bindir}/xbmc"
-FILES_${PN} += "${datadir}/icons ${datadir}/kodi ${datadir}/xbmc"
-FILES_${PN} += "${bindir}/kodi-standalone ${bindir}/xbmc-standalone ${datadir}/xsessions"
-FILES_${PN}-dev = "${includedir}"
-FILES_${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi/*/*/.debug ${libdir}/kodi/*/*/*/.debug ${datadir}/applications"
+FILES:${PN} = "${libdir}/kodi ${libdir}/xbmc"
+FILES:${PN} += "${bindir}/kodi ${bindir}/xbmc"
+FILES:${PN} += "${datadir}/icons ${datadir}/kodi ${datadir}/xbmc"
+FILES:${PN} += "${bindir}/kodi-standalone ${bindir}/xbmc-standalone ${datadir}/xsessions"
+FILES:${PN}-dev = "${includedir}"
+FILES:${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi/*/*/.debug ${libdir}/kodi/*/*/*/.debug ${datadir}/applications"
 
 # kodi uses some kind of dlopen() method for libcec so we need to add it manually
 # OpenGL builds need glxinfo, that's in mesa-demos
-RRECOMMENDS_${PN}_append = " \
+RRECOMMENDS:${PN}:append = " \
    libcec \
    python3 \
    python3-ctypes \
@@ -252,7 +252,7 @@ RRECOMMENDS_${PN}_append = " \
     python3-syslog \
     python3-resource \
 "
-RRECOMMENDS_${PN}_append_libc-glibc = " \
+RRECOMMENDS_${PN}:append:libc-glibc = " \
     glibc-charmap-ibm850 \
     glibc-gconv-ibm850 \
     glibc-gconv-unicode \
@@ -261,6 +261,6 @@ RRECOMMENDS_${PN}_append_libc-glibc = " \
     glibc-localedata-en-us \
 "
 
-RPROVIDES_${PN} += "xbmc"
+RPROVIDES:${PN} += "xbmc"
 
 TOOLCHAIN = "gcc"

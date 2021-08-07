@@ -2,7 +2,7 @@ DESCRIPTION = "Simple F4M/HDS (Adobe HTTP Dynamic Streaming) dumper. Intended to
 MAINTAINER = "samsamsam"
 
 DEPENDS = "openssl zlib"
-RDEPENDS_${PN} += "wget"
+RDEPENDS:${PN} += "wget"
 
 require conf/license/openpli-gplv2.inc
 inherit gitpkgv

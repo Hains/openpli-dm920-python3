@@ -8,8 +8,8 @@ inherit gitpkgv allarch
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-PKGV_font-valis-enigma = "1.0+git${GITPKGV}"
-DESCRIPTION_font-valis-enigma = "Valis enigma font"
+PKGV:font-valis-enigma = "1.0+git${GITPKGV}"
+DESCRIPTION:font-valis-enigma = "Valis enigma font"
 
 PACKAGES = "${PN} font-valis-enigma"
 PROVIDES += "font-valis-enigma"
@@ -17,10 +17,10 @@ PROVIDES += "font-valis-enigma"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
 
-FILES_${PN} = "${datadir}/enigma2/Magic"
-FILES_font-valis-enigma = "${datadir}/fonts/valis_enigma.ttf"
+FILES:${PN} = "${datadir}/enigma2/Magic"
+FILES:font-valis-enigma = "${datadir}/fonts/valis_enigma.ttf"
 
-RDEPENDS_${PN} = "font-valis-enigma"
+RDEPENDS:${PN} = "font-valis-enigma"
 S = "${WORKDIR}/git"
 
 do_install() {

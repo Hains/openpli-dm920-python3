@@ -2,9 +2,9 @@ DESCRIPTION = "CCcam ${PV} softcam"
 
 CAMNAME = "CCcam"
 
-RDEPENDS_${PN} = "libxcrypt-compat"
+RDEPENDS:${PN} = "libxcrypt-compat"
 
-INSANE_SKIP_${PN} += "file-rdeps"
+INSANE_SKIP:${PN} += "file-rdeps"
 
 SRC_URI = " http://downloads.openpli.org/softcams/CCcam-${PV}.zip;name=softcam \
 			http://downloads.openpli.org/softcams/CCcam.xml;name=ppanel \

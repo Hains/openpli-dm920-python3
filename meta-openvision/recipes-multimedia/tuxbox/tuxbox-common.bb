@@ -10,7 +10,7 @@ PR = "3"
 
 SRC_URI = "git://github.com/OpenPLi/tuxbox-xml.git;protocol=git"
 S = "${WORKDIR}/git/xml"
-FILES_${PN} = "${sysconfdir}/tuxbox/* ${prefix}/* ${localstatedir}/*"
+FILES:${PN} = "${sysconfdir}/tuxbox/* ${prefix}/* ${localstatedir}/*"
 
 do_compile() {
 	true

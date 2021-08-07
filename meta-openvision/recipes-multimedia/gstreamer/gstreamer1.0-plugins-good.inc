@@ -20,4 +20,4 @@ PACKAGECONFIG[taglib]		= "-Dtaglib=enabled,-Dtaglib=disabled,taglib"
 PACKAGECONFIG[vpx]			= "-Dvpx=enabled,-Dvpx=disabled,libvpx"
 PACKAGECONFIG[wavpack]		= "-Dwavpack=enabled,-Dwavpack=disabled,wavpack"
 
-FILES_${PN}-equalizer += "${datadir}/gstreamer-1.0/presets/*.prs"
+FILES:${PN}-equalizer += "${datadir}/gstreamer-1.0/presets/*.prs"

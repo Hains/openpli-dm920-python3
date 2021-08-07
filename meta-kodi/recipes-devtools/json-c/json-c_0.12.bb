@@ -21,11 +21,11 @@ RECIPE_UPSTREAM_VERSION = "0.12"
 RECIPE_UPSTREAM_DATE = "Apr 11, 2014"
 CHECK_DATE = "Dec 04, 2015"
 
-RPROVIDES_${PN} = "libjson"
+RPROVIDES:${PN} = "libjson"
 
 inherit autotools
 
-do_configure_prepend() {
+do_configure:prepend() {
     # Clean up autoconf cruft that should not be in the tarball
     rm -f ${S}/config.status
 }

@@ -17,7 +17,7 @@ do_install() {
     install -m 0755 ${WORKDIR}/startup_fix.sh ${D}/etc/init.d/startup_fix
 }
 
-pkg_postinst_${PN}() {
+pkg_postinst:${PN}() {
 	mkdir -p $D/etc/enigma2
 	touch $D/etc/enigma2/settings
 	sed -i '/config\.inputDevices\.event2/d' $D/etc/enigma2/settings

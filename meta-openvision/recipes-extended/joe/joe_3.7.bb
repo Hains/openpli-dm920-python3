@@ -11,4 +11,4 @@ SRC_URI[sha256sum] = "cae456e1ad5a8c1d3c94920a3416c2347277739b260e3494d3bc0f2b9b
 
 inherit autotools
 
-RDEPENDS_${PN} = "ncurses-terminfo"
+RDEPENDS:${PN} = "ncurses-terminfo"

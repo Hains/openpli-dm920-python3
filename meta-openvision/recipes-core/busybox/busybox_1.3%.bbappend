@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " \
 			file://mount_single_uuid.patch \
@@ -11,28 +11,28 @@ DEPENDS += "mtd-utils"
 
 PACKAGES =+ "${PN}-inetd"
 INITSCRIPT_PACKAGES += "${PN}-inetd"
-INITSCRIPT_NAME_${PN}-inetd = "inetd.${BPN}" 
-CONFFILES_${PN}-inetd = "${sysconfdir}/inetd.conf"
-FILES_${PN}-inetd = "${sysconfdir}/init.d/inetd.${BPN} ${sysconfdir}/inetd.conf"
-RDEPENDS_${PN}-inetd += "${PN}"
+INITSCRIPT_NAME:${PN}-inetd = "inetd.${BPN}" 
+CONFFILES:${PN}-inetd = "${sysconfdir}/inetd.conf"
+FILES:${PN}-inetd = "${sysconfdir}/init.d/inetd.${BPN} ${sysconfdir}/inetd.conf"
+RDEPENDS:${PN}-inetd += "${PN}"
 
-RRECOMMENDS_${PN} += "${PN}-inetd"
+RRECOMMENDS:${PN} += "${PN}-inetd"
 
 PACKAGES =+ "${PN}-cron"
 INITSCRIPT_PACKAGES += "${PN}-cron"
-INITSCRIPT_NAME_${PN}-cron = "${BPN}-cron" 
-FILES_${PN}-cron = "${sysconfdir}/cron ${sysconfdir}/init.d/${BPN}-cron"
-RDEPENDS_${PN}-cron += "${PN}"
+INITSCRIPT_NAME:${PN}-cron = "${BPN}-cron" 
+FILES:${PN}-cron = "${sysconfdir}/cron ${sysconfdir}/init.d/${BPN}-cron"
+RDEPENDS:${PN}-cron += "${PN}"
 
-pkg_postinst_${PN}_append () {
+pkg_postinst:${PN}:append () {
 	update-alternatives --install /bin/sh sh /bin/busybox.nosuid 50
 }
 
-pkg_prerm_${PN}_append () {
+pkg_prerm:${PN}:append () {
 	ln -s ${base_bindir}/busybox $tmpdir/wget
 }
 
-do_install_append() {
+do_install:append() {
 	if grep -q "CONFIG_CRONTAB=y" ${WORKDIR}/defconfig; then
 		install -d ${D}${sysconfdir}/cron/crontabs
 	fi

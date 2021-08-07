@@ -32,7 +32,7 @@ do_install() {
     install -m 755 ${S}/src/open_multiboot ${D}${base_sbindir}
 }
 
-pkg_preinst_${PN}() {
+pkg_preinst:${PN}() {
 #!/bin/sh
 if mountpoint -q ${libdir}/enigma2/python/Plugins/Extensions/OpenMultiboot; then
     echo "openMultiBoot will only install on main image."
@@ -45,7 +45,7 @@ else
 fi
 }
 
-pkg_postrm_${PN}() {
+pkg_postrm:${PN}() {
 #!/bin/sh
 rm -rf /sbin/init
 ln -s /sbin/init.sysvinit /sbin/init

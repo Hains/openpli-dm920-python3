@@ -18,7 +18,7 @@ PKGV = "1+git${GITPKGV}"
 
 inherit allarch distutils-openplugins
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	cmdwrapper \
 	duktape \
 	exteplayer3 \
@@ -37,18 +37,18 @@ RDEPENDS_${PN} = " \
 	wget \
 	"
 
-RDEPENDS_{PN}-src = "${PN}"
+RDEPENDS:{PN}-src = "${PN}"
 
-FILES_${PN}-src = " \
+FILES:${PN}-src = " \
 	${libdir}/enigma2/python/Plugins/*-py3.9.egg-info/* \
 	${libdir}/enigma2/python/Plugins/*/locale/*/LC_MESSAGES/*.po \
 	"
 
 deltask package_qa
 
-FILES_${PN} += "${sysconfdir}"
+FILES:${PN} += "${sysconfdir}"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${sysconfdir}
     cp -r  --preserve=mode,links ${S}/vk ${D}${sysconfdir}/vk
 }

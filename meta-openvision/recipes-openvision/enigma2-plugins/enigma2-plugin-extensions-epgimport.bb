@@ -17,19 +17,19 @@ S = "${WORKDIR}/git/src"
 inherit distutils-openplugins
 
 DEPENDS = "python3"
-RDEPENDS_${PN} = "python3-compression python3-shell python-lzma python3-pkgutil"
-RRECOMMENDS_${PN} = "${PN}-rytec"
+RDEPENDS:${PN} = "python3-compression python3-shell python-lzma python3-pkgutil"
+RRECOMMENDS:${PN} = "${PN}-rytec"
 PACKAGES = "${PN}-dbg ${PN}"
 
-RREPLACES_${PN} = "enigma2-plugin-extensions-xmltvimport"
-RCONFLICTS_${PN} = "enigma2-plugin-extensions-xmltvimport"
+RREPLACES:${PN} = "enigma2-plugin-extensions-xmltvimport"
+RCONFLICTS:${PN} = "enigma2-plugin-extensions-xmltvimport"
 
 PLUGIN = "EPGImport"
 
-FILES_${PN} = "${libdir}/enigma2/python"
-FILES_${PN}-dbg = "${libdir}/enigma2/python/Plugins/Extensions/${PLUGIN}/.debug /usr/src/debug"
+FILES:${PN} = "${libdir}/enigma2/python"
+FILES:${PN}-dbg = "${libdir}/enigma2/python/Plugins/Extensions/${PLUGIN}/.debug /usr/src/debug"
 
-pkg_postinst_${PN}() {
+pkg_postinst:${PN}() {
 
 	if [ ! -f $D${sysconfdir}/image-version ]
 	then
@@ -48,7 +48,7 @@ pkg_postinst_${PN}() {
 	fi
 }
 
-pkg_prerm_${PN}() {
+pkg_prerm:${PN}() {
 	if [ -f ${bindir}/enigma2.sh.xmltvbak ] ; then
 		mv -f ${bindir}/enigma2.sh.xmltvbak ${bindir}/enigma2.sh
 	fi

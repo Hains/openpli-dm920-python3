@@ -15,4 +15,4 @@ PACKAGECONFIG[pango]		= "-Dpango=enabled,-Dpango=disabled,pango"
 PACKAGECONFIG[theora]		= "-Dtheora=enabled,-Dtheora=disabled,libtheora"
 PACKAGECONFIG[vorbis]		= "-Dvorbis=enabled,-Dvorbis=disabled,libvorbis"
    
-FILES_${MLPREFIX}libgsttag-1.0 += "${datadir}/gst-plugins-base/1.0/license-translations.dict"
+FILES:${MLPREFIX}libgsttag-1.0 += "${datadir}/gst-plugins-base/1.0/license-translations.dict"

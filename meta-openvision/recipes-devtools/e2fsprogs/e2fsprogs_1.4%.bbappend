@@ -1,3 +1,3 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_append = "file://Revert-mke2fs-enable-the-metadata_csum.patch"
+SRC_URI:append = "file://Revert-mke2fs-enable-the-metadata_csum.patch"

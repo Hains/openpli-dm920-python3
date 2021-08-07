@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/Dima73/enigma2-plugin-extensions-tmbd"
 LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://README;md5=a1f8725511fa113a2b2a282860d4fc19"
 SRC_URI = "git://github.com/Dima73/enigma2-plugin-extensions-tmbd.git"
-SRC_URI_append = " file://set-english-language-as-default.patch"
+SRC_URI:append = " file://set-english-language-as-default.patch"
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
@@ -12,7 +12,7 @@ PKGV = "1+git${GITPKGV}"
 
 inherit distutils-openplugins
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	python3-twisted-web \
 	python3-xml \
 	python3-shell \

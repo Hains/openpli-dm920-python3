@@ -1,6 +1,6 @@
 DEFAULT_TIMEZONE = "CET"
 
-FILES_${PN} = "                                          \
+FILES:${PN} = "                                          \
                 ${datadir}/zoneinfo/Africa/Casablanca    \
                 ${datadir}/zoneinfo/Africa/Harare        \
                 ${datadir}/zoneinfo/Africa/Kinshasa      \
@@ -81,4 +81,4 @@ FILES_${PN} = "                                          \
 
 PACKAGES += "${PN}-base"
 
-FILES_${PN}-base = "${datadir}/zoneinfo"
+FILES:${PN}-base = "${datadir}/zoneinfo"

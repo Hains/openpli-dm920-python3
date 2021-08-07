@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "enigma2 uchardet openssl"
-RDEPENDS_${PN} = "enigma2 uchardet openssl python3-json"
-RRECOMMENDS_${PN} = "exteplayer3 gstplayer"
+RDEPENDS:${PN} = "enigma2 uchardet openssl python3-json"
+RRECOMMENDS:${PN} = "exteplayer3 gstplayer"
 
 SRC_URI = "git://github.com/Hains/serviceapp.git;branch=main file://sigc3.patch"
 
@@ -25,9 +25,9 @@ EXTRA_OECONF = "\
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
 	"
 
-FILES_${PN} = "\
+FILES:${PN} = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/"
 
-FILES_${PN}-dev = "\
+FILES:${PN}-dev = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.la"
 

@@ -81,7 +81,7 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;branch=Krypton \
     file://0013-FTPParse.cpp-use-std-string.patch \
 "
 
-SRC_URI_append_libc-musl = " \
+SRC_URI:append:libc-musl = " \
     file://0001-Fix-file_Emu-on-musl.patch \
     file://0002-Remove-FILEWRAP.patch \
 "
@@ -134,12 +134,12 @@ FULL_OPTIMIZATION_armv7a = "-fexpensive-optimizations -fomit-frame-pointer -O3 -
 FULL_OPTIMIZATION_armv7ve = "-fexpensive-optimizations -fomit-frame-pointer -O3 -ffast-math"
 BUILD_OPTIMIZATION = "${FULL_OPTIMIZATION}"
 
-LDFLAGS_append_mips = " -latomic"
-LDFLAGS_append_mipsel = " -latomic"
-LDFLAGS_append_powerpc = " -latomic"
-LDFLAGS_append_arm = " -latomic"
+LDFLAGS:append:mips = " -latomic"
+LDFLAGS:append:mipsel = " -latomic"
+LDFLAGS:append:powerpc = " -latomic"
+LDFLAGS:append:arm = " -latomic"
 
-EXTRA_OECONF_append = " LIBTOOL=${STAGING_BINDIR_CROSS}/${HOST_SYS}-libtool"
+EXTRA_OECONF:append = " LIBTOOL=${STAGING_BINDIR_CROSS}/${HOST_SYS}-libtool"
 
 # for python modules
 export HOST_SYS
@@ -168,7 +168,7 @@ do_configure() {
     oe_runconf
 }
 
-do_compile_prepend() {
+do_compile:prepend() {
     for i in $(find . -name "Makefile") ; do
         sed -i -e 's:I/usr/include:I${STAGING_INCDIR}:g' $i
     done
@@ -178,14 +178,14 @@ do_compile_prepend() {
     done
 }
 
-INSANE_SKIP_${PN} = "rpaths"
+INSANE_SKIP:${PN} = "rpaths"
 
-FILES_${PN} += "${datadir}/xsessions ${datadir}/icons ${libdir}/xbmc ${datadir}/xbmc"
-FILES_${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi/*/*/.debug ${libdir}/kodi/*/*/*/.debug"
+FILES:${PN} += "${datadir}/xsessions ${datadir}/icons ${libdir}/xbmc ${datadir}/xbmc"
+FILES:${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi/*/*/.debug ${libdir}/kodi/*/*/*/.debug"
 
 # kodi uses some kind of dlopen() method for libcec so we need to add it manually
 # OpenGL builds need glxinfo, that's in mesa-demos
-RRECOMMENDS_${PN}_append = " \
+RRECOMMENDS:${PN}:append = " \
     libcec \
     python \
     python-ctypes \
@@ -202,7 +202,7 @@ RRECOMMENDS_${PN}_append = " \
     libcurl \
     ${@bb.utils.contains('PACKAGECONFIG', 'x11', 'xrandr xdpyinfo', '', d)} \
 "
-RRECOMMENDS_${PN}_append_libc-glibc = " \
+RRECOMMENDS:${PN}:append:libc-glibc = " \
     glibc-charmap-ibm850 \
     glibc-gconv-ibm850 \
     glibc-gconv-unicode \
@@ -211,6 +211,6 @@ RRECOMMENDS_${PN}_append_libc-glibc = " \
     glibc-localedata-en-us \
 "
 
-RPROVIDES_${PN} += "xbmc"
+RPROVIDES:${PN} += "xbmc"
 
 TOOLCHAIN = "gcc"

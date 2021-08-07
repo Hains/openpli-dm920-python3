@@ -1,1 +1,1 @@
-INSANE_SKIP_${PN}-tools += "file-rdeps"
+INSANE_SKIP:${PN}-tools += "file-rdeps"

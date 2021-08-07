@@ -31,16 +31,16 @@ do_configure () {
     oe_runconf
 }
 
-do_compile_prepend () {
+do_compile:prepend () {
     #compile media info
     cd ${S}
 }
 
-do_install_append () {
+do_install:append () {
 	chrpath -d ${D}${libdir}/libmediainfo.so.0.0.0
 }
 
-do_install_prepend () {
+do_install:prepend () {
     install -d ${D}${libdir}
     oe_libinstall -so -C ${WORKDIR}/MediaInfo_CLI_GNU_FromSource/ZenLib/Project/GNU/Library/ libzen ${D}${libdir}
     oe_libinstall -so -C ${WORKDIR}/MediaInfo_CLI_GNU_FromSource/MediaInfoLib/Project/GNU/Library/ libmediainfo ${D}${libdir}

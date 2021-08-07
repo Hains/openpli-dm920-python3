@@ -4,7 +4,7 @@ HOMEPAGE = "https://service-identity.readthedocs.io/en/stable"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8a0f079f4e6a215d6bd6f9d97cab4d5f"
 
-RDEPENDS_${PN} = "python3-attrs python3-idna python3-pyasn1 python3-pyasn1-modules python3-pyopenssl"
+RDEPENDS:${PN} = "python3-attrs python3-idna python3-pyasn1 python3-pyasn1-modules python3-pyopenssl"
 
 SRCNAME = "service-identity"
 SRC_URI = "https://files.pythonhosted.org/packages/09/2e/26ade69944773df4748c19d3053e025b282f48de02aad84906d34a29d28b/${SRCNAME}-${PV}.tar.gz"

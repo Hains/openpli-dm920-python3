@@ -1,5 +1,5 @@
-PACKAGESPLITFUNCS_prepend = " split_gstreamer10_packages "
-PACKAGESPLITFUNCS_append = " set_metapkg_rdepends "
+PACKAGESPLITFUNCS:prepend = " split_gstreamer10_packages "
+PACKAGESPLITFUNCS:append = " set_metapkg_rdepends "
 
 python split_gstreamer10_packages () {
     gst_libdir = d.expand('${libdir}/gstreamer-${LIBV}')
@@ -43,14 +43,14 @@ python set_metapkg_rdepends () {
 
 # each plugin-dev depends on PN-dev, plugin-staticdev on PN-staticdev
 # so we need them even when empty (like in gst-plugins-good case)
-ALLOW_EMPTY_${PN} = "1"
-ALLOW_EMPTY_${PN}-dev = "1"
-ALLOW_EMPTY_${PN}-staticdev = "1"
+ALLOW_EMPTY:${PN} = "1"
+ALLOW_EMPTY:${PN}-dev = "1"
+ALLOW_EMPTY:${PN}-staticdev = "1"
 
 PACKAGES += "${PN}-apps ${PN}-meta ${PN}-glib"
 
-FILES_${PN} = ""
-FILES_${PN}-apps = "${bindir}"
-FILES_${PN}-glib = "${datadir}/glib-2.0"
+FILES:${PN} = ""
+FILES:${PN}-apps = "${bindir}"
+FILES:${PN}-glib = "${datadir}/glib-2.0"
 
-RRECOMMENDS_${PN} += "${PN}-meta"
+RRECOMMENDS:${PN} += "${PN}-meta"

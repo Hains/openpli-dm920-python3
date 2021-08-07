@@ -11,7 +11,7 @@ PKGV = "${PKGVERSION}-${GITPKGV}"
 
 SRC_URI = "git://github.com/eriksl/enigma2-plugin-extensions-lcd4linux-ihad-source-copy.git"
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
 	png-util \
 	pydpflib \
 	python3-codecs \
@@ -39,11 +39,11 @@ do_install() {
 	cp -r --preserve=mode,links "${S}/etc" "${D}"
 }
 
-FILES_${PN} = "\
+FILES:${PN} = "\
 	${libdir}/python3.9 \
 	${libdir}/python3.9/site-packages \
 	${libdir}/enigma2/python/Components/Renderer/PixmapLcd4linux.py* \
 	${libdir}/enigma2/python/Plugins/Extensions/LCD4linux \
 	${sysconfdir}/enigma2/lcd4config*"
 
-CONFFILES_${PN} = "${sysconfdir}/enigma2/lcd4config"
+CONFFILES:${PN} = "${sysconfdir}/enigma2/lcd4config"

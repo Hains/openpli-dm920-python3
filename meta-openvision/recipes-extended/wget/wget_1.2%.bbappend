@@ -1,4 +1,4 @@
-DEPENDS_remove = "gnutls"
-DEPENDS_append = " openssl"
-EXTRA_OECONF_remove = "--with-ssl=gnutls"
-EXTRA_OECONF_append = " --with-ssl=openssl"
+DEPENDS:remove = "gnutls"
+DEPENDS:append = " openssl"
+EXTRA_OECONF:remove = "--with-ssl=gnutls"
+EXTRA_OECONF:append = " --with-ssl=openssl"

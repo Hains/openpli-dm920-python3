@@ -2,33 +2,33 @@ SUMMARY = "Dreambox EGL and GLES2 libraries"
 LICENSE = "CLOSED"
 DEPENDS = "${LIBEGLDEP}"
 PROVIDES = "virtual/egl virtual/libgles2"
-RPROVIDES_${PN} = "virtual/egl virtual/libgles2"
+RPROVIDES:${PN} = "virtual/egl virtual/libgles2"
 
 LIBEGLDEP = ""
-LIBEGLDEP_bcm73625 = "libv3ddriver"
-LIBEGLDEP_bcm7435 = "libv3ddriver"
-LIBEGLDEP_bcm7252s = "libvc5driver"
+LIBEGLDEP:bcm73625 = "libv3ddriver"
+LIBEGLDEP:bcm7435 = "libv3ddriver"
+LIBEGLDEP:bcm7252s = "libvc5driver"
 
 LIBEGLRDEP = ""
-LIBEGLRDEP_bcm7435 = "libv3ddriver"
-LIBEGLRDEP_bcm7252s = "libvc5driver"
+LIBEGLRDEP:bcm7435 = "libv3ddriver"
+LIBEGLRDEP:bcm7252s = "libvc5driver"
 
-RDEPENDS_${PN} = "${LIBEGLRDEP}"
+RDEPENDS:${PN} = "${LIBEGLRDEP}"
 
-RPROVIDES_${PN} = "libegl libegl1 libgles2 libglesv2-2"
-RPROVIDES_${PN}-dev = "libegl-dev libgles2-dev"
+RPROVIDES:${PN} = "libegl libegl1 libgles2 libglesv2-2"
+RPROVIDES:${PN}-dev = "libegl-dev libgles2-dev"
 
-RCONFLICTS_${PN} = "libegl libegl1 libgles2 libglesv2-2"
-RCONFLICTS_${PN}-dev = "libegl-dev libgles2-dev"
+RCONFLICTS:${PN} = "libegl libegl1 libgles2 libglesv2-2"
+RCONFLICTS:${PN}-dev = "libegl-dev libgles2-dev"
 
-RREPLACES_${PN} = "libegl libegl1 libgles2 libglesv2-2"
-RREPLACES_${PN}-dev = "libegl-dev libgles2-dev"
+RREPLACES:${PN} = "libegl libegl1 libgles2 libglesv2-2"
+RREPLACES:${PN}-dev = "libegl-dev libgles2-dev"
 
 # As a workaround, keep .so symlinks in base package
 # until all users were recompiled.
-FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
-FILES_SOLIBSDEV = ""
-INSANE_SKIP_${PN} = "dev-so"
+FILES:${PN} += "${libdir}/lib*${SOLIBSDEV}"
+FILES:SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"
 
 SRC_URI += "file://LICENSE-CLOSE"
 
@@ -36,6 +36,6 @@ do_license() {
 	mv ${WORKDIR}/LICENSE-CLOSE ${B}/LICENSE-CLOSE
 }
 
-INSANE_SKIP_${PN} += "installed-vs-shipped"
+INSANE_SKIP:${PN} += "installed-vs-shipped"
 
 addtask do_license before do_populate_lic after do_unpack

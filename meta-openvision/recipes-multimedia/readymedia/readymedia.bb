@@ -19,18 +19,18 @@ SRC_URI = "git://github.com/OpenVisionE2/minidlna.git \
 "
 S = "${WORKDIR}/git"
 
-do_configure_prepend() {
+do_configure:prepend() {
 		sed -i 's/AM_INIT_AUTOMAKE.*$/AM_INIT_AUTOMAKE([foreign subdir-objects])/' ${S}/configure.ac
 }
 
-CONFFILES_${PN} = "${sysconfdir}/minidlna.conf"
+CONFFILES:${PN} = "${sysconfdir}/minidlna.conf"
 
 inherit autotools-brokensep pkgconfig gettext update-rc.d
 
 INITSCRIPT_NAME = "readymedia.sh"
 INITSCRIPT_PARAMS = "stop 00 0 6 ."
 
-do_install_append() {
+do_install:append() {
 	install -m 755 -d ${D}${sysconfdir}
 	install -m 644 ${WORKDIR}/minidlna.conf ${D}${sysconfdir}/
 	install -m 755 -d ${D}${sysconfdir}/init.d/

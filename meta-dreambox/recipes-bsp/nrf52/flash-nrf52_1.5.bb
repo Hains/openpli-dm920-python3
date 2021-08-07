@@ -8,7 +8,7 @@ SRC_URI[cortexa15hf-neon-vfpv4.sha256sum] = "e9f119af9bcadf4a74d91ed8ebccbf86bc4
 
 inherit opendreambox-precompiled-binary-new
 
-INSANE_SKIP_${PN} += " installed-vs-shipped"
+INSANE_SKIP:${PN} += " installed-vs-shipped"
 
 SRC_URI += "file://LICENSE-CLOSE"
 

@@ -6,12 +6,12 @@ SRC_URI[cortexa15hf-neon-vfpv4.sha256sum] = "498c3412025350da77f67bd56bcc32a60c5
 
 inherit opendreambox-precompiled-binary-new
 
-FILES_${PN} = "${libdir}/lib*${SOLIBSDEV}"
+FILES:${PN} = "${libdir}/lib*${SOLIBSDEV}"
 FILES_SOLIBSDEV = ""
 
-DEBIAN_NOAUTONAME_${PN} = "1"
+DEBIAN_NOAUTONAME:${PN} = "1"
 
-INSANE_SKIP_${PN} += "file-rdeps installed-vs-shipped"
+INSANE_SKIP:${PN} += "file-rdeps installed-vs-shipped"
 
 SRC_URI += "file://LICENSE-CLOSE"
 

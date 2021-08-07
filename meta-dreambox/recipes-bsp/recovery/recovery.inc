@@ -7,7 +7,7 @@ PR = "r1"
 
 inherit pkgconfig update-rc.d
 
-SRC_URI_append = ";branch=${BRANCH}"
+SRC_URI:append = ";branch=${BRANCH}"
 
 do_install() {
     oe_runmake install DESTDIR=${D}
@@ -17,7 +17,7 @@ PACKAGES =+ "flash-scripts"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     flash-scripts \
     gpgv \
     pigz \
@@ -26,12 +26,12 @@ RDEPENDS_${PN} = " \
     gptfdisk \
 "
 
-RDEPENDS_flash-scripts = " \
+RDEPENDS:flash-scripts = " \
     coreutils-realpath \
     util-linux-sfdisk \
 "
 
-FILES_flash-scripts = " \
+FILES:flash-scripts = " \
     ${sbindir}/flash-fsbl \
     ${sbindir}/flash-rescue \
     ${sbindir}/flash-kernel \

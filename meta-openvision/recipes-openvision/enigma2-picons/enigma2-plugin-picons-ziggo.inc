@@ -3,7 +3,7 @@ inherit gitpkgv allarch
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-FILES_${PN} = "picon"
+FILES:${PN} = "picon"
 
 S = "${WORKDIR}/git"
 

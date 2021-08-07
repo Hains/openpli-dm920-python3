@@ -2,10 +2,10 @@ SUMMARY = "Utilities needed to do transponder blindscan with dreambox dvb receiv
 LICENSE = "CLOSED"
 
 PROVIDES += "virtual/blindscan-dvbs virtual/blindscan-dvbc"
-RPROVIDES_${PN} += "virtual/blindscan-dvbs virtual/blindscan-dvbc"
+RPROVIDES:${PN} += "virtual/blindscan-dvbs virtual/blindscan-dvbc"
 
 DEPENDS = "ncurses"
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped"
 
 PV = "1.12"
 

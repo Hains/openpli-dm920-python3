@@ -23,4 +23,4 @@ do_install() {
 	ln -s libshowiframe.so.0.0.0 ${D}${libdir}/libshowiframe.so.0
 }
 
-FILES_${PN} = "${libdir}"
+FILES:${PN} = "${libdir}"

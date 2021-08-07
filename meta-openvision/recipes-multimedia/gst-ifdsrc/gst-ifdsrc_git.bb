@@ -14,4 +14,4 @@ SRC_URI = "git://gitlab.com/e2i/gst-ifdsrc.git;protocol=http"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${libdir}/gstreamer-1.0"
+FILES:${PN} += "${libdir}/gstreamer-1.0"

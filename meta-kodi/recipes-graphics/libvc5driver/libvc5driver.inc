@@ -1,11 +1,11 @@
 SUMMARY = "Broadcom VC5 driver"
 
-FILES_${PN} = "${libdir}/lib*${SOLIBSDEV}"
-FILES_${PN}-dev = "${includedir}"
+FILES:${PN} = "${libdir}/lib*${SOLIBSDEV}"
+FILES:${PN}-dev = "${includedir}"
 
 EXCLUDE_FROM_WORLD = "1"
 
-INSANE_SKIP_${PN} = "dev-so installed-vs-shipped"
+INSANE_SKIP:${PN} = "dev-so installed-vs-shipped"
 
 SRC_URI += "file://LICENSE-CLOSE"
 

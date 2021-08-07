@@ -14,7 +14,7 @@ SRC_URI = "file://process.py"
 
 S = "${WORKDIR}"
 
-FILES_${PN} = "${PYTHON_SITEPACKAGES_DIR}/process.py"
+FILES:${PN} = "${PYTHON_SITEPACKAGES_DIR}/process.py"
 
 do_compile() {
     python3 -O -m compileall ${WORKDIR}/process.py

@@ -6,7 +6,7 @@ HOMEPAGE = "https://www.ffmpeg.org/"
 SECTION = "libs"
 
 LICENSE = "BSD & GPLv2+ & LGPLv2.1+ & MIT"
-LICENSE_${PN} = "GPLv2+"
+LICENSE:${PN} = "GPLv2+"
 LICENSE_libavcodec		= "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
 LICENSE_libavdevice 	= "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
 LICENSE_libavfilter		= "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
@@ -49,7 +49,7 @@ ARM_INSTRUCTION_SET = "arm"
 # libpostproc was previously packaged from a separate recipe
 PROVIDES = "libav libpostproc"
 
-RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl"
+RDEPENDS:${PN} = "libbluray rtmpdump libxml2 openssl"
 DEPENDS = "alsa-lib zlib libogg nasm-native libxml2"
 
 PACKAGECONFIG = "avdevice avfilter avcodec avformat avresample swscale swresample postproc \
@@ -125,7 +125,7 @@ EXTRA_OECONF = " \
 	--cpu=${@cpu(d)} \
 "
 
-EXTRA_OECONF_append_linux-gnux32 = " --disable-asm"
+EXTRA_OECONF:append_linux-gnux32 = " --disable-asm"
 
 do_configure() {
 	${S}/configure ${EXTRA_OECONF}
@@ -153,15 +153,15 @@ FILES_libswresample		= "${libdir}/libswresample${SOLIBS}"
 FILES_libswscale		= "${libdir}/libswscale${SOLIBS}"
 
 # ffmpeg disables PIC on some platforms (e.g. x86-32)
-INSANE_SKIP_${MLPREFIX}libavcodec		= "textrel"
-INSANE_SKIP_${MLPREFIX}libavdevice		= "textrel"
-INSANE_SKIP_${MLPREFIX}libavfilter		= "textrel"
-INSANE_SKIP_${MLPREFIX}libavformat		= "textrel"
-INSANE_SKIP_${MLPREFIX}libavutil		= "textrel"
-INSANE_SKIP_${MLPREFIX}libavresample	= "textrel"
-INSANE_SKIP_${MLPREFIX}libswscale		= "textrel"
-INSANE_SKIP_${MLPREFIX}libswresample	= "textrel"
-INSANE_SKIP_${MLPREFIX}libpostproc		= "textrel"
+INSANE_SKIP:${MLPREFIX}libavcodec		= "textrel"
+INSANE_SKIP:${MLPREFIX}libavdevice		= "textrel"
+INSANE_SKIP:${MLPREFIX}libavfilter		= "textrel"
+INSANE_SKIP:${MLPREFIX}libavformat		= "textrel"
+INSANE_SKIP:${MLPREFIX}libavutil		= "textrel"
+INSANE_SKIP:${MLPREFIX}libavresample	= "textrel"
+INSANE_SKIP:${MLPREFIX}libswscale		= "textrel"
+INSANE_SKIP:${MLPREFIX}libswresample	= "textrel"
+INSANE_SKIP:${MLPREFIX}libpostproc		= "textrel"
 
 EXTRA_FFCONF = " \
 	--disable-static \

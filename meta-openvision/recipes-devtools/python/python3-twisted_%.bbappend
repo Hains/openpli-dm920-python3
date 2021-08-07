@@ -1,1 +1,1 @@
-FILES_${PN}-src = ""
+FILES:${PN}-src = ""

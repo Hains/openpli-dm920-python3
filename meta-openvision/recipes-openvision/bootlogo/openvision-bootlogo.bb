@@ -5,7 +5,7 @@ MAINTAINER = "PLi team"
 LICENSE = "CC-BY-NC-ND-4.0"
 LIC_FILES_CHKSUM = "file://${OPENVISION_BASE}/meta-openvision/licenses/CC-BY-NC-ND-4.0;md5=8009795292660aa9c8da059e5b1581c1"
 
-RDEPENDS_${PN} += "showiframe"
+RDEPENDS:${PN} += "showiframe"
 
 PV = "4.1"
 
@@ -55,5 +55,5 @@ do_install() {
 	install -m 0755 ${S}/bootlogo.sh ${D}/${sysconfdir}/init.d/bootlogo
 }
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
-FILES_${PN} = "/boot ${datadir} ${sysconfdir}/init.d"
+PACKAGE:ARCH := "${MACHINE_ARCH}"
+FILES:${PN} = "/boot ${datadir} ${sysconfdir}/init.d"

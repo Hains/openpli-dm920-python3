@@ -7,7 +7,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "python3-cheetah-native"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
 	aio-grab \
 	python3-cheetah \
 	python3-compression\
@@ -35,7 +35,7 @@ do_compile() {
 }
 
 PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif"
-do_install_append() {
+do_install:append() {
 	install -d ${D}${PLUGINPATH}
 	cp -r ${S}/plugin/* ${D}${PLUGINPATH}
 	chmod a+rX ${D}${PLUGINPATH}
@@ -43,7 +43,7 @@ do_install_append() {
 	rmdir -p --ignore-fail-on-non-empty ${D}${datadir} ${D}/${PYTHON_SITEPACKAGES_DIR} || true
 }
 
-FILES_${PN} = "${PLUGINPATH}"
+FILES:${PN} = "${PLUGINPATH}"
 
 python do_cleanup () {
 
@@ -76,9 +76,9 @@ python do_cleanup () {
 
 addtask do_cleanup after do_populate_sysroot before do_package
 
-RPROVIDES_${PN} =+ "${PN}-terminal"
-DESCRIPTION_${PN}-terminal = "CLI for OpenWebif"
-RDEPENDS_${PN}-terminal = "${PN} shellinabox"
-RREPLACES_${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
-RCONFLICTS_${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
-RPROVIDES_${PN}-terminal =+ "enigma2-plugin-extensions-openwebif-terminal"
+RPROVIDES:${PN} =+ "${PN}-terminal"
+DESCRIPTION:${PN}-terminal = "CLI for OpenWebif"
+RDEPENDS:${PN}-terminal = "${PN} shellinabox"
+RREPLACES:${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
+RCONFLICTS:${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
+RPROVIDES:${PN}-terminal =+ "enigma2-plugin-extensions-openwebif-terminal"

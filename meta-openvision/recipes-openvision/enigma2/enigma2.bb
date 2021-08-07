@@ -17,10 +17,10 @@ DEPENDS = " \
 	"
 
 # SoftcamSetup is integrated now
-RREPLACES_${PN} = "enigma2-plugin-pli-softcamsetup"
-RCONFLICTS_${PN} = "enigma2-plugin-pli-softcamsetup"
+RREPLACES:${PN} = "enigma2-plugin-pli-softcamsetup"
+RCONFLICTS:${PN} = "enigma2-plugin-pli-softcamsetup"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	alsa-conf \
 	enigma2-fonts \
 	ethtool \
@@ -29,7 +29,7 @@ RDEPENDS_${PN} = " \
 	${PYTHON_RDEPS} \
 	"
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS:${PN} = " \
 	enigma2-plugin-skins-pli-hd \
 	enigma2-plugin-skins-octetfhd \
 	hotplug-e2-helper \
@@ -62,36 +62,36 @@ PYTHON_RDEPS = " \
 	"
 
 # DVD and iso playback is integrated, we need the libraries
-RDEPENDS_${PN} += "libdreamdvd libudfread"
-RRECOMMENDS_${PN} += "libdvdcss"
+RDEPENDS:${PN} += "libdreamdvd libudfread"
+RRECOMMENDS:${PN} += "libdvdcss"
 
 # We depend on the font which we use for TXT subtitles (defined in skin_subtitles.xml)
-RDEPENDS_${PN} += "font-valis-enigma"
+RDEPENDS:${PN} += "font-valis-enigma"
 
-RDEPENDS_${PN} += "virtual/blindscan-dvbc"
+RDEPENDS:${PN} += "virtual/blindscan-dvbc"
 
 DEMUXTOOL ?= "replex"
 
-DESCRIPTION_append_enigma2-plugin-extensions-cutlisteditor = "enables you to cut your movies."
-RDEPENDS_enigma2-plugin-extensions-cutlisteditor = "aio-grab"
-DESCRIPTION_append_enigma2-plugin-extensions-graphmultiepg = "shows a graphical timeline EPG."
-DESCRIPTION_append_enigma2-plugin-extensions-pictureplayer = "displays photos on the TV."
-DESCRIPTION_append_enigma2-plugin-systemplugins-positionersetup = "helps you installing a motorized dish."
-DESCRIPTION_append_enigma2-plugin-systemplugins-satelliteequipmentcontrol = "allows you to fine-tune DiSEqC-settings."
-DESCRIPTION_append_enigma2-plugin-systemplugins-satfinder = "helps you to align your dish."
-DESCRIPTION_append_enigma2-plugin-systemplugins-videomode = "selects advanced video modes"
-RDEPENDS_enigma2-plugin-systemplugins-nfiflash = "python3-twisted"
-RDEPENDS_enigma2-plugin-systemplugins-softwaremanager = "python3-twisted"
-DESCRIPTION_append_enigma2-plugin-systemplugins-wirelesslan = "helps you configuring your wireless lan"
-RDEPENDS_enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
-DESCRIPTION_append_enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
+DESCRIPTION:append:enigma2-plugin-extensions-cutlisteditor = "enables you to cut your movies."
+RDEPENDS:enigma2-plugin-extensions-cutlisteditor = "aio-grab"
+DESCRIPTION:append:enigma2-plugin-extensions-graphmultiepg = "shows a graphical timeline EPG."
+DESCRIPTION:append:enigma2-plugin-extensions-pictureplayer = "displays photos on the TV."
+DESCRIPTION:append:enigma2-plugin-systemplugins-positionersetup = "helps you installing a motorized dish."
+DESCRIPTION:append:enigma2-plugin-systemplugins-satelliteequipmentcontrol = "allows you to fine-tune DiSEqC-settings."
+DESCRIPTION:append:enigma2-plugin-systemplugins-satfinder = "helps you to align your dish."
+DESCRIPTION:append:enigma2-plugin-systemplugins-videomode = "selects advanced video modes"
+RDEPENDS:enigma2-plugin-systemplugins-nfiflash = "python3-twisted"
+RDEPENDS:enigma2-plugin-systemplugins-softwaremanager = "python3-twisted"
+DESCRIPTION:append:enigma2-plugin-systemplugins-wirelesslan = "helps you configuring your wireless lan"
+RDEPENDS:enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
+DESCRIPTION:append:enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
 # Note that these tools lack recipes
-RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit ${DEMUXTOOL}"
-RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
+RDEPENDS:enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit ${DEMUXTOOL}"
+RDEPENDS:enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 
 # Fake package that doesn't actually get built, but allows OE to detect
 # the RDEPENDS for the plugins above, preventing [build-deps] warnings.
-RDEPENDS_${PN}-build-dependencies = "\
+RDEPENDS:${PN}-build-dependencies = "\
 	aio-grab \
 	dvd+rw-tools dvdauthor mjpegtools cdrkit ${DEMUXTOOL} \
 	wpa-supplicant wireless-tools python-wifi \
@@ -112,20 +112,20 @@ SRC_URI = " ${GITHUB_URI}/Hains/enigma2-python3.git;branch=${ENIGMA2_BRANCH} \
 			file://006-make-PLi-FullNightHD-skin-default.patch \
 			"
 
-LDFLAGS_prepend = " -lxml2 "
+LDFLAGS:prepend = " -lxml2 "
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${datadir}/keymaps"
-FILES_${PN}-meta = "${datadir}/meta"
+FILES:${PN} += "${datadir}/keymaps"
+FILES:${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit autotools pkgconfig
 
 PACKAGES =+ "enigma2-fonts"
-PKGV_enigma2-fonts = "2018.08.15"
-FILES_enigma2-fonts = "${datadir}/fonts"
+PKGV:enigma2-fonts = "2018.08.15"
+FILES:enigma2-fonts = "${datadir}/fonts"
 
 def get_crashaddr(d):
     if d.getVar('CRASHADDR', True):
@@ -153,17 +153,17 @@ EXTRA_OEMAKE = "\
 	"
 
 # some plugins contain so's, their stripped symbols should not end up in the enigma2 package
-FILES_${PN}-dbg += "\
+FILES:${PN}-dbg += "\
 	${libdir}/enigma2/python/Plugins/*/*/.debug \
 	"
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}${datadir}/keymaps
 	install -m 0644 ${S}/data/rc_models/${RCNAME}.png ${D}${datadir}/enigma2/rc_models/
 	install -m 0644 ${S}/data/rc_models/${RCNAME}.xml ${D}${datadir}/enigma2/rc_models/
 }
 
-python populate_packages_prepend() {
+python populate_packages:prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/[a-zA-Z0-9_]+.*$', 'enigma2-plugin-%s', '%s', recursive=True, match_path=True, prepend=True, extra_depends='')
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.la$', 'enigma2-plugin-%s-dev', '%s (development)', recursive=True, match_path=True, prepend=True, extra_depends='')

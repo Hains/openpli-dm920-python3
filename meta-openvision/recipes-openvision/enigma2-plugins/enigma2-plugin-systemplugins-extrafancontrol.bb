@@ -12,4 +12,4 @@ PKGV = "1+git${GITPKGV}"
 
 inherit allarch distutils-openplugins
 
-RDEPENDS_${PN} = "hddtemp"
+RDEPENDS:${PN} = "hddtemp"

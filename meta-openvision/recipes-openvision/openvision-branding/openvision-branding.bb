@@ -69,7 +69,7 @@ EXTRA_OECONF = " \
     --with-rcidnum="${RCIDNUM}" \
     "
 
-FILES_${PN} = "${libdir}/enigma2/python/*.so"
-FILES_${PN}-dev += "${libdir}/enigma2/python/*.la"
-FILES_${PN}-staticdev += "${libdir}/enigma2/python/*.a"
-FILES_${PN}-dbg += "${libdir}/enigma2/python/.debug"
+FILES:${PN} = "${libdir}/enigma2/python/*.so"
+FILES:${PN}-dev += "${libdir}/enigma2/python/*.la"
+FILES:${PN}-staticdev += "${libdir}/enigma2/python/*.a"
+FILES:${PN}-dbg += "${libdir}/enigma2/python/.debug"

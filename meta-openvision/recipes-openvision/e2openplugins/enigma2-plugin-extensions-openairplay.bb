@@ -1,6 +1,6 @@
 MODULE = "OpenAirPlay"
 DESCRIPTION = "AirPlay and AirTunes server for enigma2"
-RDEPENDS_${PN} = "python-twisted-core python-twisted-web python-m2crypto \
+RDEPENDS:${PN} = "python-twisted-core python-twisted-web python-m2crypto \
                   python-biplist python-netclient python-avahi python-dbus \
                   python-core python-subprocess python-io python-xmlrpc \
                   hairtunes"
@@ -19,4 +19,4 @@ do_install() {
 	cp -r --preserve=mode,links ${S}/plugin/* ${D}${PLUGINPATH}
 }
 
-FILES_${PN} = "${PLUGINPATH}"
+FILES:${PN} = "${PLUGINPATH}"

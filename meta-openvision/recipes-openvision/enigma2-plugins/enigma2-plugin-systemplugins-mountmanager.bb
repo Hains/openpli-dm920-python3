@@ -11,6 +11,6 @@ PKGV = "1+git${GITPKGV}"
 
 inherit distutils-openplugins
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	e2fsprogs-tune2fs \
 	"

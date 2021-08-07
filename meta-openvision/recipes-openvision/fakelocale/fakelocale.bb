@@ -17,7 +17,7 @@ LANGUAGES = "ar_AE bg_BG ca_AD cs_CZ da_DK de_DE el_GR en_EN es_ES et_EE fa_IR f
 	fr_FR fy_NL he_IL hr_HR hu_HU id_ID is_IS it_IT lt_LT lv_LV nl_NL no_NO pl_PL pt_BR pt_PT \
 	ru_RU sk_SK sl_SI sr_YU sv_SE th_TH tr_TR uk_UA"
 
-RPROVIDES_${PN} = "virtual-locale-ar virtual-locale-bg virtual-locale-ca virtual-locale-cs \
+RPROVIDES:${PN} = "virtual-locale-ar virtual-locale-bg virtual-locale-ca virtual-locale-cs \
 	virtual-locale-da virtual-locale-de virtual-locale-el virtual-locale-en virtual-locale-es \
 	virtual-locale-et virtual-locale-fa virtual-locale-fi virtual-locale-fr virtual-locale-fy \
 	virtual-locale-he virtual-locale-hr virtual-locale-hu virtual-locale-is virtual-locale-it \
@@ -40,4 +40,4 @@ do_install() {
 	done
 }
 
-FILES_${PN} = "${LOCALEDIR} ${LOCALEDIR2}"
+FILES:${PN} = "${LOCALEDIR} ${LOCALEDIR2}"

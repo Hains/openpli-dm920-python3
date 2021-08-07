@@ -6,4 +6,4 @@ require openplugins-replace-pli.inc
 require openplugins-distutils.inc
 
 PACKAGES =+ "${PN}-example"
-FILES_${PN}-example = "/etc/ppanel/PPanel_tutorial.xml"
+FILES:${PN}-example = "/etc/ppanel/PPanel_tutorial.xml"

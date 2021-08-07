@@ -34,4 +34,4 @@ do_install() {
     install -m 0755 ${S}/hlsdl ${D}${bindir}/
 }
 
-FILES_${PN} = "${bindir}"
+FILES:${PN} = "${bindir}"

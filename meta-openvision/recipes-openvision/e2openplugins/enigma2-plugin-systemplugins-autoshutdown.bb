@@ -11,4 +11,4 @@ PR = "r0"
 require conf/license/license-gplv2.inc
 require openplugins.inc
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"

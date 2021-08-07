@@ -9,7 +9,7 @@ PKGV = "1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/eriksl/minisatip.git;protocol=git"
 
-FILES_${PN} = "${sbindir}/minisatip"
+FILES:${PN} = "${sbindir}/minisatip"
 
 S = "${WORKDIR}/git"
 BUILD = "${WORKDIR}/build"

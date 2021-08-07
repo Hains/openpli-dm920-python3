@@ -12,7 +12,7 @@ PKGV = "0.7.1+git${GITPKGV}"
 
 S = "${WORKDIR}/git"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	mkdir -p ${S}/autotools
 	cp ${STAGING_DATADIR_NATIVE}/gettext/config.rpath ${S}/autotools/
 }

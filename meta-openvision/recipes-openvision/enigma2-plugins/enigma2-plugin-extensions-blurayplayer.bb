@@ -18,4 +18,4 @@ S = "${WORKDIR}/git"
 
 inherit distutils-openplugins
 
-FILES_${PN}-dbg += "${libdir}/enigma2/python/Plugins/Extensions/BlurayPlayer/.debug"
+FILES:${PN}-dbg += "${libdir}/enigma2/python/Plugins/Extensions/BlurayPlayer/.debug"

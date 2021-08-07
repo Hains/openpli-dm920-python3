@@ -11,7 +11,7 @@ SRC_URI = " file://convert-smbconf.py \
 "
 
 # Need to tell bitbake that we have extra files installed
-FILES_${PN} = " \
+FILES:${PN} = " \
 			${sysconfdir} \
 			${base_bindir} \
 "

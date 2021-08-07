@@ -8,7 +8,7 @@ PACKAGES_DYNAMIC = "enigma2-plugin-picons-*"
 
 inherit allarch
 
-FILES_${PN} = "picons"
+FILES:${PN} = "picons"
 
 S = "${WORKDIR}/picons"
 
@@ -18,7 +18,7 @@ do_install() {
 
 RESIZE_COMMAND = ""
 
-python populate_packages_prepend() {
+python populate_packages:prepend() {
     import os
     import shutil
     import re

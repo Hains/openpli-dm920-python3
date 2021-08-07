@@ -20,7 +20,7 @@ EXTRA_OECONF += "STAGING_DIR=${STAGING_DIR_NATIVE}"
 
 inherit autotools
 
-do_configure_append () {
+do:configure:append () {
         # Fix stupid libtool... handling. 
         # rpath handling can't be disabled and the Makefile's can't be regenerated..
         # (GNU sed required)

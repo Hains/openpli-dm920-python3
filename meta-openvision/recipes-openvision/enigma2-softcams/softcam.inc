@@ -10,12 +10,12 @@
 
 LICENSE = "CLOSED"
 
-FILES_${PN} = "/usr/bin /etc"
+FILES:${PN} = "/usr/bin /etc"
 
 # no docs, locales etc.
 PACKAGES = "${PN}"
 
-RDEPENDS_${PN} += "softcam-support"
+RDEPENDS:${PN} += "softcam-support"
 
 CAMLINK = "$D${sysconfdir}/init.d/softcam"
 CAMPATH = "$D${sysconfdir}/init.d/softcam.${CAMNAME}"
@@ -25,7 +25,7 @@ CAMSTOP  ?= "exec start-stop-daemon -K -R 2 -x /usr/bin/${CAMNAME}"
 
 # Generate a simplistic standard init script
 # (sorry for the sleep 1, but start-stop-daemon -R does not work as advertised)
-do_compile_append () {
+do_compile:append () {
 	if [ ! -f init.${CAMNAME} ]
 	then
 		cat > init.${CAMNAME} << EOF
@@ -61,13 +61,13 @@ EOF
 }
 
 # Install routine, should be ok for most cams.
-do_install_append () {
+do_install:append () {
 	install -d ${D}/etc/init.d
 	install -m 755 ${S}/init.${CAMNAME} ${D}/etc/init.d/softcam.${CAMNAME}
 }
 
 # If no cam selected yet, install and start this cam (and don't start it on the build host).
-pkg_postinst_${PN}_append () {
+pkg_postinst:${PN}:append () {
 	if [ ! -e "${CAMLINK}" ] || [ "/etc/init.d/softcam.None" = "`readlink -f ${CAMLINK}`" ]
 	then
 		rm -f "${CAMLINK}"
@@ -82,7 +82,7 @@ pkg_postinst_${PN}_append () {
 }
 
 # Stop this cam (if running), and move softlink to None if we're the current cam
-pkg_prerm_${PN}_prepend () {
+pkg_prerm:${PN}:prepend () {
 	${CAMPATH} stop
 	OLDLINK="`readlink -f ${CAMLINK}`"
 	if [ "${OLDLINK}" = "${CAMPATH}" ]

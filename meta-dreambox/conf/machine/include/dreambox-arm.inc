@@ -47,7 +47,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
 
-DISTRO_FEATURES_remove = "directfb gtk-directfb"
+DISTRO_FEATURES:remove = "directfb gtk-directfb"
     
 MACHINE_FEATURES += "dreambox alsa usbhost 3dtv switchoff blindscan-dvbs"
 # Add "dreambox" override for recipes
@@ -73,7 +73,7 @@ DREAMBOX_IMAGE_SIZE ??= "1024"
 IMAGE_FSTYPES =+ "tar.bz2"
 IMAGEDIR = "${MACHINE}"
 
-IMAGE_CMD_tar_prepend = "\
+IMAGE_CMD_tar:prepend = "\
     mkdir -p ${IMAGE_ROOTFS}/tmp; \
     mkdir -p ${IMAGE_ROOTFS}/var/lib/opkg/info; \
     mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
@@ -92,7 +92,7 @@ IMAGE_CMD_tar_prepend = "\
     rm -Rf ${IMAGEDIR}; \
     "
 
-IMAGE_CMD_tar_append = ";\
+IMAGE_CMD_tar:append = ";\
     cd ${DEPLOY_DIR_IMAGE}; \
     rm -f *.rootfs.manifest; \
     rm -f .manifest; \

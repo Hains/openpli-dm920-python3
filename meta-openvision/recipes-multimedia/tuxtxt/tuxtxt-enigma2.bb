@@ -16,8 +16,8 @@ PKGV = "2.0+git${GITPKGV}"
 PR = "r3"
 
 PACKAGES = "${PN}-dbg ${PN}-dev ${PN}"
-FILES_${PN} = "${libdir}/libtuxtxt32bpp.so.* ${datadir}/fonts ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/* ${sysconfdir}/tuxtxt"
-CONFFILES_${PN} = "${sysconfdir}/tuxtxt/tuxtxt2.conf"
+FILES:${PN} = "${libdir}/libtuxtxt32bpp.so.* ${datadir}/fonts ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/* ${sysconfdir}/tuxtxt"
+CONFFILES:${PN} = "${sysconfdir}/tuxtxt/tuxtxt2.conf"
 
 EXTRA_OECONF = "--with-boxtype=generic --with-configdir=/etc \
 	DVB_API_VERSION=5\

@@ -18,5 +18,5 @@ PACKAGECONFIG[mpeg2dec]	= "-Dmpeg2dec=enabled,-Dmpeg2dec=disabled,mpeg2dec"
 PACKAGECONFIG[orc]		= "-Dorc=enabled,-Dorc=disabled,orc"
 PACKAGECONFIG[x264]		= "-Dx264=enabled,-Dx264=disabled,x264"
 
-FILES_${PN}-amrnb += "${datadir}/gstreamer-1.0/presets/GstAmrnbEnc.prs"
-FILES_${PN}-x264 += "${datadir}/gstreamer-1.0/presets/GstX264Enc.prs"
+FILES:${PN}-amrnb += "${datadir}/gstreamer-1.0/presets/GstAmrnbEnc.prs"
+FILES:${PN}-x264 += "${datadir}/gstreamer-1.0/presets/GstX264Enc.prs"

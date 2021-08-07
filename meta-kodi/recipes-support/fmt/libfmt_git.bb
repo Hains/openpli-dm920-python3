@@ -11,4 +11,4 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 
-FILES_${PN}-dev += "${libdir}/cmake"
+FILES:${PN}-dev += "${libdir}/cmake"

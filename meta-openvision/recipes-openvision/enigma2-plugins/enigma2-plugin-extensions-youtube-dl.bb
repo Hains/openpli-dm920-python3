@@ -24,21 +24,21 @@ inherit gitpkgv setuptools3
 
 EXTRA_OEMAKE = "PYTHON=${PYTHON}"
 
-do_compile_prepend() {
+do_compile:prepend() {
 	oe_runmake lazy-extractors youtube-dl.bash-completion
 }
 
-do_install_append() {
+do_install:append() {
 	mv ${D}${datadir}/etc ${D}${sysconfdir}
 	install -m 0755 -d ${D}${sysconfdir}/bash_completion.d
 	install -m 0644 youtube-dl.bash-completion ${D}${sysconfdir}/bash_completion.d
 }
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	python3-email \
 	python3-unixadmin \
 	python3-ctypes \
 	python3-html \
 	"
 
-FILES_${PN} += "${sysconfdir}"
+FILES:${PN} += "${sysconfdir}"

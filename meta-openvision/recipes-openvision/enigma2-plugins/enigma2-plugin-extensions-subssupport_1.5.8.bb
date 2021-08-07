@@ -6,16 +6,16 @@ AUTHOR = "Maroš Ondrášek <mx3ldev@gmail.com>"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171dd6425610833a22dbe6"
 
-RDEPENDS_${PN} = "python3-xmlrpc python3-compression python3-codecs python3-difflib unrar"
+RDEPENDS:${PN} = "python3-xmlrpc python3-compression python3-codecs python3-difflib unrar"
 
 SRC_URI = "git://github.com/mx3L/subssupport;protocol=git;branch=master"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "${libdir}/enigma2/python/Plugins/Extensions/SubsSupport \
+FILES:${PN} = "${libdir}/enigma2/python/Plugins/Extensions/SubsSupport \
 ${localstatedir}/lib/subssupport"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${localstatedir}/lib/subssupport
 }
 
