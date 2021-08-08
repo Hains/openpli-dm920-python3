@@ -105,11 +105,7 @@ PKGV = "2.7+git${GITPKGV}"
 ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
 
-SRC_URI = " ${GITHUB_URI}/Hains/enigma2-python3.git;branch=${ENIGMA2_BRANCH} \
-			file://001-set-default-debug-level-at-4.patch \
-			file://003-restore-last-update-date-time.patch \
-			file://006-make-PLi-FullNightHD-skin-default.patch \
-			"
+SRC_URI = "${GITHUB_URI}/Hains/enigma2-python3.git;branch=${ENIGMA2_BRANCH}"
 
 LDFLAGS:prepend = " -lxml2 "
 
