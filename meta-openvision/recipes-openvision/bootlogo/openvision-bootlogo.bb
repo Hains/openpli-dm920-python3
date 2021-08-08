@@ -55,5 +55,5 @@ do_install() {
 	install -m 0755 ${S}/bootlogo.sh ${D}/${sysconfdir}/init.d/bootlogo
 }
 
-PACKAGE:ARCH := "${MACHINE_ARCH}"
+PACKAGE_ARCH := "${MACHINE_ARCH}"
 FILES:${PN} = "/boot ${datadir} ${sysconfdir}/init.d"
