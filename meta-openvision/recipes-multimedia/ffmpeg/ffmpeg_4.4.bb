@@ -112,8 +112,8 @@ EXTRA_OECONF = " \
 	--arch=${TARGET_ARCH} \
 	--target-os="linux" \
 	--enable-cross-compile \
-	--extra-cflags="${CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS}" \
-	--extra-ldflags="${LDFLAGS}" \
+	--extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
+	--extra-ldflags="${TARGET_LDFLAGS}" \
 	--sysroot="${STAGING_DIR_TARGET}" \
 	--enable-hardcoded-tables \
 	${EXTRA_FFCONF} \
@@ -207,7 +207,5 @@ EXTRA_FFCONF = " \
 	--disable-debug \
 	--pkg-config="pkg-config" \
 	--enable-zlib \
-	--extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
-	--extra-ldflags="${TARGET_LDFLAGS},--gc-sections -Wl,--print-gc-sections,-lrt" \
 	--prefix=${prefix} \
 "
