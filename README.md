@@ -2,9 +2,9 @@ Experimental build environment for dreambox 920 with Python 3.<br>
 Work in progress!<br>
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of August 7, 2021.<br>
+&nbsp;with git snapshot of August 13, 2021.<br>
 -GCC 11.2.0 <br>
--Glibc 2.33<br>
+-Glibc 2.34<br>
 -GStreamer 1.19.1.1<br>
 -Python 3.9.6<br>
 -OpenSSL 1.1.1k<br>
