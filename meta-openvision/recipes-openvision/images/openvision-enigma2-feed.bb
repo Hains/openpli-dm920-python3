@@ -67,6 +67,7 @@ OPTIONAL_PACKAGES += " \
 	ppp \
 	procps \
 	pv \
+	pyload \
 	python3-beautifulsoup4 \
 	python-js2py \
 	python3-lxml \
