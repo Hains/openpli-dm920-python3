@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 DEPENDS = "libmnl xz libnexus-ui"
 PROVIDES = "recovery-ui"
 
-inherit opendreambox-precompiled-binary-new update-rc.d
+inherit opendreambox-precompiled-binary update-rc.d
 
 SRC_URI[dm520.md5sum] = "c7a2cca873f7665c9c0023d46263ea78"
 SRC_URI[dm520.sha256sum] = "9436ad03565e970f6efde52969a646c82cf61bb3631e8f9f66fff8de02c7d521"
