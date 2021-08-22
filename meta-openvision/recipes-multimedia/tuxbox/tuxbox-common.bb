@@ -12,9 +12,7 @@ SRC_URI = "git://github.com/OpenPLi/tuxbox-xml.git;protocol=git"
 S = "${WORKDIR}/git/xml"
 FILES:${PN} = "${sysconfdir}/tuxbox/* ${prefix}/* ${localstatedir}/*"
 
-do_compile() {
-	true
-}
+do_compile[noexec] = "1"
 
 do_install() {
 	install -m 0755 -d "${D}${sysconfdir}"
