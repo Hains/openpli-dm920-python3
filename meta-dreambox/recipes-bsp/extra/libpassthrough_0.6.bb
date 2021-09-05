@@ -11,12 +11,4 @@ FILES_SOLIBSDEV = ""
 
 DEBIAN_NOAUTONAME:${PN} = "1"
 
-INSANE_SKIP:${PN} += "file-rdeps installed-vs-shipped"
-
-SRC_URI += "file://LICENSE-CLOSE"
-
-do_license() {
-	mv ${WORKDIR}/LICENSE-CLOSE ${B}/LICENSE-CLOSE
-}
-
-addtask do_license before do_populate_lic after do_unpack
+INSANE_SKIP:${PN} += "file-rdeps"
