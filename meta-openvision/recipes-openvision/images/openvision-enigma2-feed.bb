@@ -71,7 +71,7 @@ OPTIONAL_PACKAGES += " \
 	python3-beautifulsoup4 \
 	python-js2py \
 	python3-lxml \
-	python-mechanize \
+	python3-mechanize \
 	python-ntplib \
 	python3-requests \
 	rsync \
