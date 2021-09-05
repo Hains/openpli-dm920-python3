@@ -43,6 +43,7 @@ OPTIONAL_PACKAGES += " \
 	iproute2 \
 	iputils \
 	joe \
+	kodi \
 	less \
 	libbluray \
 	libudfread \
