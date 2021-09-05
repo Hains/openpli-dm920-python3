@@ -73,6 +73,7 @@ OPTIONAL_PACKAGES += " \
 	python3-lxml \
 	python3-mechanize \
 	python3-ntplib \
+	python3-pysnmp \
 	python3-requests \
 	rsync \
 	rt3573 \
