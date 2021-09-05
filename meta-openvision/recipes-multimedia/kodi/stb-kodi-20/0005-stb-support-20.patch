@@ -3170,7 +3170,7 @@ index 0000000000..3ae4254c04
 +{
 +  // switch display resolution
 +  CSysfsPath videomode{"/proc/stb/video/videomode"};
-+  mode = videomode.Get<std::string>();
++  mode = &videomode.Get<std::string>()[0];
 +
 +  RESOLUTION_INFO res;
 +  dreambox_mode_to_resolution(mode, &res);
