@@ -3162,7 +3162,7 @@ index 0000000000..3ae4254c04
 +
 +bool CEGLNativeTypeDreambox::ShowWindow(bool show)
 +{
-+  SysfsUtils::SetInt("/proc/stb/video/alpha", show ? 255 : 0);
++  // SysfsUtils::SetInt("/proc/stb/video/alpha", show ? 255 : 0);
 +  return true;
 +}
 +
