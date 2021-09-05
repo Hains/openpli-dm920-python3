@@ -3056,7 +3056,7 @@ index 0000000000..3ae4254c04
 +bool CEGLNativeTypeDreambox::CheckCompatibility()
 +{
 +  CSysfsPath model{"/proc/stb/info/model"};
-+  name = model.Get<std::string>();
++  std::string name = model.Get<std::string>();
 +  return name == "dm820" || name == "dm900" || name == "dm920" || name == "dm7080";
 +}
 +
