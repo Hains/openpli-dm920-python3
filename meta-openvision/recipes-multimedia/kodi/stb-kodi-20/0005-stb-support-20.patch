@@ -3010,7 +3010,7 @@ new file mode 100644
 index 0000000000..3ae4254c04
 --- /dev/null
 +++ b/xbmc/windowing/egl/EGLNativeTypeDreambox.cpp
-@@ -0,0 +1,196 @@
+@@ -0,0 +1,198 @@
 +/*
 + *      Copyright (C) 2011-2013 Team XBMC
 + *      http://xbmc.org
@@ -3162,7 +3162,9 @@ index 0000000000..3ae4254c04
 +
 +bool CEGLNativeTypeDreambox::ShowWindow(bool show)
 +{
-+  // SysfsUtils::SetInt("/proc/stb/video/alpha", show ? 255 : 0);
++  FILE *proc_file = fopen("/proc/stb/video/alpha", "w");
++  fprintf(proc_file, "%d", show ? 255 : 0);
++  fclose(proc_file);
 +  return true;
 +}
 +
