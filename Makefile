@@ -52,7 +52,8 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openvision \
-	$(CURDIR)/meta-dreambox
+	$(CURDIR)/meta-dreambox \
+	$(CURDIR)/meta-qt5
 
 CONFFILES = \
 	$(TOPDIR)/env.source \
