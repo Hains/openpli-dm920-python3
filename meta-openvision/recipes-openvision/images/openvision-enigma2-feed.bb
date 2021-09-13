@@ -76,6 +76,7 @@ OPTIONAL_PACKAGES += " \
 	python3-ntplib \
 	python3-pysnmp \
 	python3-requests \
+	qtwidevine \
 	rsync \
 	rt3573 \
 	rt5572 \
