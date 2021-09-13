@@ -83,7 +83,7 @@ inherit qmake5
 inherit gettext
 inherit perlnative
 inherit features_check
-
+inherit pkgconfig
 inherit python3native
 
 # Static builds of QtWebEngine aren't supported.
@@ -122,9 +122,9 @@ do_configure:prepend:libc-musl() {
 
 do_compile[progress] = "outof:^\[(\d+)/(\d+)\]\s+"
 
-do_install:append() {
-    sed -i 's@ -Wl,--start-group.*-Wl,--end-group@@g; s@[^ ]*${B}[^ ]* @@g' ${D}${libdir}/pkgconfig/Qt5WebEngineCore.pc
-}
+# FIXME! do_install:append() {
+#    sed -i 's@ -Wl,--start-group.*-Wl,--end-group@@g; s@[^ ]*${B}[^ ]* @@g' ${D}${libdir}/pkgconfig/Qt5WebEngineCore.pc
+# }
 
 # for /usr/share/qt5/qtwebengine_resources.pak
 FILES:${PN} += "${OE_QMAKE_PATH_QT_TRANSLATIONS} ${OE_QMAKE_PATH_QT_DATA}"
