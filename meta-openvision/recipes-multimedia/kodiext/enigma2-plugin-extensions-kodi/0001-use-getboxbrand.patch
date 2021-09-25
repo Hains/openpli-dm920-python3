@@ -1,0 +1,40 @@
+diff --git a/src/plugin/plugin.py b/src/plugin/plugin.py
+index c810dcd..b6f877d 100644
+--- a/src/plugin/plugin.py
++++ b/src/plugin/plugin.py
+@@ -33,7 +36,7 @@ from enigma import eServiceReference, eTimer, ePythonMessagePump, \
+ from Components.SystemInfo import SystemInfo
+ from .server import KodiExtRequestHandler, UDSServer
+ from Tools.BoundFunction import boundFunction
+-from boxbranding import getMachineBrand
++from boxbranding import getBoxBrand
+ 
+ from six.moves.queue import Queue
+ 
+@@ -158,7 +161,7 @@ class SetResolution:
+         self.kodirate = "50Hz"
+         self.port = config.av.videoport.value
+         self.rate = None
+-        if getMachineBrand() in ('Vu+', 'Formuler'):
++        if getBoxBrand() in ('Vu+', 'Formuler'):
+             resolutions = ("720i", "720p")
+         else:
+             resolutions = ("720i", "720p", "1080i", "1080p")
+@@ -773,7 +776,7 @@ class E2KodiExtServer(UDSServer):
+         FBUnlock(); RCUnlock()
+ 
+         setaudio.switch(False, True)
+-        if getMachineBrand() not in ('Vu+', 'Formuler'):
++        if getBoxBrand() not in ('Vu+', 'Formuler'):
+             setresolution.switch(False, True)
+         # parse subtitles, play path and service type from data
+         sType = 4097
+@@ -840,7 +843,7 @@ class E2KodiExtServer(UDSServer):
+ 
+     def kodiPlayerExitCB(self, callback=None):
+         setaudio.switch(True, True)
+-        if getMachineBrand() not in ('Vu+', 'Formuler'):
++        if getBoxBrand() not in ('Vu+', 'Formuler'):
+             setresolution.switch(True, True)
+         SESSION.nav.stopService()
+         self.kodiPlayer = None

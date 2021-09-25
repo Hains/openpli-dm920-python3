@@ -1,0 +1,39 @@
+diff --git a/src/plugin/plugin.py b/src/plugin/plugin.py
+index c810dcd..b6f877d 100644
+--- a/src/plugin/plugin.py
++++ b/src/plugin/plugin.py
+@@ -23,7 +23,10 @@ from Tools.Directories import fileExists
+ from Tools import Notifications
+ 
+ from Components.config import config
+-from Components.AVSwitch import iAVSwitch
++from Components.AVSwitch import InitAVSwitch
++
++from Plugins.SystemPlugins.Videomode.VideoHardware import VideoHardware
++from Components.AVSwitch import AVSwitch
+ 
+ from .e2utils import InfoBarAspectChange, WebPixmap, MyAudioSelection, \
+     StatusScreen, getPlayPositionInSeconds, getDurationInSeconds, \
+@@ -166,7 +169,7 @@ class SetResolution:
+             for res in resolutions:
+                 for rate in rates:
+                     try:
+-                        if iAVSwitch.isModeAvailable(self.port, res, rate):
++                        if AVSwitch.isModeAvailable(self.port, res, rate):
+                             self.kodires = res
+                             self.kodirate = rate
+                     except:
+@@ -175,11 +178,11 @@ class SetResolution:
+     def switch(self,Tokodi=False, Player=False):
+         if Tokodi:
+             if self.kodires and self.kodirate and self.port:
+-                iAVSwitch.setMode(self.port, self.kodires, self.kodirate)
++                # FIXME! VideoHardware.setMode(port = self.port, mode = self.kodires, rate = self.kodirate)
+                 open("/proc/stb/video/videomode", "w").write(self.kodires+self.kodirate.replace("Hz", ""))
+         else:
+             if self.E2res and self.rate and self.port:
+-                iAVSwitch.setMode(self.port, self.E2res, self.rate)
++                AVSwitch.setMode(self.port, self.E2res, self.rate)
+ 
+     def ReadData(self):
+         self.E2res = config.av.videomode[self.port].value
