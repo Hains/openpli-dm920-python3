@@ -2,7 +2,7 @@ Experimental build environment for dreambox 920 with Python 3.<br>
 Work in progress!<br>
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of September 25, 2021.<br>
+&nbsp;with git snapshot of October 3, 2021.<br>
 -GCC 11.2.0 <br>
 -Glibc 2.34<br>
 -GStreamer 1.19.2<br>
@@ -14,12 +14,12 @@ and more.<br>
 <br>
 Feel free to send pull-request.
 
-Tested wit Ubuntu 21.04.
+Tested wit Ubuntu 21.10.
 <br>
 <br>
 Dependencies:
 ```
-sudo apt install -y autoconf automake bison bzip2 cvs diffstat flex g++ gawk gcc gettext git git-lfs gzip help2man ncurses-bin lib32ncurses5-dev libc6-dev libtool texinfo patch perl pkg-config subversion tar texi2html zlib1g-dev chrpath libxml2-utils xsltproc libglib2.0-dev python3-setuptools libc6-i386 genromfs guile-2.0-libs quilt zstd
+sudo apt install -y autoconf automake bison bzip2 cvs diffstat flex g++ gawk gcc gettext git git-lfs gzip help2man ncurses-bin lib32ncurses5-dev libc6-dev libtool lz4 texinfo patch perl pkg-config subversion tar texi2html zlib1g-dev chrpath libxml2-utils xsltproc libglib2.0-dev python3-setuptools libc6-i386 genromfs guile-2.0-libs quilt zstd
 ```
 To build image:
 ```
