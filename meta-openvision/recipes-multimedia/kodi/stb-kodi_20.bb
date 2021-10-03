@@ -76,7 +76,7 @@ DEPENDS += " \
           "
 
 # 20.0 Alpha1
-SRCREV = "58e75a75f8a95bec4e9d43c2865319c8ae89a13c"
+SRCREV = "9df7fe699148a5990f86129cba760113a4c72fb0"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
