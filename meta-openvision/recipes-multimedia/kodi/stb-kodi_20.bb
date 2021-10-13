@@ -10,6 +10,9 @@ PACKAGE_ARCH = "${MACHINE}"
 inherit cmake gettext python3-dir pkgconfig  python3native
 
 DEPENDS += " \
+            autoconf-native \
+            automake-native \
+            ninja-native \
             fmt \
             flatbuffers flatbuffers-native \
             fstrcmp \
