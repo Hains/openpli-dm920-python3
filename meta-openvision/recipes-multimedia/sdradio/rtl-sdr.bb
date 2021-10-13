@@ -18,6 +18,6 @@ S = "${WORKDIR}/git"
  
 DEPENDS = "libusb1"
  
-inherit cmake
+inherit cmake pkgconfig
  
 EXTRA_OECONF = "--enable-driver-detach"
