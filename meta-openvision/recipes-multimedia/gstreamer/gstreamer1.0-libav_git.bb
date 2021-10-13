@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=69333daa044cb77e486cc36129f7a770"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base ffmpeg"
 
-inherit meson
+inherit meson pkgconfig
 
 require gstreamer1.0-common.inc
 
