@@ -40,7 +40,7 @@ RDEPENDS:${PN} = " \
 RDEPENDS:{PN}-src = "${PN}"
 
 FILES:${PN}-src = " \
-	${libdir}/enigma2/python/Plugins/*-py3.9.egg-info/* \
+	${libdir}/enigma2/python/Plugins/*-py3.10.egg-info/* \
 	${libdir}/enigma2/python/Plugins/*/locale/*/LC_MESSAGES/*.po \
 	"
 

@@ -40,8 +40,8 @@ do_install() {
 }
 
 FILES:${PN} = "\
-	${libdir}/python3.9 \
-	${libdir}/python3.9/site-packages \
+	${libdir}/python3.10 \
+	${libdir}/python3.10/site-packages \
 	${libdir}/enigma2/python/Components/Renderer/PixmapLcd4linux.py* \
 	${libdir}/enigma2/python/Plugins/Extensions/LCD4linux \
 	${sysconfdir}/enigma2/lcd4config*"
