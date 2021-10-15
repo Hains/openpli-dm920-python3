@@ -1,0 +1,16 @@
+As long python 3.8 is default on Ubuntu 20.x and python 3.9.0 can't be installed
+without breaking things, apply this hack.
+
+diff --git a/acinclude.m4 b/acinclude.m4
+index 6e30735..9b38aaf 100644
+--- a/acinclude.m4
++++ b/acinclude.m4
+@@ -411,7 +411,7 @@ AC_DEFUN([AC_PYTHON_DEVEL],[
+ 		AC_MSG_CHECKING([for Python include path])
+ 		
+ 		# FIXME: yes, this is wrong. sorry about that. (tmbinc)
+-		cross_PYTHON_VERSION=$PYTHON_VERSION
++		cross_PYTHON_VERSION="3.10"
+ 		python_path=
+ 		if test -f "$STAGING_INCDIR/python$cross_PYTHON_VERSION/Python.h"; then
+ 			python_path="$p/python$cross_PYTHON_VERSION"
