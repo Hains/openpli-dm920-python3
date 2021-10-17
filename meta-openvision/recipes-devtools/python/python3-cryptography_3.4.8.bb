@@ -26,6 +26,7 @@ DEPENDS += " \
     ${PYTHON_PN}-asn1crypto \
     ${PYTHON_PN}-six \
     ${PYTHON_PN}-pip-native \
+    ${PYTHON_PN}-semantic-version-native \
     ${PYTHON_PN}-setuptools-rust-native \
 "
 
