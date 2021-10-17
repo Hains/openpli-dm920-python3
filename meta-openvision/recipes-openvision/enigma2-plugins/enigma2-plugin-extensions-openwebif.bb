@@ -19,6 +19,7 @@ RDEPENDS:${PN} = "\
 	python3-shell \
 	python3-six \
 	python3-unixadmin \
+	python3-dataclasses \
 	"
 
 inherit gitpkgv distutils-openplugins gettext
