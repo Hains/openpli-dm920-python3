@@ -11,6 +11,9 @@ SRC_URI[sha256sum] = "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2
 SRC_URI += " \
     file://run-ptest \
     file://h-test.patch \
+    file://support-openssl300-part1.patch \
+    file://support-openssl300-part2.patch \
+    file://get-rid-of-get-func.patch \
 "
 
 export CRYPTOGRAPHY_DONT_BUILD_RUST = "1" 
