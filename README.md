@@ -7,7 +7,7 @@ Work in progress!<br>
 -Glibc 2.34<br>
 -GStreamer 1.19.2<br>
 -Python 3.10.0<br>
--OpenSSL 3.0.0l<br>
+-OpenSSL 3.0.0<br>
 -Busybox 1.34.1<br>
 and more.<br>
 <br>
