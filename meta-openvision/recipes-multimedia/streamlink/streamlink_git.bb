@@ -53,5 +53,5 @@ do_install:append() {
 PACKAGES = "${PN}"
 
 FILES:${PN} = " \
-	${libdir}/${PYTHON_DIR}/site-packages/streamlink/* \
+	${libdir}/${PYTHON_DIR}/site-packages/streamlink/* ${datadir} \
 "
