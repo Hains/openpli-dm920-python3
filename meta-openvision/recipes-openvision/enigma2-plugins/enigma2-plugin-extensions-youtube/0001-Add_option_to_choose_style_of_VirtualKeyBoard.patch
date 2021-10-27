@@ -49,7 +49,7 @@ index 9a005d6..1757619 100644
  	def keyBoardCallback(self, name):
  		config = self['config'].getCurrent()[1]
 diff --git a/src/YouTubeUi.py b/src/YouTubeUi.py
-index a61eb36..3d8b01b 100644
+index 07e2a36..f0fed29 100644
 --- a/src/YouTubeUi.py
 +++ b/src/YouTubeUi.py
 @@ -76,6 +76,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
@@ -61,7 +61,7 @@ index a61eb36..3d8b01b 100644
  config.plugins.YouTube.login = ConfigYesNo(default=False)
  config.plugins.YouTube.downloadDir = ConfigDirectory(default=resolveFilename(SCOPE_HDD))
  config.plugins.YouTube.useDashMP4 = ConfigYesNo(default=True)
-@@ -1529,6 +1531,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
+@@ -1509,6 +1511,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
  			self.list.append(getConfigListEntry(_('Merge downloaded files:'),
  				config.plugins.YouTube.mergeFiles,
  				_('FFmpeg will be used to merge downloaded DASH video and audio files.\nFFmpeg will be installed if necessary.')))
@@ -70,5 +70,6 @@ index a61eb36..3d8b01b 100644
 +			_('You can choose what style of VirtualKeyBoard to use it.\nYouTube OR Image (VirtualKeyBoard).')))
  		for p in plugins.getPlugins(where=PluginDescriptor.WHERE_MENU):
  			# TRANSLATORS: Don't translate this! It is used as a variable, so it must be equal to the translation in the plugin!
- 			if p.name == _("ServiceApp"):
+ 			if p.name == _('ServiceApp'):
+
 
