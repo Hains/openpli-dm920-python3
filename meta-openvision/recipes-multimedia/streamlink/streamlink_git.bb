@@ -48,10 +48,11 @@ do_install:append() {
 	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/streamlink_cli
 	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/*.egg-info
 	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/streamlink/plugins/.removed
+	rm -rf ${datadir}
 }
 
 PACKAGES = "${PN}"
 
 FILES:${PN} = " \
-	${libdir}/${PYTHON_DIR}/site-packages/streamlink/* ${datadir} \
+	${libdir}/${PYTHON_DIR}/site-packages/streamlink/* \
 "
