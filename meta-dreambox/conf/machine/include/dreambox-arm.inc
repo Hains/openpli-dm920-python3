@@ -5,14 +5,14 @@ MTD_KERNEL = "mmcblk0p1"
 KERNEL_FILE = "kernel.bin"
 ROOTFS_FILE = "rootfs.tar.bz2"
 
-DISTRO_FEATURES_GFX_mipsel ?= " opengl"
+DISTRO_FEATURES_GFX:mipsel ?= " opengl"
 
-PACKAGECONFIG_pn-glmark2 = "gles2"
+PACKAGECONFIG:pn-glmark2 = "gles2"
 
-PACKAGECONFIG_pn-cogl-1.0 = "egl-kms egl-null \
+PACKAGECONFIG:pn-cogl-1.0 = "egl-kms egl-null \
         ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gles2', '', d)}"
 
-PACKAGECONFIG_pn-weston = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gles', '', d)}"
+PACKAGECONFIG:pn-weston = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gles', '', d)}"
 
 DVBSKYPROVIDER = "kernel"
 
@@ -73,7 +73,7 @@ DREAMBOX_IMAGE_SIZE ??= "1024"
 IMAGE_FSTYPES =+ "tar.bz2"
 IMAGEDIR = "${MACHINE}"
 
-IMAGE_CMD_tar:prepend = "\
+IMAGE_CMD:tar:prepend = "\
     mkdir -p ${IMAGE_ROOTFS}/tmp; \
     mkdir -p ${IMAGE_ROOTFS}/var/lib/opkg/info; \
     mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
@@ -92,7 +92,7 @@ IMAGE_CMD_tar:prepend = "\
     rm -Rf ${IMAGEDIR}; \
     "
 
-IMAGE_CMD_tar:append = ";\
+IMAGE_CMD:tar:append = ";\
     cd ${DEPLOY_DIR_IMAGE}; \
     rm -f *.rootfs.manifest; \
     rm -f .manifest; \
