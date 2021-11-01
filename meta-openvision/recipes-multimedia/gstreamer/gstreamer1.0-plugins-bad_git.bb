@@ -38,8 +38,8 @@ PACKAGECONFIG[webp]				= "-Dwebp=enabled,-Dwebp=disabled,libwebp"
 
 export OPENCV_PREFIX = "${STAGING_DIR_TARGET}${prefix}"
 
-ARM_INSTRUCTION_SET_armv4 = "arm"
-ARM_INSTRUCTION_SET_armv5 = "arm"
+ARM_INSTRUCTION_SET:armv4 = "arm"
+ARM_INSTRUCTION_SET:armv5 = "arm"
 
 FILES:${PN} +="${datadir}/gstreamer-${LIBV}/*"
 FILES:${PN}-dev += "${libdir}/gstreamer-${LIBV}/include/gst/gl/gstglconfig.h"
