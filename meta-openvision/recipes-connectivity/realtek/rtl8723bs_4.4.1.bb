@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://README.md;md5=c416860023e780aa96e0616b1cda6a49"
 inherit module
 
 SRC_URI = " \
-          https://github.com/anthonywong/rtl8723bs/archive/v4.4.1.tar.gz \
+          https://github.com/anthonywong/rtl8723bs/archive/v4.4.1.tar.gz;protocol=https \
           file://rt8723bs-makefile.patch \
           file://rt8723bs-remove-debug.patch \
           file://rt8723bs-gcc5.patch \

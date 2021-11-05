@@ -3,7 +3,8 @@ LICENSE = "CLOSED"
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-SRC_URI = "git://github.com/technl/Hanssettings.git"
+SRC_URI = "git://github.com/technl/Hanssettings.git;protocol=https;branch=master"
+
 S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "xz"

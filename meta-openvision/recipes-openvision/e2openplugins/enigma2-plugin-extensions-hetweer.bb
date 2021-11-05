@@ -19,4 +19,4 @@ pkg_postrm:${PN}() {
 
 FILES:${PN} = "${PLUGINPATH}"
 
-SRC_URI = "git://github.com/Hains/e2openplugin-HetWeer.git;branch=python3"
+SRC_URI = "git://github.com/Hains/e2openplugin-HetWeer.git;branch=python3;protocol=https"

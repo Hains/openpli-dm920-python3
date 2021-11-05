@@ -29,8 +29,8 @@ SRCREV_FORMAT = "streamlink_plugins"
 PV = "git${SRCPV}"
 PKGV = "${GITPKGVTAG}"
 
-SRC_URI = " git://github.com/streamlink/streamlink \
-			git://github.com/oe-mirrors/streamlink-plugins;protocol=https;name=plugins;destsuffix=additional-plugins \
+SRC_URI = " git://github.com/streamlink/streamlink;protocol=https;branch=master \
+			git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
 "
 
 S = "${WORKDIR}/git"

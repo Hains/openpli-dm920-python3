@@ -25,7 +25,7 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 					"
 
 SRC_URI = "\
-		git://github.com/FFmpeg/FFmpeg.git;branch=release/4.4 \
+		git://github.com/FFmpeg/FFmpeg.git;branch=release/4.4;protocol=https \
 		file://02-fix-hls.patch \
 		file://03-buffer-size.patch \
 		file://04-aac.patch \

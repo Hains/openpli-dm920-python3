@@ -13,7 +13,7 @@ require gstreamer1.0-common.inc
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=69333daa044cb77e486cc36129f7a770"
 
-SRC_URI = "git://github.com/GStreamer/gst-libav.git"
+SRC_URI = "git://github.com/GStreamer/gst-libav.git;protocol=https;branch=master"
 
 FILES:${PN} += "${libdir}/gstreamer-1.0/*.so"
 FILES:${PN}-dbg += "${libdir}/gstreamer-1.0/.debug"

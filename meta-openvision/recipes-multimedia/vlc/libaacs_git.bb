@@ -6,7 +6,7 @@ DEPENDS = "libgcrypt"
 PV = "0.9.0+git${SRCPV}"
 PR = "r1"
 
-SRC_URI = " git://code.videolan.org/videolan/${BPN}.git;protocol=https \
+SRC_URI = " git://code.videolan.org/videolan/${BPN}.git;protocol=https;branch=master \
 			file://libgcrypt-gpg-error-use-pkgconfig.patch \
 			"
 

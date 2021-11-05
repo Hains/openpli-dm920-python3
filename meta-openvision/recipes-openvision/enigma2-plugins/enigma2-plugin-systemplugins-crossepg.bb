@@ -8,7 +8,7 @@ RDEPENDS:${PN} += "libcurl enigma2 python3-compression python-lzma xz"
 
 inherit gitpkgv
 
-SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;branch=dev;protocol=git"
+SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;branch=dev;protocol=https"
 SRC_URI:append = " file://add-dummy-boxbranding.patch"
 
 PV = "0.8.6+gitr${SRCPV}"

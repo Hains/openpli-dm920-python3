@@ -7,7 +7,7 @@ DESCRIPTION = "tuxbox tuxtxt for enigma2"
 inherit autotools gitpkgv pkgconfig python3native
 
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/tuxtxt.git"
+SRC_URI = "${GITHUB_URI}/OpenPLi/tuxtxt.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git/tuxtxt"
 

@@ -105,7 +105,7 @@ PKGV = "2.7+git${GITPKGV}"
 ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
 
-SRC_URI = "${GITHUB_URI}/Hains/enigma2-python3.git;branch=${ENIGMA2_BRANCH}"
+SRC_URI = "${GITHUB_URI}/Hains/enigma2-python3.git;branch=${ENIGMA2_BRANCH};protocol=https"
 
 LDFLAGS:prepend = " -lxml2 "
 

@@ -11,7 +11,7 @@ DEPENDS += "gstreamer1.0-plugins-base"
 
 inherit gettext
 
-SRC_URI = "git://github.com/GStreamer/gst-plugins-ugly.git"
+SRC_URI = "git://github.com/GStreamer/gst-plugins-ugly.git;protocol=https;branch=master"
 
 PACKAGECONFIG ??= "a52dec amrnb amrwbdec cdio dvdread mpeg2dec orc x264"
 
