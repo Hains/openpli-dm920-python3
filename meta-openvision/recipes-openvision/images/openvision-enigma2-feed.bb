@@ -131,6 +131,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-skins-pd1loi-hd-night \
 	enigma2-plugin-skins-pli-hd \
 	enigma2-plugin-skins-pli-hd-fullnight \
+	enigma2-plugin-systemplugins-crossepg \
 	enigma2-plugin-systemplugins-newvirtualkeyboard \
 	enigma2-plugin-systemplugins-serviceapp \
 	enigma2-plugins \

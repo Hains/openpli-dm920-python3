@@ -3,28 +3,26 @@ HOMEPAGE = "https://github.com/oe-alliance/e2openplugin-CrossEPG"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=4fbd65380cdd255951079008b364516c"
 
-DEPENDS += "libxml2 zlib python3 swig-native curl"
-RDEPENDS:${PN} += "libcurl enigma2 python3-compression python-lzma xz"
+DEPENDS = "curl libxml2 python3 swig-native zlib"
+RDEPENDS:${PN} += "enigma2 libcurl python3-core python3-compression xz"
 
-inherit gitpkgv
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;branch=dev;protocol=https"
-SRC_URI:append = " file://add-dummy-boxbranding.patch"
+inherit gitpkgv python3-dir python3native
 
-PV = "0.8.6+gitr${SRCPV}"
-PKGV = "0.8.6+gitr${GITPKGV}"
+SRCREV = "${AUTOREV}"
+PV = "0.8.9+gitr${SRCPV}"
+PKGV = "0.8.9+gitr${GITPKGV}"
 PR = "r0"
 
-inherit python3-dir
-
-ALLOW_EMPTY:${PN} = "1"
-
-CFLAGS:append = " -I${STAGING_INCDIR}/libxml2/ -I${STAGING_INCDIR}/${PYTHON_DIR}/"
-
-# prevent lots of QA warnings
-INSANE_SKIP:${PN} += "already-stripped libdir file-rdeps"
+SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;protocol=https;branch=dev \
+           file://fix-build-with-fno-common.patch \
+           file://use-python-3.10-path.patch \
+"
 
 S = "${WORKDIR}/git"
+
+CFLAGS:append = " -I${STAGING_INCDIR}/libxml2/ -I${STAGING_INCDIR}/${PYTHON_DIR}/"
 
 do_compile() {
     echo ${PV} > ${S}/VERSION
@@ -33,28 +31,28 @@ do_compile() {
 
 do_install() {
     oe_runmake 'D=${D}' install
+    mv ${D}/usr/crossepg/libcrossepg.so ${D}${libdir}/
 }
 
 pkg_postrm:${PN}() {
-rm -fr ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG > /dev/null 2>&1
-}
-
-# Just a quick hack to "compile" the python parts.
-do_compile:append() {
-    python3 -O -m compileall ${S}
+    rm -fr ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG > /dev/null 2>&1
 }
 
 python populate_packages:prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/[a-zA-Z0-9_]+.*$', 'enigma2-plugin-%s', '%s', recursive=True, match_path=True, prepend=True, extra_depends="enigma2")
-    do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.py$', 'enigma2-plugin-%s-src', '%s (source files)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.la$', 'enigma2-plugin-%s-dev', '%s (development)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.a$', 'enigma2-plugin-%s-staticdev', '%s (static development)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/(.*/)?\.debug/.*$', 'enigma2-plugin-%s-dbg', '%s (debug)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\/.*\.po$', 'enigma2-plugin-%s-po', '%s (translations)', recursive=True, match_path=True, prepend=True)
 }
 
-FILES:${PN}:append = " /usr/crossepg ${libdir}/python3.10"
-FILES:${PN}-src:append = " ${libdir}/python3.10/crossepg.py"
-FILES:${PN}-dbg:append = " /usr/crossepg/scripts/mhw2epgdownloader/.debug"
-FILES:${PN}-dbg += "/usr/crossepg/scripts/mhw2epgdownloader/.debug"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}:append = " /usr/crossepg ${libdir}/libcrossepg.so ${libdir}/${PYTHON_DIR}"
+FILES:${PN}-src:append = " ${libdir}/${PYTHON_DIR}/crossepg.py"
+FILES:${PN}-dbg:append = " /usr/crossepg/scripts/mhw2epgdownloader/.debug /usr/crossepg/scripts/mhw2epgdownloader/.debug"
+FILES_SOLIBSDEV = ""
+
+INSANE_SKIP:${PN} += "already-stripped ldflags"
+
+do_package_qa[noexec] = "1"
