@@ -71,32 +71,8 @@ MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc gobject-introspection-data"
 DREAMBOX_IMAGE_SIZE ??= "1024"
 
 IMAGE_FSTYPES =+ "tar.bz2"
-IMAGEDIR = "${MACHINE}"
 
-IMAGE_CMD:tar:prepend = "\
-    mkdir -p ${IMAGE_ROOTFS}/tmp; \
-    mkdir -p ${IMAGE_ROOTFS}/var/lib/opkg/info; \
-    mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
-    cp ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${KERNEL_FILE}; \
-    echo "${IMAGEVERSION}" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
-    cd ${IMAGE_ROOTFS}; \
-    tar -cvf ${DEPLOY_DIR_IMAGE}/rootfs.tar -C ${IMAGE_ROOTFS} .; \
-    mv ${DEPLOY_DIR_IMAGE}/rootfs.tar ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/rootfs.tar; \
-    bzip2 ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/rootfs.tar; \
-    cd ${DEPLOY_DIR_IMAGE}; \
-    zip ${IMAGE_NAME}_web.zip ${IMAGEDIR}/*; \
-    rm -f ${DEPLOY_DIR_IMAGE}/*.rootfs.tar.bz2; \
-    rm -f ${DEPLOY_DIR_IMAGE}/.tar.bz2; \
-    rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
-    rm -f ${DEPLOY_DIR_IMAGE}/.manifest; \
-    rm -Rf ${IMAGEDIR}; \
-    "
-
-IMAGE_CMD:tar:append = ";\
-    cd ${DEPLOY_DIR_IMAGE}; \
-    rm -f *.rootfs.manifest; \
-    rm -f .manifest; \
-    "
+IMAGE_CLASSES += "image_types_tarbz2"
 
 STB_PLATFORM = "dm4kgen"
 BOX_BRAND = "dreambox"
