@@ -9,7 +9,7 @@ RDEPENDS:${PN} = "${PYTHON_PN}-core \
 	${PYTHON_PN}-backports-functools-lru-cache \
 	${PYTHON_PN}-ctypes \
 	${PYTHON_PN}-isodate \
-	${PYTHON_PN}-iso3166 \
+	${PYTHON_PN}-pycountry \
 	${PYTHON_PN}-lxml \
 	${PYTHON_PN}-misc \
 	${PYTHON_PN}-pkgutil \
