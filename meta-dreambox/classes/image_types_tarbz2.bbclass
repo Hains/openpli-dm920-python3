@@ -1,8 +1,7 @@
 inherit image_types
 
 IMAGEDIR = "${MACHINE}"
-IMAGEVERSION := "OPENPLI-${DISTRO_VERSION}-${MACHINE}-${DATE}"
-IMAGEVERSION[vardepsexclude] = "DATE"
+IMAGEVERSION := "OPENPLI-${DISTRO_VERSION}"
 
 IMAGE_CMD:tar = "${IMAGE_CMD_TAR} --sort=name --format=gnu --numeric-owner -cf ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.tar -C ${IMAGE_ROOTFS} . || [ $? -eq 1 ]"
 
