@@ -2,19 +2,19 @@ SUMMARY = "E2i Player for E2"
 DESCRIPTION = "E2i Player for E2"
 HOMEPAGE = "http://www.iptvplayer.gitlab.io/"
 SECTION = "multimedia"
-LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
+LICENSE = "GPLv2"
+require conf/license/license-gplv2.inc
 
-SRC_URI = " git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https"
+inherit allarch distutils-openplugins gitpkgv setuptools3
+
+DEPENDS = "${PYTHON_PN}-future-native"
+
+SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https"
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
-
 PV = "1+git${SRCPV}"
 PKGV = "1+git${GITPKGV}"
-
-inherit allarch distutils-openplugins
 
 RDEPENDS:${PN} = " \
 	cmdwrapper \
@@ -45,8 +45,3 @@ FILES:${PN}-src = " \
 deltask package_qa
 
 FILES:${PN} += "${sysconfdir}"
-
-do_install:append() {
-    install -d ${D}${sysconfdir}
-    cp -r  --preserve=mode,links ${S}/vk ${D}${sysconfdir}/vk
-}
