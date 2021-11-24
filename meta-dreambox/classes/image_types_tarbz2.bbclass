@@ -1,18 +1,24 @@
 inherit image_types
 
 IMAGEDIR = "${MACHINE}"
-IMAGEVERSION := "OPENPLI-${DISTRO_VERSION}"
+IMAGEVERSION = "openpli-${DISTRO_VERSION}-${MACHINE}-${DATE}"
+IMAGEVERSION[vardepsexclude] += "DATE"
+BB_HASH_IGNORE_MISMATCH = "1"
 
-IMAGE_CMD:tar = "${IMAGE_CMD_TAR} --sort=name --format=gnu --numeric-owner -cf ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.tar -C ${IMAGE_ROOTFS} . || [ $? -eq 1 ]"
+IMAGE_CMD:tar = "tar --sort=name --numeric-owner -cf ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.tar -C ${IMAGE_ROOTFS} . || [ $? -eq 1 ]"
+
+IMAGE_CMD:tar:prepend = " \
+    mkdir -p ${IMAGE_ROOTFS}/tmp; \
+    "
 
 CONVERSION_CMD:bz2 = " \
     rm -f ${DEPLOY_DIR_IMAGE}/*.zip; \
-    bzip2 -f -k ${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.${type}; \
+    bzip2 -f -k ${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.tar; \
     mkdir -p ${IMAGEDIR}; \
     cp ${DEPLOY_DIR_IMAGE}/zImage ${IMAGEDIR}/${KERNEL_FILE}; \
     echo "${IMAGEVERSION}" > ${IMAGEDIR}/imageversion; \
     cp ${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.tar.bz2 ${IMAGEDIR}/rootfs.tar.bz2; \
-    zip openpli-${DISTRO_VERSION}_${MACHINE}.zip ${IMAGEDIR}/*; \
+    zip ${IMAGEVERSION}.zip ${IMAGEDIR}/*; \
     rm -f *.manifest; \
     rm -rf ${IMAGEDIR}; \
     "
