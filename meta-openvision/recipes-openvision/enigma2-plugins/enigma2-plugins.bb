@@ -71,6 +71,10 @@ DEPENDS = " \
 	libtirpc \
 	"
 
+do_compile() {
+	python3 -m compileall ${S}
+}
+
 CFLAGS += "-I${STAGING_INCDIR}/tirpc"
 
 python populate_packages:prepend () {
