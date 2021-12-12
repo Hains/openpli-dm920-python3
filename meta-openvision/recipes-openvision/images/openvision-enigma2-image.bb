@@ -30,6 +30,7 @@ EXTERNAL_WIFI_DRIVERS = " \
 
 ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-audiosync \
+	enigma2-plugin-extensions-autobackup \
 	enigma2-plugin-extensions-bitrate \
 	enigma2-plugin-extensions-cdinfo \
 	enigma2-plugin-extensions-cutlisteditor \
