@@ -30,7 +30,7 @@ PV = "y-git${SRCPV}"
 PKGV = "y-git${GITPKGV}"
 
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/Hains/${BPN}.git;branch=master;protocol=https"
+SRC_URI = "${GITHUB_URI}/Hains/${BPN}.git;branch=python3;protocol=https"
 
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \
