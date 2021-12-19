@@ -16,6 +16,6 @@ inherit autotools-brokensep manpages
 
 DEPENDS = "groff-native"
 
-export LIBTOOL = "${HOST_SYS}-libtool"
+export LIBTOOL = "libtool"
 
 BBCLASSEXTEND = "native nativesdk"
