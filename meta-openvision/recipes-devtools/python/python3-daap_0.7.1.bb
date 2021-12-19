@@ -7,7 +7,10 @@ PR = "r2"
 
 inherit distutils3
 
-SRC_URI = "http://jerakeen.org/files/PythonDaap-${PV}.tar.gz"
+SRC_URI = "http://jerakeen.org/files/PythonDaap-${PV}.tar.gz \
+           file://python-daap.patch \
+"
+
 S = "${WORKDIR}/PythonDaap-${PV}"
 
 RDEPENDS:${PN} = "python3-compression"
