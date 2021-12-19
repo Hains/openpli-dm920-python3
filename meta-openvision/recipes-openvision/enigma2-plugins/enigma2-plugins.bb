@@ -66,6 +66,7 @@ DEPENDS = " \
 	streamripper \
 	python3-mutagen \
 	python3-twisted \
+	python3-daap \
 	libcddb \
 	dvdbackup \
 	libtirpc \
