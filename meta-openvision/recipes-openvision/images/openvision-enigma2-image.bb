@@ -1,5 +1,4 @@
 require openvision-image.bb
-require ../../recipes-core/package-index/package-index.bb
 
 KERNEL_WIFI_DRIVERS = " \
 	firmware-carl9170 \
@@ -71,6 +70,7 @@ ENIGMA2_PLUGINS = " \
 
 DEPENDS += " \
 	enigma2 \
+	package-index \
 	"
 
 IMAGE_INSTALL += " \
