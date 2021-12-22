@@ -6,7 +6,7 @@
 require conf/license/openpli-gplv2.inc
 
 # Depend on the image, so that it gets build
-DEPENDS = "openvision-enigma2-image"
+DEPENDS = "openvision-enigma2-image package-index"
 
 OPTIONAL_PACKAGES_BROKEN = ""
 OPTIONAL_PACKAGES ?= ""
