@@ -11,7 +11,7 @@ DEPENDS = " \
 	jpeg \
 	libdreamdvd libdvbsi++ fribidi libmad libpng libsigc++-3 giflib libxml2 \
 	openssl libudfread \
-	python3-twisted python-wifi \
+	python3-twisted python3-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
 	"
@@ -82,7 +82,7 @@ DESCRIPTION:append:enigma2-plugin-systemplugins-videomode = "selects advanced vi
 RDEPENDS:enigma2-plugin-systemplugins-nfiflash = "python3-twisted"
 RDEPENDS:enigma2-plugin-systemplugins-softwaremanager = "python3-twisted"
 DESCRIPTION:append:enigma2-plugin-systemplugins-wirelesslan = "helps you configuring your wireless lan"
-RDEPENDS:enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
+RDEPENDS:enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python3-wifi"
 DESCRIPTION:append:enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
 # Note that these tools lack recipes
 RDEPENDS:enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit ${DEMUXTOOL}"
@@ -93,7 +93,7 @@ RDEPENDS:enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 RDEPENDS:${PN}-build-dependencies = "\
 	aio-grab \
 	dvd+rw-tools dvdauthor mjpegtools cdrkit ${DEMUXTOOL} \
-	wpa-supplicant wireless-tools python-wifi \
+	wpa-supplicant wireless-tools python3-wifi \
 	python3-twisted-web \
 	"
 
