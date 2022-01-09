@@ -11,13 +11,12 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit gitpkgv python3-dir python3native
 
 SRCREV = "${AUTOREV}"
-PV = "0.8.9+gitr${SRCPV}"
-PKGV = "0.8.9+gitr${GITPKGV}"
+PV = "0.9.0+gitr${SRCPV}"
+PKGV = "0.9.0+gitr${GITPKGV}"
 PR = "r0"
 
 SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;protocol=https;branch=dev \
            file://fix-build-with-fno-common.patch \
-           file://use-python-3.10-path.patch \
 "
 
 S = "${WORKDIR}/git"
@@ -30,7 +29,7 @@ do_compile() {
 }
 
 do_install() {
-    oe_runmake 'D=${D}' install
+    oe_runmake 'D=${D}' install 'PYTHON_BASEVERSION=${PYTHON_BASEVERSION}'
     mv ${D}/usr/crossepg/libcrossepg.so ${D}${libdir}/
 }
 
