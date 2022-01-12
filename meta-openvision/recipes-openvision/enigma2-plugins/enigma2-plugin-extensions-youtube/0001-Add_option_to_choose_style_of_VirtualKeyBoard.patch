@@ -25,7 +25,7 @@ index 9a005d6..1757619 100644
  
  from . import _, screenwidth
  from .compat import compat_quote
-@@ -352,8 +354,20 @@ class YouTubeSearch(Screen, ConfigListScreen):
+@@ -355,8 +357,20 @@ class YouTubeSearch(Screen, ConfigListScreen):
  
  	def openKeyboard(self):
  		self['config'].getCurrent()[1].help_window.instance.hide()
@@ -52,7 +52,7 @@ diff --git a/src/YouTubeUi.py b/src/YouTubeUi.py
 index 07e2a36..f0fed29 100644
 --- a/src/YouTubeUi.py
 +++ b/src/YouTubeUi.py
-@@ -76,6 +76,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
+@@ -77,6 +77,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
  config.plugins.YouTube.onMovieStop = ConfigSelection(default='related', choices=[
  	('related', _('Show related videos')),
  	('ask', _('Ask user')), ('quit', _('Return to list'))])
@@ -61,7 +61,7 @@ index 07e2a36..f0fed29 100644
  config.plugins.YouTube.login = ConfigYesNo(default=False)
  config.plugins.YouTube.downloadDir = ConfigDirectory(default=resolveFilename(SCOPE_HDD))
  config.plugins.YouTube.useDashMP4 = ConfigYesNo(default=True)
-@@ -1509,6 +1511,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
+@@ -1495,6 +1497,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
  			self.list.append(getConfigListEntry(_('Merge downloaded files:'),
  				config.plugins.YouTube.mergeFiles,
  				_('FFmpeg will be used to merge downloaded DASH video and audio files.\nFFmpeg will be installed if necessary.')))
@@ -70,6 +70,6 @@ index 07e2a36..f0fed29 100644
 +			_('You can choose what style of VirtualKeyBoard to use it.\nYouTube OR Image (VirtualKeyBoard).')))
  		for p in plugins.getPlugins(where=PluginDescriptor.WHERE_MENU):
  			# TRANSLATORS: Don't translate this! It is used as a variable, so it must be equal to the translation in the plugin!
- 			if p.name == _('ServiceApp'):
+ 			if p.name == _('ServiceApp'):  # pragma: no cover
 
 
