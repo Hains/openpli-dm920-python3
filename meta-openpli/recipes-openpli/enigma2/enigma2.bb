@@ -9,7 +9,7 @@ DEPENDS = " \
 	freetype \
 	gettext-native \
 	jpeg \
-	libdreamdvd libdvbsi++ fribidi libmad libpng libsigc++-3 giflib libxml2 \
+	libdreamdvd libdvbsi++ fribidi libmad libpng libsigc++-2.0 giflib libxml2 \
 	openssl libudfread \
 	python3-twisted python3-wifi \
 	swig-native \
@@ -124,7 +124,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit autotools pkgconfig
 
 PACKAGES =+ "enigma2-fonts"
-PKGV:enigma2-fonts = "2018.08.15"
+PKGV_enigma2-fonts = "2020.10.17"
 FILES:enigma2-fonts = "${datadir}/fonts"
 
 def get_crashaddr(d):
@@ -136,9 +136,6 @@ def get_crashaddr(d):
 EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
-	--with-${DISPLAY_TYPE} \
-	--with-boxbrand=${BOX_BRAND} \
-	--with-stbplatform=${STB_PLATFORM} \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@get_crashaddr(d)} \
 	BUILD_SYS=${BUILD_SYS} \
