@@ -21,6 +21,6 @@ SRC_URI[sha256sum] = "ac9304f571175b8af4fc2ee17d3e110847b526640665ca53d97bbf9df9
 
 S = "${WORKDIR}/flickrapi-${PV}"
 
-inherit distutils3
+inherit setuptools3
 
 include python-package-split.inc

@@ -5,7 +5,7 @@ LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fbc093901857fcd118f065f900982c24"
 PR = "r2"
 
-inherit distutils3
+inherit setuptools3
 
 SRC_URI = "http://jerakeen.org/files/PythonDaap-${PV}.tar.gz \
            file://python-daap.patch \

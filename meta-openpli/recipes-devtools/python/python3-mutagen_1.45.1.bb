@@ -13,6 +13,6 @@ SRC_URI[sha256sum] = "6397602efb3c2d7baebd2166ed85731ae1c1d475abca22090b7141ff50
 
 S = "${WORKDIR}/mutagen-${PV}"
 
-inherit distutils3 setuptools3
+inherit setuptools3
 
 include python-package-split.inc

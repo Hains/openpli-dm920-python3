@@ -10,7 +10,7 @@ SRC_URI = "https://files.pythonhosted.org/packages/4e/75/72f64c451bf5884715f84f8
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-inherit distutils3 setuptools3
+inherit setuptools3
 
 SRC_URI[md5sum] = "2222880259daf6e2cb322e938c818276"
 SRC_URI[sha256sum] = "0c3dbef2f958caca96071fe5c19de43e9c1b0484ab02a0cf08b190bcee768ba9"
