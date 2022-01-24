@@ -102,10 +102,16 @@ inherit gitpkgv python3native python3targetconfig
 PV = "3.10+git${SRCPV}"
 PKGV = "3.10+git${GITPKGV}"
 
-ENIGMA2_BRANCH ?= "develop"
+ENIGMA2_BRANCH ?= "python3"
 GITHUB_URI ?= "git://github.com"
 
-SRC_URI = "${GITHUB_URI}/Hains/enigma2-python3.git;branch=${ENIGMA2_BRANCH};protocol=https"
+SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=https \
+			file://01-use-ioctl-22-for-h265.patch \
+			file://02-add-skin_display-dm920.patch \
+			file://03-add-support-2160p.patch \
+			file://04-fix-fp-version.patch \
+			file://05-make-front-led-configurable.patch \
+"
 
 LDFLAGS:prepend = " -lxml2 "
 
