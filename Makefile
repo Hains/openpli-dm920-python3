@@ -51,7 +51,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/openembedded-core/meta \
-	$(CURDIR)/meta-openvision \
+	$(CURDIR)/meta-openpli \
 	$(CURDIR)/meta-dreambox \
 	$(CURDIR)/meta-qt5
 

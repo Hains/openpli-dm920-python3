@@ -3,7 +3,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "python3"
 
-require conf/license/openvision-gplv2.inc
+require conf/license/openpli-gplv2.inc
 
 inherit autotools-brokensep gitpkgv python3native python3targetconfig
 

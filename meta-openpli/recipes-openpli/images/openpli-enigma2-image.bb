@@ -1,4 +1,4 @@
-require openvision-image.bb
+require openpli-image.bb
 
 KERNEL_WIFI_DRIVERS = " \
 	firmware-carl9170 \
@@ -87,4 +87,4 @@ IMAGE_INSTALL += " \
 	${EXTERNAL_WIFI_DRIVERS} \
 	"
 
-export IMAGE_BASENAME = "openvision-enigma2"
+export IMAGE_BASENAME = "openpli-enigma2"
