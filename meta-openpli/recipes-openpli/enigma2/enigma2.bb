@@ -110,6 +110,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://03-add-support-2160p.patch \
 			file://04-fix-fp-version.patch;apply=no \
 			file://05-make-front-led-configurable.patch \
+			file://06-fix-build-gcc11.patch \
 "
 
 LDFLAGS:prepend = " -lxml2 "
