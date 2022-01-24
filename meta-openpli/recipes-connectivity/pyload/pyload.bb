@@ -11,7 +11,7 @@ RDEPENDS:${PN} = "\
   python3-imaging \
   python3-numbers \
   python3-pprint \
-  python3-pycrypto \
+  python3-pycryptodome \
   python3-pycurl \
   python3-sqlite3 \
   python3-terminal \
