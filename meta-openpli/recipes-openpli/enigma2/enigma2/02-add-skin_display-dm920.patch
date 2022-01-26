@@ -1,8 +1,8 @@
-diff --git a/skin_display.xml b/skin_display.xml
+diff --git a/data/display/skin_display_dm920.xml b/data/display/skin_display_dm920.xml
 new file mode 100644
 index 000000000..b6afa68b8
 --- /dev/null
-+++ b/skin_display.xml
++++ b/data/display/skin_display_dm920.xml
 @@ -0,0 +1,382 @@
 +<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 +<skin>
