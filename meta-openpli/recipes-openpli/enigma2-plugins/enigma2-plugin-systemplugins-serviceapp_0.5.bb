@@ -11,6 +11,7 @@ RRECOMMENDS:${PN} = "exteplayer3 gstplayer"
 
 SRC_URI = "git://github.com/mx3L/serviceapp.git;protocol=https;branch=develop \
 			file://remove-distutils.patch \
+			file://sigc3.patch \
 "
 
 S = "${WORKDIR}/git"
