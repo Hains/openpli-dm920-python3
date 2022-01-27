@@ -114,6 +114,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://07-suppress-deprecation-warnings.patch \
 			file://08-dual-tuner-letter-detection.patch \
 			file://09-use-integer-instead-of-float.patch \
+			file://10-use-floor-division.patch \
 "
 
 LDFLAGS:prepend = " -lxml2 "
