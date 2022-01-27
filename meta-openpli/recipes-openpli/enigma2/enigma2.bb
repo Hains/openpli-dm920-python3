@@ -108,6 +108,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://01-use-ioctl-22-for-h265.patch \
 			file://02-add-skin_display-dm920.patch \
 			file://03-add-support-2160p.patch \
+			file://04-move-lcd-text-a-bit-to-the-right.patch \
 			file://05-make-front-led-configurable.patch \
 			file://06-fix-build-gcc11.patch \
 			file://07-suppress-deprecation-warnings.patch \
