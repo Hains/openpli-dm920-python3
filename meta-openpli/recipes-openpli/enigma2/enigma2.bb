@@ -115,6 +115,8 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://08-dual-tuner-letter-detection.patch \
 			file://09-use-integer-instead-of-float.patch \
 			file://10-use-floor-division.patch \
+			file://11-Add-remote-control-dmm2.patch \
+			file://dmm2.png \
 "
 
 LDFLAGS:prepend = " -lxml2 "
@@ -160,6 +162,7 @@ FILES:${PN}-dbg += "\
 	"
 
 do_install:append() {
+	cp ${WORKDIR}/dmm2.png ${B}/data/rc_models/dmm2.png
 	install -d ${D}${datadir}/keymaps
 }
 
