@@ -2,13 +2,13 @@ Experimental build environment for dreambox 920 with Python 3.<br>
 Work in progress!<br>
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of December 25, 2021.<br>
+&nbsp;with git snapshot of January 24, 2022.<br>
 -GCC 11.2.0 <br>
 -Glibc 2.34<br>
 -GStreamer 1.19.2<br>
--Python 3.10.1<br>
+-Python 3.10.2<br>
 -OpenSSL 3.0.1<br>
--Busybox 1.34.1<br>
+-Busybox 1.35.0<br>
 and more.<br>
 <br>
 <br>
@@ -23,13 +23,13 @@ sudo apt install -y autoconf automake bison bzip2 cvs diffstat flex g++ gawk gcc
 ```
 To build image:
 ```
-git clone https://github.com/Hains/openvision-dm920-python3.git
+git clone https://github.com/Hains/openpli-dm920-python3.git
 
-cd openvision-dm920-python3
+cd openpli-dm920-python3
 
 make image
 ```
-When the build is finished, the openvision-enigma2-11.2-dm920.rootfs.tar.bz2 file is in the:
+When the build is finished, the openpli-enigma2-11.2-dm920.rootfs.tar.bz2 file is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
@@ -50,13 +50,13 @@ Create symlinks to your build-environment:
 ```
 cd /var/www/html
 
-sudo mkdir feeds;cd feeds;sudo mkdir openvision-11.2;cd openvision-11.2;
+sudo mkdir feeds;cd feeds;sudo mkdir openpli-11.2;cd openpli-11.2;
 
-sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/dm920 dm920 
+sudo ln -s /home/<your username>/openpli-dm920-python3/build/tmp/deploy/ipk/dm920 dm920 
 
-sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/all all
+sudo ln -s /home/<your username>/openpli-dm920-python3/build/tmp/deploy/ipk/all all
 
-sudo ln -s /home/<your username>/openvision-dm920-python3/build/tmp/deploy/ipk/cortexa15hf-neon-vfpv4 cortexa15hf-neon-vfpv4
+sudo ln -s /home/<your username>/openpli-dm920-python3/build/tmp/deploy/ipk/cortexa15hf-neon-vfpv4 cortexa15hf-neon-vfpv4
 ```
 Add hostname or ip address to the site.conf file (file exist after make command), e.g. at the end of the file.
 ```
