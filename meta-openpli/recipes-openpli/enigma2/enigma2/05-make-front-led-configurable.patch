@@ -54,31 +54,41 @@ index 32757534f..f1ce6fab0 100644
  		if configElement.value:
  			configElement.value = "%s%s" % (not configElement.value.startswith("http://") and "http://" or "", configElement.value)
 diff --git a/lib/python/Screens/SessionGlobals.py b/lib/python/Screens/SessionGlobals.py
-index 6577b9052..669ae574a 100644
+index b438505c8..669ae574a 100644
 --- a/lib/python/Screens/SessionGlobals.py
 +++ b/lib/python/Screens/SessionGlobals.py
-@@ -9,6 +9,8 @@ from Components.Sources.Boolean import Boolean
+@@ -8,7 +8,9 @@ from Components.Sources.TunerInfo import TunerInfo
+ from Components.Sources.Boolean import Boolean
  from Components.Sources.RecordState import RecordState
  from Components.Converter.Combine import Combine
- from Components.Renderer.FrontpanelLed import FrontpanelLed
+-from Components.Renderer.FrontpanelLed import FrontpanelLed, PATTERN_OFF, PATTERN_BLINK
++from Components.Renderer.FrontpanelLed import FrontpanelLed
 +from Components.config import config
 +from Components.SystemInfo import SystemInfo
  
  
  class SessionGlobals(Screen):
-@@ -24,8 +26,6 @@ class SessionGlobals(Screen):
+@@ -24,17 +26,69 @@ class SessionGlobals(Screen):
  		self["RecordState"] = RecordState(session)
  		self["Standby"] = Boolean(fixed=False)
  
 -		from Components.SystemInfo import SystemInfo
--
- 		combine = Combine(func=lambda s: {(False, False): 0, (False, True): 1, (True, False): 2, (True, True): 3}[(s[0].boolean, s[1].boolean)])
- 		combine.connect(self["Standby"])
- 		combine.connect(self["RecordState"])
-@@ -41,10 +41,54 @@ class SessionGlobals(Screen):
- 		PATTERN_OFF = (20, 0, 0)
- 		PATTERN_BLINK = (20, 0x55555555, 0xa7fccf7a)
++		combine = Combine(func=lambda s: {(False, False): 0, (False, True): 1, (True, False): 2, (True, True): 3}[(s[0].boolean, s[1].boolean)])
++		combine.connect(self["Standby"])
++		combine.connect(self["RecordState"])
  
+-		nr_leds = SystemInfo.get("NumFrontpanelLEDs", 0)
++		#                      |  two leds  | single led |
++		# recordstate  standby   red green
++		#    false      false    off   on     off
++		#    true       false    blnk  on     blnk
++		#    false      true      on   off    off
++		#    true       true     blnk  off    blnk
++
++		PATTERN_ON = (20, 0xffffffff, 0xffffffff)
++		PATTERN_OFF = (20, 0, 0)
++		PATTERN_BLINK = (20, 0x55555555, 0xa7fccf7a)
++
 +		NormalLed0 = PATTERN_OFF
 +		NormalLed1 = PATTERN_OFF
 +		if config.usage.frontled_color.value == "1":
@@ -100,7 +110,11 @@ index 6577b9052..669ae574a 100644
 +			RecLed0 = PATTERN_BLINK
 +		if config.usage.frontledrec_color.value == "4":
 +			RecLed1 = PATTERN_BLINK
-+
+ 
+-		if nr_leds > 0:
+-			combine = Combine(func=lambda s: {(False, False): 0, (False, True): 1, (True, False): 2, (True, True): 3}[(s[0].boolean, s[1].boolean)])
+-			combine.connect(self["Standby"])
+-			combine.connect(self["RecordState"])
 +		StandbyLed0 = PATTERN_OFF
 +		StandbyLed1 = PATTERN_OFF
 +		if config.usage.frontledstdby_color.value == "1":
@@ -123,12 +137,15 @@ index 6577b9052..669ae574a 100644
 +		if config.usage.frontledrecstdby_color.value == "4":
 +			RecstdbyLed1 = PATTERN_BLINK
 +
- 		nr_leds = SystemInfo.get("NumFrontpanelLEDs", 0)
++		nr_leds = SystemInfo.get("NumFrontpanelLEDs", 0)
  
- 		if nr_leds == 1:
- 			FrontpanelLed(which=0, boolean=False, patterns=[PATTERN_OFF, PATTERN_BLINK, PATTERN_OFF, PATTERN_BLINK]).connect(combine)
- 		elif nr_leds == 2:
--			FrontpanelLed(which=0, boolean=False, patterns=[PATTERN_OFF, PATTERN_BLINK, PATTERN_ON, PATTERN_BLINK]).connect(combine)
--			FrontpanelLed(which=1, boolean=False, patterns=[PATTERN_ON, PATTERN_ON, PATTERN_OFF, PATTERN_OFF]).connect(combine)
+-			if nr_leds == 1:
+-				FrontpanelLed(which=0, boolean=False, patterns=[PATTERN_OFF, PATTERN_BLINK, PATTERN_OFF, PATTERN_BLINK]).connect(combine)
+-			elif nr_leds == 2:
+-				FrontpanelLed(which=0, boolean=False, get_patterns=True).connect(combine)
+-				FrontpanelLed(which=1, boolean=False, get_patterns=True).connect(combine)
++		if nr_leds == 1:
++			FrontpanelLed(which=0, boolean=False, patterns=[PATTERN_OFF, PATTERN_BLINK, PATTERN_OFF, PATTERN_BLINK]).connect(combine)
++		elif nr_leds == 2:
 +			FrontpanelLed(which=0, boolean=False, patterns=[NormalLed0, RecLed0, StandbyLed0, RecstdbyLed0]).connect(combine)
 +			FrontpanelLed(which=1, boolean=False, patterns=[NormalLed1, RecLed1, StandbyLed1, RecstdbyLed1]).connect(combine)
