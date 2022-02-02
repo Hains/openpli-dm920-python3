@@ -116,6 +116,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://09-use-integer-instead-of-float.patch \
 			file://10-use-floor-division.patch \
 			file://11-Add-remote-control-dmm2.patch \
+			file://12-use-floor-division.patch \
 			file://dmm2.png \
 "
 
