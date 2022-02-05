@@ -5,18 +5,15 @@ LICENSE = "LGPLv2+ & GPLv2+"
 LICENSE:${PN}-examples = "GPLv2+"
 LIC_FILES_CHKSUM = "file://README;md5=54307cbab01c3aad9adf7605132bcf31"
 
-PR = "r1"
+RDEPENDS:${PN} = "python3-ctypes python3-datetime python3-six"
 
-RDEPENDS:${PN} = "python3-ctypes python3-datetime"
+PV = "0.7.0+git${SRCPV}"
+PKGV = "0.7.0+git${GITPKGV}"
+PR = "r2"
 
-SRC_URI = " https://github.com/Opvolger/pythonwifi/releases/download/0.7.0/python-wifi-0.7.0.tar.bz2 \
-			file://rename-tostring-to-tobytes.patch \
-			file://dont-encode-ifname-to-bytes.patch \
-			file://use-bytes-to-split.patch \
-			file://rename-next-method.patch \
-"
+SRC_URI = "git://github.com/athoik/pythonwifi.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/python-wifi-${PV}"
+S = "${WORKDIR}/git"
 
 SRC_URI[md5sum] = "2d7f2bab7345a2034c976096e31cc2ff"
 SRC_URI[sha256sum] = "a18699739f07444b1781d4731286ac85c8c35f98ca1166cde2d9f91366bbdc76"
