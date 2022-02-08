@@ -13,6 +13,8 @@ SRC_URI = "git://github.com/oscam-emu/oscam-patched.git;protocol=https;branch=ma
 
 DEPENDS = "libusb openssl"
 
+LDFLAGS:prepend = "-ludev "
+
 S = "${WORKDIR}/git"
 B = "${S}"
 

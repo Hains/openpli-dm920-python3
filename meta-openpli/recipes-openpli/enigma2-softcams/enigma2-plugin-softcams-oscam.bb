@@ -13,6 +13,8 @@ SRC_URI = "git://github.com/Hains/oscam.git;protocol=https;branch=master"
 
 DEPENDS = "libusb openssl"
 
+LDFLAGS:prepend = "-ludev "
+
 S = "${WORKDIR}/git"
 B = "${S}"
 
