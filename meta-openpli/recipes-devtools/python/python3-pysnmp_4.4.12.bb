@@ -2,7 +2,7 @@ DESCRIPTION = "A Pure Python SNMP Package"
 SECTION = "devel/python"
 PRIORITY = "optional"
 RDEPENDS:${PN} = "python3-core"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=b15d29f500f748d1c2a15709769090a8"
 
 SRCNAME = "pysnmp"

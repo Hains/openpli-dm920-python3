@@ -5,7 +5,7 @@ DESCRIPTION = " FFmpeg is the leading multimedia framework, able to decode, enco
 HOMEPAGE = "https://www.ffmpeg.org/"
 SECTION = "libs"
 
-LICENSE = "BSD & GPLv2+ & LGPLv2.1+ & MIT"
+LICENSE = "BSD-3-Clause & GPLv2+ & LGPLv2.1+ & MIT"
 LICENSE:${PN} = "GPLv2+"
 LICENSE:libavcodec		= "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
 LICENSE:libavdevice 	= "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
