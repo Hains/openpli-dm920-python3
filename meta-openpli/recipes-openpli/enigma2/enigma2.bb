@@ -112,10 +112,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://06-fix-build-gcc11.patch \
 			file://07-suppress-deprecation-warnings.patch \
 			file://08-dual-tuner-letter-detection.patch \
-			file://09-use-integer-instead-of-float.patch \
-			file://10-use-floor-division.patch \
 			file://11-Add-remote-control-dmm2.patch \
-			file://12-use-floor-division.patch \
 			file://13-restore-last-update-date-time.patch \
 			file://14-fix-framebuffer-and-use-ion-to-allocate-accel-memory.patch \
 			file://15-display-openssl-version.patch \
