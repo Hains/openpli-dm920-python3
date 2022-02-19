@@ -54,7 +54,6 @@ RDEPENDS:${PN} = "\
     ${PN}-web \
     ${PN}-words \
     ${PN}-zsh \
-    python3-typing-extensions \
 "
 
 RDEPENDS:${PN}-core = "${PYTHON_PN}-appdirs \
@@ -254,7 +253,12 @@ FILES:${PN}-doc += " \
     ${libdir}/${PYTHON_DIR}/site-packages/twisted/python/_pydoctortemplates/ \
 "
 
-RDEPENDS:${PN}-src = ""
+RDEPENDS:${PN}-src = "${PN}"
+FILES:${PN}-src = " \
+    ${libdir}/${PYTHON_DIR}/site-packages/twisted/*.py \
+    ${libdir}/${PYTHON_DIR}/site-packages/twisted/*/*.py \
+    ${libdir}/${PYTHON_DIR}/site-packages/twisted/*/*/*.py \
+"
 
 FILES:${PN}-core:append = " \
   ${libdir}/${PYTHON_DIR}/site-packages/twisted/__pycache__ \
