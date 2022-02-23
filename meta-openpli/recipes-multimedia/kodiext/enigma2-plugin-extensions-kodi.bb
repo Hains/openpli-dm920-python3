@@ -3,18 +3,17 @@ AUTHOR = "Maroš Ondrášek <mx3ldev@gmail.com>"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-PV = "${@bb.utils.contains("MACHINE_FEATURES", "kodi20", "20", "19", d)}"
+PV = "20"
 
 RDEPENDS:${PN} += "virtual/kodi kodi-addons-meta"
 
-RRECOMMENDS:${PN} = "${@bb.utils.contains("MACHINE_FEATURES", "no-subssupport", "" , "enigma2-plugin-extensions-subssupport", d)}"
+RRECOMMENDS:${PN} = "enigma2-plugin-extensions-subssupport"
 
 SRCREV = "fb3546a8e5496ff3d8d9035eb10a876ef1e4b807"
-SRC_URI = "git://github.com/oe-alliance/kodiext.git;protocol=https;branch=python3 \
-        file://0001-use-getboxbrand.patch \
-        file://0002-iavswitch-to-avswitch.patch \
-        file://advancedsettings.xml \
-        "
+
+SRC_URI = "git://github.com/kueken/kodiext.git;protocol=https;branch=py3 \
+		file://advancedsettings.xml \
+"
 
 S = "${WORKDIR}/git"
 
