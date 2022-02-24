@@ -9,7 +9,7 @@ RDEPENDS:${PN} += "virtual/kodi kodi-addons-meta"
 
 RRECOMMENDS:${PN} = "enigma2-plugin-extensions-subssupport"
 
-SRCREV = "fb3546a8e5496ff3d8d9035eb10a876ef1e4b807"
+SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/kueken/kodiext.git;protocol=https;branch=py3 \
 		file://advancedsettings.xml \
