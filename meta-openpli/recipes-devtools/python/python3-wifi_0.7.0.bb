@@ -13,7 +13,9 @@ PV = "0.7.0+git${SRCPV}"
 PKGV = "0.7.0+git${GITPKGV}"
 PR = "r2"
 
-SRC_URI = "git://github.com/athoik/pythonwifi.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/athoik/pythonwifi.git;protocol=https;branch=master \
+           file://replace-distutils-with-setuptools.patch \
+"
 
 S = "${WORKDIR}/git"
 
