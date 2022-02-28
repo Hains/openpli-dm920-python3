@@ -20,17 +20,19 @@ SRC_URI = "git://github.com/athoik/pythonwifi.git;protocol=https;branch=master \
 S = "${WORKDIR}/git"
 
 do_install:append() {
-		install -d ${D}${docdir}/${PN}
-		mv ${D}${datadir}/README ${D}${docdir}/${PN}
-		mv ${D}${datadir}/docs/* ${D}${docdir}/${PN}
-		rmdir ${D}${datadir}/docs
-		install -d ${D}${sbindir}
-		mv ${D}${datadir}/examples/* ${D}${sbindir}
-		rmdir ${D}${datadir}/examples
+    install -d ${D}${docdir}/${PN}
+    mv ${D}${prefix}/README ${D}${docdir}/${PN}
+    mv ${D}${prefix}/docs/* ${D}${docdir}/${PN}
+    mv ${D}${prefix}/man/* ${D}${docdir}/${PN}
+    rmdir ${D}${prefix}/docs
+    rmdir ${D}${prefix}/man
+    install -d ${D}${sbindir}
+    mv ${D}${prefix}/examples/* ${D}${sbindir}
+    rmdir ${D}${prefix}/examples
 }
 
 PACKAGES =+ "${PN}-examples"
 
-FILES:${PN}-examples = "${sbindir}"
+FILES:${PN}-examples = "${datadir}/docdir/ ${sbindir}"
 
 include python-package-split.inc
