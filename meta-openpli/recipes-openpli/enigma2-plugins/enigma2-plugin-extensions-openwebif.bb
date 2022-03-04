@@ -1,6 +1,6 @@
 DESCRIPTION = "Control your receiver with a browser"
 MAINTAINER = "Open Vision Developers"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://README;md5=26abba37d1c2fcbf96a087ceb8e1db86"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

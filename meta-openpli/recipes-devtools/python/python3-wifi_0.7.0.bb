@@ -1,8 +1,8 @@
 SUMMARY = "Provides access to Linux Wireless Extensions"
 HOMEPAGE = "http://pythonwifi.wikispot.org/"
 SECTION = "devel/python"
-LICENSE = "LGPLv2+ & GPLv2+"
-LICENSE:${PN}-examples = "GPLv2+"
+LICENSE = "LGPL-2.0-or-later & GPL-2.0-or-later"
+LICENSE:${PN}-examples = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://README;md5=54307cbab01c3aad9adf7605132bcf31"
 
 RDEPENDS:${PN} = "python3-ctypes python3-datetime python3-six"

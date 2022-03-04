@@ -1,7 +1,7 @@
 SUMMARY = "Libav-based GStreamer 1.x plugin"
 SECTION = "multimedia"
 HOMEPAGE = "http://www.gstreamer.net/"
-LICENSE = "GPLv2+ & LGPLv2+ & ( (GPLv2+ & LGPLv2.1+) | (GPLv3+ & LGPLv3+) )"
+LICENSE = "GPL-2.0-or-later & LGPL-2.0-or-later & ( (GPL-2.0-or-later & LGPL-2.1-or-later) | (GPL-3.0-or-later & LGPL-3.0-or-later) )"
 LICENSE_FLAGS = "commercial"
 LIC_FILES_CHKSUM = "file://COPYING;md5=69333daa044cb77e486cc36129f7a770"
 

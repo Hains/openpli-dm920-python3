@@ -1,4 +1,4 @@
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 require conf/license/license-gplv2.inc
 require kodi-nexus.inc
 
