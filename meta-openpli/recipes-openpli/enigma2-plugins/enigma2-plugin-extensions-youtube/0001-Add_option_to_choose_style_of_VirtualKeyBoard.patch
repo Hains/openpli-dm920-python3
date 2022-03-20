@@ -52,7 +52,7 @@ diff --git a/src/YouTubeUi.py b/src/YouTubeUi.py
 index 07e2a36..f0fed29 100644
 --- a/src/YouTubeUi.py
 +++ b/src/YouTubeUi.py
-@@ -77,6 +77,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
+@@ -78,6 +78,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
  config.plugins.YouTube.onMovieStop = ConfigSelection(default='related', choices=[
  	('related', _('Show related videos')),
  	('ask', _('Ask user')), ('quit', _('Return to list'))])
@@ -61,7 +61,7 @@ index 07e2a36..f0fed29 100644
  config.plugins.YouTube.login = ConfigYesNo(default=False)
  config.plugins.YouTube.downloadDir = ConfigDirectory(default=resolveFilename(SCOPE_HDD))
  config.plugins.YouTube.useDashMP4 = ConfigYesNo(default=True)
-@@ -1495,6 +1497,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
+@@ -1497,6 +1499,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
  			self.list.append(getConfigListEntry(_('Merge downloaded files:'),
  				config.plugins.YouTube.mergeFiles,
  				_('FFmpeg will be used to merge downloaded DASH video and audio files.\nFFmpeg will be installed if necessary.')))
@@ -69,7 +69,7 @@ index 07e2a36..f0fed29 100644
 +			config.plugins.YouTube.VirtualKeyBoard,
 +			_('You can choose what style of VirtualKeyBoard to use it.\nYouTube OR Image (VirtualKeyBoard).')))
  		for p in plugins.getPlugins(where=PluginDescriptor.WHERE_MENU):
- 			# TRANSLATORS: Don't translate this! It is used as a variable, so it must be equal to the translation in the plugin!
- 			if p.name == _('ServiceApp'):  # pragma: no cover
+ 			if 'ServiceApp' in p.path:  # pragma: no cover
+ 				self.list.append(getConfigListEntry(_('Media player:'),
 
 
