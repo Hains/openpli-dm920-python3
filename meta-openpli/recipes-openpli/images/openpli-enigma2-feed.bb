@@ -59,7 +59,6 @@ OPTIONAL_PACKAGES += " \
 	net-tools \
 	ntfs-3g \
 	ntp \
-	nodejs \
 	openresolv \
 	openssh \
 	openvpn \
