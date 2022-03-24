@@ -43,7 +43,6 @@ OPTIONAL_PACKAGES += " \
 	iproute2 \
 	iputils \
 	joe \
-	kodi \
 	less \
 	libbluray \
 	libudfread \
@@ -75,7 +74,6 @@ OPTIONAL_PACKAGES += " \
 	python3-ntplib \
 	python3-pysnmp \
 	python3-requests \
-	qtwidevine \
 	rsync \
 	rt3573 \
 	rt5572 \
@@ -126,7 +124,6 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-subssupport \
 	enigma2-plugin-extensions-youtube \
-	enigma2-plugin-extensions-kodi \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-skins-pd1loi-hd-night \
