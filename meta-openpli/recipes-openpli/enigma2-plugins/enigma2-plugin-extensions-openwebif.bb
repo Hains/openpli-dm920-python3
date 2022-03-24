@@ -21,7 +21,7 @@ RDEPENDS:${PN} = "\
 	python3-unixadmin \
 	"
 
-inherit gittag distutils-openplugins gettext
+inherit gittag setuptools3_legacy gettext
 
 PV = "git${SRCPV}"
 PKGV = "${GITPKGVTAG}"
@@ -40,7 +40,7 @@ do_install:append() {
 	cp -r ${S}/plugin/* ${D}${PLUGINPATH}
 	chmod a+rX ${D}${PLUGINPATH}
 	rm -rf ${D}${libdir}/enigma2/python/Plugins/*.egg-info
-	rmdir -p --ignore-fail-on-non-empty ${D}${datadir} ${D}/${PYTHON_SITEPACKAGES_DIR} || true
+	rm -rf ${D}${libdir}/python${PYTHON_BASEVERSION}
 }
 
 FILES:${PN} = "${PLUGINPATH}"
