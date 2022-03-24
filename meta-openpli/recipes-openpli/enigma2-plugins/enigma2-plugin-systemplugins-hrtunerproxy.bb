@@ -9,7 +9,9 @@ inherit gitpkgv distutils-openplugins
 PV = "git${SRCPV}"
 PKGV = "${GITPKGVTAG}"
 
-SRC_URI = "git://github.com/OpenViX/HRTunerProxy.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/OpenViX/HRTunerProxy.git;protocol=https;branch=master \
+           file://replace-distutils-with-setuptools.patch \
+"
 
 S = "${WORKDIR}/git"
 
