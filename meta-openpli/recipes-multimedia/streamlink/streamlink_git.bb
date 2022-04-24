@@ -29,6 +29,8 @@ PV = "git${SRCPV}"
 PKGV = "${GITPKGVTAG}"
 
 SRC_URI = " git://github.com/streamlink/streamlink;protocol=https;branch=master \
+			file://0001-Revert-build-move-imports-in-setup.py.patch \
+			file://0002-Revert-build-add-pyproject.toml-switch-to-versioning.patch \
 			git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
 "
 
