@@ -59,7 +59,6 @@ PREFERRED_PROVIDER_virtual/blindscan-dvbc = "dreambox-blindscan-utils"
 PREFERRED_VERSION_linux-dreambox ?= "3.14"
 PREFERRED_PROVIDER_virtual/libgl ?= "mesa-gl"
 PREFERRED_PROVIDER_virtual/mesa ?= "mesa-gl"
-PREFERRED_PROVIDER_virtual/kodi = "stb-kodi-${MACHINE}"
 PREFERRED_VERSION_linux-dreambox = "3.14"
 
 TARGET_ARCH = "arm"
