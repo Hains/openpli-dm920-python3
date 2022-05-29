@@ -26,7 +26,9 @@ inherit gittag setuptools3_legacy gettext
 PV = "git${SRCPV}"
 PKGV = "${GITPKGVTAG}"
 
-SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-OpenWebif.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-OpenWebif.git;protocol=https;branch=master \
+		file://set-packages-explicit.patch \
+"
 
 S="${WORKDIR}/git"
 
