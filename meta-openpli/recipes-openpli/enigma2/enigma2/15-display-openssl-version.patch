@@ -1,5 +1,5 @@
 diff --git a/lib/python/Components/About.py b/lib/python/Components/About.py
-index 1bda17d50..ce6f6f32e 100644
+index a721b42b4..6b927e832 100644
 --- a/lib/python/Components/About.py
 +++ b/lib/python/Components/About.py
 @@ -4,6 +4,7 @@ import time
@@ -10,7 +10,7 @@ index 1bda17d50..ce6f6f32e 100644
  
  
  def getVersionString():
-@@ -217,6 +218,15 @@ def getBoxUptime():
+@@ -218,6 +219,15 @@ def getBoxUptime():
  	except:
  		return '-'
  
@@ -27,12 +27,12 @@ index 1bda17d50..ce6f6f32e 100644
  # For modules that do "from About import about"
  about = modules[__name__]
 diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
-index d16057e2a..32e2f386b 100644
+index b61b6c46c..6f974a320 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -63,6 +63,10 @@ class About(Screen):
- 		else:
- 			AboutText += GStreamerVersion + "\n"
+@@ -74,6 +74,10 @@ class About(Screen):
+ 
+ 		AboutText += player + "\n"
  
 +		AboutText += "\n"
 +		AboutText += _("OpenSSL version: ") + about.getOpenSSLVersion() + "\n"
