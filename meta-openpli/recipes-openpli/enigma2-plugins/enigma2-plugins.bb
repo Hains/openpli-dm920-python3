@@ -26,8 +26,8 @@ RRECOMMENDS_enigma2-plugin-extensions-transmission = "transmission transmission-
 
 inherit gitpkgv python3native pkgconfig
 
-PV = "y-git${SRCPV}"
-PKGV = "y-git${GITPKGV}"
+PV = "2.0-git${SRCPV}"
+PKGV = "2.0-git${GITPKGV}"
 
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=python3;protocol=https"
