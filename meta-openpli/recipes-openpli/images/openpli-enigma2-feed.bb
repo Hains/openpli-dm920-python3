@@ -135,6 +135,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-systemplugins-serviceapp \
 	enigma2-plugins \
 	meta-enigma2-dvdburn \
+	packagegroup-openplugins \
 	picons-enigma2-meta \
 	softcams-enigma2-meta \
 	${OPTIONAL_BSP_ENIGMA2_PACKAGES} \
