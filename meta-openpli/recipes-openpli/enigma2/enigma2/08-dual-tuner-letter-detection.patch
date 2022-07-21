@@ -1,5 +1,5 @@
 diff --git a/configure.ac b/configure.ac
-index 53f57a3a7..55d5c089c 100644
+index e5575d5c2..7b7f7e0df 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -61,6 +61,11 @@ AM_CONDITIONAL(HAVE_TEMPFANCONTROL, test "$BOXTYPE" == dm8000 -o "$BOXTYPE" == d
@@ -15,7 +15,7 @@ index 53f57a3a7..55d5c089c 100644
  
  AC_ARG_WITH(textlcd,
 diff --git a/lib/dvb_ci/dvbci.cpp b/lib/dvb_ci/dvbci.cpp
-index db69cdccc..7a38491b2 100644
+index 45c1db557..116fa0448 100644
 --- a/lib/dvb_ci/dvbci.cpp
 +++ b/lib/dvb_ci/dvbci.cpp
 @@ -26,6 +26,66 @@
@@ -109,7 +109,7 @@ index db69cdccc..7a38491b2 100644
  	}
  
  	eDebug("[CI] done, found %d common interface slots", num_ci);
-@@ -308,7 +376,11 @@ void eDVBCIInterfaces::ciRemoved(eDVBCISlot *slot)
+@@ -311,7 +379,11 @@ void eDVBCIInterfaces::ciRemoved(eDVBCISlot *slot)
  		if (slot->linked_next)
  			slot->linked_next->setSource(slot->current_source);
  		else // last CI in chain
@@ -121,7 +121,7 @@ index db69cdccc..7a38491b2 100644
  		slot->linked_next = 0;
  		slot->use_count=0;
  		slot->plugged=true;
-@@ -579,7 +651,11 @@ void eDVBCIInterfaces::recheckPMTHandlers()
+@@ -582,7 +654,11 @@ void eDVBCIInterfaces::recheckPMTHandlers()
  							if (tunernum != -1)
  							{
  								setInputSource(tunernum, ci_source.str());
@@ -133,7 +133,7 @@ index db69cdccc..7a38491b2 100644
  							}
  							else
  							{
-@@ -743,7 +819,11 @@ void eDVBCIInterfaces::removePMTHandler(eDVBServicePMTHandler *pmthandler)
+@@ -746,7 +822,11 @@ void eDVBCIInterfaces::removePMTHandler(eDVBServicePMTHandler *pmthandler)
  				if (slot->linked_next)
  					slot->linked_next->setSource(slot->current_source);
  				else
@@ -146,15 +146,15 @@ index db69cdccc..7a38491b2 100644
  				if (base_slot != slot)
  				{
 diff --git a/lib/dvb_ci/dvbci.h b/lib/dvb_ci/dvbci.h
-index e1f256ddc..4d8dcad82 100644
+index def59a600..53d698936 100644
 --- a/lib/dvb_ci/dvbci.h
 +++ b/lib/dvb_ci/dvbci.h
-@@ -86,6 +86,8 @@ class eDVBCISlot: public iObject, public sigc::trackable
- 	int setClockRate(int);
+@@ -88,6 +88,8 @@ class eDVBCISlot: public iObject, public sigc::trackable
  	void determineCIVersion();
+ 	int setEnabled(bool);
  	static std::string getTunerLetter(int tuner_no) { return std::string(1, char(65 + tuner_no)); }
 +	static std::string getTunerLetterDM(int);
 +	static char* readInputCI(int);
  public:
- 	enum {stateRemoved, stateInserted, stateInvalid, stateResetted};
+ 	enum {stateRemoved, stateInserted, stateInvalid, stateResetted, stateDisabled};
  	enum {versionUnknown = -1, versionCI = 0, versionCIPlus1 = 1, versionCIPlus2 = 2};
