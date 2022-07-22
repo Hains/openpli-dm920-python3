@@ -119,10 +119,17 @@ ENIGMA2_OPTIONAL = " \
 	dvb-usb-drivers-meta \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-autobouquets \
+	enigma2-plugin-extensions-automatic-fullbackup \
+	enigma2-plugin-extensions-customsubservices \
 	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-hetweer \
+	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-subssupport \
+	enigma2-plugin-extensions-sundtekcontrolcenter \
+	enigma2-plugin-extensions-ts-sateditor \
+	enigma2-plugin-extensions-vcs \
+	enigma2-plugin-extensions-xmodem \
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-pd1loi-hd-night \
@@ -130,9 +137,14 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-skins-pli-hd-fullnight \
 	enigma2-plugin-skins-simple-gray \
 	enigma2-plugin-systemplugins-crossepg \
+	enigma2-plugin-systemplugins-devicemanager \
+	enigma2-plugin-systemplugins-extnumberzap \
+	enigma2-plugin-systemplugins-extrafancontrol \
 	enigma2-plugin-systemplugins-hrtunerproxy \
+	enigma2-plugin-systemplugins-mountmanager \
 	enigma2-plugin-systemplugins-newvirtualkeyboard \
 	enigma2-plugin-systemplugins-serviceapp \
+	enigma2-plugin-systemplugins-signalfinder \
 	enigma2-plugins \
 	meta-enigma2-dvdburn \
 	packagegroup-openplugins \
