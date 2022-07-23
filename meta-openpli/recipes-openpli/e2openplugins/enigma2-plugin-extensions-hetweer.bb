@@ -19,7 +19,4 @@ pkg_postrm:${PN}() {
 
 FILES:${PN} = "${PLUGINPATH}"
 
-SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-HetWeer.git;branch=python3;protocol=https \
-           file://fix-temperature-url.patch \
-           file://replace-distutils-with-setuptools.patch \
-"
+SRC_URI:append = " file://replace-distutils-with-setuptools.patch"
