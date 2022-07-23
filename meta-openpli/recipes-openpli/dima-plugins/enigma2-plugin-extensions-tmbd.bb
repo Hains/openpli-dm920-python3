@@ -16,4 +16,4 @@ RDEPENDS_${PN} = " \
 	${PYTHON_PN}-lxml \
 	"
 
-SRC_URI = "git://github.com/Hains/enigma2-plugin-extensions-tmbd.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/Hains/enigma2-plugin-extensions-tmbd.git;protocol=https;branch=master file://use-setuptools-instead-of-distutils.patch"
