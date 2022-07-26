@@ -127,6 +127,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-hdmitest \
 	enigma2-plugin-extensions-hetweer \
 	enigma2-plugin-extensions-historyzapselector \
+	enigma2-plugin-extensions-moviemanager \
 	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-subssupport \
 	enigma2-plugin-extensions-sundtekcontrolcenter \
