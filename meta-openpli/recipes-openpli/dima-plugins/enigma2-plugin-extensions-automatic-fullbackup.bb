@@ -9,6 +9,5 @@ require dima-plugins.inc
 RDEPENDS:${PN} = " \
 	mtd-utils-ubifs \
 	mtd-utils \
-	ofgwrite \
 	zip \
 	"
