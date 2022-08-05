@@ -6,4 +6,4 @@ PLUGINNAME = "enigma2-plugin-mountmanager"
 
 require dima-plugins.inc
 
-RDEPENDS_${PN} = "e2fsprogs-tune2fs"
+RDEPENDS:${PN} = "e2fsprogs-tune2fs"

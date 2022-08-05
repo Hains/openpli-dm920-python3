@@ -6,7 +6,7 @@ PLUGINNAME = "automatic-full-backup"
 
 require dima-plugins.inc
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	mtd-utils-ubifs \
 	mtd-utils \
 	ofgwrite \

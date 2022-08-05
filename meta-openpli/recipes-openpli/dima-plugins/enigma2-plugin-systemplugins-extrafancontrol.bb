@@ -6,4 +6,4 @@ PLUGINNAME = "enigma2-plugin-systemplugins-extrafancontrol"
 
 require dima-plugins.inc
 
-RDEPENDS_${PN} = "hddtemp"
+RDEPENDS:${PN} = "hddtemp"

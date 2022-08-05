@@ -6,7 +6,7 @@ PLUGINNAME = "enigma2-plugin-extensions-xmodem"
 
 require dima-plugins.inc
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
 	iptables \
 	usb-modeswitch \
 	usb-modeswitch-data \

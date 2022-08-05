@@ -4,7 +4,7 @@ PRIORITY = "optional"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://README;beginline=13;endline=14;md5=fe0c3d0cab1e25fcec2777b0a8b8e4bf"
 
-RDEPENDS_${PN} = "${PYTHON_PN}-core"
+RDEPENDS:${PN} = "${PYTHON_PN}-core"
 
 SRCREV = "${AUTOREV}"
 
