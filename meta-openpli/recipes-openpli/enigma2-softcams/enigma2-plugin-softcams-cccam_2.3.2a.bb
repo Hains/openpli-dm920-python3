@@ -2,8 +2,6 @@ DESCRIPTION = "CCcam ${PV} softcam"
 
 CAMNAME = "CCcam"
 
-RDEPENDS:${PN} = "libxcrypt-compat"
-
 INSANE_SKIP:${PN} += "file-rdeps"
 
 SRC_URI = " http://downloads.openpli.org/softcams/CCcam-${PV}.zip;name=softcam \
@@ -27,7 +25,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/CCcam.xml ${D}/etc/ppanels/CCcam.xml
 }
 
-SRC_URI[softcam.md5sum] = "042bc8d82075dbc806787270ffa237f6"
-SRC_URI[softcam.sha256sum] = "2b589e8181b927c0c0a7b0a045c500b1270234f8fab0848ba05201e339df2b51"
+SRC_URI[softcam.md5sum] = "80c05deecd7cea0d8b930caef399a4f5"
+SRC_URI[softcam.sha256sum] = "1c130bb76b06f836a4ed8936cd205f01d90c2645cd13814e4c487a7296f04cdb"
 SRC_URI[ppanel.md5sum] = "6d9c1964e0f65278b8f3024772b69d13"
 SRC_URI[ppanel.sha256sum] = "bd4e0b2b088a4a977d431ae1bb85fae142020f7b6f88baba06f9757f1b1cd9e2"
