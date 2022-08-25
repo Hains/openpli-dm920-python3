@@ -100,13 +100,13 @@ python populate_packages:prepend () {
             if line.startswith('Package: '):
                 full_package = line[9:]
             elif line.startswith('Recommends: '):
-                d.setVar('RRECOMMENDS_' + full_package, line[12:])
+                d.setVar('RRECOMMENDS:' + full_package, line[12:])
             elif line.startswith('Description: '):
-                d.setVar('DESCRIPTION_' + full_package, line[13:])
+                d.setVar('DESCRIPTION:' + full_package, line[13:])
             elif line.startswith('Replaces: '):
-                d.setVar('RREPLACES_' + full_package, ' '.join(line[10:].split(', ')))
+                d.setVar('RREPLACES:' + full_package, ' '.join(line[10:].split(', ')))
             elif line.startswith('Conflicts: '):
-                d.setVar('RCONFLICTS_' + full_package, ' '.join(line[11:].split(', ')))
+                d.setVar('RCONFLICTS:' + full_package, ' '.join(line[11:].split(', ')))
             elif line.startswith('Maintainer: '):
                 d.setVar('MAINTAINER_' + full_package, line[12:])
 
