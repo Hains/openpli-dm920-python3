@@ -1,6 +1,6 @@
 DEPENDS += "openssl"
 
-FILES_wpa-supplicant-passphrase = "${bindir}/wpa_passphrase"
+FILES:wpa-supplicant-passphrase = "${bindir}/wpa_passphrase"
 
 SRC_URI += " \
         file://action_wpa.sh \
