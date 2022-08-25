@@ -11,7 +11,7 @@ PR = "r0"
 require conf/license/license-gplv2.inc
 require openplugins-distutils.inc
 
-SRC_URI = "git://github.com/Hains/e2openplugin-Foreca.git;branch=python3;protocol=https file://use-setuptools-instead-of-distutils.patch"
+SRC_URI:append = " file://use-setuptools-instead-of-distutils.patch"
 
 FILES:${PN} += "${sysconfdir}/enigma2/Foreca"
 CONFFILES:${PN} = "${sysconfdir}/enigma2/Foreca/City.cfg ${sysconfdir}/enigma2/Foreca/Filter.cfg"
