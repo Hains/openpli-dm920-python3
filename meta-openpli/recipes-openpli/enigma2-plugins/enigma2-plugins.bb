@@ -19,7 +19,6 @@ PACKAGES += "\
 
 RDEPENDS:enigma2-plugin-extensions-mosaic = "aio-grab"
 RDEPENDS:enigma2-plugin-extensions-fancontrol2 = "smartmontools hdparm"
-RDEPENDS:enigma2-plugin-extensions-autotimer = "python3-difflib"
 RDEPENDS:enigma2-plugin-extensions-bonjour = "avahi-daemon"
 
 RRECOMMENDS:enigma2-plugin-systemplugins-blindscan = "virtual/blindscan-dvbs"
