@@ -1,9 +1,8 @@
-Experimental build environment for dreambox 920 with Python 3.<br>
-Work in progress!<br>
+Build environment for dreambox 920 with Python 3.<br>
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of August 21, 2022.<br>
--GCC 12.1.0 <br>
+&nbsp;with git snapshot of August 27, 2022.<br>
+-GCC 12.2.0 <br>
 -Glibc 2.36<br>
 -GStreamer 1.20.3<br>
 -Python 3.10.6<br>
@@ -26,7 +25,7 @@ cd openpli-dm920-python3
 
 make image
 ```
-When the build is finished, the openpli-enigma2-12.1-dm920.rootfs.tar.bz2 file is in the:
+When the build is finished, the openpli-enigma2-12.2-dm920.rootfs.tar.bz2 file is in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
