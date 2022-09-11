@@ -100,7 +100,7 @@ inherit gitpkgv python3native python3targetconfig
 PV = "3.10+git${SRCPV}"
 PKGV = "3.10+git${GITPKGV}"
 
-ENIGMA2_BRANCH ?= "python3"
+ENIGMA2_BRANCH ?= "develop"
 GITHUB_URI ?= "git://github.com"
 
 SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=https \
