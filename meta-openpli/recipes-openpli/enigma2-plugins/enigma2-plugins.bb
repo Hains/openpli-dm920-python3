@@ -66,18 +66,18 @@ S = "${WORKDIR}/git"
 WARN_QA:remove = "build-deps"
 
 DEPENDS = " \
+	python3-daap \
+	python3-mutagen \
 	python3-pillow \
 	python3-pyopenssl \
 	python3-pyusb \
 	python3-requests \
 	python3-simplejson \
-	streamripper \
-	python3-mutagen \
 	python3-twisted \
-	python3-daap \
-	libcddb \
 	dvdbackup \
+	libcddb \
 	libtirpc \
+	streamripper \
 	"
 
 do_compile() {
