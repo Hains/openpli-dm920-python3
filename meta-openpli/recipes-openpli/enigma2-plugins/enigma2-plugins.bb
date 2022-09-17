@@ -67,6 +67,7 @@ DEPENDS = " \
 	python3-pillow \
 	python3-pyopenssl \
 	python3-pyusb \
+	python3-requests \
 	python3-simplejson \
 	streamripper \
 	python3-mutagen \
