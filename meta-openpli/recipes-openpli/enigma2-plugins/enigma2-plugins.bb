@@ -31,7 +31,7 @@ PV = "2.0-git${SRCPV}"
 PKGV = "2.0-git${GITPKGV}"
 
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/Hains/${BPN}.git;branch=python3;protocol=https"
+SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=python3;protocol=https"
 
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \
