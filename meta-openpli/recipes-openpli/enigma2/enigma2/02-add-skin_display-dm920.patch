@@ -3,7 +3,7 @@ new file mode 100644
 index 000000000..b6afa68b8
 --- /dev/null
 +++ b/data/display/skin_display_dm920.xml
-@@ -0,0 +1,382 @@
+@@ -0,0 +1,394 @@
 +<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 +<skin>
 +	<windowstyle id="1" type="skinned">
@@ -114,6 +114,18 @@ index 000000000..b6afa68b8
 +				<convert type="MovieInfo">RecordServiceName</convert>
 +			</widget>
 +		</panel>
++	</screen>
++
++	<!-- Shoutcast -->
++	<screen name="SHOUTcastLCDScreen" position="0,0" size="400,240">
++		<widget name="text1" position="0,0" size="400,74" font="FdLcD;28" halign="center" valign="center" foregroundColor="#FFFF00"/>
++		<widget name="text2" position="0,80" size="400,133" font="FdLcD;36" halign="center" valign="center"/>
++		<widget source="session.RecordState" render="FixedLabel" text="&#174;" position="265,250" foregroundColor="#ff0000" size="40,46" font="FdLcD;50" halign="left" valign="center" transparent="1" zPosition="22">
++			<convert type="ConditionalShowHide">Blink</convert>
++		</widget>
++		<widget source="global.CurrentTime" render="Label" position="310,250" size="130,52" halign="right" font="FdLcD;50" transparent="1" zPosition="1" foregroundColor="lightcyan" >
++			<convert type="ClockToText">Default</convert>
++		</widget>
 +	</screen>
 +
 +<!-- Mediaplayer -->
