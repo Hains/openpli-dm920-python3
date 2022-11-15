@@ -74,6 +74,7 @@ OPTIONAL_PACKAGES += " \
 	python3-ntplib \
 	python3-pysnmp \
 	python3-requests \
+	python3-treq \
 	rsync \
 	rt3573 \
 	rt5572 \
