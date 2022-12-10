@@ -73,6 +73,7 @@ DEPENDS = " \
 	python3-pyusb \
 	python3-requests \
 	python3-simplejson \
+	python3-treq \
 	python3-twisted \
 	dvdbackup \
 	libcddb \
