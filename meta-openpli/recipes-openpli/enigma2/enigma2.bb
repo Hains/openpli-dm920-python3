@@ -110,7 +110,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://04-move-lcd-text-a-bit-to-the-right.patch \
 			file://05-make-front-led-configurable.patch \
 			file://06-fix-build-gcc11.patch \
-			file://07-suppress-compile-errors.patch \
+			file://07-suppress-deprecated-declarations.patch \
 			file://08-dual-tuner-letter-detection.patch \
 			file://09-update-cutlist-to-beyonwich.patch \
 			file://10-remove-codeset.patch \
