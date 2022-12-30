@@ -32,6 +32,7 @@ OPTIONAL_PACKAGES += " \
 	exfat-utils \
 	exteplayer3 \
 	gdb \
+	gerbera \
 	google-dns \
 	grep \
 	gstplayer \
