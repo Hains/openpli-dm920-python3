@@ -1,0 +1,13 @@
+diff --git a/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py b/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py
+index 991107ff8..0ced30620 100644
+--- a/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py
++++ b/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py
+@@ -76,8 +76,6 @@ class VideoHardware:
+ 
+ 	if SystemInfo["HasScart"]:
+ 		modes["Scart"] = ["PAL", "NTSC", "Multi"]
+-	elif SystemInfo["HasComposite"]:
+-		modes["RCA"] = ["576i", "PAL", "NTSC", "Multi"]
+ 	if SystemInfo["HasYPbPr"]:
+ 		modes["YPbPr"] = ["720p", "1080i", "576p", "480p", "576i", "480i"]
+ 	if SystemInfo["Has2160p"]:

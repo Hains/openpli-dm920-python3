@@ -121,6 +121,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://15-display-openssl-version.patch \
 			file://16-fix-write-console.patch \
 			file://17-fix-pointer-may-b-used-after.patch \
+			file://18-remove-rca-port.patch \
 			file://dmm2.png \
 "
 
