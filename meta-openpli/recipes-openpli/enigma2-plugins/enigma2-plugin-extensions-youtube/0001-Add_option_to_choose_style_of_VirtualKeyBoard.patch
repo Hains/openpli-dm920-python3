@@ -6,7 +6,7 @@ Subject: [PATCH] Add_option_to_choose_style_of_VirtualKeyBoard
 ---
 
 diff --git a/src/YouTubeSearch.py b/src/YouTubeSearch.py
-index 9a005d6..1757619 100644
+index e406b7a..dea50ea 100644
 --- a/src/YouTubeSearch.py
 +++ b/src/YouTubeSearch.py
 @@ -5,6 +5,7 @@ from os import path as os_path
@@ -25,7 +25,7 @@ index 9a005d6..1757619 100644
  
  from . import _, screenwidth
  from .compat import compat_quote
-@@ -355,8 +357,20 @@ class YouTubeSearch(Screen, ConfigListScreen):
+@@ -354,8 +356,20 @@ class YouTubeSearch(Screen, ConfigListScreen):
  
  	def openKeyboard(self):
  		self['config'].getCurrent()[1].help_window.instance.hide()
@@ -49,10 +49,10 @@ index 9a005d6..1757619 100644
  	def keyBoardCallback(self, name):
  		config = self['config'].getCurrent()[1]
 diff --git a/src/YouTubeUi.py b/src/YouTubeUi.py
-index 07e2a36..f0fed29 100644
+index e9beedb..f619dc5 100644
 --- a/src/YouTubeUi.py
 +++ b/src/YouTubeUi.py
-@@ -78,6 +78,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
+@@ -77,6 +77,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
  config.plugins.YouTube.onMovieStop = ConfigSelection(default='related', choices=[
  	('related', _('Show related videos')),
  	('ask', _('Ask user')), ('quit', _('Return to list'))])
@@ -61,15 +61,13 @@ index 07e2a36..f0fed29 100644
  config.plugins.YouTube.login = ConfigYesNo(default=False)
  config.plugins.YouTube.downloadDir = ConfigDirectory(default=resolveFilename(SCOPE_HDD))
  config.plugins.YouTube.useDashMP4 = ConfigYesNo(default=True)
-@@ -1497,6 +1499,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
- 			self.list.append(getConfigListEntry(_('Merge downloaded files:'),
+@@ -1483,6 +1485,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
+ 			self.list.append((_('Merge downloaded files:'),
  				config.plugins.YouTube.mergeFiles,
  				_('FFmpeg will be used to merge downloaded DASH video and audio files.\nFFmpeg will be installed if necessary.')))
-+		self.list.append(getConfigListEntry(_('Choose VirtualKeyBoard Style:'),
++		self.list.append((_('Choose VirtualKeyBoard Style:'),
 +			config.plugins.YouTube.VirtualKeyBoard,
 +			_('You can choose what style of VirtualKeyBoard to use it.\nYouTube OR Image (VirtualKeyBoard).')))
  		for p in plugins.getPlugins(where=PluginDescriptor.WHERE_MENU):
  			if 'ServiceApp' in p.path:  # pragma: no cover
- 				self.list.append(getConfigListEntry(_('Media player:'),
-
-
+ 				self.list.append((_('Media player:'),
