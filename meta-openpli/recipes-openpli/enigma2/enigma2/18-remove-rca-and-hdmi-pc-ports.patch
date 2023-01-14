@@ -1,8 +1,8 @@
 diff --git a/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py b/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py
-index 991107ff8..0ced30620 100644
+index 991107ff8..48046f75d 100644
 --- a/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py
 +++ b/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py
-@@ -76,8 +76,6 @@ class VideoHardware:
+@@ -76,15 +76,12 @@ class VideoHardware:
  
  	if SystemInfo["HasScart"]:
  		modes["Scart"] = ["PAL", "NTSC", "Multi"]
@@ -11,3 +11,10 @@ index 991107ff8..0ced30620 100644
  	if SystemInfo["HasYPbPr"]:
  		modes["YPbPr"] = ["720p", "1080i", "576p", "480p", "576i", "480i"]
  	if SystemInfo["Has2160p"]:
+ 		modes["DVI"] = ["720p", "1080p", "2160p", "1080i", "576p", "480p", "576i", "480i"]
+ 	else:
+ 		modes["DVI"] = ["720p", "1080p", "2160p", "2160p30", "1080i", "576p", "480p", "576i", "480i"]
+-	modes["DVI-PC"] = ["PC"]
+ 
+ 	def getOutputAspect(self):
+ 		ret = (16, 9)
