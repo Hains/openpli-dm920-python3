@@ -16,7 +16,6 @@ RDEPENDS:${PN} = " \
 	${PYTHON_PN}-lxml \
 	"
 
-SRC_URI = "git://github.com/Dima73/enigma2-plugin-extensions-tmbd.git;protocol=https;branch=python3 \
-           file://use-setuptools-instead-of-distutils.patch \
-           file://port-to-reactor-callinthtread.patch \
+SRC_URI:append = " file://use-setuptools-instead-of-distutils.patch \
+                   file://port-to-reactor-callinthtread.patch \
 "
