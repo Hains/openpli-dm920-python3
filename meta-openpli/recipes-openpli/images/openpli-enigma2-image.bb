@@ -78,6 +78,7 @@ IMAGE_INSTALL += " \
 	enigma2 \
 	libavahi-client \
 	ntpdate \
+	openresolv \
 	settings-autorestore \
 	tuxbox-common \
 	wget \
