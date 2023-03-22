@@ -59,7 +59,6 @@ OPTIONAL_PACKAGES += " \
 	nano \
 	net-tools \
 	ntfs-3g \
-	ntp \
 	openmultiboot \
 	openresolv \
 	openssh \
