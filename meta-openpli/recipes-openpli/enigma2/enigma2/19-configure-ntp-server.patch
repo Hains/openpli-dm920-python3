@@ -2,7 +2,7 @@ diff --git a/lib/python/Components/UsageConfig.py b/lib/python/Components/UsageC
 index 452c17238..22577781e 100644
 --- a/lib/python/Components/UsageConfig.py
 +++ b/lib/python/Components/UsageConfig.py
-@@ -772,21 +801,28 @@ def InitUsageConfig():
+@@ -772,21 +801,27 @@ def InitUsageConfig():
  		if configElement.value == "dvb" or not GetIPsFromNetworkInterfaces():
  			eDVBLocalTimeHandler.getInstance().setUseDVBTime(True)
  			eEPGCache.getInstance().timeUpdated()
@@ -25,16 +25,15 @@ index 452c17238..22577781e 100644
 +	def setNTPServer(configElement):
 +		if config.ntp.server.value != config.ntp.server_old.value:
 +			f = open("/etc/ntp.conf", "r")
-+			lst = list(map(lambda x : x, f.readlines()))
-+			f.close()
-+			f1 = open("/etc/ntp.conf", "w")
++			lst = f.readlines()
++			f = open("/etc/ntp.conf", "w")
 +			for x in lst:
 +				x1 = x.split()
 +				if len(x1) > 1 and x1[0] == "server":
 +					x1[1] = configElement.value
 +					x = " ".join(x1) +"\n"
-+				f1.write(x)
-+			f1.close()
++				f.write(x)
++			f.close()
 +			config.ntp.server_old.value = config.ntp.server.value
 +	config.ntp.server.addNotifier(setNTPServer, immediate_feedback=False)
  
