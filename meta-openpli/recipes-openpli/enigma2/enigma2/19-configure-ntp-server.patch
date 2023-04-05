@@ -23,7 +23,7 @@ index 452c17238..22577781e 100644
 -
 +	config.ntp.server_old = ConfigText("pool.ntp.org")
 +	def setNTPServer(configElement):
-+		if config.ntp.server.value != config.ntp.server_old.value and configElement.value != "":
++		if configElement.value != config.ntp.server_old.value and configElement.value != "" and " " not in configElement.value:
 +			f = open("/etc/ntp.conf", "r")
 +			lst = f.readlines()
 +			f = open("/etc/ntp.conf", "w")
@@ -34,7 +34,7 @@ index 452c17238..22577781e 100644
 +					x = " ".join(x1) +"\n"
 +				f.write(x)
 +			f.close()
-+			config.ntp.server_old.value = config.ntp.server.value
++			config.ntp.server_old.value = configElement.value
 +	config.ntp.server.addNotifier(setNTPServer, immediate_feedback=False)
  
  def updateChoices(sel, choices):
