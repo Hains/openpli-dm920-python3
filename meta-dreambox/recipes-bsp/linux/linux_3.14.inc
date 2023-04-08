@@ -27,6 +27,8 @@ do_configure:prepend() {
         mv ${B}/.config ${WORKDIR}/defconfig
     fi
 
+    sed -e "/^SUBLEVEL = /d" -i ${S}/Makefile
+
     echo "" > ${B}/.config
     CONF_SED_SCRIPT=""
 
