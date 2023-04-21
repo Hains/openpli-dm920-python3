@@ -1,0 +1,13 @@
+diff --git a/lib/python/Components/Harddisk.py b/lib/python/Components/Harddisk.py
+index 11fae3f71..08ed67ea7 100644
+--- a/lib/python/Components/Harddisk.py
++++ b/lib/python/Components/Harddisk.py
+@@ -171,7 +171,7 @@ class Harddisk:
+ 			return ""
+ 		if cap < 1000:
+ 			return _("%d MB") % cap
+-		return _("%.2f GB") % (cap // 1000.0)
++		return _("%.2f GB") % (cap / 1000.0)
+ 
+ 	def model(self):
+ 		try:
