@@ -72,11 +72,3 @@ DREAMBOX_IMAGE_SIZE ??= "1024"
 IMAGE_FSTYPES =+ "tar.bz2"
 
 IMAGE_CLASSES += "image_types_tarbz2"
-
-STB_PLATFORM = "dm4kgen"
-BOX_BRAND = "dreambox"
-KERNELVERSION = "3.14"
-
-HAVE_HDMI = "True"
-HAVE_HDMI_IN = "True"
-HAVE_HDMI_FHD = "True"
