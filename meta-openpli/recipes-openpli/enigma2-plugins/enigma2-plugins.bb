@@ -68,6 +68,7 @@ WARN_QA:remove = "build-deps"
 
 DEPENDS = " \
 	python3-daap \
+	python3-dateutil \
 	python3-mutagen \
 	python3-pillow \
 	python3-pyopenssl \
