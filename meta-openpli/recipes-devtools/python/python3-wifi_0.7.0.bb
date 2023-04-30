@@ -35,4 +35,4 @@ PACKAGES =+ "${PN}-examples"
 
 FILES:${PN}-examples = "${datadir}/docdir/ ${sbindir}"
 
-include python-package-split.inc
+include python3-package-split.inc

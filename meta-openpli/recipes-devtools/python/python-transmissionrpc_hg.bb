@@ -12,4 +12,4 @@ S = "${WORKDIR}/transmissionrpc"
 
 inherit setuptools3
 
-include python-package-split.inc
+include python3-package-split.inc

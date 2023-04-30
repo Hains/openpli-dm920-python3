@@ -1,1 +1,1 @@
-include python-package-split.inc
+include python3-package-split.inc
