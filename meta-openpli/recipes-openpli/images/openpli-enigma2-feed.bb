@@ -89,6 +89,7 @@ OPTIONAL_PACKAGES += " \
 	rtorrent \
 	sabnzbd \
 	samba \
+	satipserver \
 	satipclient \
 	screen \
 	sed \
