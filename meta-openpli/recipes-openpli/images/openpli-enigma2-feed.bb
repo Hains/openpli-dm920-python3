@@ -89,8 +89,8 @@ OPTIONAL_PACKAGES += " \
 	rtorrent \
 	sabnzbd \
 	samba \
-	satipserver \
 	satipclient \
+	satpi \
 	screen \
 	sed \
 	smartmontools \
