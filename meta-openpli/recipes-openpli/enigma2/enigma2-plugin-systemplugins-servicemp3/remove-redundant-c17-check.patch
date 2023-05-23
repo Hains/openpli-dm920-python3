@@ -1,0 +1,13 @@
+diff --git a/configure.ac b/configure.ac
+index 6447e8d..75ae328 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -16,8 +16,6 @@ AC_ARG_WITH(gstversion,
+ 
+ PKG_CHECK_MODULES(GSTREAMER, gstreamer-$GST_MAJORMINOR gstreamer-pbutils-$GST_MAJORMINOR)
+ 
+-AX_CXX_COMPILE_STDCXX_17([ext],[mandatory])
+-
+ AC_DEFINE([DEBUG])
+ 
+ AC_CONFIG_FILES([
