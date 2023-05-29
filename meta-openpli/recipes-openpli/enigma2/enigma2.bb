@@ -125,6 +125,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://19-configure-ntp-server.patch \
 			file://20-use-no-floor-division.patch \
 			file://21-cast-to-integers.patch \
+			file://22-fix-build-largefile-and-64bit-time-t.patch \
 			file://dmm2.png \
 "
 
