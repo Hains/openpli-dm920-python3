@@ -1,8 +1,4 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
-
-SRCREV = "606f85f8b23bd342988ab82ce7da52343c916396"
-
-SRC_URI:append = " file://restore-fmt-header-files.patch"
+SRCREV = "a474916560e0189871e4122ed6cf2522e4320073"
 
 PV = "10.0.pre1"
 PKGV = "10.0.pre1"
