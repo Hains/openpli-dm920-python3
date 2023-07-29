@@ -11,7 +11,7 @@ PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/oe-alliance/${BPN}.git;protocol=https;branch=master"
+SRC_URI = "${GITHUB_URI}/oe-alliance/${BPN}.git;protocol=https;branch=master file://fix-debug-output-mmap-fails.patch"
 
 S = "${WORKDIR}/git"
 
