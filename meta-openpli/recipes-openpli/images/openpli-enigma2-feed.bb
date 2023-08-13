@@ -95,6 +95,7 @@ OPTIONAL_PACKAGES += " \
 	satpi \
 	screen \
 	sed \
+	shairplay \
 	smartmontools \
 	smbnetfs \
 	sshpass \
