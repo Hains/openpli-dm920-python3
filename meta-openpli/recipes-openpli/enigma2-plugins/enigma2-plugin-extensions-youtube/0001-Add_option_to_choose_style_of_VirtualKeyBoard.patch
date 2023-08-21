@@ -6,7 +6,7 @@ Subject: [PATCH] Add_option_to_choose_style_of_VirtualKeyBoard
 ---
 
 diff --git a/src/YouTubeSearch.py b/src/YouTubeSearch.py
-index ae4cc3a..e30e5b8 100644
+index f78a563..31d8fac 100644
 --- a/src/YouTubeSearch.py
 +++ b/src/YouTubeSearch.py
 @@ -5,6 +5,7 @@ from os import path as os_path
@@ -25,7 +25,7 @@ index ae4cc3a..e30e5b8 100644
  
  from . import _, screenwidth
  from .compat import compat_quote
-@@ -354,8 +356,20 @@ class YouTubeSearch(Screen, ConfigListScreen):
+@@ -353,8 +355,20 @@ class YouTubeSearch(Screen, ConfigListScreen):
  
  	def openKeyboard(self):
  		self['config'].getCurrent()[1].help_window.instance.hide()
@@ -49,19 +49,19 @@ index ae4cc3a..e30e5b8 100644
  	def keyBoardCallback(self, name):
  		config = self['config'].getCurrent()[1]
 diff --git a/src/YouTubeUi.py b/src/YouTubeUi.py
-index 392a2bb..015d1b2 100644
+index 9dffcc3..7e07edf 100644
 --- a/src/YouTubeUi.py
 +++ b/src/YouTubeUi.py
-@@ -82,6 +82,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='related', choices=[
- config.plugins.YouTube.onMovieStop = ConfigSelection(default='related', choices=[
- 	('related', _('Show related videos')),
+@@ -80,6 +80,8 @@ config.plugins.YouTube.onMovieEof = ConfigSelection(default='quit', choices=[
+ 	('playprev', _('Play previous'))])
+ config.plugins.YouTube.onMovieStop = ConfigSelection(default='ask', choices=[
  	('ask', _('Ask user')), ('quit', _('Return to list'))])
 +config.plugins.YouTube.VirtualKeyBoard = ConfigSelection(default='YouTube', choices=[
 +	('YouTube', _('YouTube VirtualKeyBoard')), ('Image', _('Image VirtualKeyBoard'))])
  config.plugins.YouTube.login = ConfigYesNo(default=False)
  config.plugins.YouTube.downloadDir = ConfigDirectory(default=resolveFilename(SCOPE_HDD))
  config.plugins.YouTube.useDashMP4 = ConfigYesNo(default=True)
-@@ -1494,6 +1496,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
+@@ -1477,6 +1479,9 @@ class YouTubeSetup(ConfigListScreen, Screen):
  			self.list.append((_('Merge downloaded files:'),
  				config.plugins.YouTube.mergeFiles,
  				_('FFmpeg will be used to merge downloaded DASH video and audio files.\nFFmpeg will be installed if necessary.')))
