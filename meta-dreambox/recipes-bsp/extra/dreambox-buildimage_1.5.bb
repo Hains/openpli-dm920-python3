@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://src/buildimage.c;endline=17;md5=ea8d8cabec86117939480
 inherit gitpkgv
 
 VERSION := "${PV}"
-PV = "${VERSION}+git${SRCPV}"
+PV = "${VERSION}+git"
 PKGV = "${VERSION}+git${GITPKGV}"
 
 SRCREV = "95d4dd192e659f297e782fd71edbee038f9dc443"

@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=https;bra
            file://a.patch \
 "
 
-PV = "3.3+git${SRCPV}"
+PV = "3.3+git"
 PKGV = "3.3+git${GITPKGV}"
 PR = "r0"
 

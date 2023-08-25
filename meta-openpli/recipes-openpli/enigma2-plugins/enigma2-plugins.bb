@@ -26,7 +26,7 @@ RRECOMMENDS:enigma2-plugin-extensions-transmission = "transmission transmission-
 
 inherit gitpkgv python3native pkgconfig
 
-PV = "2.0-git${SRCPV}"
+PV = "2.0-git"
 PKGV = "2.0-git${GITPKGV}"
 
 GITHUB_URI ?= "git://github.com"

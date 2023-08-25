@@ -27,7 +27,7 @@ inherit setuptools3 python3-dir
 SRCREV_plugins = "${AUTOREV}"
 SRCREV_FORMAT = "streamlink_plugins"
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 SRC_URI = " git://github.com/streamlink/streamlink;protocol=https;branch=master \

@@ -8,7 +8,7 @@ SRC_URI = "git://github.com/Dima73/Extended-NumberZap.git;protocol=https;branch=
 S = "${WORKDIR}/git"
 
 inherit gitpkgv
-PV = "1+git${SRCPV}"
+PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 
 inherit distutils-openplugins

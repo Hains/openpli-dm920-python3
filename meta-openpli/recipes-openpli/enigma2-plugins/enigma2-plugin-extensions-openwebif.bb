@@ -23,7 +23,7 @@ RDEPENDS:${PN} = "\
 
 inherit gittag setuptools3_legacy gettext
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-OpenWebif.git;protocol=https;branch=master \
