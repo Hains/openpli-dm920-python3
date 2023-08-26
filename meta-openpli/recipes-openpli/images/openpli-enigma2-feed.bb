@@ -140,6 +140,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-infobarweather \
 	enigma2-plugin-extensions-moviemanager \
 	enigma2-plugin-extensions-ppanel \
+	enigma2-plugin-extensions-serienrecorder \
 	enigma2-plugin-extensions-subssupport \
 	enigma2-plugin-extensions-sundtekcontrolcenter \
 	enigma2-plugin-extensions-ts-sateditor \
