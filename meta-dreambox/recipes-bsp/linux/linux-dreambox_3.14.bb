@@ -6,13 +6,12 @@ COMPATIBLE_MACHINE = "dm920"
 
 MACHINE_KERNEL_PR:append = "4"
 
-PATCHREV = "6fa88d2001194cbff63ad94cb713b6cd5ea02739"
 PATCHLEVEL = "79"
 
 SRC_URI = " \
 	${KERNELORG_MIRROR}/linux/kernel/v3.x/linux-${PV}.tar.xz;name=kernel \
 	${KERNELORG_MIRROR}/linux/kernel/v3.x/patch-${PV}.${PATCHLEVEL}.xz;apply=yes;name=stable-patch \
-	http://dreamboxupdate.com/download/kernel-patches/linux-dreambox-${PV}-${PATCHREV}.patch.xz;apply=yes;name=dream-patch \
+	file://linux-dreambox-3.14.patch.xz \
 	file://0001-Support-TBS-USB-drivers.patch \
 	file://0002-STV-Add-PLS-support.patch \
 	file://0003-STV-Add-SNR-Signal-report-parameters.patch \
