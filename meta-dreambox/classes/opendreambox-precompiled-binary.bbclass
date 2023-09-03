@@ -2,9 +2,6 @@ require conf/license/license-close.inc
 PRECOMPILED_NAME ?= "${PN}"
 PRECOMPILED_ARCH ?= "${PACKAGE_ARCH}"
 PRECOMPILED_VERSION ?= "${PV}"
-PRECOMPILED_URI ?= "http://dreamboxupdate.com/download/opendreambox/2.5.0/${@precompiledPath(d)};name=${PRECOMPILED_ARCH}"
-
-SRC_URI += "${PRECOMPILED_URI}"
 
 S = "${WORKDIR}/${PRECOMPILED_NAME}_${PRECOMPILED_VERSION}_${PRECOMPILED_ARCH}"
 
@@ -32,4 +29,4 @@ do_install() {
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 
-INSANE_SKIP:${PN}:append = " already-stripped"
+INSANE_SKIP:${PN}:append = " already-stripped file-rdeps"
