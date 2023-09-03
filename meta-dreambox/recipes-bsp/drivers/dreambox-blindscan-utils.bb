@@ -9,7 +9,7 @@ INSANE_SKIP:${PN} += "already-stripped"
 
 PV = "1.12"
 
-SRC_URI += "http://dreamboxupdate.com/download/opendreambox/2.5.0/blindscan-utils/${PV}/${DEFAULTTUNE}/9e93783a6ac4611bb683d0b36fc44a87/blindscan-utils_${PV}_${DEFAULTTUNE}.tar.xz;name=${DEFAULTTUNE}-krogoth"
+SRC_URI = "file://blindscan-utils_1.12_cortexa15hf-neon-vfpv4.tar.xz"
 
 S = "${WORKDIR}/blindscan-utils_${PV}_${DEFAULTTUNE}"
 
@@ -23,4 +23,3 @@ do_install() {
 }
 
 INHIBIT_PACKAGE_STRIP = "1"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
