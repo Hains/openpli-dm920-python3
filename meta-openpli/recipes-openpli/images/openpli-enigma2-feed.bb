@@ -56,6 +56,7 @@ OPTIONAL_PACKAGES += " \
 	mt7610u \
 	mtd-utils \
 	mtools \
+	mtr \
 	nano \
 	net-tools \
 	ntfs-3g \
