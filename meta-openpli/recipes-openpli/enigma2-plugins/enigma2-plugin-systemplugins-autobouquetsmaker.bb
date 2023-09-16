@@ -4,11 +4,9 @@ MAINTAINER = "oe-alliance team"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-inherit autotools-brokensep gitpkgv python3native gettext
+inherit autotools-brokensep gitpkgv python3targetconfig python3native gettext
 
-SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=https;branch=master \
-           file://a.patch \
-"
+SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=https;branch=master"
 
 PV = "3.3+git"
 PKGV = "3.3+git${GITPKGV}"
