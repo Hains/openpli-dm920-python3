@@ -4,7 +4,7 @@ MAINTAINER = "OpenPLi team"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://../etc/epgimport/readme.txt;startline=1;endline=4;md5=c162054328d930d453543efef81be1d8"
 
-inherit gitpkgv
+inherit gitpkgv setuptools-openplugins
 
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
@@ -15,8 +15,6 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;protocol=https;branch=master \
 "
 
 S = "${WORKDIR}/git/src"
-
-inherit setuptools-openplugins
 
 RDEPENDS:${PN} = "python3-compression python3-shell python3-pkgutil"
 RRECOMMENDS:${PN} = "${PN}-rytec"

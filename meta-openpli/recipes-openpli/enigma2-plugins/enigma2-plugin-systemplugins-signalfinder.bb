@@ -7,8 +7,7 @@ SRC_URI = "git://github.com/Dima73/enigma2-plugin-signalfinder.git;protocol=http
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv setuptools-openplugins
+
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"
-
-inherit setuptools-openplugins

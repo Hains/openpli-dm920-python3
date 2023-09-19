@@ -6,7 +6,8 @@ DEPENDS = "bison-native fontconfig freetype libdvdread fribidi libpng libxml2 zl
 
 SRC_URI = "git://github.com/ldo/dvdauthor;protocol=https;branch=master file://fix-build.patch"
 
-inherit gitpkgv
+inherit autotools gettext pkgconfig gitpkgv
+
 PV = "0.7.1+git"
 PKGV = "0.7.1+git${GITPKGV}"
 
@@ -16,8 +17,6 @@ do_configure:prepend() {
 	mkdir -p ${S}/autotools
 	cp ${STAGING_DATADIR_NATIVE}/gettext/config.rpath ${S}/autotools/
 }
-
-inherit autotools gettext pkgconfig
 
 EXTRA_OECONF = " \
 		ac_cv_prog_MAGICKCONFIG= \

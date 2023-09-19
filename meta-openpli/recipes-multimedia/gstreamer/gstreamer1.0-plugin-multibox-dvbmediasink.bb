@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmedias
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit autotools pkgconfig gitpkgv
 
 PV = "${GSTVERSION}+git"
 PKGV = "${GSTVERSION}+git${GITPKGV}"
@@ -25,8 +25,6 @@ do_configure:prepend() {
         sed -i 's/AC_INIT.*$/AC_INIT(gst-plugin-dvbmediasink, 1.0.0, @pli4)/' ${S}/configure.ac
         sed -i 's/AM_INIT_AUTOMAKE.*$/AM_INIT_AUTOMAKE([foreign])/' ${S}/configure.ac
 }
-
-inherit autotools pkgconfig
 
 FILES:${PN} = "${libdir}/gstreamer-${GSTVERSION}/*.so*"
 FILES:${PN}-dev += "${libdir}/gstreamer-${GSTVERSION}/*.la"

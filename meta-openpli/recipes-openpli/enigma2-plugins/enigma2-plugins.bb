@@ -24,7 +24,7 @@ RDEPENDS:enigma2-plugin-extensions-bonjour = "avahi-daemon"
 RRECOMMENDS:enigma2-plugin-systemplugins-blindscan = "virtual/blindscan-dvbs"
 RRECOMMENDS:enigma2-plugin-extensions-transmission = "transmission transmission-client"
 
-inherit gitpkgv python3native pkgconfig
+inherit gitpkgv python3native pkgconfig autotools-brokensep
 
 PV = "2.0-git"
 PKGV = "2.0-git${GITPKGV}"
@@ -57,8 +57,6 @@ CONFFILES:enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
 
 FILES:${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
-
-inherit autotools-brokensep
 
 S = "${WORKDIR}/git"
 

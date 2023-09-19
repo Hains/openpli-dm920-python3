@@ -5,12 +5,10 @@ PRIORITY = "optional"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://README;md5=f210c6f38d8c7db12fdfd009dcd9438c"
 
-inherit gitpkgv
+inherit autotools-brokensep pkgconfig update-rc.d gitpkgv
 
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"
-
-inherit autotools-brokensep pkgconfig
 
 SRC_URI = " git://github.com/pcherenkov/udpxy.git;protocol=https;branch=master \
 			file://fix-build-with-gcc8.patch \
@@ -34,5 +32,3 @@ do_install() {
 
 INITSCRIPT_NAME = "udpxy.sh"
 INITSCRIPT_PARAMS = "defaults"
-
-inherit update-rc.d

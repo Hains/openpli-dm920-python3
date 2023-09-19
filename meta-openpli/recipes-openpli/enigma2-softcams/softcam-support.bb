@@ -3,7 +3,7 @@ MAINTAINER = "PLi team"
 
 require conf/license/openpli-gplv2.inc
 
-inherit allarch
+inherit allarch update-rc.d
 
 PACKAGES = "${PN}"
 
@@ -11,7 +11,6 @@ PV = "2"
 
 INITSCRIPT_NAME = "softcam"
 INITSCRIPT_PARAMS = "defaults 50"
-inherit update-rc.d
 
 FILES:${PN} = "${sysconfdir}"
 

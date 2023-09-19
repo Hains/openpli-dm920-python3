@@ -7,7 +7,8 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "libbluray libudfread"
 
-inherit gitpkgv
+inherit gitpkgv setuptools-openplugins
+
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 BRANCH = "openpli"
@@ -15,7 +16,5 @@ BRANCH = "openpli"
 SRC_URI = "git://github.com/Taapat/enigma2-plugin-blurayplayer.git;branch=${BRANCH};protocol=https"
 
 S = "${WORKDIR}/git"
-
-inherit setuptools-openplugins
 
 FILES:${PN}-dbg += "${libdir}/enigma2/python/Plugins/Extensions/BlurayPlayer/.debug"

@@ -7,12 +7,10 @@ SRC_URI = "git://github.com/Dima73/pli-openmultibootmanager.git;protocol=https;b
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit setuptools-openplugins gitpkgv
 
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"
-
-inherit setuptools-openplugins
 
 RRECOMMENDS:${PN} = "mtd-utils mtd-utils-ubifs kernel-module-nandsim openmultiboot"
 
