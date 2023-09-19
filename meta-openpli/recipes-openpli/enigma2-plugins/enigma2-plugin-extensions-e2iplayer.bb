@@ -5,7 +5,7 @@ SECTION = "multimedia"
 LICENSE = "GPL-2.0-only"
 require conf/license/license-gplv2.inc
 
-inherit allarch distutils-openplugins gitpkgv setuptools3
+inherit allarch setuptools-openplugins gitpkgv
 
 DEPENDS = "${PYTHON_PN}-future-native"
 

@@ -16,7 +16,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;protocol=https;branch=master \
 
 S = "${WORKDIR}/git/src"
 
-inherit distutils-openplugins
+inherit setuptools-openplugins
 
 RDEPENDS:${PN} = "python3-compression python3-shell python3-pkgutil"
 RRECOMMENDS:${PN} = "${PN}-rytec"

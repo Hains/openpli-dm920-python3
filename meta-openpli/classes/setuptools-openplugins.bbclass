@@ -1,7 +1,5 @@
 inherit setuptools3
 
-FILES:${PN} += "${libdir}"
-
 # Scripts want to install "/etc", so we need "--root" instead of setting install-data stuff
 # to remain compatible with previous versions.
 
@@ -21,3 +19,5 @@ setuptools3_do_install:append() {
 	rm -rf ${D}${libdir}/python${PYTHON_BASEVERSION}
 	rm -rf ${D}${libdir}/enigma2/python/Plugins/*.egg-info
 }
+
+FILES:${PN} += "${libdir}"

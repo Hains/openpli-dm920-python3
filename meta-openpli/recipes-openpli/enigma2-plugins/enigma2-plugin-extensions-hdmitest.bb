@@ -13,4 +13,4 @@ SRC_URI = "git://github.com/ims21/HdmiTest.git;protocol=https;branch=master \
 
 S="${WORKDIR}/git"
 
-inherit distutils-openplugins
+inherit setuptools-openplugins
