@@ -128,6 +128,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://22-fix-build-largefile-and-64bit-time-t.patch \
 			file://23-add-sys-dvbc2.patch \
 			file://24-fix-display-hdmi-address.patch \
+			file://25-fix-driver-date.patch \
 			file://dmm2.png \
 "
 
