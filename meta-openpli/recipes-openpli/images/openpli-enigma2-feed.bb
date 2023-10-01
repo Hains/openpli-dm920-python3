@@ -146,6 +146,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-sundtekcontrolcenter \
 	enigma2-plugin-extensions-ts-sateditor \
 	enigma2-plugin-extensions-vcs \
+	enigma2-plugin-extensions-xmodem \
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-pd1loi-hd-night \
