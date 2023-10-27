@@ -77,6 +77,7 @@ DEPENDS = " \
 	dvdbackup \
 	libcddb \
 	libtirpc \
+	png-util \
 	streamripper \
 	"
 
