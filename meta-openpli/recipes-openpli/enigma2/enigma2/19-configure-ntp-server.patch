@@ -3,7 +3,7 @@ index 452c17238..22577781e 100644
 --- a/lib/python/Components/UsageConfig.py
 +++ b/lib/python/Components/UsageConfig.py
 @@ -772,21 +801,27 @@ def InitUsageConfig():
- 		if configElement.value == "dvb" or not GetIPsFromNetworkInterfaces():
+ 		if configElement.value == "dvb" or (configElement.value == "auto" and not GetIPsFromNetworkInterfaces()):
  			eDVBLocalTimeHandler.getInstance().setUseDVBTime(True)
  			eEPGCache.getInstance().timeUpdated()
 -			if os.path.isfile('/var/spool/cron/crontabs/root'):
