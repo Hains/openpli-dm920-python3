@@ -5,7 +5,7 @@ SRC_URI = "git://github.com/gerbera/gerbera.git;protocol=https;branch=master \
            file://init \
 "
 
-SRCREV = "72a23b4a7e62b7695591262af3c1a51db2159766"
+SRCREV = "a033b74f21db3c547f16440729ce32d862155141"
 
 PV = "1.12.pre2+git"
 PKGV = "1.12.pre2+git${GITPKGV}"
