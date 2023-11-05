@@ -2,7 +2,7 @@ DESCRIPTION = "Converter that provides audio/video bitrate widgets"
 LICENSE = "CC-BY-NC-ND-4.0"
 LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-RDEPENDS:{PN} = "bitratecalc"
+RDEPENDS:${PN} = "bitratecalc"
 
 inherit python3native python3-compileall
 
