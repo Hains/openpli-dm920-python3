@@ -32,7 +32,7 @@ FILES:${PN}-src = "${INSTALLDIR}/*.py ${INSTALLDIR}/*/*.py ${INSTALLDIR}/*/*/*.p
 FILES:${PN}-doc = "${INSTALLDIR}/*.txt ${INSTALLDIR}/licenses ${INSTALLDIR}/interfaces/*/licenses"
 FILES:${PN} = "${INSTALLDIR} /etc/init.d/sabnzbd /etc/init.d/init-functions /etc/enigma2/sabnzbd.conf"
 
-inherit update-rc.d
+inherit update-rc.d python3-compileall
 INITSCRIPT_NAME = "sabnzbd"
 INITSCRIPT_PARAMS = "defaults"
 
@@ -45,4 +45,8 @@ do_install() {
 	install -m 755 ${WORKDIR}/init-functions ${D}${sysconfdir}/init.d/init-functions
 	install -d ${D}${sysconfdir}/enigma2
 	install -m 644 ${WORKDIR}/sabnzbd.conf ${D}/etc/enigma2/sabnzbd.conf
+}
+
+do_install:append() {
+	chmod 777 ${D}${INSTALLDIR}/SABnzbd.py
 }
