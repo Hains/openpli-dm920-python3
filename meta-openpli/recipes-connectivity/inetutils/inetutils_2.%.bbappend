@@ -1,1 +1,1 @@
-INSANE_SKIP:${PN} = "unknown-configure-option"
+WARN_QA:remove = "unknown-configure-option"
