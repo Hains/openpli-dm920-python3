@@ -121,7 +121,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://15-display-openssl-version.patch \
 			file://16-fix-write-console.patch \
 			file://17-fix-pointer-may-b-used-after.patch \
-			file://18-remove-rca-and-hdmi-pc-ports.patch \
+			file://18-remove-rca-port.patch \
 			file://19-configure-ntp-server.patch \
 			file://20-use-no-floor-division.patch \
 			file://21-cast-to-integers.patch \
@@ -129,6 +129,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://23-add-sys-dvbc2.patch \
 			file://24-fix-display-hdmi-address.patch \
 			file://25-fix-driver-date.patch \
+			file://26-set-dvi-port-as-default.patch \
 			file://dmm2.png \
 "
 
