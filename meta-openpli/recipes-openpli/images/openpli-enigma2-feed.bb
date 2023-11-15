@@ -135,6 +135,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-fontinfo \
+	enigma2-plugin-extensions-freechannels \
 	enigma2-plugin-extensions-fritzcall \
 	enigma2-plugin-extensions-hdmitest \
 	enigma2-plugin-extensions-hetweer \
