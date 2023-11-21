@@ -78,6 +78,7 @@ DEPENDS = " \
 	libcddb \
 	libtirpc \
 	png-util \
+	pydpflib \
 	streamripper \
 	"
 
