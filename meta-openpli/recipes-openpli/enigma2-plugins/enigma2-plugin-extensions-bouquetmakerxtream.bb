@@ -11,7 +11,7 @@ PR = "r3"
 
 inherit gittag allarch
 
-RDEPENDS:${PN} = "python3-requests python3-pillow"
+RDEPENDS:${PN} = "python3 python3-requests python3-pillow"
 
 SRC_URI = "git://github.com/kiddac/Bouquet_Maker_Xtream.git;protocol=https;branch=master"
 
