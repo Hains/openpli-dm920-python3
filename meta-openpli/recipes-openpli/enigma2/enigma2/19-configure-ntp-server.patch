@@ -1,22 +1,8 @@
 diff --git a/lib/python/Components/UsageConfig.py b/lib/python/Components/UsageConfig.py
-index 452c17238..22577781e 100644
+index d0e5d7ec0..714c41257 100644
 --- a/lib/python/Components/UsageConfig.py
 +++ b/lib/python/Components/UsageConfig.py
-@@ -772,21 +801,27 @@ def InitUsageConfig():
- 		if configElement.value == "dvb" or (configElement.value == "auto" and not GetIPsFromNetworkInterfaces()):
- 			eDVBLocalTimeHandler.getInstance().setUseDVBTime(True)
- 			eEPGCache.getInstance().timeUpdated()
--			if os.path.isfile('/var/spool/cron/crontabs/root'):
--				Console().ePopen("sed -i '/ntpdate-sync/d' /var/spool/cron/crontabs/root;")
--			if configElement.value == "dvb" and os.path.islink('/etc/network/if-up.d/ntpdate-sync'):
--				Console().ePopen("unlink /etc/network/if-up.d/ntpdate-sync")
- 		else:
- 			eDVBLocalTimeHandler.getInstance().setUseDVBTime(False)
- 			eEPGCache.getInstance().timeUpdated()
--			if not os.path.isfile('/var/spool/cron/crontabs/root') or not 'ntpdate-sync' in open('/var/spool/cron/crontabs/root').read():
--				Console().ePopen("echo '30 * * * *    /usr/bin/ntpdate-sync silent' >> /var/spool/cron/crontabs/root")
--			if not os.path.islink('/etc/network/if-up.d/ntpdate-sync'):
--				Console().ePopen("ln -s /usr/bin/ntpdate-sync /etc/network/if-up.d/ntpdate-sync")
+@@ -814,7 +814,21 @@ def InitUsageConfig():
  	config.ntp.timesync = ConfigSelection(default="auto", choices=[("auto", _("auto")), ("dvb", _("Transponder Time")), ("ntp", _("Internet (ntp)"))])
  	config.ntp.timesync.addNotifier(timesyncChanged)
  	config.ntp.server = ConfigText("pool.ntp.org", fixed_size=False)
