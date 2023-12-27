@@ -23,6 +23,7 @@ RCONFLICTS:${PN} = "enigma2-plugin-pli-softcamsetup"
 RDEPENDS:${PN} = " \
 	alsa-conf \
 	enigma2-fonts \
+	enigma-info \
 	ethtool \
 	glibc-gconv-iso8859-15 \
 	${PYTHON_RDEPS} \
