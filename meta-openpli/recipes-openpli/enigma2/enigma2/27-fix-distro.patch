@@ -7,7 +7,7 @@ index 739abadcc..4ebf18940 100644
  
  def getImageTypeString():
 -	return BoxInfo.getItem("oe").title()
-+	return "OpenPli 13.2"
++	return "OpenPLi 13.2"
  
  
  def getCPUInfoString():
