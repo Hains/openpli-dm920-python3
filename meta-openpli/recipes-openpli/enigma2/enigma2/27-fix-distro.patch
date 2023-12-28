@@ -1,0 +1,14 @@
+diff --git a/lib/python/Components/About.py b/lib/python/Components/About.py
+index 739abadcc..4ebf18940 100644
+--- a/lib/python/Components/About.py
++++ b/lib/python/Components/About.py
+@@ -87,7 +87,7 @@ def getHardwareTypeString():
+ 
+ 
+ def getImageTypeString():
+-	return BoxInfo.getItem("oe").title()
++	return "OpenPli 13.2"
+ 
+ 
+ def getCPUInfoString():
+
