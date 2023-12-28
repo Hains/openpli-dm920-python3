@@ -1,0 +1,13 @@
+diff --git a/lib/python/Components/About.py b/lib/python/Components/About.py
+index 739abadcc..6b8f14caa 100644
+--- a/lib/python/Components/About.py
++++ b/lib/python/Components/About.py
+@@ -83,7 +83,7 @@ def getKernelVersionString():
+ 
+ 
+ def getHardwareTypeString():
+-	return HardwareInfo().get_device_string()
++	return "dm920"
+ 
+ 
+ def getImageTypeString():

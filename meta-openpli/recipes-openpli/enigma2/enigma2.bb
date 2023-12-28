@@ -132,6 +132,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://25-fix-driver-date.patch \
 			file://26-set-dvi-port-as-default.patch \
 			file://27-fix-distro.patch \
+			file://28-fix-machine-name.patch \
 			file://dmm2.png \
 "
 
