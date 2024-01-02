@@ -1,10 +1,10 @@
 diff --git a/lib/python/Screens/About.py b/lib/python/Screens/About.py
-index d16057e2a..c9ecb3288 100644
+index 7a70ce195..ad54e87ef 100644
 --- a/lib/python/Screens/About.py
 +++ b/lib/python/Screens/About.py
-@@ -33,7 +33,9 @@ class About(Screen):
- 		AboutText += _("CPU: ") + cpu + "\n"
+@@ -38,7 +38,9 @@ class About(Screen):
  		AboutText += _("Image: ") + about.getImageTypeString() + "\n"
+ 		AboutText += _("OE Version: ") + about.getOEVersionString() + "\n"
  		AboutText += _("Build date: ") + about.getBuildDateString() + "\n"
 -		AboutText += _("Last update: ") + about.getUpdateDateString() + "\n"
 +		ImageVersion = _("Last update: ") + about.getImageVersionString()
