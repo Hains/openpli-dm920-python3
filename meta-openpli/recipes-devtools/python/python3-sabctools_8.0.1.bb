@@ -3,8 +3,8 @@ SECTION = "devel/python"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=892f569a555ba9c07a568a7c0c4fa63a"
 
-SRC_URI[md5sum] = "35d6bd261734f53b6658ae3a1d22a93f"
-SRC_URI[sha256sum] = "c038055eec5c966a8c9515f2afdaa9aee24970e5df3a23964d95d7e77b98101f"
+SRC_URI[md5sum] = "f03a4a9829a4823b91188bdb0ba7a856"
+SRC_URI[sha256sum] = "f93412bf0a43668fc84dfade7a3a18aca5dcee630682fb043f2870666b07c95e"
 
 SRC_URI:append = " file://remove-x64-flags.patch"
 
