@@ -3,7 +3,7 @@ MAINTAINER = "ims"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=534862957bf314f95d85e0c07632f84d"
 
-inherit gitpkgv setuptools-openplugins
+inherit gitpkgv setuptools3-openplugins
 
 PV = "2.0+git"
 PKGV = "2.0+git${GITPKGV}"

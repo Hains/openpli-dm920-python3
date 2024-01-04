@@ -4,7 +4,7 @@ MAINTAINER = "OpenPLi team"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://../etc/epgimport/readme.txt;startline=1;endline=4;md5=c162054328d930d453543efef81be1d8"
 
-inherit gitpkgv setuptools-openplugins
+inherit gitpkgv setuptools3-openplugins
 
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"

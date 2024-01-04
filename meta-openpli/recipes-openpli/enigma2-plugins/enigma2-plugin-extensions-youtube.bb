@@ -13,7 +13,7 @@ SRC_URI = " git://github.com/Taapat/enigma2-plugin-youtube.git;protocol=https;br
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv setuptools-openplugins
+inherit gitpkgv setuptools3-openplugins
 
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"

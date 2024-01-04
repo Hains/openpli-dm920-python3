@@ -7,7 +7,7 @@ SRC_URI = "git://github.com/Dima73/pli-openmultibootmanager.git;protocol=https;b
 
 S = "${WORKDIR}/git"
 
-inherit setuptools-openplugins gitpkgv
+inherit setuptools3-openplugins gitpkgv
 
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"
