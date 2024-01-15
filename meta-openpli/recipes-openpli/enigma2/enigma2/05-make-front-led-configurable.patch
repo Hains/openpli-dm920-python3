@@ -1,8 +1,8 @@
 diff --git a/data/setup.xml b/data/setup.xml
-index 4f5cbd253..851dee3cf 100644
+index 83e36d7d6..701f4c353 100644
 --- a/data/setup.xml
 +++ b/data/setup.xml
-@@ -223,6 +223,10 @@
+@@ -235,6 +235,10 @@
  		<item level="0" text="Brightness" description="Configure the brightness level of the front panel display.">config.lcd.bright</item>
  		<item level="0" text="Contrast" description="Configure the contrast level of the front panel display.">config.lcd.contrast</item>
  		<item level="0" text="Standby" description="Configure the brightness level of the front panel display during standby.">config.lcd.standby</item>
@@ -14,10 +14,10 @@ index 4f5cbd253..851dee3cf 100644
  		<item level="0" text="Standby LED" description="Turn on the power LED during standby." requires="StandbyLED">config.usage.standbyLED</item>
  		<item level="0" text="Deep Standby LED" description="Turn on the power LED during deep standby." requires="SuspendLED">config.usage.suspendLED</item>
 diff --git a/lib/python/Components/UsageConfig.py b/lib/python/Components/UsageConfig.py
-index 32757534f..f1ce6fab0 100644
+index c3ba702ab..518fe6ae6 100644
 --- a/lib/python/Components/UsageConfig.py
 +++ b/lib/python/Components/UsageConfig.py
-@@ -242,6 +242,35 @@ def InitUsageConfig():
+@@ -248,6 +248,35 @@ def InitUsageConfig():
  		("5", "DVB-T/-S/-C"),
  		("127", _("No priority"))])
  
@@ -54,30 +54,29 @@ index 32757534f..f1ce6fab0 100644
  		if configElement.value:
  			configElement.value = "%s%s" % (not configElement.value.startswith("http://") and "http://" or "", configElement.value)
 diff --git a/lib/python/Screens/SessionGlobals.py b/lib/python/Screens/SessionGlobals.py
-index b438505c8..669ae574a 100644
+index 921862f76..5309084de 100644
 --- a/lib/python/Screens/SessionGlobals.py
 +++ b/lib/python/Screens/SessionGlobals.py
-@@ -8,7 +8,9 @@ from Components.Sources.TunerInfo import TunerInfo
+@@ -8,7 +8,8 @@ from Components.Sources.TunerInfo import TunerInfo
  from Components.Sources.Boolean import Boolean
  from Components.Sources.RecordState import RecordState
  from Components.Converter.Combine import Combine
 -from Components.Renderer.FrontpanelLed import FrontpanelLed, PATTERN_OFF, PATTERN_BLINK
 +from Components.Renderer.FrontpanelLed import FrontpanelLed
 +from Components.config import config
-+from Components.SystemInfo import SystemInfo
  
  
  class SessionGlobals(Screen):
-@@ -24,17 +26,69 @@ class SessionGlobals(Screen):
+@@ -24,17 +25,69 @@ class SessionGlobals(Screen):
  		self["RecordState"] = RecordState(session)
  		self["Standby"] = Boolean(fixed=False)
  
--		from Components.SystemInfo import SystemInfo
+-		from Components.SystemInfo import BoxInfo
 +		combine = Combine(func=lambda s: {(False, False): 0, (False, True): 1, (True, False): 2, (True, True): 3}[(s[0].boolean, s[1].boolean)])
 +		combine.connect(self["Standby"])
 +		combine.connect(self["RecordState"])
  
--		nr_leds = SystemInfo.get("NumFrontpanelLEDs", 0)
+-		nr_leds = BoxInfo.getItem("NumFrontpanelLEDs", 0)
 +		#                      |  two leds  | single led |
 +		# recordstate  standby   red green
 +		#    false      false    off   on     off
@@ -137,7 +136,7 @@ index b438505c8..669ae574a 100644
 +		if config.usage.frontledrecstdby_color.value == "4":
 +			RecstdbyLed1 = PATTERN_BLINK
 +
-+		nr_leds = SystemInfo.get("NumFrontpanelLEDs", 0)
++		nr_leds = BoxInfo.getItem("NumFrontpanelLEDs", 0)
  
 -			if nr_leds == 1:
 -				FrontpanelLed(which=0, boolean=False, patterns=[PATTERN_OFF, PATTERN_BLINK, PATTERN_OFF, PATTERN_BLINK]).connect(combine)
