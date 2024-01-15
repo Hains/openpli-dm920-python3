@@ -4,10 +4,10 @@ index 991107ff8..48046f75d 100644
 +++ b/lib/python/Plugins/SystemPlugins/Videomode/VideoHardware.py
 @@ -76,8 +76,6 @@ class VideoHardware:
  
- 	if SystemInfo["HasScart"]:
+ 	if BoxInfo.getItem("HasScart"):
  		modes["Scart"] = ["PAL", "NTSC", "Multi"]
--	elif SystemInfo["HasComposite"]:
+-	elif BoxInfo.getItem("HasComposite"):
 -		modes["RCA"] = ["576i", "PAL", "NTSC", "Multi"]
- 	if SystemInfo["HasYPbPr"]:
+ 	if BoxInfo.getItem("HasYPbPr"):
  		modes["YPbPr"] = ["720p", "1080i", "576p", "480p", "576i", "480i"]
- 	if SystemInfo["Has2160p"]:
+ 	if BoxInfo.getItem("Has2160p"):
