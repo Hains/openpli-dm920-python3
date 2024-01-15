@@ -57,21 +57,21 @@ diff --git a/lib/python/Screens/SessionGlobals.py b/lib/python/Screens/SessionGl
 index 921862f76..5309084de 100644
 --- a/lib/python/Screens/SessionGlobals.py
 +++ b/lib/python/Screens/SessionGlobals.py
-@@ -8,7 +8,8 @@ from Components.Sources.TunerInfo import TunerInfo
+@@ -8,8 +8,8 @@ from Components.Sources.TunerInfo import TunerInfo
  from Components.Sources.Boolean import Boolean
  from Components.Sources.RecordState import RecordState
  from Components.Converter.Combine import Combine
 -from Components.Renderer.FrontpanelLed import FrontpanelLed, PATTERN_OFF, PATTERN_BLINK
+-
 +from Components.Renderer.FrontpanelLed import FrontpanelLed
 +from Components.config import config
  
- 
  class SessionGlobals(Screen):
-@@ -24,17 +25,69 @@ class SessionGlobals(Screen):
- 		self["RecordState"] = RecordState(session)
+ 	def __init__(self, session):
+@@ -25,16 +25,69 @@ class SessionGlobals(Screen):
  		self["Standby"] = Boolean(fixed=False)
  
--		from Components.SystemInfo import BoxInfo
+ 		from Components.SystemInfo import BoxInfo
 +		combine = Combine(func=lambda s: {(False, False): 0, (False, True): 1, (True, False): 2, (True, True): 3}[(s[0].boolean, s[1].boolean)])
 +		combine.connect(self["Standby"])
 +		combine.connect(self["RecordState"])
@@ -98,7 +98,11 @@ index 921862f76..5309084de 100644
 +			NormalLed0 = PATTERN_BLINK
 +		if config.usage.frontled_color.value == "4":
 +			NormalLed1 = PATTERN_BLINK
-+
+ 
+-		if nr_leds > 0:
+-			combine = Combine(func=lambda s: {(False, False): 0, (False, True): 1, (True, False): 2, (True, True): 3}[(s[0].boolean, s[1].boolean)])
+-			combine.connect(self["Standby"])
+-			combine.connect(self["RecordState"])
 +		RecLed0 = PATTERN_OFF
 +		RecLed1 = PATTERN_OFF
 +		if config.usage.frontledrec_color.value == "1":
@@ -109,11 +113,7 @@ index 921862f76..5309084de 100644
 +			RecLed0 = PATTERN_BLINK
 +		if config.usage.frontledrec_color.value == "4":
 +			RecLed1 = PATTERN_BLINK
- 
--		if nr_leds > 0:
--			combine = Combine(func=lambda s: {(False, False): 0, (False, True): 1, (True, False): 2, (True, True): 3}[(s[0].boolean, s[1].boolean)])
--			combine.connect(self["Standby"])
--			combine.connect(self["RecordState"])
++
 +		StandbyLed0 = PATTERN_OFF
 +		StandbyLed1 = PATTERN_OFF
 +		if config.usage.frontledstdby_color.value == "1":
