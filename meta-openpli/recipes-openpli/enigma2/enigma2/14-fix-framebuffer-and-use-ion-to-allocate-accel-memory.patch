@@ -518,9 +518,9 @@ diff --git a/lib/gdi/grc.cpp b/lib/gdi/grc.cpp
 index 723286264..d14efca50 100644
 --- a/lib/gdi/grc.cpp
 +++ b/lib/gdi/grc.cpp
-@@ -44,6 +44,19 @@ gRC::gRC(): rp(0), wp(0)
- 	m_spinneronoff = 1;
+@@ -65,6 +65,19 @@ void gRC::unlock()
  }
+ #endif
  
 +void gRC::lock()
 +{
@@ -542,7 +542,7 @@ diff --git a/lib/gdi/grc.h b/lib/gdi/grc.h
 index 071e04599..efff43011 100644
 --- a/lib/gdi/grc.h
 +++ b/lib/gdi/grc.h
-@@ -187,6 +187,9 @@ public:
+@@ -260,6 +260,9 @@ public:
  
  	void submit(const gOpcode &o);
  
