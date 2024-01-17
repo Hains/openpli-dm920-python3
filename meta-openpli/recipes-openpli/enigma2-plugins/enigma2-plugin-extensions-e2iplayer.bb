@@ -10,7 +10,6 @@ inherit allarch setuptools3-openplugins gitpkgv
 DEPENDS = "${PYTHON_PN}-future-native"
 
 SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https \
-           file://use-setuptools-instead-of-distutils.patch \
            file://fix-iAVSwitch-import.patch \
 "
 
