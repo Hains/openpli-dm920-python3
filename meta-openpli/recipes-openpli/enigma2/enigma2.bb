@@ -34,7 +34,7 @@ RRECOMMENDS:${PN} = " \
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
 	python-sendfile \
-	virtual/enigma2-mediaservice \
+	virtual-enigma2-mediaservice \
 	"
 
 PYTHON_RDEPS = " \
@@ -66,7 +66,7 @@ RRECOMMENDS:${PN} += "libdvdcss"
 # We depend on the font which we use for TXT subtitles (defined in skin_subtitles.xml)
 RDEPENDS:${PN} += "font-valis-enigma"
 
-RDEPENDS:${PN} += "virtual/blindscan-dvbc"
+RDEPENDS:${PN} += "virtual-blindscan-dvbc"
 
 DEMUXTOOL ?= "replex"
 
