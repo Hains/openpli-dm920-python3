@@ -120,7 +120,6 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://13-restore-last-update-date-time.patch \
 			file://14-fix-framebuffer-and-use-ion-to-allocate-accel-memory.patch \
 			file://15-display-openssl-version.patch \
-			file://16-fix-write-console.patch \
 			file://17-fix-pointer-may-b-used-after.patch \
 			file://18-remove-rca-port.patch \
 			file://19-configure-ntp-server.patch \
