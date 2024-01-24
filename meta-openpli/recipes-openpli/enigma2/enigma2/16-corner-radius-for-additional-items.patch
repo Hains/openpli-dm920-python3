@@ -487,7 +487,7 @@ index 7ca1e6c38..b59f53654 100644
  
  		gPainter &painter = *(gPainter*)data2;
  
--		bool drawborder = (m_have_border_color && m_border_width);
+-		bool drawborder = m_border_width;
 -
 +		style->setStyle(painter, eWindowStyle::styleLabel); // TODO - own style
  
