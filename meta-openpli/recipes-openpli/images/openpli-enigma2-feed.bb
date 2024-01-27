@@ -11,6 +11,34 @@ DEPENDS = "openpli-enigma2-image package-index-feed"
 OPTIONAL_PACKAGES_BROKEN = ""
 OPTIONAL_PACKAGES ?= ""
 OPTIONAL_BSP_PACKAGES ?= ""
+
+OPTIONAL_WIFI_PACKAGES = "\
+	kernel-module-8812au \
+	kernel-module-8814au \
+	kernel-module-rt5572sta \
+	kernel-module-8188eu \
+	kernel-module-8188fu \
+	kernel-module-rt3573sta \
+	kernel-module-mt7601usta \
+	kernel-module-mt7610u \
+	kernel-module-8723a \
+	kernel-module-8723bu \
+	kernel-module-88x2cu \
+	kernel-module-8192fu \
+	kernel-module-8852cu \
+	kernel-module-8723bs \
+	kernel-module-8821cu \
+	kernel-module-8192eu \
+	kernel-module-88x2bu \
+	kernel-module-8189es \
+	\
+	firmware-rtl8723bu \
+	firmware-rtl8188eu  \
+	firmware-rtl8188fu  \
+	firmware-rtl8192eu \
+	firmware-mt7601u \
+	"
+
 OPTIONAL_PACKAGES += " \
 	astra-sm \
 	autofs \
@@ -53,8 +81,6 @@ OPTIONAL_PACKAGES += " \
 	mediainfo \
 	minisatip \
 	mpd \
-	mt7601u \
-	mt7610u \
 	mtd-utils \
 	mtools \
 	mtr \
@@ -82,13 +108,6 @@ OPTIONAL_PACKAGES += " \
 	python3-yenc \
 	python3-youtube-dl \
 	rsync \
-	rt3573 \
-	rt5572 \
-	rtl8723a \
-	rtl8723bs \
-	rtl8814au \
-	rtl8822bu \
-	rt8812au \
 	rtl-sdr \
 	rtorrent \
 	sabnzbd \
@@ -121,6 +140,7 @@ OPTIONAL_PACKAGES += " \
 	zip \
 	zsh \
 	${OPTIONAL_BSP_PACKAGES} \
+	${OPTIONAL_WIFI_PACKAGES} \
 	"
 
 OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
