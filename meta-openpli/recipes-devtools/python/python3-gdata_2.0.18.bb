@@ -13,7 +13,6 @@ inherit pypi setuptools3
 FILES:${PN} += "${datadir}"
 
 RDEPENDS:${PN} = " \
-    python3-distutils \
     python3-json \
     python3-netserver \
     python3-stringold \
