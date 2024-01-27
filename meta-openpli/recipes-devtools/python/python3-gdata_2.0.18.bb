@@ -10,12 +10,12 @@ S = "${WORKDIR}/gdata.py-${PV}"
 
 inherit pypi setuptools3
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
-RDEPENDS_${PN} = " \
-    ${PYTHON_PN}-distutils \
-    ${PYTHON_PN}-json \
-    ${PYTHON_PN}-netserver \
-    ${PYTHON_PN}-stringold \
-    ${PYTHON_PN}-xml \
+RDEPENDS:${PN} = " \
+    python3-distutils \
+    python3-json \
+    python3-netserver \
+    python3-stringold \
+    python3-xml \
 "
