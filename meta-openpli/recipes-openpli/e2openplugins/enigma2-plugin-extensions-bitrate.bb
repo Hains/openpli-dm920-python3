@@ -1,7 +1,6 @@
 MODULE = "Bitrate"
 DESCRIPTION = "Bitrate viewer"
 
-require conf/license/license-gplv2.inc
 require openplugins.inc
 
 inherit autotools gettext python3native

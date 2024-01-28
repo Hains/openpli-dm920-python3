@@ -8,7 +8,6 @@ RDEPENDS:${PN} = "python-twisted-core python-twisted-web python-m2crypto \
 PV_MOD = "0.1+git"
 PKGV_MOD = "0.1+git${GITPKGV}"
 
-require conf/license/license-gplv2.inc
 require openplugins.inc
 
 PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/${MODULE}"

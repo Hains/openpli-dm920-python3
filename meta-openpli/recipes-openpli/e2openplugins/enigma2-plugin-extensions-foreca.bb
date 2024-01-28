@@ -2,7 +2,6 @@ MODULE = "Foreca"
 DESCRIPTION = "Weather forecast for the upcoming 10 days"
 RDEPENDS:${PN} = "python3-html"
 
-require conf/license/license-gplv2.inc
 require openplugins.inc
 require openplugins-distutils.inc
 
