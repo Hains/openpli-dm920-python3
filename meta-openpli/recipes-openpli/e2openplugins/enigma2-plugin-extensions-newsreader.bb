@@ -1,8 +1,9 @@
 MODULE = "NewsReader"
 DESCRIPTION = "RSS reader"
 
+inherit setuptools3-openplugins
+
 require openplugins.inc
-require openplugins-distutils.inc
 
 do_install:append() {
 	rm -rf ${D}/${datadir}

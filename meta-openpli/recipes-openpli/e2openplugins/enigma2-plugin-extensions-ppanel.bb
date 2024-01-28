@@ -1,8 +1,9 @@
 MODULE = "PPanel"
 DESCRIPTION = "PPanel"
 
+inherit setuptools3-openplugins
+
 require openplugins.inc
-require openplugins-distutils.inc
 
 PACKAGES =+ "${PN}-example"
 
