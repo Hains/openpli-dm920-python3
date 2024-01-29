@@ -26,8 +26,8 @@ EXTERNAL_WIFI_DRIVERS = " \
 	firmware-rtl8192eu \
 	firmware-rtl8188eu \
 	\
-	kernel-module-8188eu \
-	kernel-module-8192eu \
+	kernel-module-rt8188eu \
+	kernel-module-rt8192eu \
 	"
 
 ENIGMA2_PLUGINS = " \

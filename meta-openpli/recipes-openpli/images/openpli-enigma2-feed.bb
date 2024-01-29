@@ -13,24 +13,24 @@ OPTIONAL_PACKAGES ?= ""
 OPTIONAL_BSP_PACKAGES ?= ""
 
 OPTIONAL_WIFI_PACKAGES = "\
-	kernel-module-8812au \
-	kernel-module-8814au \
+	kernel-module-rt8812au \
+	kernel-module-rt8814au \
 	kernel-module-rt5572sta \
-	kernel-module-8188eu \
-	kernel-module-8188fu \
+	kernel-module-rt8188eu \
+	kernel-module-rt8188fu \
 	kernel-module-rt3573sta \
 	kernel-module-mt7601usta \
 	kernel-module-mt7610u \
-	kernel-module-8723a \
-	kernel-module-8723bu \
-	kernel-module-88x2cu \
-	kernel-module-8192fu \
-	kernel-module-8852cu \
-	kernel-module-8723bs \
-	kernel-module-8821cu \
-	kernel-module-8192eu \
-	kernel-module-88x2bu \
-	kernel-module-8189es \
+	kernel-module-rt8723a \
+	kernel-module-rt8723bu \
+	kernel-module-rt88x2cu \
+	kernel-module-rt8192fu \
+	kernel-module-rt8852cu \
+	kernel-module-rt8723bs \
+	kernel-module-rt8821cu \
+	kernel-module-rt8192eu \
+	kernel-module-rt88x2bu \
+	kernel-module-rt8189es \
 	\
 	firmware-rtl8723bu \
 	firmware-rtl8188eu  \
