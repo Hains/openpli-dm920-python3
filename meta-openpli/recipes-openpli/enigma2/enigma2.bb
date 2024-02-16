@@ -129,7 +129,6 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://23-add-sys-dvbc2.patch \
 			file://24-fix-has-hdmi-cec.patch \
 			file://25-fix-driver-date.patch \
-			file://26-set-dvi-port-as-default.patch \
 			file://dmm2.png \
 "
 
