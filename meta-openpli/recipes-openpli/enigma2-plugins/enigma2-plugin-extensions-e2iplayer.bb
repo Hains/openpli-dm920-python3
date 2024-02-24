@@ -7,7 +7,7 @@ require conf/license/license-gplv2.inc
 
 inherit allarch setuptools3-openplugins gitpkgv
 
-DEPENDS = "${PYTHON_PN}-future-native"
+DEPENDS = "python3-future-native"
 
 SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https"
 
