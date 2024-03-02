@@ -107,6 +107,7 @@ OPTIONAL_PACKAGES += " \
 	python3-transmissionrpc \
 	python3-yenc \
 	python3-youtube-dl \
+	rclone \
 	rsync \
 	rtl-sdr \
 	rtorrent \
