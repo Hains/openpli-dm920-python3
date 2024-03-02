@@ -122,6 +122,7 @@ OPTIONAL_PACKAGES += " \
 	sshpass \
 	strace \
 	streamlink \
+	streamlinksrv \
 	tcpdump \
 	tmux \
 	transmission \
