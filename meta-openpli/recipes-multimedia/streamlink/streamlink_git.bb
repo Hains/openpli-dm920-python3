@@ -22,13 +22,13 @@ RDEPENDS:${PN} = "python3-core \
 	python3-websocket-client \
 "
 
-inherit setuptools3 python3-dir
+inherit setuptools3 python3-dir gitpkgv
 
 SRCREV_plugins = "${AUTOREV}"
 SRCREV_FORMAT = "streamlink_plugins"
 
-PV = "git"
-PKGV = "${GITPKGVTAG}"
+PV = "6.6.2+git"
+PKGV = "6.6.2+${GITPKGV}"
 
 SRC_URI = " git://github.com/streamlink/streamlink;protocol=https;branch=master \
 			git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
