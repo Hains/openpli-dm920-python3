@@ -7,7 +7,6 @@ PROVIDES = "softcams"
 DEPENDS = " \
 	enigma2-plugin-softcams-cccam \
 	enigma2-plugin-softcams-oscam \
-	enigma2-plugin-softcams-oscam-cak7 \
 	enigma2-plugin-softcams-oscam-emu \
 	enigma2-plugin-softcams-ncam \
 	"
