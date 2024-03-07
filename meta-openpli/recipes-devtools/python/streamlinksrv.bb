@@ -11,8 +11,8 @@ RDEPENDS:${PN} = "python3-core streamlink"
 
 inherit python3-dir gitpkgv
 
-PV = "1.8.2+git"
-PKGV = "1.8.2+git${GITPKGV}"
+PV = "1.8.4+git"
+PKGV = "1.8.4+git${GITPKGV}"
 
 SRC_URI = "git://github.com/oe-mirrors/livestreamersrv;protocol=https;branch=streamlinksrv \
            file://set-interpreter-to-python3.patch \
