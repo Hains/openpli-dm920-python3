@@ -25,7 +25,7 @@ cd openpli-dm920-python3
 
 make image
 ```
-When the build is finished, the openpli-enigma2-12.2-dm920.rootfs.tar.bz2 file is in the:
+When the build is finished, the openpli-enigma2-13.2-dm920.rootfs.tar.bz2 file is located in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
