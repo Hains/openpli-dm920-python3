@@ -185,6 +185,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-systemplugins-extnumberzap \
 	enigma2-plugin-systemplugins-extrafancontrol \
 	enigma2-plugin-systemplugins-hrtunerproxy \
+	enigma2-plugin-systemplugins-m3uiptv \
 	enigma2-plugin-systemplugins-misplslcnscan \
 	enigma2-plugin-systemplugins-mountmanager \
 	enigma2-plugin-systemplugins-newvirtualkeyboard \
