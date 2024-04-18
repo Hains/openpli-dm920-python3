@@ -1,8 +1,8 @@
 diff --git a/IPTVPlayer/libs/e2ijson.py b/IPTVPlayer/libs/e2ijson.py
-index 85255a7d..5cdc12ec 100644
+index 85255a7d..493ba835 100644
 --- a/IPTVPlayer/libs/e2ijson.py
 +++ b/IPTVPlayer/libs/e2ijson.py
-@@ -3,41 +3,37 @@
+@@ -3,41 +3,30 @@
  ###################################################
  # LOCAL import
  ###################################################
@@ -14,17 +14,14 @@ index 85255a7d..5cdc12ec 100644
  # FOREIGN import
  ###################################################
 -#try:
--import json
+ import json
 -#except Exception:
 -#    import simplejson as json
 -#e2icjson = None
-+try:
-+    import json
-+except Exception:
-+    import simplejson as json
-+e2icjson = None
++from Plugins.Extensions.IPTVPlayer.libs.e2icjson import e2icjson
  ############################################
  
++useE2icjson = True
  
  def loads(input, noneReplacement=None, baseTypesAsString=False, utf8=True):
 -#    global e2icjson
@@ -39,12 +36,7 @@ index 85255a7d..5cdc12ec 100644
 -#    if e2icjson:
 -#        printDBG(">> cjson ACELERATION noneReplacement[%s] baseTypesAsString[%s]" % (noneReplacement, baseTypesAsString))
 -#        out = e2icjson.decode(input, 2 if utf8 else 1)
-+    global e2icjson
-+    if e2icjson == None:
-+        from Plugins.Extensions.IPTVPlayer.libs.e2icjson import e2icjson
-+        e2icjson = e2icjson
-+
-+    if e2icjson:
++    if useE2icjson:
 +        printDBG(">> cjson ACELERATION noneReplacement[%s] baseTypesAsString[%s]" % (noneReplacement, baseTypesAsString))
 +        out = e2icjson.decode(input, 1 if utf8 else 2)
          #if noneReplacement != None or baseTypesAsString != False:
