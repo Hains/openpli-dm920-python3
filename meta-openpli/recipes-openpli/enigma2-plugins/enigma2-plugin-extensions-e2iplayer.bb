@@ -9,7 +9,9 @@ inherit allarch setuptools3-openplugins gitpkgv
 
 DEPENDS = "python3-future-native"
 
-SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https"
+SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https \
+           file://use-python3-e2icjson.patch \
+"
 
 S = "${WORKDIR}/git"
 
