@@ -46,15 +46,15 @@ do_prepare_plugins_dir() {
 
 do_install:append() {
 	rm -rf ${D}${bindir}
-	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/streamlink_cli
-	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/*.egg-info
-	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/streamlink/plugins/.removed
-	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/*dirty.dist-info
+	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/streamlink_cli
+	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/*.egg-info
+	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/streamlink/plugins/.removed
+	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/*dirty.dist-info
 	rm -rf ${D}${datadir}
 }
 
 PACKAGES = "${PN}"
 
 FILES:${PN} = " \
-	${libdir}/${PYTHON_DIR}/site-packages/streamlink/* \
+	${PYTHON_SITEPACKAGES_DIR}/streamlink/* \
 "
