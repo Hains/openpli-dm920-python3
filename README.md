@@ -1,5 +1,13 @@
 Build environment for dreambox 920 with Python 3.<br>
 
+Note Ubuntu 24.04!
+Due to new security features, run on each OS startup:
+```
+sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+```
+See:
+https://ubuntu.com/blog/whats-new-in-security-for-ubuntu-24-04-lts
+
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
 &nbsp;with git snapshot of April 14, 2024.<br>
 -GCC 13.2.0<br>
