@@ -1,6 +1,6 @@
 Build environment for dreambox 920 with Python 3.<br>
 
-Note Ubuntu 24.04!
+Note Ubuntu 24.04 LTS!<br>
 Due to new security features, run on each OS startup:
 ```
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
