@@ -3,7 +3,7 @@ DESCRIPTION = "edid-decode decodes EDID monitor description data in human-readab
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://edid-decode.cpp;beginline=1;endline=8;md5=2193df34747fd1a150135ed8b90f3b4e"
 
-inherit autotools-brokensep pkgconfig gitpkgv
+inherit meson pkgconfig gitpkgv
 
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
