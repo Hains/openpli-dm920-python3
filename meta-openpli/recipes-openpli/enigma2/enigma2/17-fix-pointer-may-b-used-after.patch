@@ -1,20 +1,13 @@
 diff --git a/lib/dvb_ci/dvbci.cpp b/lib/dvb_ci/dvbci.cpp
-index 116fa0448..aebb4ebb9 100644
+index 165c749ef..c745fb718 100644
 --- a/lib/dvb_ci/dvbci.cpp
 +++ b/lib/dvb_ci/dvbci.cpp
-@@ -743,6 +743,7 @@ void eDVBCIInterfaces::removePMTHandler(eDVBServicePMTHandler *pmthandler)
- 	if (it != m_pmt_handlers.end())
- 	{
- 		eDVBCISlot *slot = it->cislot;
-+		eDVBCISlot *tmp = it->cislot;
- 		eDVBCISlot *base_slot = slot;
- 		eDVBServicePMTHandler *pmthandler = it->pmthandler;
- 		m_pmt_handlers.erase(it);
-@@ -830,7 +831,6 @@ void eDVBCIInterfaces::removePMTHandler(eDVBServicePMTHandler *pmthandler)
+@@ -749,7 +749,7 @@ void eDVBCIInterfaces::removePMTHandler(eDVBServicePMTHandler *pmthandler)
  
  				if (base_slot != slot)
  				{
 -					eDVBCISlot *tmp = it->cislot;
++					eDVBCISlot *tmp = slot;
  					while(tmp->linked_next != slot)
  						tmp = tmp->linked_next;
  					ASSERT(tmp);
