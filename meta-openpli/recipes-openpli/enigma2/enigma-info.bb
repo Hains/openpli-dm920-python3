@@ -107,8 +107,8 @@ do_install() {
 	IMAGE_VERSION=`echo ${DISTRO_VERSION} | cut -d "-" -f 1`
 
 # OE version info
-	OE_NAME=`cd ${OPENPLI_BASE} && git submodule | grep "meta-openembedded" | cut -d '(' -f 2 | cut -d ')' -f 1 | cut -d '/' -f 3`
-	OE_VERSION=`cd ${OPENPLI_BASE} && git submodule | grep "openembedded-core" | cut -d '(' -f 2 | cut -d ')' -f 1 | cut -d '-' -f 2`
+	OE_NAME=master
+	OE_VERSION=5.0
 
 # OE-A compatible machine names
 
