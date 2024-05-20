@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=dc94785ad7ae0960293331f807d14628"
 RDEPENDS:${PN} = "\
 	python3-core python3-shell python3-compression python3-crypt python3-ctypes python3-sqlite3 \
 	python3-cheetah python3-misc python3-html python3-email python3-sabyenc3 python3-sabctools \
-	python3-rebulk python3-dateutil python3-babelfish python3-pysocks python3-pip p7zip \
+	python3-rebulk python3-dateutil python3-babelfish python3-pysocks python3-pip p7zip python3-apprise \
 	"
 
 RRECOMMENDS:${PN} = "par2cmdline unrar"
@@ -19,8 +19,8 @@ SRC_URI = "https://github.com/sabnzbd/sabnzbd/releases/download/${PV}/SABnzbd-${
 	file://init-functions \
 	"
 
-SRC_URI[md5sum] = "afb88648a2b90a06be8e0a336a711fc9"
-SRC_URI[sha256sum] = "f16314cf4032dcaccfd0b4af4d0e67a55c37f31870af3ca90f80d5f547ed8c25"
+SRC_URI[md5sum] = "6cc8ea77a4781c36e6146e90861c4fcf"
+SRC_URI[sha256sum] = "c9902c212df3e6b7208c850e6ceab244afc4b3e173459c425db9be4df902bd44"
 
 S = "${WORKDIR}/SABnzbd-${PV}"
 
