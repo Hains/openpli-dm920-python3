@@ -21,3 +21,5 @@ SRC_URI[md5sum] = "b3db3d60b0ee83f5f23101d2c3bb99e0"
 SRC_URI[sha256sum] = "ea1d3a8141654781a0df31e6607c4722436fa33eb2e9934492770b3b61be8122"
 
 include python3-package-split.inc
+
+CFLAGS += "-Wno-error=int-conversion -Wno-error=implicit-function-declaration -Wno-error=incompatible-pointer-types"
