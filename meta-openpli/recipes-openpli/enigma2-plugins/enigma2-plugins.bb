@@ -143,3 +143,5 @@ do_install:append() {
 sysroot_stage_all() {
     :
 }
+
+CFLAGS += "-Wno-error=implicit-function-declaration"
