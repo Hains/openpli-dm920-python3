@@ -55,3 +55,5 @@ FILES_SOLIBSDEV = ""
 INSANE_SKIP:${PN} += "already-stripped ldflags"
 
 do_package_qa[noexec] = "1"
+
+CFLAGS += "-Wno-error=implicit-function-declaration"
