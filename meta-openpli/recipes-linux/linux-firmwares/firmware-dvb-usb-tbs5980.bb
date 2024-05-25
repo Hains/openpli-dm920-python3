@@ -1,7 +1,9 @@
 require linux-firmware-local.inc
 
 DESCRIPTION = "Firmware for TBS 5980"
-S = "${WORKDIR}"
+
+S = "${WORKDIR}/sources"
+UNPACKDIR = "${S}"
 
 FW = "dvb-usb-tbsqbox-id5980.fw"
 SRC_URI = "file://${FW}"

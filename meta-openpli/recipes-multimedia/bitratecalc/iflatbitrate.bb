@@ -8,7 +8,8 @@ inherit python3native python3-compileall
 
 SRC_URI = "file://iFlatBitrate.py"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/sources"
+UNPACKDIR = "${S}"
 
 do_install() {
 	install -d ${D}${libdir}/enigma2/python/Components/Converter
