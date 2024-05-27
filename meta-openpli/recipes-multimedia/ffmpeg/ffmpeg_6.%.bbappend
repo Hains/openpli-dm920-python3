@@ -1,5 +1,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
+PV = "7.0.1"
+
+SRC_URI[sha256sum] = "bce9eeb0f17ef8982390b1f37711a61b4290dc8c2a0c1a37b5857e85bfb0e4ff"
+
 SRC_URI:append = " \
 		file://02-fix-hls.patch \
 		file://03-buffer-size.patch \
@@ -8,7 +12,8 @@ SRC_URI:append = " \
 		file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
 		file://07-fix-edit-list-parsing.patch \
 		file://08-hls-replace-key-uri.patch \
-		"
+"
+SRC_URI:remove = "file://av1_ordering_info.patch file://vulkan_av1_stable_API.patch"
 
 
 EXTRA_FFCONF = " \
