@@ -22,8 +22,8 @@ do_compile() {
 }
 
 do_install:append() {
-	cp ${WORKDIR}/bar_snr.png ${D}${datadir}/enigma2//PLi-FullHD/icons/
-	cp ${WORKDIR}/bar_agc.png ${D}${datadir}/enigma2//PLi-FullHD/icons/
+	cp ${UNPACKDIR}/bar_snr.png ${D}${datadir}/enigma2//PLi-FullHD/icons/
+	cp ${UNPACKDIR}/bar_agc.png ${D}${datadir}/enigma2//PLi-FullHD/icons/
 }
 
 do_install() {

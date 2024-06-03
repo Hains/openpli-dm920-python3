@@ -41,10 +41,10 @@ do_install() {
 	cp -r . ${D}${INSTALLDIR}/
 	rm -rf ${D}${INSTALLDIR}/.git
 	install -d ${D}${sysconfdir}/init.d
-	install -m 755 ${WORKDIR}/sabnzbd ${D}${sysconfdir}/init.d/sabnzbd
-	install -m 755 ${WORKDIR}/init-functions ${D}${sysconfdir}/init.d/init-functions
+	install -m 755 ${UNPACKDIR}/sabnzbd ${D}${sysconfdir}/init.d/sabnzbd
+	install -m 755 ${UNPACKDIR}/init-functions ${D}${sysconfdir}/init.d/init-functions
 	install -d ${D}${sysconfdir}/enigma2
-	install -m 644 ${WORKDIR}/sabnzbd.conf ${D}/etc/enigma2/sabnzbd.conf
+	install -m 644 ${UNPACKDIR}/sabnzbd.conf ${D}/etc/enigma2/sabnzbd.conf
 }
 
 do_install:append() {

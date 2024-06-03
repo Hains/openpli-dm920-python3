@@ -35,7 +35,7 @@ do_install () {
     install -d -m 0755 ${D}/etc/init.d
     install -d ${D}/${datadir}/${PN}
     install -m 0755 ${S}/satpi ${D}/${bindir}/
-    install -m 0755 ${WORKDIR}/satpi.sh ${D}/etc/init.d/satpi
+    install -m 0755 ${UNPACKDIR}/satpi.sh ${D}/etc/init.d/satpi
     cp -r --preserve=timestamps ${S}/web ${D}/${datadir}/${PN}
     cp -r --preserve=timestamps ${S}/mapping.m3u ${D}/${bindir}
 }

@@ -177,7 +177,7 @@ FILES:${PN}-dbg += "\
 	"
 
 do_install:append() {
-	cp ${WORKDIR}/dmm2.png ${B}/data/rc_models/dmm2.png
+	cp ${UNPACKDIR}/dmm2.png ${B}/data/rc_models/dmm2.png
 	install -d ${D}${datadir}/keymaps
 }
 

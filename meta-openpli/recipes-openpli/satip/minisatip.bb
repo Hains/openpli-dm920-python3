@@ -33,6 +33,6 @@ do_install () {
     install -d -m 0755 ${D}/${datadir}/${PN}
     install -d -m 0755 ${D}/etc/init.d
     install -m 0755 ${S}/minisatip ${D}/${bindir}/
-    install -m 0755 ${WORKDIR}/minisatip.sh ${D}/etc/init.d/minisatip
+    install -m 0755 ${UNPACKDIR}/minisatip.sh ${D}/etc/init.d/minisatip
     cp -r --preserve=timestamps ${S}/html ${D}/${datadir}/${PN}
 }

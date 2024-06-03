@@ -70,7 +70,7 @@ do_configure:prepend() {
     fi
 
     sed -e "${CONF_SED_SCRIPT}" \
-    < '${WORKDIR}/defconfig' >>'${B}/.config'
+    < '${UNPACKDIR}/defconfig' >>'${B}/.config'
 
     yes '' | oe_runmake -C ${S} O=${B} oldconfig
 }
