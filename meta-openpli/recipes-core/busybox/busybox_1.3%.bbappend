@@ -1,8 +1,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += " \
-			file://mount_single_uuid.patch \
-			file://busybox-cron \
+SRC_URI:append = " \
+		file://mount_single_uuid.patch \
+		file://busybox-cron \
+		file://reverse-cbq.patch \
 "
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
