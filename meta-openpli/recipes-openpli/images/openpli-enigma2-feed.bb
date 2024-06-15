@@ -155,6 +155,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-autobouquets \
 	enigma2-plugin-extensions-automatic-fullbackup \
 	enigma2-plugin-extensions-bouquetmakerxtream \
+	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
 	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-epgimport \
