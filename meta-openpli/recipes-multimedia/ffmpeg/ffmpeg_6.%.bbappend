@@ -14,7 +14,7 @@ SRC_URI:append = " \
 		file://07-fix-edit-list-parsing.patch \
 		file://08-hls-replace-key-uri.patch \
 "
-SRC_URI:remove = "file://av1_ordering_info.patch file://vulkan_av1_stable_API.patch"
+SRC_URI:remove = "file://av1_ordering_info.patch file://vulkan_av1_stable_API.patch file://vulkan_fix_gcc14.patch"
 
 
 EXTRA_FFCONF = " \
