@@ -3,7 +3,7 @@ SUMMARY = "enigma.info used by BoxInfo"
 PRIORITY = "required"
 MAINTAINER = "OpenPLi team"
 
-DEPENDS = "virtual/kernel"
+do_install[depends] += "virtual/kernel:do_package_qa"
 
 require conf/license/openpli-gplv2.inc
 
@@ -18,7 +18,6 @@ deltask source_date_epoch
 SSTATE_SKIP_CREATION = "1"
 
 inherit linux-kernel-base
-KERNEL_VERSION = "${@get_kernelversion_headers('${STAGING_KERNEL_DIR}') or oe.utils.read_file('${PKGDATA_DIR}/kernel-depmod/kernel-abiversion')}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 PV = "${DISTRO_VERSION}"
@@ -109,6 +108,9 @@ do_install() {
 # OE version info
 	OE_NAME=master
 	OE_VERSION=5.0
+
+# Kernel version
+	KERNEL_VERSION="${@get_kernelversion_headers('${STAGING_KERNEL_DIR}') or oe.utils.read_file('${PKGDATA_DIR}/kernel-depmod/kernel-abiversion')}"
 
 # OE-A compatible machine names
 
