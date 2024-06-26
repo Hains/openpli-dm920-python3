@@ -12,7 +12,7 @@ https://ubuntu.com/blog/whats-new-in-security-for-ubuntu-24-04-lts
 &nbsp;with git snapshot of June 7, 2024.<br>
 -GCC 14.1.0<br>
 -Glibc 2.39<br>
--GStreamer 1.24.3<br>
+-GStreamer 1.24.5<br>
 -Python 3.12.4<br>
 -OpenSSL 3.3.1<br>
 -Busybox 1.36.1<br>
