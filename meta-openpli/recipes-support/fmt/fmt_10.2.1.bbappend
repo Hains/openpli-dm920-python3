@@ -2,6 +2,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b9257785fc4f3803a4b71b76c1412729"
 
 SRC_URI = "git://github.com/fmtlib/fmt;branch=master;protocol=https"
 
-SRCREV = "06948fa710af01576f056e8ebbafa05f563b0e10"
+SRCREV = "686339f7c12967975af0381eec7ca1a90af6bfcc"
 
-PV = "10.2.pre2"
+PV = "pre11.0.0"
