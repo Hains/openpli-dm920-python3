@@ -109,6 +109,7 @@ OPTIONAL_PACKAGES += " \
 	python3-yenc \
 	python3-youtube-dl \
 	rclone \
+	redsea \
 	rsync \
 	rtl-sdr \
 	rtorrent \
