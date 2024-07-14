@@ -152,6 +152,7 @@ OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
 ENIGMA2_OPTIONAL = " \
 	channelsettings-enigma2-meta \
 	dvb-usb-drivers-meta \
+	enigma2-binary-plugins \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-autobouquets \
 	enigma2-plugin-extensions-automatic-fullbackup \

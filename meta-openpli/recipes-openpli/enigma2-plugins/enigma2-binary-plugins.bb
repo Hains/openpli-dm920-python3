@@ -4,44 +4,30 @@ MAINTAINER = "OpenPLi team <info@openpli.org>"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8e37f34d0e40d32ea2bc90ee812c9131"
 
-PACKAGE_ARCH = "all"
-
-PACKAGES_DYNAMIC = "enigma2-plugin-(?!pli-).*"
-
-# This prevents QA warnings because bitbake cannot see the dependencies
-# after parsing the recipe due to the PACKAGES_DYNAMIC stuff. It tells
-# the system what to build when installing these into an image.
-PACKAGES += "\
-	enigma2-plugin-extensions-mosaic \
-	enigma2-plugin-extensions-fancontrol2 \
-	enigma2-plugin-extensions-bonjour \
-	enigma2-plugin-extensions-transmission \
-	enigma2-plugin-systemplugins-systemtime \
+PACKAGES = "\
+	enigma2-plugin-extensions-lcd4linux \
+	enigma2-plugin-extensions-moviecut \
+	enigma2-plugin-systemplugins-networkbrowser \
+	enigma2-plugin-systemplugins-vps \
+	enigma2-binary-plugins \
 	"
 
-RDEPENDS:enigma2-plugin-extensions-mosaic = "aio-grab"
-RDEPENDS:enigma2-plugin-extensions-fancontrol2 = "smartmontools hdparm"
-RDEPENDS:enigma2-plugin-extensions-bonjour = "avahi-daemon"
+inherit gitpkgv python3native pkgconfig gettext python3targetconfig
 
-RRECOMMENDS:enigma2-plugin-systemplugins-blindscan = "virtual/blindscan-dvbs"
-RRECOMMENDS:enigma2-plugin-extensions-transmission = "transmission transmission-client"
+PV = "git${SRCPV}"
+PKGV = "git${GITPKGV}"
 
-inherit gitpkgv python3native pkgconfig gettext python3targetconfig autotools-brokensep allarch
+# make the origin overridable from OE config, for local mirroring
+SRC_ORIGIN ?= "git://github.com/OpenPLi/${BPN}.git;protocol=https"
+SRC_URI := "${SRC_ORIGIN};branch=python3 "
 
-# needed to prevent autotools from running C compiler checks, which
-# fails in allarch (as there is no cross compiler for this ARCH !!
-CC = ""
-CFLAGS = ""
-CPP = ""
-CPPFLAGS = ""
-CXX = ""
-CXXFLAGS = ""
-
-PV = "2.0-git"
-PKGV = "2.0-git${GITPKGV}"
-
-GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=python3;protocol=https"
+EXTRA_OECONF = " \
+	BUILD_SYS=${BUILD_SYS} \
+	HOST_SYS=${HOST_SYS} \
+	STAGING_INCDIR=${STAGING_INCDIR} \
+	STAGING_LIBDIR=${STAGING_LIBDIR} \
+	--without-debug \
+"
 
 # Main package should be empty
 FILES:${PN} = ""
@@ -49,61 +35,59 @@ FILES:${PN} = ""
 # deliver an empty hulk for them.
 ALLOW_EMPTY:${PN} = "1"
 
-FILES:enigma2-plugin-extensions-movietagger += "${sysconfdir}/enigma2/movietags"
-CONFFILES:enigma2-plugin-extensions-movietagger += "${sysconfdir}/enigma2/movietags"
-
-FILES:enigma2-plugin-extensions-babelzapper += "${sysconfdir}/babelzapper"
 FILES:enigma2-plugin-extensions-lcd4linux += "${libdir}/enigma2/python/Components/*"
 
-FILES:enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
-CONFFILES:enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
-
 FILES:${PN}-meta = "${datadir}/meta"
+FILES:${PN}-dbg = "/usr/src/debug"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
+
+CFLAGS += "-I${STAGING_INCDIR}/tirpc"
+LDFLAGS += "-ltirpc"
+CXXFLAGS = " -std=c++11"
+
+inherit autotools-brokensep python3targetconfig
 
 S = "${WORKDIR}/git"
 
-WARN_QA:remove = "build-deps"
-
 DEPENDS = " \
-	python3-daap \
-	python3-dateutil \
-	python3-icalendar \
-	python3-mutagen \
-	python3-pillow \
 	python3-pyopenssl \
+	streamripper \
+	python3-icalendar \
+	python3-dateutil \
+	python3-mutagen \
 	python3-pyusb \
 	python3-requests \
 	python3-simplejson \
+	python3-six-native \
 	python3-treq \
 	python3-twisted \
+	python3-daap \
 	libcddb \
+	pydpflib \
+	dvdbackup \
 	libtirpc \
 	png-util \
-	pydpflib \
-	streamripper \
 	"
 
-do_compile() {
-	python3 -m compileall ${S}
-}
 
 python populate_packages:prepend () {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
+
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/[a-zA-Z0-9_]+.*$', 'enigma2-plugin-%s', '%s', recursive=True, match_path=True, prepend=True)
+    do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.py$', 'enigma2-plugin-%s-src', '%s (source files)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.la$', 'enigma2-plugin-%s-dev', '%s (development)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.a$', 'enigma2-plugin-%s-staticdev', '%s (static development)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/(.*/)?\.debug/.*$', 'enigma2-plugin-%s-dbg', '%s (debug)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\/.*\.po$', 'enigma2-plugin-%s-po', '%s (translations)', recursive=True, match_path=True, prepend=True)
 
-    def getControlLines(mydir, package):
+    def getControlLines(mydir, d, package):
         import os
         try:
-            src = open(mydir + package + "/CONTROL/control").read()
-        except Exception as ex:
-            bb.note("Failed to get control lines for package '%s': %s" % (package, ex))
+            src = open(mydir + package + "/CONTROL/control")
+        except:
+            bb.note("Failed to get control lines for package '%s'" % (package))
             return
-        for line in src.split("\n"):
+        for line in src:
             full_package = "enigma2-plugin-extensions-" + package
             if line.startswith('Package: '):
                 full_package = line[9:]
@@ -128,10 +112,9 @@ python populate_packages:prepend () {
             elif line.startswith('Maintainer: '):
                 d.setVar('MAINTAINER:' + full_package, line[12:])
 
-
-    mydir = d.getVar('D') + "/../git/"
-    for package in d.getVar('PACKAGES').split():
-        getControlLines(mydir, package.split('-')[-1])
+    mydir = d.getVar('D', True) + "/../git/"
+    for package in d.getVar('PACKAGES', True).split():
+        getControlLines(mydir, d, package.split('-')[-1])
 }
 
 do_install:append() {
@@ -142,6 +125,9 @@ do_install:append() {
 # Nothing of this recipe should end up in sysroot, so blank it away.
 sysroot_stage_all() {
     :
+}
+
+do_package_qa() {
 }
 
 CFLAGS += "-Wno-error=implicit-function-declaration"
