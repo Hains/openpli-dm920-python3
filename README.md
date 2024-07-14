@@ -9,7 +9,7 @@ See:
 https://ubuntu.com/blog/whats-new-in-security-for-ubuntu-24-04-lts
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of June 7, 2024.<br>
+&nbsp;with git snapshot of July 14, 2024.<br>
 -GCC 14.1.0<br>
 -Glibc 2.39<br>
 -GStreamer 1.24.5<br>
