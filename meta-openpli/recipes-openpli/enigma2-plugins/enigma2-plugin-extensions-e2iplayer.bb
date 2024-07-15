@@ -20,7 +20,7 @@ PKGV = "1+git${GITPKGV}"
 
 RDEPENDS:${PN} = " \
 	cmdwrapper \
-	duktape \
+	duktape-e2iplayer \
 	exteplayer3 \
 	f4mdump \
 	ffmpeg \
