@@ -63,8 +63,6 @@ PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 
 S = "${WORKDIR}/git"
 
-WARN_QA:remove = "build-deps"
-
 DEPENDS = " \
 	python3-daap \
 	python3-dateutil \
@@ -75,9 +73,12 @@ DEPENDS = " \
 	python3-pyusb \
 	python3-requests \
 	python3-simplejson \
+	python3-six \
 	python3-treq \
 	python3-twisted \
+	dvdbackup \
 	libcddb \
+	libdvdread \
 	libtirpc \
 	png-util \
 	pydpflib \
