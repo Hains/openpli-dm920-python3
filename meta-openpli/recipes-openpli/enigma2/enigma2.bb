@@ -101,7 +101,7 @@ inherit gitpkgv python3native python3targetconfig
 PV = "${PYTHON_BASEVERSION}+git"
 PKGV = "${PYTHON_BASEVERSION}+git${GITPKGV}"
 
-ENIGMA2_BRANCH ?= "develop"
+ENIGMA2_BRANCH ?= "scarthgap"
 GITHUB_URI ?= "git://github.com"
 
 SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=https \
@@ -110,29 +110,19 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://03-add-support-2160p.patch \
 			file://04-move-lcd-text-a-bit-to-the-right.patch \
 			file://05-make-front-led-configurable.patch \
-			file://06-fix-build-gcc11.patch \
-			file://07-suppress-deprecated-declarations.patch \
 			file://08-dual-tuner-letter-detection.patch \
 			file://09-update-cutlist-to-beyonwich.patch \
-			file://10-remove-codeset.patch \
 			file://11-Add-remote-control-dmm2.patch \
 			file://12-make-lnb-variable-static.patch \
 			file://13-restore-last-update-date-time.patch \
 			file://14-fix-framebuffer-and-use-ion-to-allocate-accel-memory.patch \
 			file://15-display-openssl-version.patch \
 			file://16-retrieve-commit-info-from-dm920-repo.patch \
-			file://17-fix-pointer-may-b-used-after.patch \
 			file://18-remove-rca-port.patch \
-			file://19-configure-ntp-server.patch \
 			file://20-use-no-floor-division.patch \
-			file://21-cast-to-integers.patch \
-			file://22-fix-build-largefile-and-64bit-time-t.patch \
-			file://23-add-sys-dvbc2.patch \
 			file://24-fix-has-hdmi-cec.patch \
 			file://25-fix-driver-date.patch \
-			file://26-suppress-overloaded-virtual.patch \
 			file://27-suppress-maybe-uninitialized-error.patch \
-			file://28-fix-write-console.patch \
 			file://dmm2.png \
 "
 
