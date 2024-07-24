@@ -8,9 +8,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 BCMNUMBER = "bcm7439"
 
-SRC_URI = "file://dreambox-dvb-modules_3.14-1.17-dm920-20200321_dm920.tar.xz"
-
-S = "${WORKDIR}/dreambox-dvb-modules_3.14-1.17-dm920-20200321_dm920"
+SRC_URI = "file://dreambox-dvb-modules-dm920-3.14-1.17-20200321.tar.xz"
 
 inherit module-base
 
