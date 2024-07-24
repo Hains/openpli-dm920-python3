@@ -1,4 +1,4 @@
-inherit kernel machine_kernel_pr
+inherit kernel machine_kernel_pr siteinfo
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
