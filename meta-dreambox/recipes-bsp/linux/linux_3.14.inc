@@ -17,14 +17,7 @@ kernel_conf_variable() {
     fi
 }
 
-DEFCONFIG_IN_SRC_URI = "${@bb.utils.contains('SRC_URI', 'file://defconfig', 'true', 'false', d)}"
-
 do_configure:prepend() {
-    if [ -n "${DEFCONFIG}" ] && ! ${DEFCONFIG_IN_SRC_URI}; then
-        yes '' | oe_runmake -C ${S} O=${B} ${DEFCONFIG}_defconfig
-        mv ${B}/.config ${WORKDIR}/defconfig
-    fi
-
     sed -e "/^SUBLEVEL = /d" -i ${S}/Makefile
 
     echo "" > ${B}/.config
