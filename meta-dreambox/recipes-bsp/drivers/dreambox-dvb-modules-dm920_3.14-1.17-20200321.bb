@@ -56,7 +56,6 @@ FILES:${PN}-stb-core = "${sysconfdir}/modules-load.d/01-${BPN}-stb-core.conf \
 # We don't use KERNEL_VERSION in this recipe, because the
 # precompiled modules depend on a specific version.
 DM_LOCALVERSION = "${@'-'.join('${PV}'.split('-')[:-1])}-${MACHINE}"
-DRIVERDATE = "${@'${PV}'.split('-')[-1]}"
 
 pkg_postinst:${PN} () {
 if [ -z "$D" ]; then
