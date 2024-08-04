@@ -94,6 +94,7 @@ IMAGE_INSTALL = " \
 	nfs-utils \
 	nfs-utils-client \
 	ntp \
+	ntpq \
 	openpli-bootlogo \
 	openresolv \
 	openssh-sftp-server \
