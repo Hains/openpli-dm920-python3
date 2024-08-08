@@ -13,6 +13,7 @@ SRC_URI:append = " \
 		file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
 		file://07-fix-edit-list-parsing.patch \
 		file://08-hls-replace-key-uri.patch \
+		file://09-fix-build-with-binutils-2.43.patch \
 "
 SRC_URI:remove = "file://av1_ordering_info.patch file://vulkan_av1_stable_API.patch file://vulkan_fix_gcc14.patch"
 
