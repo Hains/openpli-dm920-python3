@@ -9,11 +9,11 @@ See:
 https://ubuntu.com/blog/whats-new-in-security-for-ubuntu-24-04-lts
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of July 14, 2024.<br>
--GCC 14.1.0<br>
--Glibc 2.39<br>
+&nbsp;with git snapshot of August 8, 2024.<br>
+-GCC 14.2.0<br>
+-Glibc 2.40<br>
 -GStreamer 1.24.5<br>
--Python 3.12.4<br>
+-Python 3.12.5<br>
 -OpenSSL 3.3.1<br>
 -Busybox 1.36.1<br>
 and more.<br>
@@ -33,7 +33,7 @@ cd openpli-dm920-python3
 
 make image
 ```
-<br>When the build is finished, the openpli-enigma2-14.1-dm920.tar.bz2 image file is located in the:
+<br>When the build is finished, the openpli-enigma2-14.2-dm920.tar.bz2 image file is located in the:
 ```
 build/tmp/deploy/images/dm920/
 ```
