@@ -8,7 +8,6 @@ SRC_URI:append = " \
 		file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
 		file://07-fix-edit-list-parsing.patch \
 		file://08-hls-replace-key-uri.patch \
-		file://09-fix-build-with-binutils-2.43.patch \
 "
 
 EXTRA_FFCONF = " \
