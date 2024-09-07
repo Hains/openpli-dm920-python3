@@ -168,6 +168,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-hetweer \
 	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-infobarweather \
+	enigma2-plugin-extensions-iptv-org-playlists \
 	enigma2-plugin-extensions-moviemanager \
 	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-serienrecorder \
@@ -195,6 +196,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-systemplugins-satipserver \
 	enigma2-plugin-systemplugins-serviceapp \
 	enigma2-plugin-systemplugins-signalfinder \
+	enigma2-plugin-systemplugins-terrestrialbouquet \
 	enigma2-plugin-systemplugins-terrestrialscan \
 	enigma2-plugins \
 	meta-enigma2-dvdburn \
