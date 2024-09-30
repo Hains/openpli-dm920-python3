@@ -7,7 +7,7 @@ index 188856c38..b93f525f1 100644
  	-Wunsafe-loop-optimizations -Wpointer-arith \
  	-Wfloat-equal -Wlogical-op \
 -	-Wno-error=cast-align=strict -Wno-error=ignored-qualifiers \
-+	-Wno-error=cast-align=strict -Wno-error=ignored-qualifiers -Wno-error=maybe-uninitialized\
- 	-Wno-error=cast-function-type -Wno-error=deprecated-declarations -Wno-error=overloaded-virtual \
++	-Wno-error=cast-align=strict -Wno-error=ignored-qualifiers -Wno-error=maybe-uninitialized \
+ 	-Wno-error=cast-function-type -Wno-error=deprecated-declarations \
  	-Wno-error=stringop-truncation -Wno-error=shadow -Wno-error=cast-qual \
  	-Wno-error=aggregate-return -Wno-error=missing-field-initializers \
