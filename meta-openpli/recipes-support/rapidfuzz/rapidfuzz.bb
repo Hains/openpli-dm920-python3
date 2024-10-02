@@ -10,7 +10,7 @@ SRC_URI="git://github.com/rapidfuzz/rapidfuzz;branch=main;protocol=https \
 
 S = "${WORKDIR}/git"
 
-inherit pkgconfig python_flit_core
+inherit gitpkgv pkgconfig python_flit_core
 
 SRCREV = "${AUTOREV}"
 
