@@ -12,3 +12,5 @@ inherit gitpkgv pkgconfig scikit-build-core
 
 PV = "3.10.0.+git${SRCPV}"
 PKGV = "3.10.0+git${GITPKGV}"
+
+FILES:${PN} = "${PYTHON_SITEPACKAGES_DIR}"
