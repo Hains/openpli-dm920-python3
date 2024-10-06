@@ -10,7 +10,5 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv pkgconfig scikit-build-core
 
-SRCREV = "${AUTOREV}"
-
 PV = "3.10.0.+git${SRCPV}"
 PKGV = "3.10.0+git${GITPKGV}"
