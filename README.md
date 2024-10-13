@@ -1,12 +1,4 @@
-Build environment for dreambox 920 with Python 3.<br>
-
-Note Ubuntu 24.04 LTS!<br>
-Due to new security features, run on each OS startup:
-```
-sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
-```
-See:
-https://ubuntu.com/blog/whats-new-in-security-for-ubuntu-24-04-lts
+Build environment for dreambox 920 with Python 3.<br><br>
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
 &nbsp;with git snapshot of August 30, 2024.<br>
@@ -25,7 +17,17 @@ Dependencies:
 ```
 sudo apt install -y autoconf automake bison bzip2 cvs default-jre diffstat flex g++ gawk gcc gettext git git-lfs gzip help2man make ncurses-bin lib32ncurses-dev libc6-dev libtool lz4 texinfo patch perl pkg-config subversion tar texi2html zlib1g-dev chrpath libxml2-utils xsltproc libglib2.0-dev python3-setuptools libc6-i386 genromfs guile-2.2-libs quilt zstd
 ```
-<br>To build image:
+<br>
+Note Ubuntu 24.04 LTS and 24.10!<br>
+
+Due to new security features, add new /etc/sysctl.d/60-apparmor-namespace.conf file with the following contents:
+```
+kernel.apparmor_restrict_unprivileged_userns=0
+```
+See:
+https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890
+
+<br><br>To build image:
 ```
 git clone https://github.com/Hains/openpli-dm920-python3.git
 
