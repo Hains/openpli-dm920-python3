@@ -1,0 +1,15 @@
+diff --git a/lib/python/Tools/Profile.py b/lib/python/Tools/Profile.py
+index 58139d839..9b4aa5a35 100644
+--- a/lib/python/Tools/Profile.py
++++ b/lib/python/Tools/Profile.py
+@@ -41,7 +41,9 @@ def profile(id):
+ 			else:
+ 				perc = PERCENTAGE_START
+ 			try:
+-				open("/proc/progress", "w").write("%d \n" % perc)
++				f = open("/proc/progress", "w")
++				f.write("%d \n" % perc)
++				f.close()
+ 			except IOError:
+ 				pass
+ 
