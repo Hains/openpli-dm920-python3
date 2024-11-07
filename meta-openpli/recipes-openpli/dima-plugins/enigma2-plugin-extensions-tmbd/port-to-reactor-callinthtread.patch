@@ -2,7 +2,7 @@ diff --git a/src/tmbdYTTrailer.py b/src/tmbdYTTrailer.py
 index 2d6ea5f..2f32acf 100644
 --- a/src/tmbdYTTrailer.py
 +++ b/src/tmbdYTTrailer.py
-@@@ -14,7 +14,8 @@ else:
+@@ -14,7 +14,8 @@ else:
  
  
  from json import load
