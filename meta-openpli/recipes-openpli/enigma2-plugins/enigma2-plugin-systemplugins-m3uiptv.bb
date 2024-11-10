@@ -6,6 +6,8 @@ HOMEPAGE = "https://github.com/DimitarCC"
 
 inherit gitpkgv allarch python3native gettext
 
+RDEPENDS:${PN} = "python3-requests"
+
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
