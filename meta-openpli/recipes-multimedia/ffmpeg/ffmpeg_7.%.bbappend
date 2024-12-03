@@ -3,7 +3,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 SRC_URI:append = " \
 		file://02-fix-hls.patch \
 		file://03-buffer-size.patch \
-		file://04-aac.patch \
+		file://04-optimize-aac.patch \
 		file://05-fix-mpegts.patch \
 		file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
 		file://07-fix-edit-list-parsing.patch \
