@@ -9,7 +9,7 @@ PV = "0.1+git"
 PKGV = "0.1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/littlesat/skin-PLiHD.git;branch=master;protocol=https \
-           file://restor-rainbow-bar.patch \
+           file://restore-rainbow-bar.patch \
            file://bar_snr.png \
            file://bar_agc.png \
 "
