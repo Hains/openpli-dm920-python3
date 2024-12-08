@@ -1,5 +1,5 @@
 diff --git a/usr/share/enigma2/PLi-FullHD/skin.xml b/usr/share/enigma2/PLi-FullHD/skin.xml
-index b4f07b8..bfd8d83 100644
+index 615dbeb..8c03051 100644
 --- a/usr/share/enigma2/PLi-FullHD/skin.xml
 +++ b/usr/share/enigma2/PLi-FullHD/skin.xml
 @@ -229,62 +229,62 @@
@@ -11,16 +11,15 @@ index b4f07b8..bfd8d83 100644
  		<eLabel position="fill" backgroundColor="transpBlack" zPosition="0"/>
  		<widget source="session.CurrentService" render="Label" position="30,20" size="1440,135" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular;30" valign="top" halign="left">
  			<convert type="PliExtraInfo">All</convert>
--		</widget>
+ 		</widget>
 -		<widget source="session.FrontendStatus" render="FixedLabel" text="SNR" position="1593,28" size="75,24" borderWidth="1" borderColor="black" transparent="1" zPosition="2" font="Regular;21">
--			<convert type="FrontendInfo">SNR</convert>
--			<convert type="ConditionalShowHide"/>
--		</widget>
--		<widget source="session.FrontendStatus" render="Progress" position="1590,25" size="300,30" pixmap="infobar/pbar_grey.png" backgroundColor="transpBlack" zPosition="1" borderWidth="1" borderColor="grey">
-+		</widget>  
 +		<eLabel name="snr" position="1080,49" size="80,25" backgroundColor="transpBlack" halign="center" transparent="1" text=" SNR" font="Regular;21" />
 +		<widget source="session.FrontendStatus" render="Progress" pixmap="PLi-FullHD/icons/bar_snr.png" backgroundColor="transpBlack" zPosition="1" position="1160,45" size="615,30" borderWidth="2" borderColor="grey">
  			<convert type="FrontendInfo">SNR</convert>
+-			<convert type="ConditionalShowHide"/>
+-		</widget>
+-		<widget source="session.FrontendStatus" render="Progress" position="1590,25" size="300,30" pixmap="infobar/pbar_grey.png" backgroundColor="transpBlack" zPosition="1" borderWidth="1" borderColor="grey">
+-			<convert type="FrontendInfo">SNR</convert>
 -			<convert type="ConditionalShowHide"/>
  		</widget>
 -		<widget source="session.FrontendStatus" render="Label" position="1737,28" size="150,24" borderWidth="1" borderColor="black" zPosition="2" backgroundColor="transpBlack" transparent="1" halign="right" font="Regular;21">
