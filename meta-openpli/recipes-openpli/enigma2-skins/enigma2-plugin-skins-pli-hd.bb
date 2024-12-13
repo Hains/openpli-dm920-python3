@@ -10,6 +10,7 @@ PKGV = "0.1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/littlesat/skin-PLiHD.git;branch=master;protocol=https \
            file://restore-rainbow-bar.patch \
+           file://revert-PLiFullHD-darker.patch \
            file://bar_snr.png \
            file://bar_agc.png \
 "
