@@ -113,6 +113,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://07-expliciet-close-opened-file.patch \
 			file://08-dual-tuner-letter-detection.patch \
 			file://09-update-cutlist-to-beyonwich.patch \
+			file://10-fix-build-swig-4.3.patch \
 			file://11-Add-remote-control-dmm2.patch \
 			file://12-make-lnb-variable-static.patch \
 			file://13-restore-last-update-date-time.patch \
