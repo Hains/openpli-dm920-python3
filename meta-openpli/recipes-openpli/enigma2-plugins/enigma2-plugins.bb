@@ -64,24 +64,15 @@ PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 S = "${WORKDIR}/git"
 
 DEPENDS = " \
-	python3-daap \
-	python3-dateutil \
-	python3-icalendar \
 	python3-mutagen \
 	python3-pillow \
 	python3-pyopenssl \
-	python3-pyusb \
 	python3-requests \
-	python3-simplejson \
 	python3-six \
 	python3-treq \
 	python3-twisted \
 	dvdbackup \
 	libcddb \
-	libdvdread \
-	libtirpc \
-	png-util \
-	pydpflib \
 	streamripper \
 	"
 
