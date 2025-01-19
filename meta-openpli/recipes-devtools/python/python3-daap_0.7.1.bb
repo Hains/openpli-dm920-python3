@@ -7,13 +7,15 @@ PR = "r2"
 
 inherit setuptools3
 
-SRC_URI = "http://jerakeen.org/files/PythonDaap-${PV}.tar.gz \
+SRCREV = "fe13e119841550f5ac0c87a1f81b07021d4a78d3"
+
+SRC_URI = "git://github.com/abdelgmartinezl/PythonDaap;protocol=https;branch=master \
            file://python-daap.patch \
            file://The-member-ob_type-is-not-present-in-the-pcapobject.patch \
            file://use-setuptools-instead-of-distutils.patch \
 "
 
-S = "${WORKDIR}/PythonDaap-${PV}"
+S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "python3-compression"
 

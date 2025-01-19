@@ -99,6 +99,7 @@ OPTIONAL_PACKAGES += " \
 	pyload \
 	python3-beautifulsoup4 \
 	python-js2py \
+	python3-daap \
 	python3-future \
 	python3-levenshtein \
 	python3-lxml \
