@@ -77,6 +77,8 @@ IMAGE_INSTALL = " \
 	avahi-daemon \
 	ca-certificates \
 	cdtextinfo \
+	chrony \
+	chronyc \
 	cifs-utils \
 	distro-feed-configs \
 	dropbear \
@@ -93,8 +95,6 @@ IMAGE_INSTALL = " \
 	modutils-loadscript \
 	nfs-utils \
 	nfs-utils-client \
-	ntp \
-	ntpq \
 	openpli-bootlogo \
 	openresolv \
 	openssh-sftp-server \
