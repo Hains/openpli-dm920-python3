@@ -1,13 +1,16 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 DEPENDS:remove = "boost"
+DEPENDS:append = " fmt"
 
 inherit gitpkgv
 
-SRC_URI:append = " file://mpd.init"
-SRC_URI:remove = "file://0001-meson.build-support-building-with-ICU-76.patch"
+SRC_URI = "git://github.com/MusicPlayerDaemon/MPD;branch=master;protocol=https \
+           file://mpd.conf.in \
+           file://mpd.init \
+           "
 
-SRCREV = "b1677bf79c437e6de937da9f82260a1d24ad6bd2"
+SRCREV = "b8289ae9236987dece48af7eb4bf229c3751a48f"
 
 PV = "0.23.16+git"
 PKGV = "0.23.16+git${GITPKGV}"
