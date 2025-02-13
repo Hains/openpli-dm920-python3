@@ -5,7 +5,7 @@ index dc5521d53..93b6d11bc 100644
 @@ -207,7 +207,7 @@ def setBoxInfoItems():
  	BoxInfo.setItem("HasHdrType", fileCheck("/proc/stb/video/hdmi_hdrtype"))
  	BoxInfo.setItem("HasScaler_sharpness", pathExists("/proc/stb/vmpeg/0/pep_scaler_sharpness"))
- 	BoxInfo.setItem("HasHDMIin", BoxInfo.getItem("dmifhdin") or BoxInfo.getItem("hdmihdin"))
+ 	BoxInfo.setItem("HasHDMIin", BoxInfo.getItem("hdmifhdin") or BoxInfo.getItem("hdmihdin"))
 -	BoxInfo.setItem("HasHDMI-CEC", BoxInfo.getItem("hdmi") and fileExists(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/HdmiCEC/plugin.pyc")) and (fileExists("/dev/cec0") or fileExists("/dev/hdmi_cec") or fileExists("/dev/misc/hdmi_cec0")))
 +	BoxInfo.setItem("HasHDMI-CEC", BoxInfo.getItem("hdmi") and fileExists(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/HdmiCEC/plugin.py")) and (fileExists("/dev/cec0") or fileExists("/dev/hdmi_cec") or fileExists("/dev/misc/hdmi_cec0")))
  	BoxInfo.setItem("HasYPbPr", model in ("dm8000", "et5000", "et6000", "et6500", "et9000", "et9200", "et9500", "et10000", "formuler1", "mbtwinplus", "spycat", "vusolo", "vuduo", "vuduo2", "vuultimo"))
