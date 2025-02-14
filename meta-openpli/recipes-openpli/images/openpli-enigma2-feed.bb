@@ -132,6 +132,7 @@ OPTIONAL_PACKAGES += " \
 	tmux \
 	transmission \
 	udpxy \
+	upx \
 	usb-modeswitch \
 	usb-modeswitch-data \
 	ushare \
