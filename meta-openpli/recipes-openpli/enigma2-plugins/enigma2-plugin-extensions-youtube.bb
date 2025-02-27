@@ -23,6 +23,7 @@ RDEPENDS:${PN} = " \
 	python3-codecs \
 	python3-json \
 	python3-netclient \
-	python3-pyopenssl \
-	python3-twisted-web \
+	python3-email \
+	python3-datetime \
+	python3-threading \
 	"
