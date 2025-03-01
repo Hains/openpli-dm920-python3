@@ -19,11 +19,11 @@ PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 
 RDEPENDS:${PN} = " \
-	python3-core \
 	python3-codecs \
+	python3-core \
+	python3-datetime \
+	python3-email \
 	python3-json \
 	python3-netclient \
-	python3-email \
-	python3-datetime \
 	python3-threading \
 	"
