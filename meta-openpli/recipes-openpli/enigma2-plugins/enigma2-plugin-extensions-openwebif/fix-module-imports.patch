@@ -1,0 +1,26 @@
+diff --git a/plugin/controllers/file.py b/plugin/controllers/file.py
+index 67182cd6..e777e757 100644
+--- a/plugin/controllers/file.py
++++ b/plugin/controllers/file.py
+@@ -26,7 +26,7 @@ from urllib.parse import quote
+ 
+ from twisted.web import static, resource, http
+ 
+-from Screens.LocationBox import DEFAULT_INHIBIT_DIRECTORIES
++from Screens.LocationBox import defaultInhibitDirs as DEFAULT_INHIBIT_DIRECTORIES
+ from Components.config import config
+ from .utilities import lenient_force_utf_8, sanitise_filename_slashes, getUrlArg, toBinary
+ 
+diff --git a/plugin/controllers/models/movies.py b/plugin/controllers/models/movies.py
+index 9e9fa78f..217aced2 100644
+--- a/plugin/controllers/models/movies.py
++++ b/plugin/controllers/models/movies.py
+@@ -31,7 +31,7 @@ from ServiceReference import ServiceReference
+ from Components.config import config
+ from Components.MovieList import MovieList
+ from Screens.MovieSelection import defaultMoviePath
+-from Tools.CopyFiles import copyFiles, moveFiles
++from Screens.CopyFiles import copyFiles, moveFiles
+ from Tools.Directories import fileExists
+ from ..i18n import _
+ from ..utilities import getUrlArg2, toString
