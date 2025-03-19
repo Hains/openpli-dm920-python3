@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/atvcaptain/dpf-ax.git;branch=dreamlayers;protocol=ht
 
 S = "${WORKDIR}/git"
 
-inherit pkgconfig gitpkgv autotools-brokensep python3native
+inherit pkgconfig gitpkgv python3native
 
 SRCREV = "${AUTOREV}"
 PV = "4.0.+git"
