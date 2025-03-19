@@ -13,7 +13,7 @@ SRCREV = "c6d5dc1534c510099f9e8ed1e7be0bb3602784bc"
 
 S = "${WORKDIR}/git"
 
-inherit update-rc.d systemd gitpkgv autotools-brokensep gitpkgv
+inherit update-rc.d systemd gitpkgv gitpkgv
 
 INITSCRIPT_NAME = "zerotier"
 
