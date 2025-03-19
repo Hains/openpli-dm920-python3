@@ -9,12 +9,10 @@ RDEPENDS:${PN} = "ffmpeg"
 
 inherit gitpkgv
 
-PV = "68+gitr"
-PKGV = "68+gitr${GITPKGV}"
+PV = "177+gitr"
+PKGV = "177+gitr${GITPKGV}"
 
-SRC_URI = "git://github.com/oe-mirrors/exteplayer3.git;branch=master;protocol=https \
-           file://port-to-ffmpeg7.patch \
-"
+SRC_URI = "git://github.com/skyjet18/exteplayer3.git;branch=master;protocol=https"
 
 S = "${WORKDIR}/git"
 
@@ -52,6 +50,8 @@ SOURCE_FILES =+ "output/writer/mipsel/vp.c"
 SOURCE_FILES =+ "output/writer/mipsel/wmv.c"
 SOURCE_FILES =+ "output/writer/mipsel/writer.c"
 SOURCE_FILES =+ "playback/playback.c"
+SOURCE_FILES =+ "tools/debug.c"
+SOURCE_FILES =+ "tools/strbuffer.c"
 SOURCE_FILES =+ "external/ffmpeg/src/bitstream.c"
 SOURCE_FILES =+ "external/ffmpeg/src/latmenc.c"
 SOURCE_FILES =+ "external/ffmpeg/src/mpeg4audio.c"
