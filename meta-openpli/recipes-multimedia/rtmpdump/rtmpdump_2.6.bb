@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS = "openssl zlib"
 
-PV .= "1.0+git"
+PV .= "+git"
 SRCREV = "6f6bb1353fc84f4cc37138baa99f586750028a01"
 SRC_URI = " \
     git://git.ffmpeg.org/rtmpdump;branch=master \
