@@ -8,7 +8,7 @@ inherit gitpkgv allarch gettext setuptools3-openplugins python3-compileall
 
 RDEPENDS:${PN} = "python3-multiprocessing python3-requests"
 
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://github.com/DimitarCC/iptv-m3u-reader.git;protocol=https;branch=main"
