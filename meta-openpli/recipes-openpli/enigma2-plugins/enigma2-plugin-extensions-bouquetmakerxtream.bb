@@ -9,7 +9,7 @@ PV = "git"
 PKGV = "${GITPKGVTAG}"
 PR = "r3"
 
-inherit gittag allarch
+inherit gitpkgv allarch
 
 RDEPENDS:${PN} = "python3 python3-requests python3-pillow"
 
