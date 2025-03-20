@@ -10,8 +10,8 @@ ALLOW_EMPTY:${PN} = "1"
 
 inherit gitpkgv python3-compileall
 
-PV = "1.0+gitr${SRCPV}"
-PKGV = "1.0+gitr${GITPKGV}"
+PV = "1.0+git"
+PKGV = "1.0+git${GITPKGV}"
 
 do_configure[nostamp] = "1"
 
