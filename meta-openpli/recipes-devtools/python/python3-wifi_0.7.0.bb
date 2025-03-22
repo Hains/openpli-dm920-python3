@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://README;md5=54307cbab01c3aad9adf7605132bcf31"
 
 RDEPENDS:${PN} = "python3-ctypes python3-datetime python3-six"
 
-inherit gitpkgv setuptools3
+inherit gitpkgv2 setuptools3
 
 PV = "0.7.0+git"
 PKGV = "0.7.0+git${GITPKGV}"

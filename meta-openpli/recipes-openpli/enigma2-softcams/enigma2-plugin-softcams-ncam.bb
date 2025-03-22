@@ -1,7 +1,7 @@
 MAINTAINER = "RAED Developer"
 require conf/license/openpli-gplv2.inc
 require softcam.inc
-inherit cmake gitpkgv
+inherit cmake gitpkgv2
 
 DESCRIPTION = "ncam ${PV} Open Source Softcam"
 LICENSE = "GPL-3.0-only"

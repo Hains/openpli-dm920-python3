@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ec892df81d7a9e0b5cd420bb5603c288"
 
 DEPENDS = "curl openssl zlib"
 
-inherit gitpkgv
+inherit gitpkgv2
 
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"

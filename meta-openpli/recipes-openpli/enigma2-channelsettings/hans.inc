@@ -9,7 +9,7 @@ S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "xz"
 
-inherit gitpkgv allarch
+inherit gitpkgv2 allarch
 
 FILES:${PN} = "/etc/enigma2/"
 

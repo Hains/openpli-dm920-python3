@@ -13,7 +13,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/gst-plugin-subsink.git;protocol=https;branch=ma
 
 S = "${WORKDIR}/git"
 
-inherit autotools pkgconfig gitpkgv
+inherit autotools pkgconfig gitpkgv2
 
 GSTVERSION = "1.0"
 

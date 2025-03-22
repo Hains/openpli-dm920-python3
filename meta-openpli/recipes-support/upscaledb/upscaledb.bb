@@ -12,7 +12,7 @@ SRC_URI = "git://github.com/cruppstahl/upscaledb.git;protocol=https;branch=maste
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv autotools
+inherit gitpkgv2 autotools
 
 PV = "2.1.12+git"
 PKGV = "2.1.12+git${GITPKGV}"

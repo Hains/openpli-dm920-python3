@@ -4,7 +4,7 @@ MAINTAINER = "oe-alliance team"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-inherit autotools-brokensep gitpkgv python3targetconfig python3native gettext
+inherit autotools-brokensep gitpkgv2 python3targetconfig python3native gettext
 
 SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=https;branch=master \
            file://add-dummy-boxbranding.patch \

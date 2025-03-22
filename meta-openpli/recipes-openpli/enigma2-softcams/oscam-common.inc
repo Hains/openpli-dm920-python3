@@ -1,6 +1,6 @@
 require conf/license/openpli-gplv2.inc
 require softcam.inc
-inherit gitpkgv cmake
+inherit gitpkgv2 cmake
 
 DESCRIPTION = "${CAMTITLE}"
 LICENSE = "GPL-3.0-only"

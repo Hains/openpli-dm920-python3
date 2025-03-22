@@ -2,7 +2,7 @@ DESCRIPTION = "Frequency lists"
 MAINTAINER = "PLi team"
 
 require conf/license/openpli-gplv2.inc
-inherit allarch gitpkgv
+inherit allarch gitpkgv2
 
 PV = "2+git"
 PKGV = "2+git${GITPKGV}"

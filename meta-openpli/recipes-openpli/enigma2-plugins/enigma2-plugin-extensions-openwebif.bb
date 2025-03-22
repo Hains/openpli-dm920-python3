@@ -20,7 +20,7 @@ RDEPENDS:${PN} = "\
 	python3-unixadmin \
 	"
 
-inherit gitpkgv setuptools3_legacy gettext
+inherit gitpkgv2 setuptools3_legacy gettext
 
 PV = "git"
 PKGV = "${GITPKGVTAG}"

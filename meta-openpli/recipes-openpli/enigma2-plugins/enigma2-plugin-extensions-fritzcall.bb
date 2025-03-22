@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://src/LICENSE;md5=ca0fd7efc85d7f5d417c882290c4b9fa"
 
 RDEPENDS:${PN} = "python3-twisted-web python3-html python3-json python3-six python3-requests"
 
-inherit gitpkgv setuptools3-openplugins gettext
+inherit gitpkgv2 setuptools3-openplugins gettext
 
 SRC_URI = "\
 	git://github.com/DrMichael/FritzCall.git;protocol=https;branch=master \

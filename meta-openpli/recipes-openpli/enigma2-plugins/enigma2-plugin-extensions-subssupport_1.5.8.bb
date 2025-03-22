@@ -1,4 +1,4 @@
-inherit gitpkgv autotools-brokensep
+inherit gitpkgv2 autotools-brokensep
 
 SUMMARY = "Collection of enigma2 subtitles plugins"
 HOMEPAGE = "https://github.com/mx3L/subssupport"

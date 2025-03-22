@@ -1,6 +1,6 @@
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv2
 
 VERSION := "${PV}"
 PV = "${VERSION}+git"

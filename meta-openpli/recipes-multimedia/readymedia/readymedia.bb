@@ -6,7 +6,7 @@ MAINTAINER = "OpenPLi"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENCE.miniupnpd;md5=b0dabf9d8e0f871554e309d62ead8d2b"
 
-inherit autotools-brokensep pkgconfig gettext update-rc.d gitpkgv
+inherit autotools-brokensep pkgconfig gettext update-rc.d gitpkgv2
 
 PV = "1.1.0+git"
 PKGV = "1.1.0+git${GITPKGV}"

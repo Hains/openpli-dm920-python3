@@ -3,7 +3,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 DEPENDS:remove = "boost"
 DEPENDS:append = " fmt"
 
-inherit gitpkgv
+inherit gitpkgv2
 
 SRC_URI = "git://github.com/MusicPlayerDaemon/MPD;branch=master;protocol=https \
            file://mpd.conf.in \

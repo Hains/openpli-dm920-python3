@@ -3,7 +3,7 @@ SECTION = "libs/multimedia"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
-inherit autotools gitpkgv
+inherit autotools gitpkgv2
 
 PV = "0.0.7+git"
 PKGV = "0.0.7+git${GITPKGV}"

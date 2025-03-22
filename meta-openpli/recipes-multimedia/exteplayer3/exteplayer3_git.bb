@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 DEPENDS = "ffmpeg"
 RDEPENDS:${PN} = "ffmpeg"
 
-inherit gitpkgv
+inherit gitpkgv2
 
 PV = "177+gitr"
 PKGV = "177+gitr${GITPKGV}"

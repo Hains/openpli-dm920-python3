@@ -8,7 +8,7 @@ RDEPENDS:${PN} += "enigma2 libcurl python3-core python3-compression xz"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit gitpkgv python3-dir python3native
+inherit gitpkgv2 python3-dir python3native
 
 SRCREV = "${AUTOREV}"
 PV = "0.9.0+gitr"

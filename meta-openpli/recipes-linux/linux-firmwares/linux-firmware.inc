@@ -1,4 +1,4 @@
-inherit gitpkgv
+inherit gitpkgv2
 
 PV = "1.1+git"
 PKGV = "1.1+git${GITPKGV}"

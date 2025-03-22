@@ -9,7 +9,7 @@ inherit allarch
 
 RDEPENDS:${PN} = "python3-core streamlink"
 
-inherit python3-dir gitpkgv
+inherit python3-dir gitpkgv2
 
 PV = "1.8.4+git"
 PKGV = "1.8.4+git${GITPKGV}"

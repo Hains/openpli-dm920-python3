@@ -5,7 +5,7 @@ SRC_URI:append = " \
            file://init \
 "
 
-inherit update-rc.d gitpkgv
+inherit update-rc.d gitpkgv2
 
 INITSCRIPT_NAME = "gerbera"
 INITSCRIPT_PARAMS = "defaults 90"

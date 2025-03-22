@@ -15,7 +15,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv autotools update-rc.d
+inherit gitpkgv2 autotools update-rc.d
 
 INITSCRIPT_NAME = "satipclient"
 INITSCRIPT_PARAMS = "defaults"

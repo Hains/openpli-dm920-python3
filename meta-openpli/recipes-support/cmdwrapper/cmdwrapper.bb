@@ -3,7 +3,7 @@ MAINTAINER = "Open Vision Developers"
 
 require conf/license/openpli-gplv2.inc
 
-inherit gitpkgv
+inherit gitpkgv2
 
 PV = "2.1+git"
 PKGV = "2.1+git${GITPKGV}"

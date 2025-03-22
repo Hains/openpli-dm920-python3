@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/LICENSE;md5=84dcc94da3adb52b53ae4fa38
 
 DEPENDS = "enigma2"
 
-inherit autotools gitpkgv pkgconfig python3native python3targetconfig
+inherit autotools gitpkgv2 pkgconfig python3native python3targetconfig
 
 SRCREV = "${AUTOREV}"
 PV = "git"

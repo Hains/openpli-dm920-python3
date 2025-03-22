@@ -20,7 +20,7 @@ SRC_URI[sha256sum] = "ac1a799cf968345bf29089ed2e5c5d4f4a32031625d808369e61b6362d
 
 S = "${WORKDIR}/youtube-dl"
 
-inherit gitpkgv setuptools3
+inherit gitpkgv2 setuptools3
 
 EXTRA_OEMAKE = "PYTHON=${PYTHON}"
 

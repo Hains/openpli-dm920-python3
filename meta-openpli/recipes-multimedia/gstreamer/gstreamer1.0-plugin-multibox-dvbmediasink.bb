@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmedias
 
 S = "${WORKDIR}/git"
 
-inherit autotools pkgconfig gitpkgv
+inherit autotools pkgconfig gitpkgv2
 
 PV = "${GSTVERSION}+git"
 PKGV = "${GSTVERSION}+git${GITPKGV}"

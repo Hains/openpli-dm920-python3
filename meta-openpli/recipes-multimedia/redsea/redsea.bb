@@ -4,7 +4,7 @@ MAINTAINER = "Oona Räisänen <windyoona@gmail.com>"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=884926124e31c67b8c1bdaa062802dec"
 
-inherit gitpkgv
+inherit gitpkgv2
 
 PV = "git"
 PKGV = "${GITPKGVTAG}"

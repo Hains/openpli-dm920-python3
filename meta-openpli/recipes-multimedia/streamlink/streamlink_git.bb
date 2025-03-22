@@ -22,7 +22,7 @@ RDEPENDS:${PN} = "python3-core \
 	python3-websocket-client \
 "
 
-inherit setuptools3 python3-dir gitpkgv
+inherit setuptools3 python3-dir gitpkgv2
 
 SRCREV_plugins = "${AUTOREV}"
 SRCREV_FORMAT = "streamlink_plugins"

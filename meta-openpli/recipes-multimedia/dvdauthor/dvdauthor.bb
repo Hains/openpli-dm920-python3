@@ -6,7 +6,7 @@ DEPENDS = "bison-native fontconfig freetype libdvdread fribidi libpng libxml2 zl
 
 SRC_URI = "git://github.com/ldo/dvdauthor;protocol=https;branch=master file://fix-build.patch"
 
-inherit autotools gettext pkgconfig gitpkgv
+inherit autotools gettext pkgconfig gitpkgv2
 
 PV = "0.7.1+git"
 PKGV = "0.7.1+git${GITPKGV}"

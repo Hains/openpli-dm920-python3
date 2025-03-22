@@ -5,7 +5,7 @@ SECTION = "multimedia"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=ed7e492ee44e70125a5d42e118354a13"
 
-inherit gitpkgv
+inherit gitpkgv2
 
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"

@@ -6,7 +6,7 @@ SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-${MODULE}.git;protocol=ht
 
 S="${WORKDIR}/git"
 
-inherit pkgconfig gitpkgv
+inherit pkgconfig gitpkgv2
 
 FILES:${PN}-dbg += "\
     /usr/lib/enigma2/python/Plugins/*/*/.debug \

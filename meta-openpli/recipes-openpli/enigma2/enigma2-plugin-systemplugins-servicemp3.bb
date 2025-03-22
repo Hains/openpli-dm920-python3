@@ -87,7 +87,7 @@ SRC_URI = "git://github.com/OpenPLi/servicemp3.git;protocol=https;branch=python3
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pkgconfig python3native python3targetconfig
+inherit autotools gitpkgv2 pkgconfig python3native python3targetconfig
 
 PV = "git"
 PKGV = "git${GITPKGV}"

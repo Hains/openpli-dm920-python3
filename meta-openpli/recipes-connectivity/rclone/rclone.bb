@@ -13,7 +13,7 @@ DEPENDS += "go-cross-${TUNE_PKGARCH}"
 RDEPENDS:${PN} += "bash"
 RDEPENDS:${PN}-dev += "bash"
 
-inherit gitpkgv
+inherit gitpkgv2
 
 do_compile[network] = "1"
 

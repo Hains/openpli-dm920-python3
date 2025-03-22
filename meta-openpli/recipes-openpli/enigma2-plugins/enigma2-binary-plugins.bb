@@ -11,7 +11,7 @@ PACKAGES += "\
 	enigma2-plugin-systemplugins-vps \
 	"
 
-inherit gitpkgv python3native pkgconfig gettext python3targetconfig
+inherit gitpkgv2 python3native pkgconfig gettext python3targetconfig
 
 PV = "git"
 PKGV = "git${GITPKGV}"

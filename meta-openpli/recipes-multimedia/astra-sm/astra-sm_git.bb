@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/OpenVisionE2/astra-sm.git;branch=staging;protocol=ht
            file://replace-sys-siglist.patch \
            "
 
-inherit gitpkgv autotools-brokensep pkgconfig update-rc.d gettext
+inherit gitpkgv2 autotools-brokensep pkgconfig update-rc.d gettext
 
 PV = "0.2+git"
 PKGV = "0.2+git${GITPKGV}"

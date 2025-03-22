@@ -3,7 +3,7 @@ MAINTAINER = "littlesat"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://usr/share/enigma2/PLi-HD/skin.xml;beginline=3;endline=8;md5=1d560d35b9194281a488eb3a32d9c8bf"
 
-inherit gitpkgv allarch
+inherit gitpkgv2 allarch
 
 PV = "0.1+git"
 PKGV = "0.1+git${GITPKGV}"

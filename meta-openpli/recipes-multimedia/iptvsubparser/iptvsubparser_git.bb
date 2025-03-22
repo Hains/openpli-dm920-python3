@@ -4,7 +4,7 @@ require conf/license/openpli-gplv2.inc
 
 DEPENDS = "python3"
 
-inherit gitpkgv python3-dir
+inherit gitpkgv2 python3-dir
 
 PV = "1.1+git"
 PKGV = "1.1+git${GITPKGV}"

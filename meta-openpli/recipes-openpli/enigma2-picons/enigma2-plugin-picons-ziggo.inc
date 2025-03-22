@@ -1,4 +1,4 @@
-inherit gitpkgv allarch
+inherit gitpkgv2 allarch
 
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"

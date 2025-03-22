@@ -4,7 +4,7 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 HOMEPAGE = "https://github.com/DimitarCC"
 
-inherit gitpkgv allarch gettext setuptools3-openplugins python3-compileall
+inherit gitpkgv2 allarch gettext setuptools3-openplugins python3-compileall
 
 RDEPENDS:${PN} = "python3-multiprocessing python3-requests"
 
