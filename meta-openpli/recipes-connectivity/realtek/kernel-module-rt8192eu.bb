@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://README.md;md5=d5ac1d5985371169258c94be26cff762"
 # backward compatibility
 RPROVIDES_${PN} = "rtl8192eu"
 
-DEPENDS ="bc-native"
+DEPENDS = "bc-native"
 
 inherit module siteinfo
 
