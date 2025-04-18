@@ -15,7 +15,7 @@ inherit gitpkgv autotools-brokensep pkgconfig update-rc.d gettext
 PV = "0.2+git"
 PKGV = "0.2+git${GITPKGV}"
 
-S="${WORKDIR}/git"
+S = "${WORKDIR}/git"
 
 do_install:append() {
 	install -d ${D}${bindir}

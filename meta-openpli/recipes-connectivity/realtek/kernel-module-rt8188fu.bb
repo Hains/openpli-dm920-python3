@@ -4,7 +4,7 @@ SECTION = "kernel/modules"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://Makefile;md5=84b010020bb976d347a15f8a666ba2d7"
 
-DEPENDS ="bc-native"
+DEPENDS = "bc-native"
 
 inherit module
 SRCREV = "${AUTOREV}"
