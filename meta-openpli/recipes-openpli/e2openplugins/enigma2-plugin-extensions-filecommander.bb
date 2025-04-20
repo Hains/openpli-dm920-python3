@@ -7,4 +7,5 @@ require openplugins.inc
 
 SRC_URI:append = " file://use-setuptools-instead-of-distutils.patch \
                    file://set-list-before-update.patch \
+                   file://use-python3-name.patch \
 "
