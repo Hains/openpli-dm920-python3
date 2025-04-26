@@ -170,6 +170,8 @@ FILES:${PN}-dbg += "\
 	${libdir}/enigma2/python/Plugins/*/*/.debug \
 	"
 
+TARGET_CFLAGS += "-DGLIBC_64BIT_TIME_FLAGS"
+
 do_install:append() {
 	install -d ${D}${datadir}/enigma2/hardware
 	cp ${UNPACKDIR}/dm920.png ${D}${datadir}/enigma2/hardware/dm920_front.png
