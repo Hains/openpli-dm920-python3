@@ -1,0 +1,112 @@
+diff --git a/emulate.h b/emulate.h
+index fe3d6bf..d0f3397 100644
+--- a/emulate.h
++++ b/emulate.h
+@@ -17,7 +17,7 @@ void em_dvbapi(uint16_t * flags);
+ int  em_setproperty(struct dtv_properties * cmdseq);
+ int  em_getproperty(struct dtv_properties * cmdseq);
+ int  em_status(fe_status_t * status);
+-void em_lnb(bool high_band, uint32_t high_val, uint32_t low_val);
++void em_lnb(int high_band, uint32_t high_val, uint32_t low_val);
+ void em_polarization(uint8_t p);
+ 
+ //--------------------------------------------------
+diff --git a/tools.c b/tools.c
+index 25a752c..eb57727 100644
+--- a/tools.c
++++ b/tools.c
+@@ -91,7 +91,7 @@ void NewList(pList const list, const char * name) {
+ }
+ 
+ // returns true, if a pointer is part of list.
+-bool IsMember(pList list, void * item) {
++int IsMember(pList list, void * item) {
+   pItem p;
+   for(p = list->first; p; p = p->next) {
+      if (p == item) {
+@@ -215,7 +215,7 @@ void InsertItem(pList list, void * item, uint32_t index) {
+ }
+ 
+ // remove item from list. free allocated memory if release_mem non-zero.
+-void UnlinkItem(pList list, void * item, bool freemem) {
++void UnlinkItem(pList list, void * item, int freemem) {
+   while (list->lock);
+   list->lock = true;
+ 
+@@ -665,7 +665,7 @@ const char * property_name(int property) {
+      }
+ }
+ 
+-const char * bool_name(bool t) {
++const char * bool_name(int t) {
+   if (t == false) return "false";
+   return "true";
+ }
+@@ -708,7 +708,7 @@ static int sort_by_count(void * a, void * b) {
+   return ((byte_item *) a)->count > ((byte_item *) b)->count; 
+ }
+ 
+-bool fuzzy_section(void * s) {
++int fuzzy_section(void * s) {
+   struct section_buf * section = (struct section_buf *) s;
+   cList current_byte;
+   unsigned char * buf;
+diff --git a/tools.h b/tools.h
+index 62fff09..b410a7a 100644
+--- a/tools.h
++++ b/tools.h
+@@ -32,8 +32,7 @@
+ /*******************************************************************************
+ /* common typedefs && logging.
+  ******************************************************************************/
+-#ifndef bool
+-  typedef int bool;
++#ifndef false
+   #define false 0
+   #define true  !(false)
+ #endif
+@@ -90,7 +89,7 @@ const char * hierarchy_name(int hierarchy);
+ const char * interleaving_name(int interleaving);
+ const char * delivery_system_name(int delsys);
+ const char * property_name(int property);
+-const char * bool_name(bool t);
++const char * bool_name(int t);
+ uint32_t freq_scale(uint32_t freq, double scale);
+ 
+ const char * alpha_name(int alpha);   /* somehow missing. */
+@@ -101,14 +100,14 @@ const char * interleaver_name(int i); /* somehow missing. */
+  ******************************************************************************/
+ 
+ typedef int  (*cmp_func) (void * a, void * b);
+-typedef bool (*fnd_func) (void * a);
++typedef int (*fnd_func) (void * a);
+ 
+ typedef struct {
+    void * first;
+    void * last;
+    uint32_t count;
+    char * name;
+-   bool lock;
++   int lock;
+    } cList, * pList;
+ 
+ typedef struct {
+@@ -123,15 +122,15 @@ void   SortList(pList list, cmp_func compare);
+ void   AddItem(pList list, void * item);
+ void   DeleteItem(pList list, void * item);
+ void   SwapItem(pList list, pItem a, pItem b);
+-void   UnlinkItem(pList list, void * item, bool freemem);
++void   UnlinkItem(pList list, void * item, int freemem);
+ void   InsertItem(pList list, void * item, uint32_t index);
+ void * GetItem(pList list, uint32_t index);
+-bool   IsMember(pList list, void * item);
++int   IsMember(pList list, void * item);
+ 
+ /*******************************************************************************
+ /* fuzzy bit error recovery.
+  ******************************************************************************/
+ 
+-bool fuzzy_section(void * s);
++int fuzzy_section(void * s);
+ 
+ #endif
