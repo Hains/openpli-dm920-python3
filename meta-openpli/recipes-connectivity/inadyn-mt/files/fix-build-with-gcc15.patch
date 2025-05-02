@@ -1,0 +1,50 @@
+diff --git a/src/base64.h b/src/base64.h
+index 0280769..df9eb96 100644
+--- a/src/base64.h
++++ b/src/base64.h
+@@ -35,19 +35,18 @@ char    MY_UCHAR;                              /* Define unsigned char as MY_UCH
+ #endif
+ 
+ #ifndef __cplusplus
+-typedef int bool;
+ 	#define false (1 == 0)
+ 	#define true  !false
+ #endif
+ 
+ 
+-bool	b64help(void);                      /*Displays brief help messages.*/
++int 	b64help(void);                      /*Displays brief help messages.*/
+ char*	b64encode(char *);                  /* Encodes a string to Base64.*/
+ char*	b64decode(char *);                  /* Decodes a string to ASCII.*/
+-void	b64stats(char *, char *, bool);     /* Display encoding/decoding stats.*/
+-bool	b64valid(MY_UCHAR *);               /* Tests for a valid Base64 char.*/
++void	b64stats(char *, char *, int);     /* Display encoding/decoding stats.*/
++int 	b64valid(MY_UCHAR *);               /* Tests for a valid Base64 char.*/
+ char*	b64isnot(char *, char *);           /* Displays an invalid message.*/
+-char*	b64buffer(char *, bool);            /* Alloc. encoding/decoding buffer.*/
++char*	b64buffer(char *, int);            /* Alloc. encoding/decoding buffer.*/
+ 
+ /* Macro definitions:*/
+ 
+diff --git a/src/base64utils.c b/src/base64utils.c
+index 0e9baf8..5186cca 100644
+--- a/src/base64utils.c
++++ b/src/base64utils.c
+@@ -215,7 +215,7 @@ char* b64decode(char *s)
+ /* Returns:     bool    - True (!0) if the character is valid.               */
+ /*                        False (0) if the character is not valid.           */
+ /*---------------------------------------------------------------------------*/
+-bool b64valid(MY_UCHAR *c)
++int b64valid(MY_UCHAR *c)
+ {
+ 	if ((*c < 0x2b) || (*c > 0x7a))
+ 		return false;
+@@ -263,7 +263,7 @@ char* b64isnot(char *p, char *b)
+ /* Returns:     char *  - Pointer to the buffer or NULL if the buffer        */
+ /*                        could not be allocated.                            */
+ /*---------------------------------------------------------------------------*/
+-char *b64buffer(char *s, bool f)
++char *b64buffer(char *s, int f)
+ {
+ 	int	l = strlen(s);
+ 	char	*b;

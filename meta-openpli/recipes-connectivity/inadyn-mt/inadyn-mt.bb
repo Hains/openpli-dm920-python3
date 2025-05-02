@@ -10,6 +10,7 @@ SRC_URI = "https://sourceforge.net/projects/${BPN}/files/${BPN}/${BPN}.${PV}/${B
 	file://inadyn.conf \
 	file://remove_host_include_paths.patch \
 	file://inadyn-mt-ip6-127.0.0.1-00-02.24.44.patch \
+	file://fix-build-with-gcc15.patch \
 	"
 
 SRC_URI[md5sum] = "0652d99aab1249d6a3afe4d65861e77b"
