@@ -115,6 +115,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://09-update-cutlist-to-beyonwich.patch \
 			file://10-fix-build-swig-4.3.patch \
 			file://11-Add-remote-control-dmm2.patch \
+			file://12-fix-array-index-out-of-bounds-error.patch \
 			file://13-restore-last-update-date-time.patch \
 			file://14-fix-framebuffer-and-use-ion-to-allocate-accel-memory.patch \
 			file://15-display-openssl-version.patch \
