@@ -10,7 +10,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=74f65085a4958dced34e7b33cdf95eaf"
 
 DEPENDS = "krb5 libbsd libssh openssl readline"
 
-SRC_URI = "git://github.com/sebastinas/yafc.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/sebastinas/yafc.git;protocol=https;branch=master \
+           file://fix-build-with-gcc15.patch \
+"
 
 S = "${WORKDIR}/git"
 

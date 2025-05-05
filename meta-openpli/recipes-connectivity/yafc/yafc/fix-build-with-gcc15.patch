@@ -1,0 +1,20 @@
+diff --git a/lib/fnmatch.c b/lib/fnmatch.c
+index 8801177..2984d7a 100644
+--- a/lib/fnmatch.c
++++ b/lib/fnmatch.c
+@@ -35,11 +35,11 @@
+ #  include <strings.h>
+ #endif /* HAVE_STRING_H */
+ 
+-static int gmatch ();
+-static char *brackmatch ();
++static int gmatch (char *, char *, char *, char *, int );
++static char *brackmatch (char *, unsigned char, int);
+ #ifdef EXTENDED_GLOB
+-static int extmatch ();
+-static char *patscan ();
++static int extmatch (int, char *, char *, char *, char *, int);
++static char *patscan (char * , char *, int);
+ #endif
+   
+ #if !defined (isascii)
