@@ -6,7 +6,7 @@ DEPENDS = "libogg libvorbis faad2 glib-2.0 libmad"
 PR = "r1"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/streamripper/streamripper-${PV}.tar.gz \
-           file://fix-compile-with-gcc14.patch \
+           file://fix-build-with-gcc15.patch \
 "
 
 SRC_URI[md5sum] = "a37a1a8b8f9228522196a122a1c2dd32"

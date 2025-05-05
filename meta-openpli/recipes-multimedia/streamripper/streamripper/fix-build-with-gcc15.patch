@@ -1,0 +1,24 @@
+diff --git a/lib/argv.c b/lib/argv.c
+index 863a224..4b602db 100644
+--- a/lib/argv.c
++++ b/lib/argv.c
+@@ -61,12 +61,13 @@ void freeargv (char **vector);
+ #else	/* !ANSI_PROTOTYPES */
+ 
+ #if !defined _WIN32 || defined __GNUC__
+-extern char *memcpy ();		/* Copy memory region */
+-extern int strlen ();		/* Count length of string */
+-extern char *malloc ();		/* Standard memory allocater */
+-extern char *realloc ();	/* Standard memory reallocator */
+-extern void free ();		/* Free malloc'd memory */
+-extern char *strdup ();		/* Duplicate a string */
++void *memcpy(void *, const void *, size_t);	/* Copy memory region */
++unsigned int strlen(const char *);				/* Count length of string */
++void *malloc(size_t);							/* Standard memory allocater */
++void *realloc(void*, size_t);					/*Standard memory reallocator */
++void free(void*);								/* Free malloc'd memory */
++char *strdup(const char *);					/* Duplicate a string */
++char *strcpy(char *, const char *);			/* Copy a string */
+ #endif
+ 
+ #endif	/* ANSI_PROTOTYPES */
