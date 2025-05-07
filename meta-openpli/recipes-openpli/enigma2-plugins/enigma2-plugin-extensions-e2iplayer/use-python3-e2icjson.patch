@@ -23,7 +23,7 @@ index 85255a7d..493ba835 100644
  
 +useE2icjson = True
  
- def loads(input, noneReplacement=None, baseTypesAsString=False, utf8=True):
+ def loads(inputString, noneReplacement=None, baseTypesAsString=False, utf8=True):
 -#    global e2icjson
 -#    e2icjson = False
 -#    if e2icjson == None:
@@ -52,4 +52,4 @@ index 85255a7d..493ba835 100644
 +    return out
  
  
- def dumps(input, *args, **kwargs):
+ def dumps(inputString, *args, **kwargs):
