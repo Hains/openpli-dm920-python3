@@ -43,7 +43,7 @@ index 85255a7d..493ba835 100644
          #    printDBG(">> cjson ACELERATION byteify")
          #    out = byteify(out, noneReplacement, baseTypesAsString)
 -#    else:
--    return json.loads(input)
+-    return json.loads(inputString)
 +    else:
 +        out = json.loads(input)
          #if utf8 or noneReplacement != None or baseTypesAsString != False:
