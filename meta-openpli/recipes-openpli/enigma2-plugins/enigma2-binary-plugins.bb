@@ -41,7 +41,6 @@ FILES:${PN}-dbg = "${prefix}/src/debug"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 
 CFLAGS += "-I${STAGING_INCDIR}/tirpc"
-LDFLAGS += "-ltirpc"
 
 S = "${WORKDIR}/git"
 
@@ -53,6 +52,7 @@ DEPENDS = " \
 	python3-simplejson \
 	pydpflib \
 	png-util \
+	libtirpc \
 	"
 
 
