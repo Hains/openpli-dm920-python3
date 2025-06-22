@@ -18,8 +18,6 @@ EXTRA_OECONF = " \
     STAGING_LIBDIR=${STAGING_LIBDIR} \
     "
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "enigma2"
 RDEPENDS:${PN} = "enigma2"
 

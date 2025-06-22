@@ -13,8 +13,6 @@ SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=htt
            file://use-python3-e2icjson.patch \
 "
 
-S = "${WORKDIR}/git"
-
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 

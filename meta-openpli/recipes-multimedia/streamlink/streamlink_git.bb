@@ -34,8 +34,6 @@ SRC_URI = " git://github.com/streamlink/streamlink;protocol=https;branch=master 
 			git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
 "
 
-S = "${WORKDIR}/git"
-
 do_unpack:append() {
     bb.build.exec_func('do_prepare_plugins_dir', d)
 }

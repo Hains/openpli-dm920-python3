@@ -14,8 +14,6 @@ SRC_URI = "git://github.com/mx3L/serviceapp.git;protocol=https;branch=develop \
 			file://remove-redundant-c17-check.patch \
 "
 
-S = "${WORKDIR}/git"
-
 inherit autotools gitpkgv pkgconfig python3native python3targetconfig
 
 PV = "git"

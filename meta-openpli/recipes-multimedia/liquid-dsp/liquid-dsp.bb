@@ -12,8 +12,6 @@ PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/jgaeddert/liquid-dsp.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 inherit autotools-brokensep
 
 do_install() {

@@ -13,6 +13,4 @@ PKGV = "1.0+git${GITPKGV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/oe-alliance/${BPN}.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 EXTRA_OECONF = "ac_cv_prog_c_openmp=-fopenmp"

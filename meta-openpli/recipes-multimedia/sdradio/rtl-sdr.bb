@@ -14,8 +14,6 @@ SRC_URI = "git://git.osmocom.org/rtl-sdr;protocol=https;branch=master"
 
 SRCREV = "${AUTOREV}"
  
-S = "${WORKDIR}/git"
- 
 DEPENDS = "libusb1"
  
 EXTRA_OECONF = "--enable-driver-detach"

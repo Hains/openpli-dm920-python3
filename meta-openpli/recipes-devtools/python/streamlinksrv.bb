@@ -18,8 +18,6 @@ SRC_URI = "git://github.com/oe-mirrors/livestreamersrv;protocol=https;branch=str
            file://set-interpreter-to-python3.patch \
 "
 
-S = "${WORKDIR}/git"
-
 do_install:append() {
     install -d ${D}${sbindir}
     install -d ${D}${datadir}

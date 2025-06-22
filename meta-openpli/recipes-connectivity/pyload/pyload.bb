@@ -28,8 +28,6 @@ SRC_URI = "git://github.com/pyload/pyload.git;branch=main;protocol=https \
 	file://pyload.init \
 "
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} = "/usr/* /etc/*"
 
 INITSCRIPT_NAME = "${PN}"

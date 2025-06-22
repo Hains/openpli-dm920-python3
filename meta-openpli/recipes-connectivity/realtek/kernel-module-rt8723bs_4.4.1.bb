@@ -28,9 +28,6 @@ SRC_URI = "git://github.com/anthonywong/rtl8723bs.git;protocol=https;branch=mast
     file://add-5.15-support.patch \
     "
 
-
-S = "${WORKDIR}/git"
-
 do_install() {
     install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/staging/rtl8723bs
     install -m 0644 ${S}/r8723bs.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/staging/rtl8723bs

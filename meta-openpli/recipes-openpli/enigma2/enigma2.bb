@@ -131,8 +131,6 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 
 LDFLAGS:prepend = " -lxml2 "
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} += "${datadir}/keymaps"
 FILES:${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"

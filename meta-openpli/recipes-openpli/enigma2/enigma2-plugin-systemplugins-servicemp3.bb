@@ -85,8 +85,6 @@ RDEPENDS:${PN} = "\
 
 SRC_URI = "git://github.com/OpenPLi/servicemp3.git;protocol=https;branch=python3 file://remove-redundant-c17-check.patch"
 
-S = "${WORKDIR}/git"
-
 inherit autotools gitpkgv pkgconfig python3native python3targetconfig
 
 PV = "git"

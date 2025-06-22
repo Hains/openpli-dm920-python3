@@ -5,8 +5,6 @@ PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://gitlab.openpli.org/openpli/hanssettings.git;protocol=http;branch=master"
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "xz"
 
 inherit gitpkgv allarch

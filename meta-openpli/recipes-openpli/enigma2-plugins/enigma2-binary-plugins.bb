@@ -42,8 +42,6 @@ PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 
 CFLAGS += "-I${STAGING_INCDIR}/tirpc"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = " \
 	python3-icalendar \
 	python3-mutagen \

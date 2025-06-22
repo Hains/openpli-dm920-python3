@@ -22,8 +22,6 @@ INSANE_SKIP:${PN} += "already-stripped"
 
 SRC_URI = "git://github.com/LraiZer/AutoBouquets.git;branch=${AUTOBOUQUETS_BRANCH};protocol=https"
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} = "${libdir}/enigma2/python/Plugins/Extensions/AutoBouquets"
 D_FILES_PN = "${D}${FILES:${PN}}"
 

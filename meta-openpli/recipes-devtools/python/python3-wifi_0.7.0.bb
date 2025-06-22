@@ -17,8 +17,6 @@ SRC_URI = "git://github.com/athoik/pythonwifi.git;protocol=https;branch=master \
            file://replace-distutils-with-setuptools.patch \
 "
 
-S = "${WORKDIR}/git"
-
 do_install:append() {
     install -d ${D}${docdir}/${PN}
     mv ${D}${prefix}/README ${D}${docdir}/${PN}

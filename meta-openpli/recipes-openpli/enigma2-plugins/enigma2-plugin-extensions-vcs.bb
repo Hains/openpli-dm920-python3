@@ -5,8 +5,6 @@ LIC_FILES_CHKSUM = "file://README;md5=8eddbaffb25ee762a200b712d7242dbe"
 
 SRC_URI = "git://github.com/Dima73/vcs.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 inherit gitpkgv setuptools3-openplugins
 
 PV = "1+git"

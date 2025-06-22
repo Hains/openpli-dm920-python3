@@ -12,8 +12,6 @@ SRC_URI = "git://github.com/Taapat/skin-SimpleGray.git;protocol=https;branch=mas
 
 FILES:${PN} = "${prefix}/"
 
-S = "${WORKDIR}/git"
-
 do_compile() {
 	python3 -O -m compileall ${S}${libdir}/enigma2/python/Components/
 }

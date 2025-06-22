@@ -11,5 +11,3 @@ PKGV = "0.0.7+git${GITPKGV}"
 SRC_URI = " git://code.videolan.org/videolan/libdca;protocol=https;branch=master \
 			file://fix-libdts-link-path.patch \
 			"
-
-S = "${WORKDIR}/git"

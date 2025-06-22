@@ -14,8 +14,6 @@ SRC_URI = "git://github.com/sebastinas/yafc.git;protocol=https;branch=master \
            file://fix-build-with-gcc15.patch \
 "
 
-S = "${WORKDIR}/git"
-
 inherit gitpkgv autotools-brokensep pkgconfig
 PV = "1.3.7+git"
 PKGV = "1.3.7+git${GITPKGV}"

@@ -19,8 +19,6 @@ SRC_URI = " \
           file://0002-kernel-515-removes-ipx.patch \
           "
 
-S = "${WORKDIR}/git"
-
 EXTRA_OEMAKE = "CONFIG_RTL8192EU=m"
 
 do_configure() {

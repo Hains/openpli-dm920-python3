@@ -16,8 +16,6 @@ SRC_URI = "git://github.com/abdelgmartinezl/PythonDaap;protocol=https;branch=mas
            file://fix-build-with-gcc15.patch \
 "
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "python3-compression"
 
 SRC_URI[md5sum] = "b3db3d60b0ee83f5f23101d2c3bb99e0"

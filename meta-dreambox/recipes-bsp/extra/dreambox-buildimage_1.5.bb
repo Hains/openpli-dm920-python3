@@ -13,8 +13,6 @@ SRCREV = "95d4dd192e659f297e782fd71edbee038f9dc443"
 
 SRC_URI = "git://github.com/oe-mirrors/buildimage.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 inherit autotools
 
 BBCLASSEXTEND = "native"

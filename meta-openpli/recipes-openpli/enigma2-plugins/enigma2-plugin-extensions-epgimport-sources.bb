@@ -14,8 +14,6 @@ PKGV = "git${GITPKGV}"
 SRC_ORIGIN ?= "git://github.com/doglover3920/EPGimport-Sources.git;protocol=https;branch=main"
 SRC_URI := "${SRC_ORIGIN} "
 
-S = "${WORKDIR}/git"
-
 RREPLACES:${PN} = "enigma2-plugin-extensions-xmltvimport-rytec enigma2-plugin-extensions-epgimport-rytec"
 RCONFLICTS:${PN} = "enigma2-plugin-extensions-xmltvimport-rytec enigma2-plugin-extensions-epgimport-rytec"
 

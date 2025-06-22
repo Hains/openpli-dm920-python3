@@ -23,8 +23,6 @@ PKGV = "${GITPKGVTAG}"
 SRC_URI = "git://github.com/rclone/rclone;protocol=https;branch=master \
            file://rclonefs"
 
-S = "${WORKDIR}/git"
-
 # This build uses go, which will download modules and, by default,
 # place them in the HOME of build user!
 # It will even make some of them read-only!!!

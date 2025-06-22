@@ -8,8 +8,6 @@ SRC_URI = "git://github.com/OpenVisionE2/NewVirtualKeyBoard.git;protocol=https;b
 # don't inherit allarch, it can't work with arch-dependent RDEPENDS
 inherit gitpkgv setuptools3-openplugins gettext python3-compileall
 
-S = "${WORKDIR}/git"
-
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 

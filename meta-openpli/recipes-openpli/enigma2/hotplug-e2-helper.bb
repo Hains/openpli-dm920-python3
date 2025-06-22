@@ -11,6 +11,4 @@ PKGV = "1.0+git${GITPKGV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 CFLAGS += "-Wno-error=implicit-function-declaration"

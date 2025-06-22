@@ -14,8 +14,6 @@ SRC_URI = "\
 	file://git/setup_translate.py \
 	"
 
-S = "${WORKDIR}/git"
-
 inherit gitpkgv setuptools3-openplugins python3-compileall
 
 PV = "1+git"

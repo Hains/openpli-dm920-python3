@@ -15,5 +15,3 @@ SRC_URI = "\
 
 PV = "git"
 PKGV = "git${GITPKGV}"
-
-S = "${WORKDIR}/git"

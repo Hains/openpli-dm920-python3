@@ -12,8 +12,6 @@ SRC_URI = "git://github.com/oe-mirrors/subssupport;protocol=git;branch=master;pr
            file://0001-Fix-subtitles-download.patch \
 "
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} = "${libdir}/enigma2/python/Plugins/Extensions/SubsSupport \
 ${localstatedir}/lib/subssupport"
 

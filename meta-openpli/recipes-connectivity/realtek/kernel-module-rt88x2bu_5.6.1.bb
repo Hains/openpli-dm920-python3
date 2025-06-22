@@ -22,8 +22,6 @@ SRC_URI = " \
     file://0005-add-linux-5.15-support.patch \
     "
 
-S = "${WORKDIR}/git"
-
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR} KSRC=${STAGING_KERNEL_DIR}"
 
 do_install() {

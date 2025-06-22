@@ -11,8 +11,6 @@ PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/windytan/redsea.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "nlohmann-json liquid-dsp virtual/libiconv libsndfile1"
 
 inherit meson pkgconfig gettext

@@ -14,6 +14,4 @@ SRC_URI = "git://github.com/OpenVisionE2/dvbsnoop.git;protocol=https;branch=mast
            file://fix-build-with-gcc15.patch \
 "
 
-S = "${WORKDIR}/git"
-
 CFLAGS += "-Wno-error=incompatible-pointer-types"

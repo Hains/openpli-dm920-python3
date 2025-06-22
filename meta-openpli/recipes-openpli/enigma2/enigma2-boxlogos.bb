@@ -17,8 +17,6 @@ do_configure[nostamp] = "1"
 
 SRC_URI = "git://github.com/DimitarCC/e2-boxlogos.git;protocol=https;branch=main"
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} = "${datadir}/enigma2/logos/ ${libdir}/enigma2/python/Components/Renderer/"
 
 do_install() {

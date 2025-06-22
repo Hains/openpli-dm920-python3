@@ -11,8 +11,6 @@ SRC_URI = " git://github.com/ddugovic/uShare.git;branch=master;protocol=https \
 			file://init \
 "
 
-S = "${WORKDIR}/git"
-
 inherit autotools-brokensep pkgconfig update-rc.d
 
 # the configure script is hand-crafted, it rejects some of the usual

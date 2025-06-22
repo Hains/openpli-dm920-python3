@@ -17,8 +17,6 @@ SRC_URI = " \
           file://rt8723bu-gcc5.patch \
           "
 
-S = "${WORKDIR}/git"
-
 MACHINE_KERNEL_PR:append = ".0"
 
 EXTRA_OEMAKE = "KSRC=${STAGING_KERNEL_DIR}"

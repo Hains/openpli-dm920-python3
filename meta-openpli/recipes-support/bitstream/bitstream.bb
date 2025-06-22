@@ -12,8 +12,6 @@ PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://code.videolan.org/videolan/bitstream.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 do_compile:prepend() {
 	sed -i 's#/usr/local#/usr#' ${S}/Makefile
 }

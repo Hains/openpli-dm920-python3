@@ -11,8 +11,6 @@ PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/OpenViX/HRTunerProxy.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 RCONFLICTS:${PN} = "enigma2-plugin-systemplugins-plexdvrapi"
 RREPLACES:${PN} = "enigma2-plugin-systemplugins-plexdvrapi"
 

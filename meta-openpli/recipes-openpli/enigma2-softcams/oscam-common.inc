@@ -18,7 +18,6 @@ LDFLAGS:prepend = "-ludev -ldvbcsa "
 
 GLIBC_64BIT_TIME_FLAGS = ""
 
-S = "${WORKDIR}/git"
 B = "${S}"
 
 CAMSTART = "/usr/bin/${CAMNAME} --wait 60 --config-dir /etc/tuxbox/config/${CAMNAME} --daemon --pidfile /tmp/${CAMNAME}.pid --restart 2"

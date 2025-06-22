@@ -10,6 +10,4 @@ SRC_URI = " git://code.videolan.org/videolan/${BPN}.git;protocol=https;branch=ma
 			file://libgcrypt-gpg-error-use-pkgconfig.patch \
 			"
 
-S = "${WORKDIR}/git"
-
 inherit autotools lib_package pkgconfig

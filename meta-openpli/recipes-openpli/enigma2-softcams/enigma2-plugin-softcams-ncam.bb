@@ -16,7 +16,6 @@ DEPENDS = "libusb openssl libdvbcsa"
 LDFLAGS:prepend = "-ludev -ldvbcsa "
 EXTRA_OECONF = "LIBDVBCSA=yes "
 
-S = "${WORKDIR}/git"
 B = "${S}"
 
 CAMNAME = "ncam"

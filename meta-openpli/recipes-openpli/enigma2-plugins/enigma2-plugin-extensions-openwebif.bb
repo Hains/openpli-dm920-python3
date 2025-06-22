@@ -31,8 +31,6 @@ SRC_URI = "git://github.com/oe-alliance/OpenWebif.git;protocol=https;branch=main
 		file://get-rid-of-six.patch \
 "
 
-S = "${WORKDIR}/git"
-
 do_compile() {
 	cheetah-compile -R --nobackup ${S}/plugin
 }

@@ -29,8 +29,6 @@ SRC_URI:append = " \
 	"
 EXTRA_OECONF = "--with-external-libupnp-prefix='${STAGING_LIBDIR}' --with-fuse-prefix='${STAGING_LIBDIR}'"
 
-S = "${WORKDIR}/git"
-
 do_configure:prepend() {
 	cp ${STAGING_DATADIR_NATIVE}/gettext/config.rpath ${S}/libupnp/config.aux/config.rpath
 }

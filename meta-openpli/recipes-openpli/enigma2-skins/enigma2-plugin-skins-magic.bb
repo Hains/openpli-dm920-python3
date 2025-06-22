@@ -21,7 +21,6 @@ FILES:${PN} = "${datadir}/enigma2/Magic"
 FILES:font-valis-enigma = "${datadir}/fonts/valis_enigma.ttf"
 
 RDEPENDS:${PN} = "font-valis-enigma"
-S = "${WORKDIR}/git"
 
 do_install() {
 	install -d ${D}${datadir}

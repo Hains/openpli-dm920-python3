@@ -9,5 +9,3 @@ PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://git.linuxtv.org/edid-decode.git;protocol=https;branch=master"
-
-S = "${WORKDIR}/git"

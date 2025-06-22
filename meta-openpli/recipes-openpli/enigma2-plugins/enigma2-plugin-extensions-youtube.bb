@@ -11,8 +11,6 @@ SRC_URI = " git://github.com/Taapat/enigma2-plugin-youtube.git;protocol=https;br
 			file://use-setuptools-instead-of-distutils.patch \
 "
 
-S = "${WORKDIR}/git"
-
 inherit gitpkgv setuptools3-openplugins
 
 PV = "1+git"

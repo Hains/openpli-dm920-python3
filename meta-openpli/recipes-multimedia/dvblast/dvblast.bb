@@ -14,8 +14,6 @@ DEPENDS = "bitstream libev"
 
 SRC_URI = "git://code.videolan.org/videolan/dvblast.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 do_compile:prepend() {
         sed -i 's#/usr/local#/usr#' ${S}/Makefile
 }

@@ -15,8 +15,6 @@ inherit gitpkgv autotools-brokensep pkgconfig update-rc.d gettext
 PV = "0.2+git"
 PKGV = "0.2+git${GITPKGV}"
 
-S = "${WORKDIR}/git"
-
 do_install:append() {
 	install -d ${D}${bindir}
 	install -m 0755 ${S}/src/tests/t2mi_decap ${D}${bindir}/

@@ -15,8 +15,6 @@ SRC_URI = " git://github.com/e2iplayer/hlsdl.git;protocol=https;branch=master \
 			file://make-hls-args-extern.patch \
 "
 
-S = "${WORKDIR}/git"
-
 SOURCE_FILES = "src/main.c"
 SOURCE_FILES =+ "src/aes_openssl.c"
 SOURCE_FILES =+ "src/curl.c"

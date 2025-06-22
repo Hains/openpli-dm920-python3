@@ -12,8 +12,6 @@ SRC_URI = "git://github.com/PD1LOI/Pd1loi-HD-night.git;protocol=https;branch=mai
 
 FILES:${PN} = "/usr"
 
-S = "${WORKDIR}/git"
-
 do_compile() {
 }
 
