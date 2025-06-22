@@ -8,8 +8,7 @@ SRC_URI = " http://downloads.openpli.org/softcams/CCcam-${PV}.zip;name=softcam \
 			http://downloads.openpli.org/softcams/CCcam.xml;name=ppanel \
 			"
 
-S = "${WORKDIR}/sources"
-UNPACKDIR = "${S}"
+S = "${UNPACKDIR}"
 
 require softcam.inc
 

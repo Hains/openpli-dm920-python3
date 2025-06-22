@@ -14,8 +14,7 @@ SRC_URI = " \
 PR = "r1"
 PV = "1.0"
 
-S = "${WORKDIR}/sources"
-UNPACKDIR = "${S}"
+S = "${UNPACKDIR}"
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 
