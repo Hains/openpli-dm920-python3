@@ -92,7 +92,7 @@ do_install:append() {
 	install -m 644 ${UNPACKDIR}/smbpasswd ${D}${sysconfdir}/samba/private
 }
 
-pkg_postinst:${BPN}-common:prepend() {
+pkg_postinst:${PN}-common:prepend() {
 #!/bin/sh
 
 if [ -z "$D" ]; then
