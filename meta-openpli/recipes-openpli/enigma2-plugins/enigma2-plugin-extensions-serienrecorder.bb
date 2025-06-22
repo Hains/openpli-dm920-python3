@@ -10,8 +10,8 @@ RDEPENDS:${PN} = "python3-sqlite3 python3-json python3-xmlrpc python3-email pyth
 
 SRC_URI = "\
 	git://github.com/einfall/serienrecorder.git;protocol=https;branch=master \
-	file://git/setup.py \
-	file://git/setup_translate.py \
+	file://${BPN}-${PV}/setup.py \
+	file://${BPN}-${PV}/setup_translate.py \
 	"
 
 inherit gitpkgv setuptools3-openplugins python3-compileall
