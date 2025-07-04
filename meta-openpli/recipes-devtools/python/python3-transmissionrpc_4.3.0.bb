@@ -11,7 +11,7 @@ SRC_URI = "https://files.pythonhosted.org/packages/61/15/98fcf6c008d8046b815bf56
 
 SRC_URI[sha256sum] = "8c29ee7021f7515ca943eae24a0f29c9ab7dc445c500f76f457023c940ea8f85"
 
-S = "${WORKDIR}/transmission_rpc-${PV}"
+S = "${UNPACKDIR}/transmission_rpc-${PV}"
 
 inherit python_poetry_core python_setuptools_build_meta
 

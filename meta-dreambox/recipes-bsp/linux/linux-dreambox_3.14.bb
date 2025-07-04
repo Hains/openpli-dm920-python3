@@ -43,8 +43,8 @@ SRC_URI[dream-patch.sha256sum] = "85a18df9f07e221c0fd305cc213e5557d9006a40b3229b
 
 require linux-dreambox_3.14.inc
 
-S = "${WORKDIR}/linux-${PV}"
-B = "${WORKDIR}/build"
+S = "${UNPACKDIR}/linux-${PV}"
+B = "${UNPACKDIR}/build"
 
 CMDLINE = "bmem=640M@384M bmem=384M@2048M console=ttyS0,1000000 root=/dev/mmcblk0p2 rootwait rootfstype=ext4 coherent_pool=2M"
 

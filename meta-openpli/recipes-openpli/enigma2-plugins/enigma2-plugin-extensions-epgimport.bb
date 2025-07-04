@@ -14,7 +14,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;protocol=https;branch=master \
            file://use-setuptools-instead-of-distutils.patch \
 "
 
-S = "${WORKDIR}/git/src"
+S = "${UNPACKDIR}/${PN}-${PV}/src"
 
 RDEPENDS:${PN} = "python3-compression python3-shell python3-pkgutil"
 RRECOMMENDS:${PN} = "${PN}-sources"

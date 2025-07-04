@@ -11,7 +11,7 @@ SRC_URI = "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb92
 SRC_URI[md5sum] = "aa2d0d73e71c5daa1a730f7b94272357"
 SRC_URI[sha256sum] = "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
 
-S = "${WORKDIR}/mutagen-${PV}"
+S = "${UNPACKDIR}/mutagen-${PV}"
 
 inherit setuptools3
 

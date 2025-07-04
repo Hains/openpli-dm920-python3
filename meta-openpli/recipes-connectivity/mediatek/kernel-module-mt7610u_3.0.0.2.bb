@@ -20,7 +20,7 @@ SRC_URI[sha256sum] = "c0061b9010b80c1fc09d78786317957044bde43e2a127ecefd66d4faa1
 
 FILES:${PN} += "${sysconfdir}/Wireless/mt7610uSTA/mt7610uSTACard.dat ${sysconfdir}/Wireless/mt7610uSTA/mt7610uSTA.dat ${sysconfdir}/Wireless/mt7610uSTA/SingleSKU.dat"
 
-S = "${WORKDIR}/mt7610u_wifi_sta_v3002_dpo_20130916"
+S = "${UNPACKDIR}/mt7610u_wifi_sta_v3002_dpo_20130916"
 
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR}"
 

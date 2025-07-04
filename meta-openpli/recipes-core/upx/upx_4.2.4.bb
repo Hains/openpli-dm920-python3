@@ -11,7 +11,7 @@ inherit cmake
 SRC_URI = "https://github.com/upx/upx/releases/download/v${PV}/upx-${PV}-src.tar.xz"
 SRC_URI[sha256sum] = "5ed6561607d27fb4ef346fc19f08a93696fa8fa127081e7a7114068306b8e1c4"
 
-S = "${WORKDIR}/upx-${PV}-src"
+S = "${UNPACKDIR}/upx-${PV}-src"
 
 do_install(){
     install -d ${D}${bindir}

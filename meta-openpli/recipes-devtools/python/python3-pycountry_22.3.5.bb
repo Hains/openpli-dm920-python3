@@ -13,4 +13,4 @@ SRC_URI = "https://files.pythonhosted.org/packages/33/24/033604d30f6cf82d661c0f9
 SRC_URI[md5sum] = "47a8668fc5d86fcd2c608c19846e2912"
 SRC_URI[sha256sum] = "b2163a246c585894d808f18783e19137cb70a0c18fb36748dc01fc6f109c1646"
 
-S = "${WORKDIR}/pycountry-${PV}"
+S = "${UNPACKDIR}/pycountry-${PV}"

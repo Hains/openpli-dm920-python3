@@ -11,7 +11,7 @@ PV = "1.12"
 
 SRC_URI = "file://blindscan-utils_1.12_cortexa15hf-neon-vfpv4.tar.xz"
 
-S = "${WORKDIR}/blindscan-utils_${PV}_${DEFAULTTUNE}"
+S = "${UNPACKDIR}/blindscan-utils_${PV}_${DEFAULTTUNE}"
 
 PACKAGES = "${PN}"
 
