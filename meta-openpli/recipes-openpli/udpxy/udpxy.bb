@@ -15,7 +15,7 @@ SRC_URI = " git://github.com/pcherenkov/udpxy.git;protocol=https;branch=master \
 			file://udpxy.sh \
 			"
 
-S = "${UNPACKDIR}/${PN}-${PV}/chipmunk"
+S = "${UNPACKDIR}/${BP}/chipmunk"
 
 FILES:${PN} = "${bindir}/* ${sysconfdir}/init.d/udpxy.sh"
 

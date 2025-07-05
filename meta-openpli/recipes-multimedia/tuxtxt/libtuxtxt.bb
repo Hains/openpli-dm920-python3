@@ -10,7 +10,7 @@ SRC_URI = " ${GITHUB_URI}/OpenPLi/tuxtxt.git;protocol=https;branch=master \
 			file://0001-fix-secfault-w-use-wrong-line_length.patch \
 			"
 
-S = "${UNPACKDIR}/${PN}-${PV}/libtuxtxt"
+S = "${UNPACKDIR}/${BP}/libtuxtxt"
 
 PV = "2.0+git"
 PKGV = "2.0+git${GITPKGV}"
