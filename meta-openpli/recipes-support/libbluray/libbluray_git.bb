@@ -8,7 +8,7 @@ DEPENDS = "libxml2"
 
 SRC_URI = "gitsm://code.videolan.org/videolan/libbluray.git;protocol=https;branch=master"
 
-inherit gitpkgv setuptools3 autotools-brokensep pkgconfig
+inherit gitpkgv setuptools3 meson pkgconfig
 
 PV = "v1.1.0+git"
 PKGV = "v1.1.0+git${GITPKGV}"
