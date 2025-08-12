@@ -8,5 +8,5 @@ SRC_URI = "git://code.videolan.org/videolan/libudfread.git;branch=master;protoco
 
 inherit gitpkgv meson pkgconfig
 
-PV = "1.0.0+git"
-PKGV = "1.0.0+git${GITPKGV}"
+PV = "1.2.0+git"
+PKGV = "1.2.0+git${GITPKGV}"
