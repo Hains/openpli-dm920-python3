@@ -31,6 +31,8 @@ SRC_URI = "git://github.com/rclone/rclone;protocol=https;branch=master \
 GOPATH = "${TMPDIR}/go/"
 export GOPATH
 
+TARGET_CC_ARCH += "${LDFLAGS}"
+
 do_compile() {
     GOPROXY=https://proxy.golang.org,direct
     export GOPROXY
