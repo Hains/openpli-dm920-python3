@@ -1,8 +1,10 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-PV = "2.5.0"
+DEPENDS:append = " jsoncpp icu"
 
-SRCREV = "92261f4994b0875a60c6288592fc8bbe953eea25"
+PV = "2.6.1"
+
+SRCREV = "89b37a28d9f648502c617d15a0194669d0e54a94"
 
 SRC_URI:append = " \
            file://config.xml \
@@ -23,6 +25,6 @@ do_install:append() {
     fi
 }
 
-FILES:${PN} += "${sysconfdir}"
+FILES:${PN} += "${sysconfdir} ${datadir}/bash-completion"
 
 CONFFILES:${PN} = "${sysconfdir}/gerbera/config.xml"
