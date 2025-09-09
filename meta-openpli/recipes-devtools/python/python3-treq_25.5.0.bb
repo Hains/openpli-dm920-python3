@@ -7,9 +7,9 @@ MAINTAINER = "Tom Most <twm@freecog.net>"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a5dd67fd17479587f7093769d95ef186"
 
-inherit pypi setuptools3
+inherit pypi python_hatchling
 
-SRC_URI[sha256sum] = "15da7fc404f3e4ed59d0abe5f8eef4966fabbe618039a2a23bc7c15305cefea8"
+SRC_URI[sha256sum] = "25dde3a55ae85ec2f2c56332c99aef255ab14f997d0d00552ebff13538a9804a"
 
 DEPENDS += "python3-incremental-native"
 
