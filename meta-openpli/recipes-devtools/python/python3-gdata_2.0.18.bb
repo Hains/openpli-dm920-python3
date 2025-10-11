@@ -15,6 +15,5 @@ FILES:${PN} += "${datadir}"
 RDEPENDS:${PN} = " \
     python3-json \
     python3-netserver \
-    python3-stringold \
     python3-xml \
 "
