@@ -2,9 +2,9 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 DEPENDS:append = " jsoncpp icu"
 
-PV = "2.6.1"
+PV = "pre2.7"
 
-SRCREV = "89b37a28d9f648502c617d15a0194669d0e54a94"
+SRCREV = "29924b6d0667eedb9881bf262a764a35f92823dc"
 
 SRC_URI:append = " \
            file://config.xml \
