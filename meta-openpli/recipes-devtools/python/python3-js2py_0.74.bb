@@ -3,17 +3,17 @@ DESCRIPTION = "Translates JavaScript to Python code. Js2Py is able to translate 
 HOMEPAGE = "https://pypi.python.org/pypi/Js2Py"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://PKG-INFO;md5=0e657c467f9c43e1e317b1ff5bef6c80"
+LIC_FILES_CHKSUM = "file://PKG-INFO;md5=8d0781267244a59a92ee444c65e6b8c4"
 
 PR = "r0"
 
-SRC_URI = "https://pypi.python.org/packages/52/f8/e0d81d2a1db4025fa6dfa2e0a63f7234d958e11a0497e58c2ff15394c5cb/Js2Py-${PV}.tar.gz"
+SRC_URI = "https://files.pythonhosted.org/packages/cb/a5/3d8b3e4511cc21479f78f359b1b21f1fb7c640988765ffd09e55c6605e3b/Js2Py-0.74.tar.gz"
 
 S = "${UNPACKDIR}/Js2Py-${PV}"
 
 inherit setuptools3
 
-SRC_URI[md5sum] = "c40b07dc7e8e51d268a70146e32b0603"
-SRC_URI[sha256sum] = "3bdc8c57518a21cec2cb97a922ecaeb826471d5e13de45a63a91a2b16ad3a1ac"
+SRC_URI[md5sum] = "92828a45dd6a8a20843500305a57ec78"
+SRC_URI[sha256sum] = "39f3a6aa8469180efba3c8677271df27c31332fd1b471df1af2af58b87b8972f"
 
 include python3-package-split.inc
