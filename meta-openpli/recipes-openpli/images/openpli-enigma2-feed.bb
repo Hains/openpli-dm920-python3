@@ -101,6 +101,7 @@ OPTIONAL_PACKAGES += " \
 	python-js2py \
 	python3-daap \
 	python3-future \
+	python3-iniparse \
 	python3-levenshtein \
 	python3-lxml \
 	python3-mechanize \
