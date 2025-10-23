@@ -18,7 +18,7 @@ Dependencies:
 sudo apt install -y autoconf automake bison bzip2 cvs default-jre diffstat flex g++ gawk gcc gettext git git-lfs gzip help2man make ncurses-bin lib32ncurses-dev libc6-dev libtool lz4 texinfo patch perl pkg-config subversion tar texi2html zlib1g-dev chrpath libxml2-utils xsltproc libglib2.0-dev python3-setuptools libc6-i386 genromfs guile-2.2-libs quilt zstd
 ```
 <br>
-Note Ubuntu 24.04 LTS and newer.<br>
+Note for Ubuntu 24.04 LTS and newer.<br>
 
 Due to new security features, add new /etc/sysctl.d/60-apparmor-namespace.conf file with the following contents:
 ```
@@ -26,8 +26,17 @@ kernel.apparmor_restrict_unprivileged_userns=0
 ```
 See:
 https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890
-
-<br><br>To build image:
+<br><br>
+Note for Ubuntu 25.10.<br>
+Use coreutils instead of rust-coreutils.<br>
+https://bugzilla.yoctoproject.org/show_bug.cgi?id=16028<br>
+https://discourse.ubuntu.com/t/migration-to-rust-coreutils-in-25-10/59708
+<br>
+Run:<br>
+```
+apt install coreutils-from-gnu coreutils-from-uutils- --allow-remove-essential
+```
+<br>To build image:
 ```
 git clone https://github.com/Hains/openpli-dm920-python3.git
 
