@@ -34,7 +34,7 @@ https://discourse.ubuntu.com/t/migration-to-rust-coreutils-in-25-10/59708
 <br>
 Run:<br>
 ```
-apt install coreutils-from-gnu coreutils-from-uutils- --allow-remove-essential
+sudo apt install coreutils-from-gnu coreutils-from-uutils- --allow-remove-essential
 ```
 <br>To build image:
 ```
