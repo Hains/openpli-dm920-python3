@@ -8,7 +8,7 @@ SRC_URI = "git://github.com/rapidfuzz/rapidfuzz;branch=main;protocol=https"
 
 inherit gitpkgv pkgconfig scikit-build-core
 
-PV = "3.12.2.+git"
-PKGV = "3.12.2+git${GITPKGV}"
+PV = "3.14.2.+git"
+PKGV = "3.14.2+git${GITPKGV}"
 
 FILES:${PN} = "${PYTHON_SITEPACKAGES_DIR}"
