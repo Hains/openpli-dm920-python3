@@ -176,6 +176,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-jediepgxtream \
 	enigma2-plugin-extensions-jedimakerxtream \
 	enigma2-plugin-extensions-moviemanager \
+	enigma2-plugin-extensions-plutotv \
 	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-serienrecorder \
 	enigma2-plugin-extensions-subssupport \
