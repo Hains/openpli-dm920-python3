@@ -8,5 +8,6 @@ DEPENDS = " \
 	enigma2-plugin-softcams-cccam \
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-softcams-oscam-emu \
+	enigma2-plugin-softcams-oscam-whitelist \
 	enigma2-plugin-softcams-ncam \
 	"
