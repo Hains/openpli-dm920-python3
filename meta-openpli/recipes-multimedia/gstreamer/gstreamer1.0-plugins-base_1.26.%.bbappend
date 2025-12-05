@@ -1,8 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-PV = "1.26.8"
+PV = "1.26.9"
 
-SRC_URI[sha256sum] = "513cace4b02cb183ee47665d64bb2a25088abb6678c4cc57bb100b841add746b"
+SRC_URI[sha256sum] = "11db4ec9ae5be2194ff8ccf2b5fecdc069252fe4416921b083a921ef71dd000a"
 
 SRC_URI:append = " file://001-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
                    file://002-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
