@@ -25,13 +25,13 @@ RDEPENDS:${PN} = "python3-core \
 inherit setuptools3 python3-dir gitpkgv
 
 SRCREV_plugins = "${AUTOREV}"
-SRCREV_FORMAT = "streamlink_plugins"
+SRCREV_FORMAT = "streamlink"
 
-PV = "6.8.3+git"
-PKGV = "6.8.3+${GITPKGV}"
+PV = "8.1.0+git"
+PKGV = "8.1.0+${GITPKGV}"
 
-SRC_URI = " git://github.com/streamlink/streamlink;protocol=https;branch=master \
-			git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
+SRC_URI = "git://github.com/streamlink/streamlink;protocol=https;branch=master;name=streamlink \
+           git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
 "
 
 do_unpack:append() {
