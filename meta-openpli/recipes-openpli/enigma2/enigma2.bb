@@ -109,12 +109,9 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://04-move-lcd-text-a-bit-to-the-right.patch \
 			file://05-make-front-led-configurable.patch \
 			file://06-suppress-sign-compare-error.patch \
-			file://07-expliciet-close-opened-file.patch \
 			file://08-dual-tuner-letter-detection.patch \
 			file://09-update-cutlist-to-beyonwich.patch \
-			file://10-fix-build-swig-4.3.patch \
 			file://11-Add-remote-control-dmm2.patch \
-			file://12-fix-array-index-out-of-bounds-error.patch \
 			file://13-restore-last-update-date-time.patch \
 			file://14-fix-framebuffer-and-use-ion-to-allocate-accel-memory.patch \
 			file://15-display-openssl-version.patch \
