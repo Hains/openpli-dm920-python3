@@ -1,9 +1,15 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
+DEPENDS:append = " libzip libzippp"
+
 SRC_URI:append = " \
            file://config.xml \
            file://init \
 "
+
+PV = "3.1.0"
+
+SRCREV = "78a1147e65347f12a4a0ae2ec5d43930a9f6f3ba"
 
 inherit update-rc.d gitpkgv
 
