@@ -1,0 +1,15 @@
+diff --git a/setup.py b/setup.py
+index f84c128..41a6ab8 100644
+--- a/setup.py
++++ b/setup.py
+@@ -90,8 +90,8 @@ with open(join(here, "html5lib", "__init__.py"), "rb") as init_file:
+         if (len(a.targets) == 1 and
+                 isinstance(a.targets[0], ast.Name) and
+                 a.targets[0].id == "__version__" and
+-                isinstance(a.value, ast.Str)):
+-            version = a.value.s
++                isinstance(a.value, ast.Constant)):
++            version = a.value.value
+ 
+ setup(name='html5lib',
+       version=version,
