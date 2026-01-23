@@ -27,8 +27,8 @@ inherit setuptools3 python3-dir gitpkgv
 SRCREV_plugins = "${AUTOREV}"
 SRCREV_FORMAT = "streamlink"
 
-PV = "8.1.0+git"
-PKGV = "8.1.0+${GITPKGV}"
+PV = "8.1.2+git"
+PKGV = "8.1.2+${GITPKGV}"
 
 SRC_URI = "git://github.com/streamlink/streamlink;protocol=https;branch=master;name=streamlink \
            git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
@@ -47,6 +47,7 @@ do_install:append() {
 	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/streamlink_cli
 	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/*.egg-info
 	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/streamlink/plugins/.removed
+	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/*dist-info
 	rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/*dirty.dist-info
 	rm -rf ${D}${datadir}
 }
