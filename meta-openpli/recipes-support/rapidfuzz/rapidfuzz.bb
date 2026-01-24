@@ -4,9 +4,7 @@ LIC_FILES_CHKSUM = "file://${S}/README.md;md5=a4e4fa0d1e6816df0d77aef42a515dbb"
 
 DEPENDS += "python3-cython-native"
 
-SRC_URI = "git://github.com/rapidfuzz/rapidfuzz;branch=main;protocol=https \
-           file://bump-mac-version-cython.patch \   
-"
+SRC_URI = "git://github.com/rapidfuzz/rapidfuzz;branch=main;protocol=https"
 
 inherit gitpkgv pkgconfig scikit-build-core
 
