@@ -20,6 +20,9 @@ RDEPENDS:${PN} = "python3-core \
 	python3-shell \
 	python3-singledispatch \
 	python3-websocket-client \
+	python3-certifi \
+	python3-urllib3 \
+	python3-trio-websocket \
 "
 
 inherit setuptools3 python3-dir gitpkgv
