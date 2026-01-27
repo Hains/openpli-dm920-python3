@@ -21,3 +21,5 @@ FILES:${PN}-test += " \
         ${PYTHON_SITEPACKAGES_DIR}/zope/interface/tests \
         ${PYTHON_SITEPACKAGES_DIR}/zope/interface/common/tests \
 "
+
+include python3-package-split.inc
