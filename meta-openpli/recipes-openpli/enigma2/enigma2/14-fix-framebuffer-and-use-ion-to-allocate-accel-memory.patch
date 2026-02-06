@@ -3,17 +3,17 @@ https://github.com/openatv/enigma2/commit/0f049825127cc7df976f3c4a7787894f64f6a6
 
 ---
  interfaces/ion.h  | 204 ++++++++++++++++++++++++++++++++++++++++++++++
- lib/gdi/fb.cpp    | 117 ++++++++++++++++++++------
+ lib/gdi/fb.cpp    | 170 +++++++++++++++++++++-----------------
  lib/gdi/fb.h      |   1 +
  lib/gdi/gfbdc.cpp |  46 +++++++++--
  lib/gdi/grc.cpp   |  13 +++
  lib/gdi/grc.h     |   3 +
- 6 files changed, 352 insertions(+), 32 deletions(-)
+ 6 files changed, 352 insertions(+), 85 deletions(-)
  create mode 100644 interfaces/ion.h
 
 diff --git a/interfaces/ion.h b/interfaces/ion.h
 new file mode 100644
-index 000000000..3af51b418
+index 0000000000..3af51b4188
 --- /dev/null
 +++ b/interfaces/ion.h
 @@ -0,0 +1,204 @@
@@ -222,10 +222,10 @@ index 000000000..3af51b418
 +
 +#endif /* _UAPI_LINUX_ION_H */
 diff --git a/lib/gdi/fb.cpp b/lib/gdi/fb.cpp
-index 66c1e5e56..d2c5b27c2 100644
+index 5d5a22155e..9e9c448ec2 100644
 --- a/lib/gdi/fb.cpp
 +++ b/lib/gdi/fb.cpp
-@@ -13,10 +13,11 @@
+@@ -17,10 +17,11 @@
  #define FBIO_WAITFORVSYNC _IOW('F', 0x20, uint32_t)
  #endif
  
@@ -241,7 +241,7 @@ index 66c1e5e56..d2c5b27c2 100644
  
  fbClass *fbClass::instance;
  
-@@ -39,6 +40,8 @@ fbClass::fbClass(const char *fb)
+@@ -50,6 +51,8 @@ fbClass::fbClass(const char *fb)
  	cmap.blue=blue;
  	cmap.transp=trans;
  
@@ -250,11 +250,11 @@ index 66c1e5e56..d2c5b27c2 100644
  	fbFd=open(fb, O_RDWR);
  	if (fbFd<0)
  	{
-@@ -64,10 +67,81 @@ fbClass::fbClass(const char *fb)
- 	m_phys_mem = fix.smem_start;
- 	eDebug("[fb] %s: %dk video mem", fb, available/1024);
- 	lfb=(unsigned char*)mmap(0, available, PROT_WRITE|PROT_READ, MAP_SHARED, fbFd, 0);
--	if (!lfb)
+@@ -78,10 +81,81 @@ fbClass::fbClass(const char *fb)
+ 	eDebug("[fb] %s: %dk video mem", fb, m_available_total/1024);
+ 	m_lfb_base=(unsigned char*)mmap(0, m_available_total, PROT_WRITE|PROT_READ, MAP_SHARED, fbFd, 0);
+ 	lfb = m_lfb_base;
+-	if (!m_lfb_base)
 +
 +	/* allocate accel memory here... its independent from the framebuffer */
 +	ion = open("/dev/ion", O_RDWR | O_CLOEXEC);
@@ -335,7 +335,7 @@ index 66c1e5e56..d2c5b27c2 100644
  	}
  
  	showConsole(0);
-@@ -100,6 +174,11 @@ int fbClass::showConsole(int state)
+@@ -114,6 +188,11 @@ int fbClass::showConsole(int state)
  
  int fbClass::SetMode(int nxRes, int nyRes, int nbpp)
  {
@@ -347,7 +347,7 @@ index 66c1e5e56..d2c5b27c2 100644
  	if (fbFd < 0) return -1;
  	screeninfo.xres_virtual=screeninfo.xres=nxRes;
  	screeninfo.yres_virtual=(screeninfo.yres=nyRes)*2;
-@@ -148,6 +227,7 @@ int fbClass::SetMode(int nxRes, int nyRes, int nbpp)
+@@ -162,6 +241,7 @@ int fbClass::SetMode(int nxRes, int nyRes, int nbpp)
  		eDebug("[fb] double buffering available!");
  
  	m_number_of_pages = screeninfo.yres_virtual / nyRes;
@@ -355,32 +355,83 @@ index 66c1e5e56..d2c5b27c2 100644
  
  	ioctl(fbFd, FBIOGET_VSCREENINFO, &screeninfo);
  
-@@ -167,6 +247,12 @@ int fbClass::SetMode(int nxRes, int nyRes, int nbpp)
- 		eDebug("[fb] FBIOGET_FSCREENINFO: %m");
+@@ -182,6 +262,10 @@ int fbClass::SetMode(int nxRes, int nyRes, int nbpp)
  	}
+ 
  	stride=fix.line_length;
-+	
 +	m_phys_mem = fix.smem_start;
 +	available = fix.smem_len;
 +	/* map new framebuffer */
 +	lfb=(unsigned char*)mmap(0, stride * screeninfo.yres_virtual, PROT_WRITE|PROT_READ, MAP_SHARED, fbFd, 0);
-+	
  	memset(lfb, 0, stride*yRes);
- 	blit();
- 	return 0;
-@@ -196,11 +282,6 @@ int fbClass::waitVSync()
+ 
+ #ifdef HAVE_HIFBLAYER
+@@ -261,64 +347,6 @@ int fbClass::waitVSync()
  
  void fbClass::blit()
  {
+-
 -	if (fbFd < 0) return;
--	if (m_manual_blit == 1) {
+-	if (m_manual_blit == 0) {
+-		return;
+-	}
+-
+-	if (m_phys_mem == m_phys_mem_base)
+-	{
 -		if (ioctl(fbFd, FBIO_BLIT) < 0)
 -			eDebug("[fb] FBIO_BLIT: %m");
 -	}
+-#ifdef HAVE_HIFBLAYER
+-	else
+-	{
+-		// HI Buffer layer mode
+-		HIFB_BUFFER_S CanvasBuf;
+-		CanvasBuf.stCanvas.u32PhyAddr = m_phys_mem;
+-		CanvasBuf.stCanvas.u32Height  = yRes;
+-		CanvasBuf.stCanvas.u32Width   = xRes;
+-
+-		switch (bpp) {
+-		case 16:
+-			CanvasBuf.stCanvas.enFmt  = HIFB_FMT_ARGB1555;
+-			break;
+-		case 32:
+-			CanvasBuf.stCanvas.enFmt  = HIFB_FMT_ARGB8888;
+-			break;
+-		default:
+-			eDebug("[fb] WRONG BPP: %d", bpp);
+-		}
+-
+-		CanvasBuf.stCanvas.u32Pitch   = xRes * (bpp/8);
+-
+-		// Ideally, only the dirty region modified by Enigma2 since the previous refresh
+-		// should be updated instead of refreshing the full screen.
+-		// However, the refresh is performed via DMA transfer, which is fast enough
+-		// to sustain full FPS (60 Hz and 50 Hz), so a full-screen update is acceptable.
+-		CanvasBuf.UpdateRect.x = 0;
+-		CanvasBuf.UpdateRect.y = 0;
+-		CanvasBuf.UpdateRect.w = CanvasBuf.stCanvas.u32Width;
+-		CanvasBuf.UpdateRect.h = CanvasBuf.stCanvas.u32Height;
+-
+-		if (ioctl(fbFd, FBIO_REFRESH, &CanvasBuf) < 0)
+-		{
+-			eDebug("[fb] FBIO_REFRESH: %m");
+-		}
+-
+-#if 0
+-		// Not required when using HIFB_LAYER_BUF_DOUBLE_IMMEDIATE,
+-		// as the refresh is applied immediately and does not need
+-		// an explicit wait for completion.
+-		if (ioctl(fbFd, FBIO_WAITFOR_FREFRESH_DONE, NULL) < 0)
+-		{
+-			eDebug("[fb] FBIO_WAITFOR_FREFRESH_DONE: %m");
+-		}
+-#endif
+-	}
+-#endif // HAVE_HIFBLAYER
  }
  
  fbClass::~fbClass()
-@@ -252,21 +333,9 @@ void fbClass::unlock()
+@@ -370,21 +398,9 @@ void fbClass::unlock()
  
  void fbClass::enableManualBlit()
  {
@@ -403,10 +454,10 @@ index 66c1e5e56..d2c5b27c2 100644
  }
  
 diff --git a/lib/gdi/fb.h b/lib/gdi/fb.h
-index 0eb04915d..a4fdb8522 100644
+index 1ca688b415..951544ea07 100644
 --- a/lib/gdi/fb.h
 +++ b/lib/gdi/fb.h
-@@ -29,6 +29,7 @@ public:
+@@ -32,6 +32,7 @@ public:
  #else
  public:
  	unsigned char *lfb;
@@ -415,7 +466,7 @@ index 0eb04915d..a4fdb8522 100644
  	void disableManualBlit();
  	int showConsole(int state);
 diff --git a/lib/gdi/gfbdc.cpp b/lib/gdi/gfbdc.cpp
-index 588e5723a..f9518b89b 100644
+index 1be9f6c2e3..6ca0109edd 100644
 --- a/lib/gdi/gfbdc.cpp
 +++ b/lib/gdi/gfbdc.cpp
 @@ -4,15 +4,21 @@
@@ -515,7 +566,7 @@ index 588e5723a..f9518b89b 100644
  
  void gFBDC::saveSettings()
 diff --git a/lib/gdi/grc.cpp b/lib/gdi/grc.cpp
-index 723286264..d14efca50 100644
+index e515113cfb..6d6d62203b 100644
 --- a/lib/gdi/grc.cpp
 +++ b/lib/gdi/grc.cpp
 @@ -65,6 +65,19 @@ void gRC::unlock()
@@ -539,7 +590,7 @@ index 723286264..d14efca50 100644
  
  gRC::~gRC()
 diff --git a/lib/gdi/grc.h b/lib/gdi/grc.h
-index 071e04599..efff43011 100644
+index 2c218c5616..f4db68dbf9 100644
 --- a/lib/gdi/grc.h
 +++ b/lib/gdi/grc.h
 @@ -260,6 +260,9 @@ public:
@@ -553,5 +604,5 @@ index 071e04599..efff43011 100644
  
  	void setSpinnerDC(gDC *dc) { m_spinner_dc = dc; }
 -- 
-2.19.1
+2.51.0
 
