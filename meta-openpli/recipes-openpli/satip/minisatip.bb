@@ -16,7 +16,7 @@ PV = "${UPSTREAMVERSION}+git"
 
 BUILD = "${WORKDIR}/git"
 
-inherit autotools-brokensep update-rc.d
+inherit cmake update-rc.d
 
 INITSCRIPT_NAME = "minisatip"
 
@@ -31,7 +31,7 @@ do_install () {
     install -d -m 0755 ${D}/${bindir}
     install -d -m 0755 ${D}/${datadir}/${PN}
     install -d -m 0755 ${D}/etc/init.d
-    install -m 0755 ${S}/minisatip ${D}/${bindir}/
+    install -m 0755 ${B}/minisatip ${D}/${bindir}/
     install -m 0755 ${UNPACKDIR}/minisatip.sh ${D}/etc/init.d/minisatip
     cp -r --preserve=timestamps ${S}/html ${D}/${datadir}/${PN}
 }
