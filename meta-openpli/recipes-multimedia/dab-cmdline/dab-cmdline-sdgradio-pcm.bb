@@ -1,0 +1,28 @@
+SUMMARY = "DAB decoding library with example of its use"
+SECTION = "libs/multimedia"
+LICENSE = "GPL-2.0-only"
+LIC_FILES_CHKSUM = "file://../LICENSE;md5=b234ee4d69f5fce4486a80fdaf4a4263"
+
+DEPENDS = "fftw libusb1 faad2 zlib rtl-sdr"
+RDEPENDS:${PN} = "rtl-sdr"
+
+inherit gitpkgv
+
+PV = "1.3+git"
+PKGV = "1.3+git${GITPKGV}"
+
+SRC_URI = "git://github.com/satdreamgr/dab-cmdline.git;protocol=https;branch=sdgradio"
+
+EXTRA_OECMAKE = "-DRTLSDR=ON -DCMAKE_INSTALL_PREFIX=/usr/bin -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+S = "${UNPACKDIR}/${BP}/sdgradio"
+
+inherit cmake pkgconfig
+
+do_configure:prepend() {
+	sed -i -e 's:librtlsdr.so:librtlsdr.so.0:g' ${UNPACKDIR}/${BP}/devices/rtlsdr-handler/rtlsdr-handler.cpp
+}
+
+do_install:append() {
+	mv ${D}${bindir}/dab-rtlsdr-sdgradio ${D}${bindir}/dab-rtlsdr-sdgradio-pcm
+}
