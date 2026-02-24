@@ -1,5 +1,3 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+PV = "3.6.1"
 
-PV = "3.6.0"
-
-SRC_URI[sha256sum] = "b6a5f44b7eb69e3fa35dbf15524405b44837a481d43d81daddde3ff21fcbb8e9"
+SRC_URI[sha256sum] = "b1bfedcd5b289ff22aee87c9d600f515767ebf45f77168cb6d64f231f518a82e"
