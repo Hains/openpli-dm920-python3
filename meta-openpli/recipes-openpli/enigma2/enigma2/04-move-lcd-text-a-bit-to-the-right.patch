@@ -1,8 +1,8 @@
 diff --git a/lib/gdi/lcd.cpp b/lib/gdi/lcd.cpp
-index 20e5f7824..bc64db0b9 100644
+index fd0376b95a..f12eefd1fb 100644
 --- a/lib/gdi/lcd.cpp
 +++ b/lib/gdi/lcd.cpp
-@@ -265,7 +265,18 @@ void eDBoxLCD::update()
+@@ -268,7 +268,18 @@ void eDBoxLCD::update()
  			write(lcdfd, raw, _stride * height);
  		}
  		else
