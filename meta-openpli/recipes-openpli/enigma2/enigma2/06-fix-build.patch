@@ -1,0 +1,52 @@
+diff --git a/lib/gdi/lcd.cpp b/lib/gdi/lcd.cpp
+index f3acb70274..5c2b078da9 100644
+--- a/lib/gdi/lcd.cpp
++++ b/lib/gdi/lcd.cpp
+@@ -220,6 +220,7 @@ eDBoxLCD::~eDBoxLCD()
+ void eDBoxLCD::update()
+ {
+ #ifndef HAVE_TEXTLCD
++	ssize_t bytes_written;
+ 	if (lcdfd < 0)
+ 		return;
+ 
+@@ -244,7 +245,7 @@ void eDBoxLCD::update()
+ 					raw[y * 132 + x] = pix ^ inverted;
+ 			}
+ 		}
+-		write(lcdfd, raw, 132 * 8);
++		bytes_written = write(lcdfd, raw, 132 * 8);
+ 	}
+ 	else if (lcd_type == 3)
+ 	{
+@@ -265,7 +266,7 @@ void eDBoxLCD::update()
+ 						raw[y * width + x] = _buffer[y * width + x] ^ inverted;
+ 				}
+ 			}
+-			write(lcdfd, raw, _stride * height);
++			bytes_written = write(lcdfd, raw, _stride * height);
+ 		}
+ 		else
+ 		{
+@@ -278,7 +279,7 @@ void eDBoxLCD::update()
+ 			//                                             blue                         red                  green low                     green high
+ 			((unsigned int*)gb_buffer)[offset] = ((src >> 3) & 0x001F001F) | ((src << 3) & 0xF800F800) | ((src >> 8) & 0x00E000E0) | ((src << 8) & 0x07000700);
+ 			}
+-			write(lcdfd, gb_buffer, _stride * res.height());
++			bytes_written = write(lcdfd, gb_buffer, _stride * res.height());
+ 		}
+ 	}
+ 	else /* lcd_type == 1 */
+@@ -306,7 +307,11 @@ void eDBoxLCD::update()
+ 					raw[y * 64 + x] = pix;
+ 			}
+ 		}
+-		write(lcdfd, raw, 64 * 64);
++		bytes_written = write(lcdfd, raw, 64 * 64);
++	}
++	if (bytes_written != 0)
++	{
++		eDebug("[eDboxLCD] An error with write() has occured");
+ 	}
+ #endif
+ }
