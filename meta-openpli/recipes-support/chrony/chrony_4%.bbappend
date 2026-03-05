@@ -7,5 +7,5 @@ SRC_URI += " \
 do_install:append() {
 	# if-up script
 	install -d ${D}${sysconfdir}/network/if-up.d
-	install -c -m 755 ${WORKDIR}/chronyc.sh ${D}${sysconfdir}/network/if-up.d/chronyc.sh
+	install -c -m 755 ${UNPACKDIR}/chronyc.sh ${D}${sysconfdir}/network/if-up.d/chronyc.sh
 }
