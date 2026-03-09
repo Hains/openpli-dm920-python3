@@ -30,8 +30,8 @@ inherit setuptools3 python3-dir gitpkgv
 SRCREV_plugins = "${AUTOREV}"
 SRCREV_FORMAT = "streamlink"
 
-PV = "8.1.2+git"
-PKGV = "8.1.2+${GITPKGV}"
+PV = "8.2.1+git"
+PKGV = "8.2.1+${GITPKGV}"
 
 SRC_URI = "git://github.com/streamlink/streamlink;protocol=https;branch=master;name=streamlink \
            git://github.com/oe-mirrors/streamlink-plugins;protocol=https;branch=master;name=plugins;destsuffix=additional-plugins \
