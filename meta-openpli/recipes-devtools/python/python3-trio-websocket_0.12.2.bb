@@ -10,6 +10,8 @@ include python3-package-split.inc
 inherit pypi setuptools3
 SRC_URI[sha256sum] = "22c72c436f3d1e264d0910a3951934798dcc5b00ae56fc4ee079d46c7cf20fae"
 
+SRC_UR:append = " remove-pkg-resources.patch"
+
 RDEPENDS:${PN} = " \
 	python3-outcome \
 	python3-trio \
