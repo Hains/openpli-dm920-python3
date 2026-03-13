@@ -12,6 +12,7 @@ PKGV = "1+git${GITPKGV}"
 
 SRC_URI = " git://github.com/pcherenkov/udpxy.git;protocol=https;branch=master \
 			file://fix-build-with-gcc8.patch \
+			file://fix-build-glibc-243.patch \
 			file://udpxy.sh \
 			"
 
