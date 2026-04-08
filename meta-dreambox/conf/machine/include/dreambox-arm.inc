@@ -64,7 +64,7 @@ TARGET_ARCH = "arm"
 DEFAULTTUNE = "cortexa15hf-neon-vfpv4"
 OLDEST_KERNEL = "3.14"
 
-MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc gobject-introspection-data"
+MACHINE_FEATURES_OPTED_OUT = "rtc gobject-introspection-data"
 
 DREAMBOX_IMAGE_SIZE ??= "1024"
 
