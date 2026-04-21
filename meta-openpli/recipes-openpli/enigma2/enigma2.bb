@@ -109,6 +109,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=h
 			file://04-fix-unused-result-error.patch \
 			file://05-make-front-led-configurable.patch \
 			file://06-move-lcd-text-a-bit-to-the-right.patch \
+			file://07-fix-build-openssl400.patch \
 			file://08-dual-tuner-letter-detection.patch \
 			file://09-update-cutlist-to-beyonwich.patch \
 			file://11-Add-remote-control-dmm2.patch \
