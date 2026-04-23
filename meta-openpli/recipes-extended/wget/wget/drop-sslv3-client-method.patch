@@ -1,0 +1,14 @@
+diff --git a/src/openssl.c b/src/openssl.c
+index a970875..f65e49a 100644
+--- a/src/openssl.c
++++ b/src/openssl.c
+@@ -226,9 +226,6 @@ ssl_init (void)
+       break;
+ 
+     case secure_protocol_sslv3:
+-#ifndef OPENSSL_NO_SSL3_METHOD
+-      meth = SSLv3_client_method ();
+-#endif
+       break;
+ 
+     case secure_protocol_auto:
