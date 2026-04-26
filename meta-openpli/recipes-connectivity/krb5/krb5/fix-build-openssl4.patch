@@ -1,0 +1,102 @@
+diff --git a/plugins/preauth/pkinit/pkinit_crypto_openssl.c b/plugins/preauth/pkinit/pkinit_crypto_openssl.c
+index f222dbd..904bcd8 100644
+--- a/plugins/preauth/pkinit/pkinit_crypto_openssl.c
++++ b/plugins/preauth/pkinit/pkinit_crypto_openssl.c
+@@ -2002,7 +2002,7 @@ cms_signeddata_verify(krb5_context context,
+         unsigned char *d;
+         *is_signed = 0;
+         octets = CMS_get0_content(cms);
+-        if (!octets || ((*octets)->type != V_ASN1_OCTET_STRING)) {
++        if (!octets || (ASN1_STRING_type(*octets) != V_ASN1_OCTET_STRING)) {
+             retval = KRB5KDC_ERR_PREAUTH_FAILED;
+             krb5_set_error_message(context, retval,
+                                    _("Invalid pkinit packet: octet string "
+@@ -2058,7 +2058,7 @@ cms_signeddata_verify(krb5_context context,
+         /* We cannot use CMS_dataInit because there may be no digest */
+         octets = CMS_get0_content(cms);
+         if (octets)
+-            out = BIO_new_mem_buf((*octets)->data, (*octets)->length);
++            out = BIO_new_mem_buf(ASN1_STRING_get0_data(*octets), ASN1_STRING_length(*octets));
+         if (out == NULL)
+             goto cleanup;
+     } else {
+@@ -2316,7 +2316,7 @@ crypto_retrieve_X509_sans(krb5_context context,
+     krb5_principal *princs = NULL;
+     char **upns = NULL;
+     unsigned char **dnss = NULL;
+-    X509_EXTENSION *ext = NULL;
++    const X509_EXTENSION *ext = NULL;
+     GENERAL_NAMES *ialt = NULL;
+     GENERAL_NAME *gen = NULL;
+ 
+@@ -2379,8 +2379,8 @@ crypto_retrieve_X509_sans(krb5_context context,
+         gen = sk_GENERAL_NAME_value(ialt, i);
+         switch (gen->type) {
+         case GEN_OTHERNAME:
+-            name.length = gen->d.otherName->value->value.sequence->length;
+-            name.data = (char *)gen->d.otherName->value->value.sequence->data;
++            name.length = ASN1_STRING_length(gen->d.otherName->value->value.sequence);
++            name.data = (char *)ASN1_STRING_get0_data(gen->d.otherName->value->value.sequence);
+             if (princs != NULL &&
+                 OBJ_cmp(plgctx->id_pkinit_san,
+                         gen->d.otherName->type_id) == 0) {
+@@ -2414,12 +2414,12 @@ crypto_retrieve_X509_sans(krb5_context context,
+         case GEN_DNS:
+             if (dnss != NULL) {
+                 /* Prevent abuse of embedded null characters. */
+-                if (memchr(gen->d.dNSName->data, '\0', gen->d.dNSName->length))
++                if (memchr(ASN1_STRING_get0_data(gen->d.dNSName), '\0', ASN1_STRING_length(gen->d.dNSName)))
+                     break;
+                 pkiDebug("%s: found dns name = %s\n", __FUNCTION__,
+-                         gen->d.dNSName->data);
++                         ASN1_STRING_get0_data(gen->d.dNSName));
+                 dnss[d] = (unsigned char *)
+-                    strdup((char *)gen->d.dNSName->data);
++                    strdup((char *)ASN1_STRING_get0_data(gen->d.dNSName));
+                 if (dnss[d] == NULL) {
+                     pkiDebug("%s: failed to duplicate dns name\n",
+                              __FUNCTION__);
+@@ -4861,10 +4861,10 @@ get_matching_data(krb5_context context,
+     if (md == NULL)
+         goto cleanup;
+ 
+-    ret = rfc2253_name(X509_get_subject_name(cert), &md->subject_dn);
++    ret = rfc2253_name((X509_NAME*)X509_get_subject_name(cert), &md->subject_dn);
+     if (ret)
+         goto cleanup;
+-    ret = rfc2253_name(X509_get_issuer_name(cert), &md->issuer_dn);
++    ret = rfc2253_name((X509_NAME*)X509_get_issuer_name(cert), &md->issuer_dn);
+     if (ret)
+         goto cleanup;
+ 
+@@ -5227,7 +5227,7 @@ create_identifiers_from_stack(STACK_OF(X509) *sk,
+     int i = 0, sk_size = sk_X509_num(sk);
+     krb5_external_principal_identifier **krb5_cas = NULL;
+     X509 *x = NULL;
+-    X509_NAME *xn = NULL;
++    const  X509_NAME *xn = NULL;
+     unsigned char *p = NULL;
+     int len = 0;
+     PKCS7_ISSUER_AND_SERIAL *is = NULL;
+diff --git a/plugins/tls/k5tls/openssl.c b/plugins/tls/k5tls/openssl.c
+index aab67c0..0369e11 100644
+--- a/plugins/tls/k5tls/openssl.c
++++ b/plugins/tls/k5tls/openssl.c
+@@ -142,7 +142,7 @@ static GENERAL_NAMES *
+ get_cert_sans(X509 *x)
+ {
+     int ext;
+-    X509_EXTENSION *san_ext;
++    const X509_EXTENSION *san_ext;
+ 
+     ext = X509_get_ext_by_NID(x, NID_subject_alt_name, -1);
+     if (ext < 0)
+@@ -158,7 +158,7 @@ get_cert_sans(X509 *x)
+ static int
+ get_cert_cn(X509 *x, char *buf, size_t bufsize)
+ {
+-    X509_NAME *name;
++    const X509_NAME *name;
+ 
+     name = X509_get_subject_name(x);
+     if (name == NULL)
