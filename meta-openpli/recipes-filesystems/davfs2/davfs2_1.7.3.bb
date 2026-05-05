@@ -6,13 +6,12 @@ DEPENDS = "gettext-native neon"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 
-SRC_URI[sha256sum] = "251db75a27380cca1330b1b971700c5e5dcc0c90e5a47622285f0140edfe3a2f"
+SRC_URI[sha256sum] = "a5368161eb5055651d7e5e8180c1606da95e78c941b6bb8a9286df7923cfcba9"
 
 SRC_URI = "http://download.savannah.nongnu.org/releases/davfs2/${P}.tar.gz \
            file://neon-config \
            file://volatiles \
            file://davfs2.cfg \
-           file://add-neon-version-033.patch \
 "
 
 inherit autotools pkgconfig useradd gettext
