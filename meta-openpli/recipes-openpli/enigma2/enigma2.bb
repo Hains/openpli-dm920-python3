@@ -158,11 +158,6 @@ EXTRA_OEMAKE = "\
 	ENIGMA2_BRANCH=${ENIGMA2_BRANCH} \
 	"
 
-# some plugins contain so's, their stripped symbols should not end up in the enigma2 package
-FILES:${PN}-dbg += "\
-	${libdir}/enigma2/python/Plugins/*/*/.debug \
-	"
-
 TARGET_CFLAGS += "-DGLIBC_64BIT_TIME_FLAGS"
 
 do_install:append() {

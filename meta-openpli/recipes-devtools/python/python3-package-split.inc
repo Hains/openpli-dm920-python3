@@ -36,24 +36,3 @@ FILES:${PN}-doc += " \
     ${PYTHON_SITEPACKAGES_DIR}/LICENSE \
     ${PYTHON_SITEPACKAGES_DIR}/README \
     "
-
-FILES:${PN}-dbg += " \
-    ${PYTHON_SITEPACKAGES_DIR}/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*.egg-info \
-    ${PYTHON_SITEPACKAGES_DIR}/test \
-    ${PYTHON_SITEPACKAGES_DIR}/tests \
-    ${PYTHON_SITEPACKAGES_DIR}/Test \
-    ${PYTHON_SITEPACKAGES_DIR}/Tests \
-    ${PYTHON_SITEPACKAGES_DIR}/_test \
-    ${PYTHON_SITEPACKAGES_DIR}/*/test \
-    ${PYTHON_SITEPACKAGES_DIR}/*/tests \
-    ${PYTHON_SITEPACKAGES_DIR}/*/Test \
-    ${PYTHON_SITEPACKAGES_DIR}/*/Tests \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/test \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/tests \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/Test \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/Tests \
-    "
