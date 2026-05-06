@@ -1,21 +1,21 @@
 Build environment for dreambox 920 with Python 3.<br><br>
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
-&nbsp;with git snapshot of April 21, 2026.<br>
+&nbsp;with git snapshot of May 6, 2026.<br>
 -GCC 15.2.0<br>
 -Glibc 2.43<br>
 -GStreamer 1.28.2<br>
 -Python 3.14.4<br>
--OpenSSL 3.6.2<br>
+-OpenSSL 4.0.0<br>
 -Busybox 1.37.0<br>
 and more.<br>
 <br>
-Tested with Ubuntu 25.10.
+Tested with Ubuntu 26.04 LTS.
 <br>
 <br>
 Dependencies:
 ```
-sudo apt install -y autoconf automake bison bzip2 cvs default-jre diffstat flex g++ gawk gcc gettext git git-lfs gzip help2man make ncurses-bin lib32ncurses-dev libc6-dev libtool lz4 texinfo patch perl pkg-config subversion tar texi2html zlib1g-dev chrpath libxml2-utils xsltproc libglib2.0-dev python3-setuptools libc6-i386 genromfs guile-2.2-libs quilt zstd
+sudo apt install -y autoconf automake bison bzip2 cvs default-jre diffstat flex g++ gawk gcc gettext git git-lfs gzip help2man make ncurses-bin lib32ncurses-dev libc6-dev libcrypt-dev libtool lz4 texinfo patch perl pkg-config subversion tar texi2html zlib1g-dev chrpath libxml2-utils xsltproc libglib2.0-dev python3-setuptools libc6-i386 genromfs guile-2.2-libs quilt zstd
 ```
 <br>
 Note for Ubuntu 24.04 LTS and newer.<br>
