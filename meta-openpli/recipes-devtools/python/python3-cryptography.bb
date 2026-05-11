@@ -19,6 +19,7 @@ SRC_URI += "file://0001-pyproject.toml-remove-benchmark-disable-option.patch \
            "
 
 require ${BPN}-crates.inc
+include python3-package-split.inc
 
 inherit pypi python_maturin cargo-update-recipe-crates pkgconfig
 
