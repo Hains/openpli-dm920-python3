@@ -2,24 +2,6 @@ inherit python3-dir
 
 RDEPENDS:{PN}-src = "${PN}"
 
-FILES:${PN}-src = " \
-    ${PYTHON_SITEPACKAGES_DIR}/*.c \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*.c \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.c \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.c \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.c \
-    ${PYTHON_SITEPACKAGES_DIR}/*.h \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*.h \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.h \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.h \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.h \
-    ${PYTHON_SITEPACKAGES_DIR}/*.exe \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*.exe \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.exe \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.exe \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.exe \
-    "
-
 # some txt files which should go into -doc
 FILES:${PN}-doc += " \
     ${PYTHON_SITEPACKAGES_DIR}/*-info \
