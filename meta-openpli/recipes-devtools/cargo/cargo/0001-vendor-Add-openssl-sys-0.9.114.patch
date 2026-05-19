@@ -206,19 +206,6 @@ index 7aedd2921..e08ea6c8e 100644
  dependencies = [
   "cc",
   "libc",
-diff --git a/src/tools/cargo/Cargo.toml b/src/tools/cargo/Cargo.toml
-index 79c0b01f8..4abd1a21c 100644
---- a/src/tools/cargo/Cargo.toml
-+++ b/src/tools/cargo/Cargo.toml
-@@ -72,7 +72,7 @@ memfd = "0.6.5"
- miow = "0.6.1"
- opener = "0.8.3"
- openssl = "0.10.75"
--openssl-sys = "0.9.111"
-+openssl-sys = "0.9.114"
- os_info = { version = "3.14.0", default-features = false }
- pasetors = { version = "0.7.7", features = ["v3", "paserk", "std", "serde"] }
- pathdiff = "0.2.3"
 diff --git a/src/tools/miri/Cargo.lock b/src/tools/miri/Cargo.lock
 index b314aaafb..a35c83d11 100644
 --- a/src/tools/miri/Cargo.lock
