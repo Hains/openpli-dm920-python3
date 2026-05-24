@@ -1,0 +1,31 @@
+diff --git a/curl/lib/vtls/openssl.c b/curl/lib/vtls/openssl.c
+index b0f91cf40..cc2e72ef7 100644
+--- a/curl/lib/vtls/openssl.c
++++ b/curl/lib/vtls/openssl.c
+@@ -430,10 +430,11 @@ static CURLcode ossl_certchain(struct Curl_easy *data, SSL *ssl)
+       break;
+ 
+     num = X509_get_serialNumber(x);
+-    if(num->type == V_ASN1_NEG_INTEGER)
++    if(ASN1_STRING_type(num) == V_ASN1_NEG_INTEGER)
+       BIO_puts(mem, "-");
+-    for(j = 0; j < num->length; j++)
+-      BIO_printf(mem, "%02x", num->data[j]);
++    const char* numdata = ASN1_STRING_get0_data(num);
++    for(j = 0; j < ASN1_STRING_length(num); j++)
++      BIO_printf(mem, "%02x", numdata[j]);
+     result = push_certinfo(data, mem, "Serial Number", i);
+     if(result)
+       break;
+@@ -631,8 +632,9 @@ static CURLcode ossl_certchain(struct Curl_easy *data, SSL *ssl)
+     }
+ 
+     if(!result && psig) {
+-      for(j = 0; j < psig->length; j++)
+-        BIO_printf(mem, "%02x:", psig->data[j]);
++      const unsigned char *psigdata = ASN1_STRING_get0_data(psig);
++      for(j = 0; j < ASN1_STRING_length(psig); j++)
++        BIO_printf(mem, "%02x:", psigdata[j]);
+       result = push_certinfo(data, mem, "Signature", i);
+     }
+ 
