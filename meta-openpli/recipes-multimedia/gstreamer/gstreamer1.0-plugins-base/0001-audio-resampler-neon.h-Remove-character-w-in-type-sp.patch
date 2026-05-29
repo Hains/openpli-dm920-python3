@@ -1,0 +1,116 @@
+From f1ab44f3bba32ce600545a42f756c382072111ad Mon Sep 17 00:00:00 2001
+From: Hains van den Bosch <hainsvdbosch@ziggo.nl>
+Date: Tue, 26 May 2026 18:07:45 +0200
+Subject: [PATCH] audio-resampler-neon.h: Remove character `w' in type
+ specifier
+
+Partly reverts commit:
+https://github.com/GStreamer/gstreamer/commit/f63563877786cedf3e31a02b6f478fdc6103a3c4
+
+Fix:
+
+resampler.c.o -c ../sources/gst-plugins-base-1.28.3/gst-libs/gst/audio/audio-resampler.c
+| Assembler messages:
+| {standard input}:1037: Error: unexpected character `w' in type specifier
+| {standard input}:1037: Error: bad instruction `add.w r8,r1,ip'
+| {standard input}:1039: Error: unexpected character `w' in type specifier
+| {standard input}:1039: Error: bad instruction `add.w r8,r1,ip,lsl#1'
+---
+ .../gst-libs/gst/audio/audio-resampler-neon.h | 34 +++++++++----------
+ 1 file changed, 17 insertions(+), 17 deletions(-)
+
+diff --git a/gst-libs/gst/audio/audio-resampler-neon.h b/gst-libs/gst/audio/audio-resampler-neon.h
+index da53469d7d..5edddf745e 100644
+--- a/gst-libs/gst/audio/audio-resampler-neon.h
++++ b/gst-libs/gst/audio/audio-resampler-neon.h
+@@ -132,11 +132,11 @@ inner_product_gint16_cubic_1_neon (gint16 * o, const gint16 * a,
+                   "      beq 2f\n"
+                   "1:"
+                   "      vld1.16 {d16, d17}, [%[b]]!\n"
+-                  "      add.w r8, %[b], %[bstride]\n"
++                  "      add r8, %[b], %[bstride]\n"
+                   "      vld1.16 {d18, d19}, [r8]!\n"
+-                  "      add.w r8, %[b], %[bstride], lsl #1\n"
++                  "      add r8, %[b], %[bstride], lsl #1\n"
+                   "      vld1.16 {d20, d21}, [r8]!\n"
+-                  "      add.w r8, %[bstride], %[bstride], lsl #1\n"
++                  "      add r8, %[bstride], %[bstride], lsl #1\n"
+                   "      add r8, r8, %[b]\n"
+                   "      vld1.16 {d22, d23}, [r8]!\n"
+                   "      vld1.16 {d24, d25}, [%[a]]!\n"
+@@ -213,11 +213,11 @@ interpolate_gint16_cubic_neon (gpointer op, const gpointer ap,
+                   "      vld4.16 {d24[], d25[], d26[], d27[]}, [%[ic]]\n"
+                   "1:"
+                   "      vld1.16 {d16, d17}, [%[a]]!\n"
+-                  "      add.w r8, %[a], %[astride]\n"
++                  "      add r8, %[a], %[astride]\n"
+                   "      vld1.16 {d18, d19}, [r8]!\n"
+-                  "      add.w r8, %[a], %[astride], lsl #1\n"
++                  "      add r8, %[a], %[astride], lsl #1\n"
+                   "      vld1.16 {d20, d21}, [r8]!\n"
+-                  "      add.w r8, %[astride], %[astride], lsl #1\n"
++                  "      add r8, %[astride], %[astride], lsl #1\n"
+                   "      add r8, r8, %[a]\n"
+                   "      vld1.16 {d22, d23}, [r8]!\n"
+                   "      subs %[len], %[len], #8\n"
+@@ -339,11 +339,11 @@ inner_product_gint32_cubic_1_neon (gint32 * o, const gint32 * a,
+                   "      beq 2f\n"
+                   "1:"
+                   "      vld1.32 {d16, d17}, [%[b]]!\n"
+-                  "      add.w r8, %[b], %[bstride]\n"
++                  "      add r8, %[b], %[bstride]\n"
+                   "      vld1.32 {d18, d19}, [r8]!\n"
+-                  "      add.w r8, %[b], %[bstride], lsl #1\n"
++                  "      add r8, %[b], %[bstride], lsl #1\n"
+                   "      vld1.32 {d20, d21}, [r8]!\n"
+-                  "      add.w r8, %[bstride], %[bstride], lsl #1\n"
++                  "      add r8, %[bstride], %[bstride], lsl #1\n"
+                   "      add r8, r8, %[b]\n"
+                   "      vld1.32 {d22, d23}, [r8]!\n"
+                   "      vld1.32 {d24, d25}, [%[a]]!\n"
+@@ -425,12 +425,12 @@ interpolate_gint32_cubic_neon (gpointer op, const gpointer ap,
+                   "      vld4.32 {d24[], d25[], d26[], d27[]}, [%[ic]]!\n"
+                   "1:"
+                   "      vld1.32 {d16, d17}, [%[a]]!\n"
+-                  "      add.w r8, %[a], %[astride]\n"
++                  "      add r8, %[a], %[astride]\n"
+                   "      vld1.32 {d18, d19}, [r8]!\n"
+-                  "      add.w r8, %[a], %[astride], lsl #1\n"
++                  "      add r8, %[a], %[astride], lsl #1\n"
+                   "      vld1.32 {d20, d21}, [r8]!\n"
+                   "      add r8, r8, %[astride]\n"
+-                  "      add.w r8, %[astride], %[astride], lsl #1\n"
++                  "      add r8, %[astride], %[astride], lsl #1\n"
+                   "      add r8, r8, %[a]\n"
+                   "      subs %[len], %[len], #4\n"
+                   "      vmull.s32 q0, d16, d24\n"
+@@ -546,9 +546,9 @@ inner_product_gfloat_cubic_1_neon (gfloat * o, const gfloat * a,
+                   "      vld1.32 {q8}, [%[b]]!\n"
+                   "      add r8, %[b], %[bstride]\n"
+                   "      vld1.32 {q9}, [r8]!\n"
+-                  "      add.w r8, %[b], %[bstride], lsl #1\n"
++                  "      add r8, %[b], %[bstride], lsl #1\n"
+                   "      vld1.32 {q10}, [r8]!\n"
+-                  "      add.w r8, %[bstride], %[bstride], lsl #1\n"
++                  "      add r8, %[bstride], %[bstride], lsl #1\n"
+                   "      add r8, r8, %[b]\n"
+                   "      vld1.32 {q11}, [r8]!\n"
+                   "      vld1.32 {q12}, [%[a]]!\n"
+@@ -622,11 +622,11 @@ interpolate_gfloat_cubic_neon (gpointer op, const gpointer ap,
+                   "      vmov.32 d31, d30\n"
+                   "1:"
+                   "      vld1.32 {q8}, [%[a]]!\n"
+-                  "      add.w r8, %[a], %[astride]\n"
++                  "      add r8, %[a], %[astride]\n"
+                   "      vld1.32 {q9}, [r8]!\n"
+-                  "      add.w r8, %[a], %[astride], lsl #1\n"
++                  "      add r8, %[a], %[astride], lsl #1\n"
+                   "      vld1.32 {q10}, [r8]!\n"
+-                  "      add.w r8, %[astride], %[astride], lsl #1\n"
++                  "      add r8, %[astride], %[astride], lsl #1\n"
+                   "      add r8, r8, %[a]\n"
+                   "      vld1.32 {q11}, [r8]!\n"
+                   "      subs %[len], %[len], #4\n"
+-- 
+2.53.0
+
