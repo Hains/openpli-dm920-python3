@@ -22,8 +22,8 @@ RDEPENDS:${PN} = "\
 
 inherit gitpkgv setuptools3_legacy gettext
 
-PV = "git"
-PKGV = "${GITPKGVTAG}"
+PV = "2.3.1+git"
+PKGV = "2.31+${GITPKGV}"
 
 SRC_URI = "git://github.com/oe-alliance/OpenWebif.git;protocol=https;branch=main \
 		file://set-packages-explicit.patch \
