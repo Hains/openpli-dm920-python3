@@ -16,7 +16,7 @@ SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;protocol=https;branch=master \
 
 S = "${UNPACKDIR}/${BP}/src"
 
-RDEPENDS:${PN} = "python3-compression python3-shell python3-pkgutil"
+RDEPENDS:${PN} = "python3-compression python3-shell python3-pkgutil python3-treq"
 RRECOMMENDS:${PN} = "${PN}-sources"
 PACKAGES = "${PN}-dbg ${PN}"
 
