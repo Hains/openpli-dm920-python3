@@ -11,7 +11,7 @@ DEPENDS = " \
 	jpeg \
 	libdreamdvd libdvbsi++ fribidi libmad libpng libsigc++-3 giflib libxml2 \
 	openssl libudfread \
-	python3-twisted python3-wifi \
+	python3-treq python3-twisted python3-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
 	"
