@@ -2,10 +2,6 @@
 INITSCRIPT_NAME = "openvpn"
 INITSCRIPT_PARAMS = "defaults"
 
-PV = "2.7.4"
-
-SRC_URI[sha256sum] = "18db05f3d5eee3663db1914590044e5f96ff5cd47b6e7846c6a350806c23dbce"
-
 RDEPENDS:${PN} = "lzo lz4"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
