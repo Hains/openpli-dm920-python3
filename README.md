@@ -4,7 +4,7 @@ Build environment for dreambox 920 with Python 3.<br><br>
 &nbsp;with git snapshot of June 24, 2026.<br>
 -GCC 16.1.0<br>
 -Glibc 2.43<br>
--GStreamer 1.28.4<br>
+-GStreamer 1.28.5<br>
 -Python 3.14.6<br>
 -OpenSSL 4.0.1<br>
 -Busybox 1.38.0<br>
