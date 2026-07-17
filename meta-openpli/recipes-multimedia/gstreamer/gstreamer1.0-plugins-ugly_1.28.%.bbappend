@@ -1,1 +1,5 @@
 PACKAGECONFIG:append = " cdio"
+
+PV = "1.28.5"
+
+SRC_URI[sha256sum] = "0ef4cf9c3c9a5e776a6ca8d190a31863391b681980252143b822b29aa831e120"
