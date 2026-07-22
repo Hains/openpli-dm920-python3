@@ -1,6 +1,6 @@
 SUMMARY = "Google Public DNS configuration"
 HOMEPAGE = "https://developers.google.com/speed/public-dns/"
-LICENSE = "CLOSED"
+LICENSE = "LicenseRef-LICENSE-CLOSED"
 
 SRC_URI = "file://resolv.conf"
 
