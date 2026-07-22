@@ -1,6 +1,6 @@
 SUMMARY = "Cloudflare Public DNS configuration"
 HOMEPAGE = "https://cloudflare-dns.com/"
-LICENSE = "CLOSED"
+LICENSE = "LicenseRef-LICENSE-CLOSED"
 
 SRC_URI = "file://resolv.conf"
 

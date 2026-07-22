@@ -1,5 +1,5 @@
 SUMMARY = "Utilities needed to do transponder blindscan with dreambox dvb receivers"
-LICENSE = "CLOSED"
+LICENSE = "LicenseRef-LICENSE-CLOSED"
 
 PROVIDES += "virtual/blindscan-dvbs virtual/blindscan-dvbc"
 RPROVIDES:${PN} += "virtual-blindscan-dvbs virtual-blindscan-dvbc"

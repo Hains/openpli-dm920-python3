@@ -1,4 +1,4 @@
-LICENSE = "CLOSED"
+LICENSE = "LicenseRef-LICENSE-CLOSED"
 
 PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"

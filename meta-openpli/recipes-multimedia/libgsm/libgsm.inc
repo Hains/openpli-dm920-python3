@@ -1,7 +1,7 @@
 DESCRIPTION = "GSM Audio Library"
 SECTION = "libs"
 PRIORITY = "optional"
-LICENSE = "libgsm"
+LICENSE = "GPL-3.0-only"
 
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=fc1372895b173aaf543a122db37e04f5"
 

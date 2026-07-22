@@ -1,6 +1,6 @@
 SUMMARY = "Command-line tools to flash and recover your Dreambox"
 HOMEPAGE = "http://dreamboxupdate.com/"
-LICENSE = "CLOSED"
+LICENSE = "LicenseRef-LICENSE-CLOSED"
 DEPENDS = "coreutils-native udev"
 
 PR = "r1"

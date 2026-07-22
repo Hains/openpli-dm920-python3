@@ -1,7 +1,7 @@
 SUMMARY = "Dreambox watchdog to automatically restart binaries"
 SECTION = "base"
 PRIORITY = "required"
-LICENSE = "CLOSED"
+LICENSE = "LicenseRef-LICENSE-CLOSED"
 RDEPENDS:${PN} = "dreambox-compat"
 
 SRC_URI[mips32el.md5sum] = "037fcab221a559ec765ce58943c4e95c"

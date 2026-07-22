@@ -1,6 +1,6 @@
 SUMMARY = "Provides web pages for the rescue partition"
 HOMEPAGE = "http://dreamboxupdate.com/"
-LICENSE = "CLOSED"
+LICENSE = "LicenseRef-LICENSE-CLOSED"
 DEPENDS = "fcgi"
 
 SRC_URI:append = ";branch=${BRANCH}"

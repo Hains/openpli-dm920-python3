@@ -1,5 +1,5 @@
 DESCRIPTION = "RAR archivers"
-LICENSE = "GPL"
+LICENSE = "LicenseRef-GPL"
 
 LIC_FILES_CHKSUM = "file://license.txt;md5=09456acade1409c8aa4f0506840aa4f4"
 
