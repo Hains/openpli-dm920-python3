@@ -17,8 +17,6 @@ deltask source_date_epoch
 
 SSTATE_SKIP_CREATION = "1"
 
-inherit linux-kernel-base
-
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 PV = "${DISTRO_VERSION}"
 PR[vardepsexclude] = "DATE"
