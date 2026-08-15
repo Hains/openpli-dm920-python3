@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a5dd67fd17479587f7093769d95ef186"
 
 inherit pypi python_hatchling
 
-SRC_URI[sha256sum] = "25dde3a55ae85ec2f2c56332c99aef255ab14f997d0d00552ebff13538a9804a"
+SRC_URI[sha256sum] = "43e728e12aca2d897c626cf07dc7b4392749b73de050a7d66e086cb3a6e15da9"
 
 DEPENDS += "python3-incremental-native"
 
