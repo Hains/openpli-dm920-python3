@@ -25,7 +25,6 @@ RDEPENDS:${PN} = " \
     pigz \
     util-linux-mount \
     e2fsprogs-mke2fs \
-    gptfdisk \
 "
 
 RDEPENDS:flash-scripts = " \
