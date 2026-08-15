@@ -105,7 +105,7 @@ do_install() {
 
 # OE version info
 	OE_NAME=master
-	OE_VERSION=6.0
+	OE_VERSION=6.1
 
 # Kernel version
 	KERNEL_VERSION="${@oe.kernel.get_version_headers('${STAGING_KERNEL_DIR}') or oe.utils.read_file('${PKGDATA_DIR}/kernel-depmod/kernel-abiversion')}"
