@@ -106,7 +106,6 @@ SRC_URI = "${GITHUB_URI}/Hains/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=htt
 			file://01-use-ioctl-22-for-h265.patch \
 			file://02-add-skin_display-dm920.patch \
 			file://03-add-support-2160p.patch \
-			file://04-pyint-to-pylong.patch \
 			file://05-make-front-led-configurable.patch \
 			file://06-move-lcd-text-a-bit-to-the-right.patch \
 			file://08-dual-tuner-letter-detection.patch \
