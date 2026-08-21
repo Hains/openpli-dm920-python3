@@ -13,7 +13,7 @@ SRC_URI[sha256sum] = "43e728e12aca2d897c626cf07dc7b4392749b73de050a7d66e086cb3a6
 
 DEPENDS += "python3-incremental-native"
 
-RDEPENDS:${PN} += "python3-attrs python3-hyperlink python3-incremental python3-requests python3-twisted"
+RDEPENDS:${PN} += "python3-attrs python3-hyperlink python3-incremental python3-requests python3-twisted python3-python-multipart"
 RDEPENDS:${PN}-dbg = "${PN}"
 FILES:${PN}-dbg = " \
     ${PYTHON_SITEPACKAGES_DIR}/${PN}-*.egg-info \
