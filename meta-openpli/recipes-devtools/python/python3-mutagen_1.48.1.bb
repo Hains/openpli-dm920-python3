@@ -6,13 +6,11 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 DEPENDS = "python3"
 RDEPENDS:${PN} = "python3-shell"
 
-SRC_URI = "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-${PV}.tar.gz"
-
-SRC_URI[md5sum] = "aa2d0d73e71c5daa1a730f7b94272357"
-SRC_URI[sha256sum] = "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
+SRC_URI[md5sum] = "90d74b6da76fdf31933766e0e0d83cc5"
+SRC_URI[sha256sum] = "8f95637ab9f6f305cec6bd1294e197debe207998e3e068596563c74f86b0a173"
 
 S = "${UNPACKDIR}/mutagen-${PV}"
 
-inherit setuptools3
+inherit pypi setuptools3
 
 include python3-package-split.inc
