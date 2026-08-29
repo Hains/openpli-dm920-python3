@@ -1,7 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 DEPENDS:remove = "boost"
-DEPENDS:append = " fmt"
 
 inherit gitpkgv
 
