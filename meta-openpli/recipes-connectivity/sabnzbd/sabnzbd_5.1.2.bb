@@ -6,7 +6,7 @@ LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=72328159a86419c3e2ef6418eb56bcae"
 
 RDEPENDS:${PN} = "\
-	python3-cheetah python3-compression python3-core python3-crypt python3-ctypes python3-email python3-html \
+	python3-compression python3-core python3-crypt python3-ctypes python3-email python3-html \
 	python3-misc python3-multiprocessing python3-sqlite3 python3-shell python3-sabyenc3 python3-configobj \
 	python3-cryptography python3-feedparser python3-cheroot python3-cherrypy python3-portend python3-chardet \
 	python3-notify2 python3-puremagic python3-guessit python3-sgmllib3k python3-more-itertools python3-modules \
