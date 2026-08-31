@@ -12,8 +12,6 @@ SRC_URI[sha256sum] = "d6df0c8c896e160087c6981f3770ed513ec973a9f4066b9e4b0614eb08
 
 SRC_URI:append = " file://increase-max-version-uv-build.patch"
 
-S = "${WORKDIR}/rebulk-${PV}"
-
 inherit pypi python_hatchling
 
 include python3-package-split.inc
