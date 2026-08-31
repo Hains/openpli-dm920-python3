@@ -9,3 +9,5 @@ RDEPENDS:${PN} = "python3-pprint"
 SRC_URI[sha256sum] = "1c5f2000d52d591703c74f6f5f7ef427ed1b6501be28e3f1634f62c3a5d792e1"
 
 inherit pypi python_setuptools_build_meta
+
+BBCLASSEXTEND = "native nativesdk"

@@ -5,11 +5,11 @@ LIC_FILES_CHKSUM = "file://README;md5=eb66cb719ed579d6523cf9c3e000d811"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "python3-cheetah-native"
+DEPENDS = "python3-ct3-native"
 
 RDEPENDS:${PN} = "\
 	aio-grab \
-	python3-cheetah \
+	python3-ct3 \
 	python3-compression\
 	python3-ipaddress\
 	python3-json \
