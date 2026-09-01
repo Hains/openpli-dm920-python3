@@ -10,6 +10,4 @@ SRCNAME = "pysmb"
 SRC_URI[md5sum] = "8d5160914f8af29a6b50ab56b9062801"
 SRC_URI[sha256sum] = "1c12eb0e251152e80b4bde5d816b33cab14d04b261b5f790cb4a5d9fd9653881"
 
-S = "${UNPACKDIR}/${SRCNAME}-${PV}"
-
 include python3-package-split.inc
