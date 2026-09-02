@@ -7,7 +7,7 @@ DEPENDS += "python3-setuptools-scm-native python3-coherent-licensed-native"
 
 PYPI_PACKAGE = "jaraco_text"
 
-SRC_URI[md5sum] = "651066dde8eb1d40523454fd88d280e5"
-SRC_URI[sha256sum] = "194e386aa5b15a6616019df87a6b29c00fd3c9c8b0475731b64633ca7afd495b"
+SRC_URI[md5sum] = "23d91c6899e89f3bb1bb6f9148302b92"
+SRC_URI[sha256sum] = "ddd5eb6259d0701e08cb642c8d6b63bcc73947d03df9239ea67bbef911b3e4e1"
 
 inherit pypi python_setuptools_build_meta
