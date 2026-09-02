@@ -5,10 +5,6 @@ RDEPENDS:${PN} = "python3-core"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=57ee828406c11080ad9bd7eabdc5ae1b"
 
-SRCNAME = "pysnmp"
-
-S = "${UNPACKDIR}/${SRCNAME}-${PV}"
-
 inherit pypi python_hatchling
 
 SRC_URI[md5sum] = "208c6578ce0bf2e6cbb5563f4972b8aa"
