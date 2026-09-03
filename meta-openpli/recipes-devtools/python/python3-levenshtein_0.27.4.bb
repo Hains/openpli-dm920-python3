@@ -9,7 +9,8 @@ DEPENDS = "ninja-native cmake-native python3-scikit-build-core-native"
 
 PYPI_PACKAGE = "levenshtein"
 
-SRC_URI[sha256sum] = "1ac326b2c84215795163d8a5af471188918b8797b4953ec87aaba22c9c1f9fc0"
+SRC_URI[md5sum] = "2a7a6257cdacb26e36e86a31eeecfe7a"
+SRC_URI[sha256sum] = "3df1c12bf5e485774d6387f3894271ef3724414ecc20dd238ae4d2333e093c83"
 
 inherit pypi python_setuptools_build_meta
 
