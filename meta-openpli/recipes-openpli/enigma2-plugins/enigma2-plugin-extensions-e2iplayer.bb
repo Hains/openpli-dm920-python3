@@ -9,9 +9,7 @@ inherit allarch setuptools3-openplugins gitpkgv
 
 DEPENDS = "python3-future-native"
 
-SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https \
-           file://use-python3-e2icjson.patch \
-"
+SRC_URI = "git://github.com/oe-mirrors/e2iplayer.git;branch=python3;protocol=https"
 
 PV = "1+git"
 PKGV = "1+git${GITPKGV}"
@@ -28,7 +26,6 @@ RDEPENDS:${PN} = " \
 	iptvsubparser \
 	lsdir \
 	python3-core \
-	python3-e2icjson \
 	python3-pycurl \
 	rtmpdump \
 	uchardet \
