@@ -12,7 +12,9 @@ inherit gitpkgv
 PV = "177+gitr"
 PKGV = "177+gitr${GITPKGV}"
 
-SRC_URI = "git://github.com/skyjet18/exteplayer3.git;branch=master;protocol=https"
+SRC_URI = "git://github.com/skyjet18/exteplayer3.git;branch=master;protocol=https \
+           file://fix-build-ffmpeg9.patch \
+"
 
 SOURCE_FILES =  "main/exteplayer.c"
 SOURCE_FILES =+ "container/container.c"
