@@ -1,9 +1,8 @@
-Fix VIDEO_GET_PTS error in libeplayer3 intruduced in:
-http://git.videolan.org/gitweb.cgi/ffmpeg.git/?p=ffmpeg.git;a=commitdiff;h=14f7a3d55a43c1082ee1186a1990a431c641052d
-
---- a/libavformat/mpegts.c	2016-06-27 02:54:30.000000000 +0300
-+++ b/libavformat/mpegts.c	2016-08-20 01:39:36.668873256 +0300
-@@ -904,10 +904,10 @@
+diff --git a/libavformat/mpegts.c b/libavformat/mpegts.c
+index 0760205..b269998 100644
+--- a/libavformat/mpegts.c
++++ b/libavformat/mpegts.c
+@@ -1113,10 +1113,10 @@ static int new_pes_packet(PESContext *pes, AVPacket *pkt)
      pes->buffer = NULL;
      reset_pes_packet_state(pes);
  
@@ -14,5 +13,5 @@ http://git.videolan.org/gitweb.cgi/ffmpeg.git/?p=ffmpeg.git;a=commitdiff;h=14f7a
 -    *sd = pes->stream_id;
 +    *sd = pes->stream_id;*/
  
-     return 0;
- }
+     if (pes->st->codecpar->codec_id == AV_CODEC_ID_TIMED_ID3) {
+         int ret = timed_id3_update_metadata(pes->st, pkt);
