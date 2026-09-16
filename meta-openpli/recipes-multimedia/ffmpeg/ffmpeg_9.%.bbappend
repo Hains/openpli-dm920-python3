@@ -1,9 +1,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-PV = "9.0.1"
-
-SRC_URI[sha256sum] = "cf38e0e28c7e5605942c4a77755349b0145804a397af37eb1fb4c77cb237f635"
-
 SRC_URI:append = " \
 		file://02-fix-hls.patch \
 		file://03-buffer-size.patch \
