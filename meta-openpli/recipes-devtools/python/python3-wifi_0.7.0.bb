@@ -5,7 +5,7 @@ LICENSE = "GPL-2.0-or-later AND LGPL-2.0-or-later"
 LICENSE:${PN}-examples = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://README;md5=54307cbab01c3aad9adf7605132bcf31"
 
-RDEPENDS:${PN} = "python3-ctypes python3-datetime python3-six"
+RDEPENDS:${PN} = "python3-ctypes python3-datetime"
 
 inherit gitpkgv setuptools3
 
