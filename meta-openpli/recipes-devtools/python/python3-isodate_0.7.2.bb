@@ -10,7 +10,6 @@ inherit pypi python_hatchling
 
 RDEPENDS:${PN} += " \
     python3-numbers \
-    python3-six \
 "
 
 BBCLASSEXTEND = "native nativesdk"
