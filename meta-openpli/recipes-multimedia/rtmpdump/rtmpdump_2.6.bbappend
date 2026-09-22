@@ -1,7 +1,5 @@
-DEPENDS:remove = "gnutls"
-DEPENDS += "openssl"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-EXTRA_OEMAKE = " \
-	CC='${CC}' LD='${LD} ${STAGING_LIBDIR}' XCFLAGS='${CFLAGS}' XLDFLAGS='${LDFLAGS}' \
-	SYS=posix INC=-I${STAGING_INCDIR} DESTDIR=${D} \
-	prefix=${prefix} libdir=${libdir} incdir=${includedir}/librtmp bindir=${bindir} mandir=${mandir}"
+SRC_URI:append = " \
+	file://0001-KSV-patch-2015-12-15.patch \
+	"
