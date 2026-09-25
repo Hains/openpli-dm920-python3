@@ -10,7 +10,6 @@ DEPENDS = " \
 	enigma2-plugin-extensions-addstreamurl \
 	enigma2-plugin-extensions-analogclock \
 	enigma2-plugin-extensions-antilogo \
-	enigma2-plugin-extensions-autobackup \
 	enigma2-plugin-extensions-autobouquets \
 	enigma2-plugin-extensions-bhtunerserver \
 	enigma2-plugin-extensions-bitrate \
