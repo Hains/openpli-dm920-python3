@@ -107,6 +107,7 @@ IMAGE_INSTALL = " \
 	python3-netifaces \
 	python3-pysmb \
 	python3-requests \
+	python3-six \
 	sdparm \
 	settings-autorestore \
 	tuxbox-common \
