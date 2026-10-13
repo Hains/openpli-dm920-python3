@@ -174,7 +174,6 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-infobarweather \
 	enigma2-plugin-extensions-iptv-org-playlists \
 	enigma2-plugin-extensions-jediepgxtream \
-	enigma2-plugin-extensions-jedimakerxtream \
 	enigma2-plugin-extensions-moviemanager \
 	enigma2-plugin-extensions-plutotv \
 	enigma2-plugin-extensions-ppanel \
