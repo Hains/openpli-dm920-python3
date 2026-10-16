@@ -1,0 +1,404 @@
+diff --git a/src/dvbstring.py b/src/dvbstring.py
+index 2fde28f..5f0c00e 100644
+--- a/src/dvbstring.py
++++ b/src/dvbstring.py
+@@ -22,8 +22,6 @@
+ 
+ # 8859-x to ucs-16 coding tables. taken from www.unicode.org/Public/MAPPINGS/ISO8859/
+ 
+-from six import PY2
+-
+ c88592 = [
+ 0x00A0, 0x0104, 0x02D8, 0x0141, 0x00A4, 0x013D, 0x015A, 0x00A7, 0x00A8, 0x0160, 0x015E, 0x0164, 0x0179, 0x00AD, 0x017D, 0x017B,
+ 0x00B0, 0x0105, 0x02DB, 0x0142, 0x00B4, 0x013E, 0x015B, 0x02C7, 0x00B8, 0x0161, 0x015F, 0x0165, 0x017A, 0x02DD, 0x017E, 0x017C,
+@@ -263,10 +261,7 @@ def convertDVBUTF8(data, length, table=None):
+ 		print("convertDVBUTF8(): reserved %d" % (data[0]))
+ 		i += 1
+ 
+-	if PY2:
+-		res = [0] * 2048
+-	else:
+-		res = []
++	res = []
+ 	while (i < length):
+ 		code = 0
+ 		if (table == 65): # unicode
+@@ -280,152 +275,77 @@ def convertDVBUTF8(data, length, table=None):
+ 			continue
+ 		# Unicode->UTF8 encoding
+ 		if (code < 0x80):	# identity ascii <-> utf8 mapping
+-			if PY2:
+-				res[t] = chr(code)
+-			else:
+-				res.append(chr(code))
++			res.append(chr(code))
+ 			t += 1
+ 		elif (code < 0x800):	# two byte mapping
+-			if PY2:
+-				res[t + 0] = chr((code >> 6) | 0xC0)
+-				res[t + 1] = chr((code & 0x3F) | 0x80)
+-			else:
+-				res.append(chr((code >> 6) | 0xC0))
+-				res.append(chr((code & 0x3F) | 0x80))
++			res.append(chr((code >> 6) | 0xC0))
++			res.append(chr((code & 0x3F) | 0x80))
+ 			t += 2
+ 		elif (code < 0x10000):	# three bytes mapping
+-			if PY2:
+-				res[t + 0] = chr((code >> 12) | 0xE0)
+-				res[t + 1] = chr(((code >> 6) & 0x3F) | 0x80)
+-				res[t + 2] = chr((code & 0x3F) | 0x80)
+-			else:
+-				res.append(chr((code >> 12) | 0xE0))
+-				res.append(chr(((code >> 6) & 0x3F) | 0x80))
+-				res.append(chr((code & 0x3F) | 0x80))
++			res.append(chr((code >> 12) | 0xE0))
++			res.append(chr(((code >> 6) & 0x3F) | 0x80))
++			res.append(chr((code & 0x3F) | 0x80))
+ 			t += 3
+ 		else:
+-			if PY2:
+-				res[t + 0] = chr((code >> 18) | 0xF0)
+-				res[t + 1] = chr(((code >> 12) & 0x3F) | 0x80)
+-				res[t + 2] = chr(((code >> 6) & 0x3F) | 0x80)
+-				res[t + 3] = chr((code & 0x3F) | 0x80)
+-			else:
+-				res.append(chr((code >> 18) | 0xF0))
+-				res.append(chr(((code >> 12) & 0x3F) | 0x80))
+-				res.append(chr(((code >> 6) & 0x3F) | 0x80))
+-				res.append(chr((code & 0x3F) | 0x80))
++			res.append(chr((code >> 18) | 0xF0))
++			res.append(chr(((code >> 12) & 0x3F) | 0x80))
++			res.append(chr(((code >> 6) & 0x3F) | 0x80))
++			res.append(chr((code & 0x3F) | 0x80))
+ 			t += 4
+ 		if (t + 4 > 2047):
+ 			print("convertDVBUTF8():  buffer to small.. break now")
+ 			break
+-	if PY2:
+-		return ''.join([x for x in res if x != 0])
+-	else:
+-		return ''.join(res)
++	return ''.join(res)
+ 
+ 
+ def convertUTF8DVB(string, table):
+-	if PY2:
+-		res = ''
+-		coding_table = None
+-		i = 0
+-		length = len(string)
+-
+-		while i < length:
+-			c2 = 0
+-			c1 = ord(string[i])
+-			if c1 < 0x80:
+-				c = c1
+-			else:
+-				i += 1
+-				if i >= length:
+-					break
+-				c2 = ord(string[i])
+-				c = ((c1 & 0x3F) << 6) + (c2 & 0x3F)
+-				if table in (0, 1) or (c1 < 0xA0):
+-					pass
+-				else:
++	res = []
++	coding_table = None
++
++	# Convert table name (e.g., "rus") to numeric index
++	if isinstance(table, str):
++		for j in range(17):
++			if table in LANGUAGES[j]:
++				table = j
++				break
++
++	# Process each Unicode character in the input string
++	for ch in string:
++		code = ord(ch)
++
++		# Apply DVB recoding only if character code is >= 0xA0
++		if code >= 0xA0:
++			# Load coding table only once (if needed)
++			if coding_table is None:
++				if table in range(2, 17) and table != 12:
++					coding_table = globals().get('c8859%d' % table)
+ 					if coding_table is None:
+-						if isinstance(table, str):
+-							for j in range(17):
+-								if table in LANGUAGES[j]:
+-									table = j
+-									break
+-						if table in range(2, 17) and table != 12:
+-							coding_table = eval('c8859%d' % (table))
+-						else:
+-							print("unknown coding table:", table)
+-							coding_table = 0
+-					if coding_table:
+-						for j in range(96):
+-							if coding_table[j] == c:
+-								c = 0xA0 + j
+-								break
+-			try:
+-				res += chr(c)
+-			except Exception as e:
+-				#fd = open('/tmp/dvbstring.log', 'a+');
+-				#print>>fd, 'convertUTF8DVB(): error: %s (c [c1,c2]= 0x%x [0x%02x, 0x%02x]; index/length = %d/%d)' % (e, c, c1, c2, i, length-1);
+-				print('convertUTF8DVB - error:', e)
+-			i += 1
+-		if res:
+-			if table in (1, 2, 3, 4, 16):
+-				pref = '\20\0' + chr(table)
+-			elif table in range(5, 16):
+-				pref = chr(table - 4)
+-			else:
+-				pref = '\0'
+-		else:
+-			pref = ''
+-		return pref, res
+-	else:
+-		res = []
+-		coding_table = None
+-
+-		# Convert table name (e.g., "rus") to numeric index
+-		if isinstance(table, str):
+-			for j in range(17):
+-				if table in LANGUAGES[j]:
+-					table = j
+-					break
+-
+-		# Process each Unicode character in the input string
+-		for ch in string:
+-			code = ord(ch)
+-
+-			# Apply DVB recoding only if character code is >= 0xA0
+-			if code >= 0xA0:
+-				# Load coding table only once (if needed)
+-				if coding_table is None:
+-					if table in range(2, 17) and table != 12:
+-						coding_table = globals().get('c8859%d' % table)
+-						if coding_table is None:
+-							print("unknown coding table:", table)
+-							coding_table = 0
+-					else:
++						print("unknown coding table:", table)
+ 						coding_table = 0
+-
+-				# If a valid coding table is found, try to recode
+-				if coding_table:
+-					for j in range(96):
+-						if coding_table[j] == code:
+-							code = 0xA0 + j
+-							break
+-
+-			try:
+-				res.append(chr(code))
+-			except Exception as e:
+-				print('convertUTF8DVB - error:', e)
+-
+-		# Add DVB character table prefix
+-		if res:
+-			if table in (1, 2, 3, 4, 16):
+-				prefix = '\x14\x00' + chr(table)
+-			elif table in range(5, 16):
+-				prefix = chr(table - 4)
+-			else:
+-				prefix = '\x00'
++				else:
++					coding_table = 0
++
++			# If a valid coding table is found, try to recode
++			if coding_table:
++				for j in range(96):
++					if coding_table[j] == code:
++						code = 0xA0 + j
++						break
++
++		try:
++			res.append(chr(code))
++		except Exception as e:
++			print('convertUTF8DVB - error:', e)
++
++	# Add DVB character table prefix
++	if res:
++		if table in (1, 2, 3, 4, 16):
++			prefix = '\x14\x00' + chr(table)
++		elif table in range(5, 16):
++			prefix = chr(table - 4)
+ 		else:
+-			prefix = ''
++			prefix = '\x00'
++	else:
++		prefix = ''
+ 
+-		return prefix, ''.join(res)
++	return prefix, ''.join(res)
+diff --git a/src/event.py b/src/event.py
+index bc46095..3050e58 100644
+--- a/src/event.py
++++ b/src/event.py
+@@ -22,7 +22,6 @@
+ 
+ import array
+ import time
+-from six import PY2
+ from .dvbstring import convertDVBUTF8, convertUTF8DVB
+ 
+ 
+@@ -228,10 +227,7 @@ class Event:
+ 			textlen = len(text)
+ 			length = 5 + namelen + textlen			# max. length == 253 (or 255???)
+ 
+-			if PY2:
+-				sbuf = array.array('B', '\0' * (length + 2))	# +2 for tag and length bytes
+-			else:
+-				sbuf = array.array('B', b'\0' * (length + 2))	# +2 for tag and length bytes
++			sbuf = array.array('B', b'\0' * (length + 2))	# +2 for tag and length bytes
+ 			sbuf[0] = self.EIT_SHORT_EVENT_DESCRIPTOR
+ 			sbuf[1] = length
+ 			for i in range(2, 5):
+@@ -261,10 +257,7 @@ class Event:
+ 			textlen = min(self.MAX_DESCRIPTOR_LOOP_LENGTH, len(text))
+ 			tablelen = len(table)
+ 			MAX_LEN = 247 - tablelen	# may be '249-tablelen'???
+-			if PY2:
+-				lastDescriptorNumber = (textlen + MAX_LEN - 1) / MAX_LEN - 1
+-			else:
+-				lastDescriptorNumber = (textlen + MAX_LEN - 1) // MAX_LEN - 1
++			lastDescriptorNumber = (textlen + MAX_LEN - 1) // MAX_LEN - 1
+ 			remainingTextLength = textlen - lastDescriptorNumber * MAX_LEN
+ 			while (lastDescriptorNumber + 1) * 256 + descriptorsLoopLength > self.MAX_DESCRIPTOR_LOOP_LENGTH:
+ 				lastDescriptorNumber -= 1
+@@ -276,10 +269,7 @@ class Event:
+ 				curtext = table + text[descrIndex * MAX_LEN:descrIndex * MAX_LEN + curtextlen]
+ 				length = 6 + itemlen + curtextlen + tablelen	# max. length == 253 (or 255???)
+ 
+-				if PY2:
+-					ebuf = array.array('B', '\0' * (length + 2))	# +2 for tag and length bytes
+-				else:
+-					ebuf = array.array('B', b'\0' * (length + 2))	# +2 for tag and length bytes
++				ebuf = array.array('B', b'\0' * (length + 2))	# +2 for tag and length bytes
+ 				ebuf[0] = self.EIT_EXTENDED_EVENT_DESCRIPTOR
+ 				ebuf[1] = length
+ 				ebuf[2] = (descrIndex << 4) | lastDescriptorNumber
+@@ -306,10 +296,7 @@ class Event:
+ 	def readFromFile(self, filename):
+ 		buffer = None
+ 		try:
+-			if PY2:
+-				buffer = array.array('B', open(filename, 'rb').read())
+-			else:
+-				buffer = array.array('B', open(filename, 'rb').read())
++			buffer = array.array('B', open(filename, 'rb').read())
+ 			self.__readFromBuffer(buffer)
+ 		except:
+ 			import traceback
+@@ -320,16 +307,10 @@ class Event:
+ 
+ 	def saveToFile(self, filename):
+ 		try:
+-			if PY2:
+-				buffer = array.array('B', '\0' * 12)
+-			else:
+-				buffer = array.array('B', b'\0' * 12)
++			buffer = array.array('B', b'\0' * 12)
+ 			self.__saveToBuffer(buffer)
+ 			res = buffer.buffer_info()[1]
+-			if PY2:
+-				fd = open(filename, 'w')
+-			else:
+-				fd = open(filename, 'wb')
++			fd = open(filename, 'wb')
+ 			buffer.tofile(fd)
+ 			fd.flush()
+ 			fd.close()
+diff --git a/src/plugin.py b/src/plugin.py
+index 065e872..47f5050 100644
+--- a/src/plugin.py
++++ b/src/plugin.py
+@@ -47,7 +47,6 @@ import array
+ import struct
+ import fcntl
+ import shutil
+-from six import PY2
+ from socket import socket, AF_INET, SOCK_STREAM, SOCK_DGRAM, SHUT_RDWR
+ from .event import Event, ShortEventDescriptor, ExtendedEventDescriptor
+ from time import strftime, localtime, mktime
+@@ -549,20 +548,12 @@ class TMBD(Screen):
+ 		self.testThread.start()
+ 
+ 	def get_iface_list(self):
+-		if PY2:
+-			names = array.array('B', '\0' * BYTES)
+-			sck = socket(AF_INET, SOCK_DGRAM)
+-			bytelen = struct.unpack('iL', fcntl.ioctl(sck.fileno(), SIOCGIFCONF, struct.pack('iL', BYTES, names.buffer_info()[0])))[0]
+-			sck.close()
+-			namestr = names.tostring()
+-			return [namestr[i:i + 32].split('\0', 1)[0] for i in range(0, bytelen, 32)]
+-		else:
+-			names = array.array('B', b'\0' * BYTES)
+-			sck = socket(AF_INET, SOCK_DGRAM)
+-			bytelen = struct.unpack('iL', fcntl.ioctl(sck.fileno(), SIOCGIFCONF, struct.pack('iL', BYTES, names.buffer_info()[0])))[0]
+-			sck.close()
+-			namestr = names.tobytes()
+-			return [namestr[i:i + 32].split(b'\0', 1)[0] for i in range(0, bytelen, 32)]
++		names = array.array('B', b'\0' * BYTES)
++		sck = socket(AF_INET, SOCK_DGRAM)
++		bytelen = struct.unpack('iL', fcntl.ioctl(sck.fileno(), SIOCGIFCONF, struct.pack('iL', BYTES, names.buffer_info()[0])))[0]
++		sck.close()
++		namestr = names.tobytes()
++		return [namestr[i:i + 32].split(b'\0', 1)[0] for i in range(0, bytelen, 32)]
+ 
+ 	def test(self):
+ 		global testOK
+@@ -739,10 +730,7 @@ class TMBD(Screen):
+ 							res = None
+ 						if res != None:
+ 							page = res.read()
+-							if PY2:
+-								file = open(jpg_file, 'w')
+-							else:
+-								file = open(jpg_file, 'wb')
++							file = open(jpg_file, 'wb')
+ 							file.write(page)
+ 							file.close()
+ 							self.refreshTimer.start(300, True)
+@@ -1972,20 +1960,12 @@ class KinoRu(Screen):
+ 		self.testThread.start()
+ 
+ 	def get_iface_list(self):
+-		if PY2:
+-			names = array.array('B', '\0' * BYTES)
+-			sck = socket(AF_INET, SOCK_DGRAM)
+-			bytelen = struct.unpack('iL', fcntl.ioctl(sck.fileno(), SIOCGIFCONF, struct.pack('iL', BYTES, names.buffer_info()[0])))[0]
+-			sck.close()
+-			namestr = names.tostring()
+-			return [namestr[i:i + 32].split('\0', 1)[0] for i in range(0, bytelen, 32)]
+-		else:
+-			names = array.array('B', b'\0' * BYTES)
+-			sck = socket(AF_INET, SOCK_DGRAM)
+-			bytelen = struct.unpack('iL', fcntl.ioctl(sck.fileno(), SIOCGIFCONF, struct.pack('iL', BYTES, names.buffer_info()[0])))[0]
+-			sck.close()
+-			namestr = names.tobytes()
+-			return [namestr[i:i + 32].split(b'\0', 1)[0] for i in range(0, bytelen, 32)]
++		names = array.array('B', b'\0' * BYTES)
++		sck = socket(AF_INET, SOCK_DGRAM)
++		bytelen = struct.unpack('iL', fcntl.ioctl(sck.fileno(), SIOCGIFCONF, struct.pack('iL', BYTES, names.buffer_info()[0])))[0]
++		sck.close()
++		namestr = names.tobytes()
++		return [namestr[i:i + 32].split(b'\0', 1)[0] for i in range(0, bytelen, 32)]
+ 
+ 	def test(self):
+ 		global testOK
+@@ -2301,10 +2281,7 @@ class KinoRu(Screen):
+ 				res = None
+ 			if res != None:
+ 				page = res.read()
+-				if PY2:
+-					file = open('/tmp/preview.jpg', 'w')
+-				else:
+-					file = open('/tmp/preview.jpg', 'wb')
++				file = open('/tmp/preview.jpg', 'wb')
+ 				file.write(page)
+ 				file.close()
+ 				self["kino"].hide()

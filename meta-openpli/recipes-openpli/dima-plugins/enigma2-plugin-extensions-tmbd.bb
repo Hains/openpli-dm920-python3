@@ -18,4 +18,5 @@ RDEPENDS:${PN} = " \
 
 SRC_URI:append = " file://use-setuptools-instead-of-distutils.patch \
                    file://port-to-reactor-callinthtread.patch \
+                   file://drop-python3-six.patch \
 "
