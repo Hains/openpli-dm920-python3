@@ -1,0 +1,19 @@
+diff --git a/plugin/bitrate.py b/plugin/bitrate.py
+index feb0193..25f903b 100644
+--- a/plugin/bitrate.py
++++ b/plugin/bitrate.py
+@@ -1,5 +1,4 @@
+ from enigma import eConsoleAppContainer, iServiceInformation
+-import six
+ 
+ 
+ class Bitrate:
+@@ -73,7 +72,7 @@ class Bitrate:
+ 
+ 	def dataAvail(self, str):
+ 		#prepend any remaining data from the previous call
+-		str = self.remainingdata + six.ensure_str(str)
++		str = self.remainingdata + str.decode()
+ 		#split in lines
+ 		newlines = str.split('\n')
+ 		#'str' should end with '\n', so when splitting, the last line should be empty. If this is not the case, we received an incomplete line
