@@ -117,14 +117,12 @@ OPTIONAL_PACKAGES += " \
 	rtl-sdr \
 	rtorrent \
 	sabnzbd \
-	samba \
 	satipclient \
 	satpi \
 	screen \
 	sed \
 	shairplay \
 	smartmontools \
-	smbnetfs \
 	sshpass \
 	strace \
 	streamlink \
