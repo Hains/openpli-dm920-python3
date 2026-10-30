@@ -201,7 +201,6 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-systemplugins-mountmanager \
 	enigma2-plugin-systemplugins-newvirtualkeyboard \
 	enigma2-plugin-systemplugins-satipserver \
-	enigma2-plugin-systemplugins-serviceapp \
 	enigma2-plugin-systemplugins-signalfinder \
 	enigma2-plugin-systemplugins-terrestrialbouquet \
 	enigma2-plugin-systemplugins-terrestrialscan \
