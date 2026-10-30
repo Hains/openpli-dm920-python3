@@ -55,7 +55,6 @@ OPTIONAL_PACKAGES += " \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
-	edid-decode \
 	evtest \
 	exfatprogs \
 	exteplayer3 \
