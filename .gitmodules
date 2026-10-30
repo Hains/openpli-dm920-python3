@@ -6,4 +6,4 @@
 	url = https://git.openembedded.org/meta-openembedded
 [submodule "openembedded-core"]
 	path = openembedded-core
-	url = https://git.openembedded.org/openembedded-core
+	url = https://github.com/Hains/openembedded-core.git
