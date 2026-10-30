@@ -5,12 +5,12 @@ MAINTAINER = "wirbel <w_scan@gmx-topmail.de>"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=892f569a555ba9c07a568a7c0c4fa63a"
 
-SRC_URI = "https://www.gen2vdr.de/wirbel/w_scan_cpp/w_scan-${PV}.tar.bz2 \
+SRC_URI = "file://w_scan-20210218.tar.bz2 \
            file://fix-build-with-gcc15.patch \
 "
 
-SRC_URI[md5sum] = "e80cb986c1830e0ed9b8fe8f6c89809d"
-SRC_URI[sha256sum] = "75d7447ebeddfb9ce251f32a93f23190ed46dca44f5b701f2af11e1787b9eb08"
+SRC_URI[md5sum] = "2b1e617652768462256b635997ecd07e"
+SRC_URI[sha256sum] = "97061b92e1d287d3a23769b1f1dd2691985f9bf66a3d47f5eb900d3ed78e7838"
 
 S = "${UNPACKDIR}/w_scan-${PV}"
 
