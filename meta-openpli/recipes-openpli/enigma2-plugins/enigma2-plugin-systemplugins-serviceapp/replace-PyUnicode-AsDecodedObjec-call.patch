@@ -1,0 +1,22 @@
+Fix build with Python 3.15
+
+/enigma2-plugin-systemplugins-serviceapp-git/src/serviceapp/common.cpp:236:18: error: 'PyUnicode_AsDecodedObject' was not declared
+| in this scope; did you mean 'PyUnicode_FromEncodedObject'?
+|   236 |     py_unicode = PyUnicode_AsDecodedObject(py_string, input_encoding.c_str(), "strict");
+|       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://docs.python.org/3/whatsnew/3.15.html
+
+diff --git a/src/serviceapp/common.cpp b/src/serviceapp/common.cpp
+index 928344c..b30b898 100644
+--- a/src/serviceapp/common.cpp
++++ b/src/serviceapp/common.cpp
+@@ -233,7 +233,7 @@ int convertToUTF8(const std::string &input_string, const std::string &input_enco
+         return 1;
+     }
+ #if PY_MAJOR_VERSION >= 3
+-    py_unicode = PyUnicode_AsDecodedObject(py_string, input_encoding.c_str(), "strict");
++    py_unicode = PyCodec_Decode(py_string, input_encoding.c_str(), "strict");
+ #else
+     py_unicode = PyString_AsDecodedObject(py_string, input_encoding.c_str(), "strict");
+ #endif
