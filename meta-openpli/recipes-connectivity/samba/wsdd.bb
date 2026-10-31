@@ -4,7 +4,7 @@ LICENSE = "GPL-2.0-only"
 
 require conf/license/license-gplv2.inc
 
-DEPENDS = "util-linux"
+DEPENDS = "util-linux samba"
 
 SRC_URI = " \
 	file://Makefile \
