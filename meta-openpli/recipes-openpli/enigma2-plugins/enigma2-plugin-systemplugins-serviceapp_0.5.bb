@@ -12,6 +12,7 @@ RRECOMMENDS:${PN} = "exteplayer3 gstplayer"
 SRC_URI = "git://github.com/mx3L/serviceapp.git;protocol=https;branch=develop \
 			file://update-devel-m4-file.patch \
 			file://remove-redundant-c17-check.patch \
+			file://replace-PyUnicode-AsDecodedObjec-call.patch \
 "
 
 inherit autotools gitpkgv pkgconfig python3native python3targetconfig
