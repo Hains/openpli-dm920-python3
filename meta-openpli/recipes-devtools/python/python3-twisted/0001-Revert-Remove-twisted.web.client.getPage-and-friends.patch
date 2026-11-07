@@ -3,16 +3,18 @@ From: Hains van den Bosch <hainsvdbosch.ziggo.nl>
 Date: Sat, 19 Feb 2022 15:45:22 +0100
 Subject: [PATCH] Revert "Remove twisted.web.client.getPage and friends"
 
+Rebase against version 26.10.0.
+
 This reverts commit a21a1efce87c77b4acf309db9445643c2a6d8162.
 ---
  src/twisted/web/client.py              |  613 ++++++++++
  1 file changed, 2054 insertions(+), 4 deletions(-)
 
 diff --git a/src/twisted/web/client.py b/src/twisted/web/client.py
-index cfd945d..8b4c1eb 100644
+index 4e2344c..214ce0c 100644
 --- a/src/twisted/web/client.py
 +++ b/src/twisted/web/client.py
-@@ -31,10 +31,12 @@ from twisted.logger import Logger
+@@ -40,10 +40,12 @@ from twisted.logger import Logger
  from twisted.python.compat import nativeString, networkString
  from twisted.python.components import proxyForInterface
  from twisted.python.deprecate import (
@@ -25,7 +27,7 @@ index cfd945d..8b4c1eb 100644
  from twisted.web import error, http
  from twisted.web._newclient import _ensureValidMethod, _ensureValidURI
  from twisted.web.http_headers import Headers, _nameEncoder
-@@ -75,6 +77,552 @@ class PartialDownloadError(error.Error):
+@@ -83,6 +85,552 @@ class PartialDownloadError(error.Error):
      """
  
  
@@ -578,8 +580,8 @@ index cfd945d..8b4c1eb 100644
  class URI:
      """
      A URI object.
-@@ -247,6 +795,65 @@ def _makeGetterFactory(url, factoryFactory, contextFactory=None, *args, **kwargs
-     return factory
+@@ -228,6 +776,65 @@ def _urljoin(base, url):
+     return urljoin(url, b"#" + (urlFrag or baseFrag)).strip(b"#")
  
  
 +_GETPAGE_REPLACEMENT_TEXT = "https://pypi.org/project/treq/ or twisted.web.client.Agent"
@@ -644,7 +646,7 @@ index cfd945d..8b4c1eb 100644
  # The code which follows is based on the new HTTP client implementation.  It
  # should be significantly better than anything above, though it is not yet
  # feature equivalent.
-@@ -1799,8 +2406,14 @@ __all__ = [
+@@ -1805,8 +2412,14 @@ __all__ = [
      "BrowserLikeRedirectAgent",
      "ContentDecoderAgent",
      "CookieAgent",
