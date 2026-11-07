@@ -1,10 +1,10 @@
-DESCRIPTION = "SoftCSA / iCAM descramble whitelist"
-MAINTAINER = "AbuBaniaz"
+DESCRIPTION = "iCAM (SoftCSA) descramble whitelist"
+MAINTAINER = "E2OpenPlugins"
 LICENSE = "LicenseRef-LICENSE-CLOSED"
 LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/meta-openpli/licenses/LICENSE-CLOSED;md5=2d5b03b35d4612637d67724b35738dd7"
 
-PV = "2.0+git${SRCPV}"
-PKGV = "2.0+git${GITPKGV}"
+PV = "2.1+git${SRCPV}"
+PKGV = "2.1+git${GITPKGV}"
 
 SRC_ORIGIN ?= "git://github.com/E2OpenPlugins/oscam-whitelist.git;protocol=https;branch=main"
 SRC_URI := "${SRC_ORIGIN} "
@@ -12,6 +12,9 @@ SRC_URI := "${SRC_ORIGIN} "
 inherit allarch gitpkgv
 
 RDEPENDS:${PN} += "libdvbcsa"
+
+RCONFLICTS:${PN} = "enigma2-plugins-softcams-icam"
+RREPLACES:${PN} = "enigma2-plugins-softcams-icam"
 
 do_install () {
 	install -d ${D}${sysconfdir}/enigma2/
