@@ -62,3 +62,5 @@ do_install() {
 	install -d ${D}/usr/bin
 	install -m 0755 ${B}/ncam ${D}/usr/bin
 }
+
+INSANE_SKIP:${PN} = "already-stripped"

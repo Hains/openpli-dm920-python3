@@ -70,3 +70,5 @@ do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 ${B}/oscam-upx ${D}${bindir}/${CAMNAME}
 }
+
+INSANE_SKIP:${PN} = "already-stripped"
