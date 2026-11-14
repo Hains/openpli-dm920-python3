@@ -25,7 +25,7 @@ RDEPENDS:${PN} = "python3-core \
 	python3-trio-websocket \
 "
 
-inherit setuptools3 python3-dir gitpkgv
+inherit python_hatchling python3-dir gitpkgv
 
 SRCREV_plugins = "${AUTOREV}"
 SRCREV_FORMAT = "streamlink"
