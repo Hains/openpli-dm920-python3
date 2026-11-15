@@ -11,6 +11,6 @@ SRC_URI[sha256sum] = "8f95637ab9f6f305cec6bd1294e197debe207998e3e068596563c74f86
 
 S = "${UNPACKDIR}/mutagen-${PV}"
 
-inherit pypi setuptools3
+inherit pypi python_hatchling
 
 include python3-package-split.inc
