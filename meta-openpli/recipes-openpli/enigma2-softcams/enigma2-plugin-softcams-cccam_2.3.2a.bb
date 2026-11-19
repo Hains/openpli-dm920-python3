@@ -2,7 +2,7 @@ DESCRIPTION = "CCcam ${PV} softcam"
 
 CAMNAME = "CCcam"
 
-INSANE_SKIP:${PN} += "file-rdeps"
+INSANE_SKIP:${PN} += "file-rdeps already-stripped"
 
 SRC_URI = " http://downloads.openpli.org/softcams/CCcam-${PV}.zip;name=softcam \
 			http://downloads.openpli.org/softcams/CCcam.xml;name=ppanel \
