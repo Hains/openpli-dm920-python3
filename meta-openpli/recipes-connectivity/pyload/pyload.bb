@@ -20,9 +20,10 @@ RDEPENDS:${PN} = "\
 "
 RRECOMMENDS:${PN} = "unrar"
 
-PV = "0.5.0"
+PV = "0.5.0b3+git"
+PKGV = "0.5.0b3+${GITPKGV}"
 
-inherit update-rc.d setuptools3_legacy
+inherit update-rc.d gitpkgv setuptools3_legacy
 
 SRC_URI = "git://github.com/pyload/pyload.git;branch=main;protocol=https \
 	file://pyload.init \
@@ -43,3 +44,5 @@ do_install:append() {
 }
 
 include python3-package-split.inc
+
+INSANE_SKIP:${PN} = "pep517-backend"
