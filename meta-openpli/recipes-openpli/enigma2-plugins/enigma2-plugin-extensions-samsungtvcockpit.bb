@@ -13,9 +13,7 @@ DEPENDS = "gettext-native"
 PV = "1.11.4"
 PKGV = "1.11.4+git${GITPKGV}"
 
-SRC_URI = "git://github.com/OpenCockpit/SamsungTVCockpit.git;protocol=https;branch=main \
-           file://fix-missing-filereadlines-method-openpli.patch \
-           "
+SRC_URI = "git://github.com/OpenCockpit/SamsungTVCockpit.git;protocol=https;branch=main"
 
 pluginname = "SamsungTVCockpit"
 pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/${pluginname}"
