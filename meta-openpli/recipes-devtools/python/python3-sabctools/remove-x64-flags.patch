@@ -1,8 +1,8 @@
 diff --git a/src/rapidyenc/CMakeLists.txt b/src/rapidyenc/CMakeLists.txt
-index d5c1e6c..ca79b5b 100644
+index c9f928a..2090181 100644
 --- a/src/rapidyenc/CMakeLists.txt
 +++ b/src/rapidyenc/CMakeLists.txt
-@@ -183,14 +183,6 @@ if(MSVC)
+@@ -183,20 +183,11 @@ if(MSVC)
  endif()
  if(NOT MSVC OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
  	if(IS_X86)
@@ -15,9 +15,7 @@ index d5c1e6c..ca79b5b 100644
 -		set_source_files_properties(${SRC_DIR}/encoder_avx2.cc PROPERTIES COMPILE_OPTIONS "-mavx2;-mpopcnt;-mbmi;-mbmi2;-mlzcnt")
 -		set_source_files_properties(${SRC_DIR}/decoder_avx2.cc PROPERTIES COMPILE_OPTIONS "-mavx2;-mpopcnt;-mbmi;-mbmi2;-mlzcnt")
  		CHECK_CXX_COMPILER_FLAG("-mavx512vbmi2 -mavx512vl -mavx512bw" COMPILER_SUPPORTS_VBMI2)
- 		CHECK_CXX_COMPILER_FLAG("-mavx512vl -mno-evex512" COMPILER_SUPPORTS_AVX10)
- 		if(COMPILER_SUPPORTS_AVX10)
-@@ -200,7 +192,6 @@ if(NOT MSVC OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+ 		if(COMPILER_SUPPORTS_VBMI2)
  			set_source_files_properties(${SRC_DIR}/encoder_vbmi2.cc PROPERTIES COMPILE_OPTIONS "-mavx512vbmi2;-mavx512vl;-mavx512bw;-mpopcnt;-mbmi;-mbmi2;-mlzcnt")
  			set_source_files_properties(${SRC_DIR}/decoder_vbmi2.cc PROPERTIES COMPILE_OPTIONS "-mavx512vbmi2;-mavx512vl;-mavx512bw;-mpopcnt;-mbmi;-mbmi2;-mlzcnt")
  		endif()

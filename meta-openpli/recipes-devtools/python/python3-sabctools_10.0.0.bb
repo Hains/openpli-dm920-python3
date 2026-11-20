@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=892f569a555ba9c07a568a7c0c4fa63a"
 
 DEPENDS = "python3-scikit-build-core-native ninja-native"
 
-SRC_URI[md5sum] = "ff0808063921fbd180ef84ebe6d6fb32"
-SRC_URI[sha256sum] = "6c0ada3fa74c894c5d656686bda18ac53d9926a84f2bf89e278828a46045cae4"
+SRC_URI[md5sum] = "cbeba7d9eb3a40b014a55feb4cd0c81f"
+SRC_URI[sha256sum] = "b93940bc63b8af55dc9973a7e2cf3075dcb80da103a95339d270e1211376ada3"
 
 SRC_URI:append = " file://remove-x64-flags.patch"
 
