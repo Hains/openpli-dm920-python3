@@ -45,4 +45,4 @@ do_install:append() {
 
 include python3-package-split.inc
 
-INSANE_SKIP:${PN} = "pep517-backend"
+INSANE_SKIP = "pep517-backend"
