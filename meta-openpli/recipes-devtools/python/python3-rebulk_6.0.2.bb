@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=df5f9321c8784271adb6c95a3da69f82"
 DEPENDS = "python3-uv-build-native"
 RDEPENDS:${PN} = "python3-regex"
 
-SRC_URI[md5sum] = "4cd4763a0f4916218e31aeeda69db84f"
-SRC_URI[sha256sum] = "d6df0c8c896e160087c6981f3770ed513ec973a9f4066b9e4b0614eb08ba0ce1"
+SRC_URI[md5sum] = "c44b3e98f2bdebe4ab20ecb6466c7787"
+SRC_URI[sha256sum] = "91d792483690aeb249bb56b3357598dd658f0f533066680db8c3e1b6f7dc8929"
 
 SRC_URI:append = " file://increase-max-version-uv-build.patch"
 
