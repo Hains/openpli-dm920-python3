@@ -1,0 +1,31 @@
+diff --git a/shoutcast/src/plugin.py b/shoutcast/src/plugin.py
+index c4074f03..b98d376d 100644
+--- a/shoutcast/src/plugin.py
++++ b/shoutcast/src/plugin.py
+@@ -36,7 +36,6 @@ import string
+ import os
+ import re
+ import skin
+-import six
+ from treq import collect, content, get, request
+ from Components.config import config, ConfigSubsection, ConfigSelection, ConfigDirectory, ConfigYesNo, Config, ConfigInteger, ConfigSubList, ConfigText, ConfigNumber, configfile
+ from Components.ConfigList import ConfigListScreen
+@@ -68,7 +67,7 @@ config.plugins.shoutcast.cover_height = ConfigNumber(default=300)
+ 
+ devid = "fa1jo93O_raeF0v9"
+ 
+-_VALID_URI = re.compile(br"\A[\x21-\x7e]+\Z")
++_VALID_URI = re.compile("\A[\x21-\x7e]+\Z")
+ 
+ 
+ class SHOUTcastGenre:
+@@ -909,8 +908,7 @@ class SHOUTcastWidget(Screen):
+ 		if r:
+ 			url = r[nr]
+ 			# FIXME loop
+-			_url = six.ensure_binary(url)
+-			if not _VALID_URI.match(_url):
++			if not _VALID_URI.match(url):
+ 				nr += 1
+ 				url = r[nr]
+ 			# FIXME nr max

@@ -34,6 +34,7 @@ PKGV = "2.0-git${GITPKGV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=python3;protocol=https \
            file://remove-bluetooth-dependencies.patch \
+           file://get-rid-of-python3-six.patch \
 "
 
 # Main package should be empty
